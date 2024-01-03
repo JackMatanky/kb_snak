@@ -1,0 +1,1 @@
+node D:\keyboard_dev\ergogen\src\cli.js ergogen_input\config_3x5_2.yaml -o ergogen_output

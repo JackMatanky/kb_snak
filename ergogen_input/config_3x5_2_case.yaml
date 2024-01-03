@@ -1,0 +1,308 @@
+---
+#--------------------------------------
+# sect: ***UNITS***
+#--------------------------------------
+units:
+  # Key Switch: Kailh Choc
+  kx: cx # 17 mm
+  ky: cy # 18 mm
+  # Padding
+  px: kx + 4
+  py: ky + 4
+  # Double Padding Variables
+  dpx: kx + 8
+  dpy: ky + 8
+#--------------------------------------
+# sect: ***POINTS***
+#--------------------------------------
+# columns nets up
+points:
+  zones:
+    matrix:
+      key:
+        padding: ky
+        spread: kx
+      columns:
+        pinky:
+          key.column_net: P1
+        ring:
+          key:
+            stagger: 2kx/3
+            column_net: P0
+        middle:
+          key:
+            stagger: kx/3
+            column_net: P2
+        index:
+          key:
+            stagger: -kx/3
+            column_net: P3
+        inner:
+          key:
+            stagger: -kx/6
+            column_net: P4
+      rows:
+        bot:
+          row_net: P19
+        mid:
+          row_net: P20
+        top:
+          row_net: P21
+    thumb:
+      anchor:
+        ref: matrix_index_bot
+        shift: [12, -25]
+      columns:
+        # Pinky side
+        out:
+          key:
+            name: thumb_out
+            splay: -15
+            column_net: P14 # Back Side
+        # Inner side
+        in:
+          key:
+            name: thumb_in
+            splay: -10
+            spread: 1.3kx
+            stagger: -kx/8
+            column_net: P10 # Back Side
+      rows:
+        home:
+          row_net: P16 # Back Side
+
+#--------------------------------------
+# sect: ***OUTLINES***
+#--------------------------------------
+outlines:
+  # PRIMARY COMPONENTS
+  # Pure key outline.
+  raw:
+    - what: rectangle
+      where: true
+      bound: true
+      size: [px, py]
+  # nice!nano MCU (mm): 34.1L x 18.3W x 3.3H
+  _mcu_rect:
+    - what: rectangle
+      where: true
+      bound: true
+      size: [15, 37]
+      adjust:
+        ref: matrix_inner_mid
+        shift: [.5kx + 14.5, -.65kx]
+  # Key outline minus .5mm to show overlapping keys.
+  keys:
+    - what: rectangle
+      where: true
+      bound: false
+      size: [kx-0.5,ky-0.5]
+  
+  # BOARD SHAPES
+  board:
+    - what: polygon
+      operation: stack
+      fillet: 6
+      points:
+        - ref: matrix_pinky_top
+          shift: [-.5px, .5px]
+        - ref: matrix_ring_top
+          shift: [-.5px, .5px]
+        - ref: matrix_middle_top
+          shift: [-.5px, .5px]
+        - ref: matrix_middle_top
+          shift: [.5px, .5px]
+        - ref: matrix_inner_top
+          shift: [.58px, .52px]
+        # Top left thumb_in
+        - ref: thumb_in
+          shift: [-.5px, .35px]
+        # Top right thumb_in
+        - ref: thumb_in
+          shift: [.505px, .9px]
+        # Bottom right thumb_in
+        - ref: thumb_in
+          shift: [.55px, -px]
+        - ref: thumb_in
+          shift: [.5px, -2px]
+        - ref: thumb_out
+          shift: [-.5px, -1.1px]
+        - ref: matrix_pinky_bot
+          shift: [-.5px, -1.1px]
+  curve_top:
+    - what: circle
+      adjust:
+        ref: matrix_middle_mid
+        shift: [5, -60.45]
+      radius: 90
+    - what: rectangle
+      size: [5kx + 2, 1.75px]
+      adjust:
+        ref: matrix_middle_mid
+        shift: [-1, 20]
+      operation: intersect
+  curve_bot:
+    - what: circle
+      adjust:
+        ref: matrix_pinky_bot
+        shift: [-7.5, -238]
+      radius: 225
+    - what: rectangle
+      size: [5.5px, 4px]
+      adjust:
+        ref: matrix_middle_mid
+        shift: [5, -60]
+      operation: intersect
+  _curve_bot_mcu:
+    - what: circle
+      adjust:
+        ref: matrix_middle_bot
+        shift: [5.5, 2]
+      radius: 75
+  
+  # OUTLINES
+  # Pure key outline with nice!nano MCU
+  raw_mcu:
+    - name: raw
+    - operation: add
+      name: _mcu_rect
+  board_keys:
+    - name: board
+    - operation: subtract
+      name: keys
+  board_raw_mcu:
+    - name: board
+    - operation: add
+      name: raw_mcu
+      fillet: 4
+  board_mcu_keys:
+    - name: board_raw_mcu
+    - operation: subtract
+      name: keys
+  round_board:
+    - name: board_raw_mcu
+    - operation: add
+      name: curve_top
+      fillet: 3
+    - operation: subtract
+      name: curve_bot
+      fillet: 5
+  round_board_keys:
+    - name: board_raw_mcu
+    - operation: add
+      name: curve_top
+      fillet: 2
+    - operation: subtract
+      name: curve_bot
+      fillet: 2
+    - operation: subtract
+      name: keys
+
+#--------------------------------------
+# sect: ***PCB***
+#--------------------------------------
+pcbs:
+  3x5_2:
+    outlines:
+      main:
+        outline: round_board
+      keycaps:
+        outline: keys
+        layer: Eco1.User
+    footprints:
+      choc_hotswap:
+        what: choc
+        where: true
+        params:
+          keycaps: true
+          reverse: true
+          hotswap: true
+          from: "{{column_net}}"
+          to: "{{colrow}}"
+      diode:
+        what: diode
+        where: true
+        params:
+          from: "{{colrow}}"
+          to: "{{row_net}}"
+        adjust:
+          shift: [0, -5]
+      via_columns:
+        what: via
+        where: true
+        params:
+          net: "{{column_net}}"
+        adjust:
+          shift: [4, -2.75]
+      via_oled_cs:
+        what: via
+        where:
+          ref: matrix_inner_bot
+          shift: [11.25, 4.5]
+        params:
+          net: P7
+        adjust:
+          shift: [4, -2.75]
+      nice_nano: # MCU
+        what: promicro_pretty
+        where:
+          ref: matrix_inner_mid
+          shift: [20.25, .5]
+          rotate: -90
+        params:
+          orientation: down
+      nice_view:
+        what: nice_view
+        where:
+          ref: matrix_inner_mid
+          shift: [20.35, -4]
+        params:
+          side: F
+          reverse: true
+          jumpers_at_bottom: false
+          MOSI: P5 # P6 # Back Side
+          SCK: P6 # P7 # Back Side
+          CS: P7 # P9
+      power_switch: # power switch
+        what: pcm12
+        where:
+          ref: matrix_inner_bot
+          shift: [28.4, -17.25]
+          rotate: 90
+        params:
+          reverse: true
+          from: pos
+          to: RAW
+      reset: # reset button
+        what: b3u1000p
+        where:
+          ref: matrix_inner_bot
+          shift: [15.25, -9]
+          rotate: 90
+        params:
+          reverse: true
+          r1: RST
+          r2: GND
+      jst_connector: # pitch connector holes
+        what: jst_bat
+        where:
+          ref: matrix_inner_bot
+          shift: [20.25, -9]
+          rotate: 90
+        params:
+          reversible: true
+          BAT_P: pos
+          BAT_N: GND
+
+#---------------------------------------
+# sect: ***CASES***
+#---------------------------------------
+cases:
+  switchplate:
+    - what: outline
+      name: switch_plate
+      extrude: 1.2
+  bottom:
+    - what: outline
+      name: panel
+      extrude: 1.2       
