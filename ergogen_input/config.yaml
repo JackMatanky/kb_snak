@@ -122,10 +122,10 @@ outlines:
           shift: [.5px, .5px]
         # Top left mcu corner
         - ref: matrix_inner_top
-          shift: [.5px, -.15px]
+          shift: [.5px, -.1px]
         # Top right mcu corner
         - ref: matrix_inner_top
-          shift: [1.4px, -.15px]
+          shift: [1.4px, -.1px]
         # Bottom right mcu corner
         - ref: matrix_inner_bot
           shift: [1.4px, -.75px]
@@ -234,7 +234,7 @@ outlines:
 # sect: ***PCB***
 #--------------------------------------
 pcbs:
-  3x5_2:
+  snak:
     outlines:
       main:
         outline: round_board
@@ -242,6 +242,50 @@ pcbs:
         outline: keys
         layer: Eco1.User
     footprints:
+      # MCU
+      nice_nano:
+        what: promicro_pretty
+        where:
+          ref: matrix_inner_mid
+          shift: [20.25, -2]
+          rotate: -90
+        params:
+          orientation: down
+      # OLED
+      nice_view:
+        what: nice_view
+        where:
+          ref: matrix_inner_mid
+          shift: [20.35, -6.5]
+        params:
+          side: F
+          reverse: true
+          jumpers_at_bottom: false
+          MOSI: P5 # Front Side through via
+          SCK: P6 # Front Side through via
+          CS: P7 # Front Side through via
+      via_oled_mosi: # Via for SCK
+        what: via
+        where:
+          ref: matrix_inner_bot
+          shift: [12.75, -2]
+        params:
+          net: P5
+      via_oled_sck: # Via for SCK
+        what: via
+        where:
+          ref: matrix_inner_bot
+          shift: [14, -1.25]
+        params:
+          net: P6
+      via_oled_cs: # Via for CS
+        what: via
+        where:
+          ref: matrix_inner_bot
+          shift: [15.25, -0.5]
+        params:
+          net: P7
+      # Key Switches and Diodes
       choc:
         what: choc_kim
         where: true
@@ -259,112 +303,110 @@ pcbs:
           to: "{{row_net}}"
         adjust:
           shift: [0, -5]
-      via_columns:
+      via_diode:
         what: via
         where: true
         params:
           net: "{{column_net}}"
         adjust:
           shift: [4, -2.75]
-      via_oled_cs:
-        what: via
-        where:
-          ref: matrix_inner_bot
-          shift: [15, -1.5]
-        params:
-          net: P7
-      via_power_raw:
-        what: via
-        where:
-          ref: matrix_inner_top
-          shift: [5, 12.5]
-        params:
-          net: RAW
-      via_power_pos_1:
-        what: via
-        where:
-          ref: thumb_in
-          shift: [9.5, 7.5]
-        params:
-          net: pos
-      via_power_pos_2:
-        what: via
-        where:
-          ref: thumb_in
-          shift: [9.5, 0]
-        params:
-          net: pos
-      via_power_pos_3:
-        what: via
-        where:
-          ref: thumb_in
-          shift: [7.5, -9.25]
-        params:
-          net: pos
-      via_power_pos_4:
-        what: via
-        where:
-          ref: thumb_out
-          shift: [-7.5, -8.25]
-        params:
-          net: pos
-      via_power_pos_5:
-        what: via
-        where:
-          ref: matrix_pinky_bot
-          shift: [-9.25, -9.25]
-        params:
-          net: pos
-      nice_nano: # MCU
-        what: promicro_pretty
-        where:
-          ref: matrix_inner_mid
-          shift: [20.25, -3]
-          rotate: -90
-        params:
-          orientation: down
-      nice_view:
-        what: nice_view
-        where:
-          ref: matrix_inner_mid
-          shift: [20.35, -7.5]
-        params:
-          side: F
-          reverse: true
-          jumpers_at_bottom: false
-          MOSI: P5 # P6 # Back Side
-          SCK: P6 # P7 # Back Side
-          CS: P7 # P9
-      power_switch: # power switch
-        what: pcm12
+      # Power Switch
+      power:
+        what: switch_power
         where:
           ref: matrix_pinky_top
-          shift: [-1, 16.5]
-          rotate: 211
+          shift: [-1, 17]
+          rotate: 120
         params:
           reverse: true
           from: pos
           to: RAW
-      reset: # reset button
-        what: b3u1000p
-        where:
-          ref: matrix_inner_bot
-          shift: [15.25, -12.75]
-          rotate: 90
-        params:
-          reverse: true
-          r1: RST
-          r2: GND
       jst_connector: # pitch connector holes
         what: jst_bat
         where:
           ref: matrix_inner_bot
-          shift: [20.25, -12.75]
+          shift: [20.25, -11.75]
           rotate: 90
         params:
           reversible: true
           BAT_P: pos
           BAT_N: GND
+      # Reset Button
+      reset:
+        what: b3u1000p
+        where:
+          ref: matrix_inner_bot
+          shift: [15.5, -11.5]
+          rotate: 90
+        params:
+          reverse: true
+          r1: RST
+          r2: GND
+      via_raw_1: # right side of pwr switch
+        what: via
+        where:
+          ref: matrix_pinky_top
+          shift: [4, 20]
+        params:
+          net: RAW
+      via_pos_1: # left side of pwr switch
+        what: via
+        where:
+          ref: matrix_pinky_top
+          shift: [-6, 14]
+        params:
+          net: pos
+      via_pos_2:
+        what: via
+        where:
+          ref: matrix_pinky_bot
+          shift: [-9.5, -9.5]
+        params:
+          net: pos
+      via_pos_3:
+        what: via
+        where:
+          ref: matrix_inner_bot
+          shift: [12.25, -12.75]
+        params:
+          net: pos
+      # Mounting Holes mounting_hole
+      hole_left_top:
+        what: mounting_hole
+        where:
+          ref: matrix_pinky_top
+          shift: [9, 10.5]
+      hole_left_bot:
+        what: mounting_hole
+        where:
+          ref: matrix_pinky_bot
+          shift: [9, 10.5]
+      hole_right_top:
+        what: mounting_hole
+        where:
+          ref: matrix_index_top
+          shift: [8.25, -4]
+      hole_right_bot:
+        what: mounting_hole
+        where:
+          ref: matrix_index_bot
+          shift: [-9, -3.5]
+      hole_btwn_thumb:
+        what: mounting_hole
+        where:
+          ref: thumb_out
+          shift: [12, 0]
+      hole_left_thumb_in:
+        what: mounting_hole
+        where:
+          ref: matrix_inner_bot
+          shift: [12.5, -16.5]
+      hole_right_thumb_in:
+        what: mounting_hole
+        where:
+          ref: matrix_inner_bot
+          shift: [27, -22.5]
+
 
 #---------------------------------------
 # sect: ***CASES***
