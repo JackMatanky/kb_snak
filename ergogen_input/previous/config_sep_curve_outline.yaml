@@ -98,102 +98,16 @@ outlines:
   board:
     - what: polygon
       operation: stack
-      fillet: 3.5
+      #fillet: 5
       points:
-        # Pinky - Bottom
-        - ref: matrix_pinky_bot
-          shift: [px, -.635px]
-        - ref: matrix_pinky_bot
-          shift: [.85px, -.615px]
-        - ref: matrix_pinky_bot
-          shift: [.75px, -.6px]
-        - ref: matrix_pinky_bot
-          shift: [.515px, -.57px]
-        - ref: matrix_pinky_bot
-          shift: [.2px, -.535px]
-        - ref: matrix_pinky_bot
-          shift: [0, -.525px]
-        - ref: matrix_pinky_bot
-          shift: [-.25px, -.51px]
-        - ref: matrix_pinky_bot
-          shift: [-.5px, -.5px]
-        # Pinky - Top
         - ref: matrix_pinky_top
-          shift: [-.5px, .445px]
-        - ref: matrix_pinky_top
-          shift: [-.485px, .505px]
-        - ref: matrix_pinky_top
-          shift: [-.47px, .542px]
-        - ref: matrix_pinky_top
-          shift: [-.44px, .585px]
-        - ref: matrix_pinky_top
-          shift: [-.4px, .623px]
-        - ref: matrix_pinky_top
-          shift: [-.3px, .695px]
-        - ref: matrix_pinky_top
-          shift: [-.1px, .81px]
-        - ref: matrix_pinky_top
-          shift: [0, .86px]
-        # Ring
-        - ref: matrix_ring_top
-          shift: [-.7px, .37px]
-        - ref: matrix_ring_top
-          shift: [-.5px, .466px]
-        - ref: matrix_ring_top
-          shift: [-.4px, .508px]
-        - ref: matrix_ring_top
-          shift: [-.2px, .585px]
-        - ref: matrix_ring_top
-          shift: [0, .65px]
-        - ref: matrix_ring_top
-          shift: [.2px, .7px]
-        # Middle
+          shift: [-.515px, .5px]
         - ref: matrix_middle_top
-          shift: [-.5px, .45px]
+          shift: [-.4px, .5px]
         - ref: matrix_middle_top
-          shift: [-.3px, .47px]
-        - ref: matrix_middle_top
-          shift: [-.1px, .478px]
-        - ref: matrix_middle_top
-          shift: [0, .483px]
-        - ref: matrix_middle_top
-          shift: [.1px, .478px]
-        - ref: matrix_middle_top
-          shift: [.3px, .47px]
-        - ref: matrix_middle_top
-          shift: [.5px, .45px]
-        # Index
-        - ref: matrix_index_top
-          shift: [-.1px, .69px]
-        - ref: matrix_index_top
-          shift: [.1px, .66px]
-        - ref: matrix_index_top
-          shift: [.2px, .64px]
-        - ref: matrix_index_top
-          shift: [.3px, .62px]
-        - ref: matrix_index_top
-          shift: [.5px, .575px]
-        # Inner
+          shift: [.4px, .5px]
         - ref: matrix_inner_top
-          shift: [-.3px, .707px]
-        - ref: matrix_inner_top
-          shift: [.2px, .58px]
-        - ref: matrix_inner_top
-          shift: [.37px, .525px]
-        - ref: matrix_inner_top
-          shift: [.4px, .512px]
-        - ref: matrix_inner_top
-          shift: [.44px, .486px]
-        - ref: matrix_inner_top
-          shift: [.46px, .465px]
-        - ref: matrix_inner_top
-          shift: [.47px, .45px]
-        - ref: matrix_inner_top
-          shift: [.485px, .41px]
-        - ref: matrix_inner_top
-          shift: [.495px, .37px]
-        - ref: matrix_inner_top
-          shift: [.5px, .3px]
+          shift: [.492px, .48px]
         # nice!nano (mm): 34.1L x 18.3W x 3.3H
         # Top left mcu corner
         - ref: matrix_inner_top
@@ -204,41 +118,57 @@ outlines:
         # Bottom right mcu corner
         - ref: matrix_inner_bot
           shift: [1.4px, -.75px]
-        # Inner Thumb
         # MCU-thumb curve
         - ref: thumb_in
-          shift: [.436px, .725px]
+          shift: [.437px, .725px]
         - ref: thumb_in
-          shift: [.447px, .7px]
+          shift: [.448px, .7px]
         - ref: thumb_in
-          shift: [.459px, .675px]
+          shift: [.458px, .675px]
         - ref: thumb_in
-          shift: [.47px, .65px]
+          shift: [.467px, .65px]
         - ref: thumb_in
-          shift: [.482px, .625px]
+          shift: [.478px, .625px]
         - ref: thumb_in
-          shift: [.495px, .595px]
+          shift: [.49px, .6px]
         - ref: thumb_in
-          shift: [.505px, .555px]
+          shift: [.515px, .525px]
+        # Top right thumb_in
         - ref: thumb_in
-          shift: [.51px, .515px]
+          shift: [.52px, .5px]
         - ref: thumb_in
-          shift: [.505px, 0]
+          shift: [.55px, 0]
+        # Bottom right thumb_in
         - ref: thumb_in
-          shift: [.5px, -.5px]
-        - ref: thumb_in
-          shift: [-.5px, -.55px]
-        # Outer Thumb
-        - ref: thumb_out
-          shift: [.45px, -.55px]
-        - ref: thumb_out
-          shift: [0, -.51px]
-        - ref: thumb_out
-          shift: [-.45px, -.48px]
-        - ref: thumb_out
-          shift: [-.75px, -.475px]
-        - ref: thumb_out
-          shift: [-px, -.48px]
+          shift: [.6px, -.85px]
+        - ref: matrix_pinky_bot
+          shift: [-.515px, -.52px]
+  curve_top:
+    - what: circle
+      adjust:
+        ref: matrix_inner_mid
+        shift: [-31, -56.9]
+      radius: 95
+      operation: add
+    - what: rectangle
+      size: [5.27kx, 2px]
+      adjust:
+        ref: matrix_middle_top
+        shift: [.05, -2.9]
+      fillet: 5
+      operation: intersect
+  curve_bot:
+    - what: circle
+      adjust:
+        ref: matrix_pinky_bot
+        shift: [-11.25, -232.44]
+      radius: 221
+    - what: rectangle
+      size: [5.75px, 3.25px]
+      adjust:
+        ref: matrix_middle_mid
+        shift: [8, -60]
+      operation: intersect
   
   # COMBOS
   # Pure key outline with nice!nano MCU
@@ -254,6 +184,21 @@ outlines:
     - name: board
     - operation: subtract
       name: _raw_keys
+  round_board:
+    - name: board
+    - operation: add
+      name: curve_top
+    - operation: subtract
+      name: curve_bot
+      fillet: 4
+  round_board_keys:
+    - name: round_board
+    - operation: subtract
+      name: _keys
+  round_board_raw_keys:
+    - name: round_board
+    - operation: subtract
+      name: _raw_keys
 
 #--------------------------------------
 # sect: ***PCB***
@@ -262,9 +207,9 @@ pcbs:
   snak:
     outlines:
       main:
-        outline: board_keys
+        outline: round_board
       keycaps:
-        outline: _keys
+        outline: keys
         layer: Eco1.User
     footprints:
       # MCU
@@ -272,7 +217,7 @@ pcbs:
         what: promicro_pretty
         where:
           ref: matrix_inner_mid
-          shift: [20.25, -1.75]
+          shift: [20.25, -2]
           rotate: -90
         params:
           orientation: down
@@ -293,21 +238,21 @@ pcbs:
         what: via
         where:
           ref: matrix_inner_bot
-          shift: [12.75, -1.75]
+          shift: [12.75, -2]
         params:
           net: P5
       via_oled_sck: # Via for SCK
         what: via
         where:
           ref: matrix_inner_bot
-          shift: [14, -1]
+          shift: [14, -1.25]
         params:
           net: P6
       via_oled_cs: # Via for CS
         what: via
         where:
           ref: matrix_inner_bot
-          shift: [15.25, -0.25]
+          shift: [15.25, -0.5]
         params:
           net: P7
       # Key Switches and Diodes
@@ -340,8 +285,8 @@ pcbs:
         what: switch_power
         where:
           ref: matrix_pinky_top
-          shift: [-1, 15.75]
-          rotate: 118
+          shift: [-1, 17]
+          rotate: 120
         params:
           reverse: true
           from: pos
@@ -371,28 +316,28 @@ pcbs:
         what: via
         where:
           ref: matrix_pinky_top
-          shift: [4, 18.75]
+          shift: [4, 20]
         params:
           net: RAW
       via_pos_1: # left side of pwr switch
         what: via
         where:
           ref: matrix_pinky_top
-          shift: [-6, 12.75]
+          shift: [-6, 14]
         params:
           net: pos
       via_pos_2:
         what: via
         where:
           ref: matrix_pinky_bot
-          shift: [-9.25, -9.25]
+          shift: [-9.5, -9.5]
         params:
           net: pos
-      via_pos_3: # adjacent to reset 
+      via_pos_3:
         what: via
         where:
           ref: matrix_inner_bot
-          shift: [12.25, -11.5]
+          shift: [12.25, -12.75]
         params:
           net: pos
       # Mounting Holes mounting_hole
@@ -410,12 +355,12 @@ pcbs:
         what: mounting_hole
         where:
           ref: matrix_index_top
-          shift: [8.5, -4]
+          shift: [8.25, -4]
       hole_right_bot:
         what: mounting_hole
         where:
           ref: matrix_index_bot
-          shift: [8.5, -4]
+          shift: [-9, -3.5]
       hole_btwn_thumb:
         what: mounting_hole
         where:
@@ -430,7 +375,7 @@ pcbs:
         what: mounting_hole
         where:
           ref: matrix_inner_bot
-          shift: [27.75, -22.75]
+          shift: [27, -22.5]
 
 
 #---------------------------------------
