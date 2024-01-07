@@ -64,7 +64,7 @@ points:
           key:
             name: thumb_out
             splay: -15
-            column_net: P14 # Back Side
+            column_net: P3 # Back Side
         # Inner side
         in:
           key:
@@ -72,10 +72,10 @@ points:
             splay: -10
             spread: 1.32kx
             stagger: -kx/8
-            column_net: P10 # Back Side
+            column_net: P4 # Back Side
       rows:
         home:
-          row_net: P16 # Back Side
+          row_net: P18 # Back Side
 
 #--------------------------------------
 # sect: ***OUTLINES***
@@ -93,6 +93,11 @@ outlines:
       where: true
       bound: false
       size: [kx-0.5,ky-0.5]
+  _switches:
+    - what: rectangle
+      where: true
+      bound: false
+      size: [kx-0.5,ky-0.5]
   
   # SHAPES
   board:
@@ -105,7 +110,7 @@ outlines:
         - ref: matrix_pinky_bot
           shift: [-.2px, -.52px]
         - ref: matrix_pinky_bot
-          shift: [-.5px, -.5px]
+          shift: [-.51px, -.5px]
         - ref: matrix_pinky_top
           shift: [-.51px, .4px]
         # Ring
@@ -204,7 +209,7 @@ outlines:
       name: _raw_keys
   round_board:
     - name: board
-      fillet: 4.5
+      fillet: 3.5
     - operation: add
       name: _curve_top
     - operation: subtract
@@ -218,6 +223,10 @@ outlines:
     - name: round_board
     - operation: subtract
       name: _raw_keys
+  round_board_switch:
+    - name: round_board
+    - operation: subtract
+      name: _switches
 
 #--------------------------------------
 # sect: ***PCB***
@@ -233,21 +242,32 @@ pcbs:
     footprints:
       # MCU
       nice_nano:
-        what: promicro_pretty
+        what: nice_nano_pretty
         where:
           ref: matrix_inner_mid
-          shift: [20.25, -1.75]
-          rotate: -90
+          shift: [20.05, -0.5]
+          rotate: 0
         params:
-          orientation: down
+          traces: true
+          P1_label: Col1
+          P0_label: Col2
+          P2_label: Col3
+          P3_label: Col4
+          P4_label: Col5
+          P5_label: MOSI
+          P6_label: SCK
+          P7_label: CS
+          P18_label: Row1
+          P19_label: Row2
+          P20_label: Row3
+          P21_label: Row4
       # OLED
       nice_view:
         what: nice_view
         where:
           ref: matrix_inner_mid
-          shift: [20.35, -6.5]
+          shift: [20.1, -6.75]
         params:
-          side: F
           reverse: true
           jumpers_at_bottom: false
           MOSI: P5 # Front Side through via
@@ -257,28 +277,28 @@ pcbs:
         what: via
         where:
           ref: matrix_inner_bot
-          shift: [12.75, -1.75]
+          shift: [12.5, -2.0]
         params:
           net: P5
       via_oled_sck: # Via for SCK Back
         what: via
         where:
           ref: matrix_inner_bot
-          shift: [14, -1]
+          shift: [13.75, -1.25]
         params:
           net: P6
       via_oled_cs: # Via for CS Back
         what: via
         where:
           ref: matrix_inner_bot
-          shift: [15.25, -0.25]
+          shift: [15, -0.5]
         params:
           net: P7
       via_oled_gnd: # Via for GND Front
         what: via
         where:
           ref: matrix_inner_bot
-          shift: [22.9, -1]
+          shift: [22.65, -1.25]
         params:
           net: GND
       # Key Switches and Diodes
@@ -306,50 +326,54 @@ pcbs:
           net: "{{column_net}}"
         adjust:
           shift: [4, -2.75]
+      # Reset Button
+      reset:
+        what: switch_reset
+        where:
+          ref: matrix_inner_top
+          shift: [0, 13.25]
+          rotate: 75
+        params:
+          reverse: true
+          from: GND
+          to: RST
+      via_reset_gnd: # right side of pwr switch
+        what: via
+        where:
+          ref: matrix_inner_top
+          shift: [3.75, 12.25]
+        params:
+          net: GND
+      via_reset_rst: # left side of pwr switch
+        what: via
+        where:
+          ref: matrix_inner_top
+          shift: [-3.75, 14.25]
+        params:
+          net: RST
       # Power Switch
       power:
         what: switch_power
         where:
           ref: matrix_pinky_top
-          shift: [-1, 15.25]
+          shift: [-1, 15.5]
           rotate: 121.75
         params:
           reverse: true
           from: pos
           to: RAW
-      jst_connector: # pitch connector holes
-        what: jst_bat
-        where:
-          ref: matrix_inner_bot
-          shift: [20.25, -11.75]
-          rotate: 90
-        params:
-          reversible: true
-          BAT_P: pos
-          BAT_N: GND
-      # Reset Button
-      reset:
-        what: b3u1000p
-        where:
-          ref: matrix_inner_bot
-          shift: [15.5, -11.5]
-          rotate: 90
-        params:
-          reverse: true
-          r1: RST
-          r2: GND
       via_raw_1: # right side of pwr switch
         what: via
         where:
           ref: matrix_pinky_top
-          shift: [4, 18.25]
+          shift: [4, 19]
         params:
           net: RAW
       via_pos_1: # left side of pwr switch
         what: via
         where:
           ref: matrix_pinky_top
-          shift: [-6, 12.25]
+          shift: [-6, 13]
         params:
           net: pos
       via_pos_2:
@@ -359,13 +383,30 @@ pcbs:
           shift: [-9.25, -9.25]
         params:
           net: pos
-      via_pos_3: # adjacent to reset 
+      via_pos_3: # adjacent to jst 
         what: via
         where:
           ref: matrix_inner_bot
-          shift: [12.25, -11.5]
+          shift: [16.5, -11.75]
         params:
           net: pos
+      via_pos_4: # adjacent to jst 
+        what: via
+        where:
+          ref: matrix_inner_bot
+          shift: [7, -11.75]
+        params:
+          net: pos
+      jst_connector: # pitch connector holes
+        what: jst_bat
+        where:
+          ref: matrix_inner_bot
+          shift: [25.25, -11.75]
+          rotate: -90
+        params:
+          reversible: true
+          BAT_P: pos
+          BAT_N: GND
       # Mounting Holes mounting_hole
       hole_left_top:
         what: mounting_hole
@@ -401,9 +442,18 @@ pcbs:
         what: mounting_hole
         where:
           ref: matrix_inner_bot
-          shift: [27.75, -22.75]
+          shift: [27.5, -22.5]
 
 
 #---------------------------------------
 # sect: ***CASES***
 #---------------------------------------
+cases:
+  switchplate:
+    - what: outline
+      name: round_board_switch
+      extrude: 1.2
+  bottom:
+    - what: outline
+      name: round_board
+      extrude: 1.2
