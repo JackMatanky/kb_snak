@@ -262,7 +262,7 @@ pcbs:
   snak:
     outlines:
       main:
-        outline: board_keys
+        outline: board
       keycaps:
         outline: _keys
         layer: Eco1.User
@@ -289,27 +289,34 @@ pcbs:
           MOSI: P5 # Front Side through via
           SCK: P6 # Front Side through via
           CS: P7 # Front Side through via
-      via_oled_mosi: # Via for SCK
+      via_oled_mosi: # Via for SCK Back
         what: via
         where:
           ref: matrix_inner_bot
           shift: [12.75, -1.75]
         params:
           net: P5
-      via_oled_sck: # Via for SCK
+      via_oled_sck: # Via for SCK Back
         what: via
         where:
           ref: matrix_inner_bot
           shift: [14, -1]
         params:
           net: P6
-      via_oled_cs: # Via for CS
+      via_oled_cs: # Via for CS Back
         what: via
         where:
           ref: matrix_inner_bot
           shift: [15.25, -0.25]
         params:
           net: P7
+      via_oled_gnd: # Via for GND Front
+        what: via
+        where:
+          ref: matrix_inner_bot
+          shift: [22.9, -1]
+        params:
+          net: GND
       # Key Switches and Diodes
       choc:
         what: choc_kim
