@@ -97,7 +97,7 @@ outlines:
     - what: rectangle
       where: true
       bound: false
-      size: [kx-0.5,ky-0.5]
+      size: 13.95
   
   # SHAPES
   board:
@@ -127,10 +127,10 @@ outlines:
         # MCU (mm): 34.1L x 18.3W x 3.3H
         # Top left mcu corner
         - ref: matrix_inner_top
-          shift: [.5px, -.1px]
+          shift: [.5px, -.075px]
         # Top right mcu corner
         - ref: matrix_inner_top
-          shift: [1.357px, -.1px]
+          shift: [1.357px, -.075px]
         # Bottom right mcu corner
         - ref: matrix_inner_bot
           shift: [1.357px, -.9px]
@@ -155,10 +155,10 @@ outlines:
 
   _circle_top_right:
     - what: circle
+      radius: 135
       adjust:
         ref: matrix_middle_mid
         shift: [0, -107.2]
-      radius: 135
     - what: rectangle
       size: [2.9kx + 5, 1.2px]
       adjust:
@@ -167,10 +167,10 @@ outlines:
       operation: intersect
   _circle_top_left:
     - what: circle
+      radius: 90
       adjust:
         ref: matrix_middle_mid
         shift: [9, -60.465]
-      radius: 90
     - what: rectangle
       size: [1.76kx + 5, 1.2px]
       adjust:
@@ -182,16 +182,54 @@ outlines:
     - name: _circle_top_right
   _curve_bot:
     - what: circle
+      radius: 225
       adjust:
         ref: matrix_pinky_bot
         shift: [-11.5, -236.4]
-      radius: 225
     - what: rectangle
       size: [4.2px, 2px]
       adjust:
         ref: matrix_middle_mid
         shift: [7, -60]
       operation: intersect
+
+  # Mounting Holes mounting_hole
+  _mount_holes:
+    - what: circle
+      radius: screw
+      where:
+        ref: matrix_pinky_top
+        shift: [9, 10.5]
+    - what: circle
+      radius: screw
+      where:
+        ref: matrix_pinky_bot
+        shift: [9, 10.5]
+    - what: circle
+      radius: screw
+      where:
+        ref: matrix_index_top
+        shift: [9, -4]
+    - what: circle
+      radius: screw
+      where:
+        ref: matrix_index_bot
+        shift: [9, -4]
+    - what: circle
+      radius: screw
+      where:
+        ref: thumb_out
+        shift: [12, 0]
+    - what: circle
+      radius: screw
+      where:
+        ref: matrix_inner_bot
+        shift: [12.5, -16.5]
+    - what: circle
+      radius: screw
+      where:
+        ref: matrix_inner_bot
+        shift: [27.5, -22.5]
 
   # COMBOS
   # Pure key outline with nice!nano MCU
@@ -227,6 +265,8 @@ outlines:
     - name: round_board
     - operation: subtract
       name: _switches
+    - operation: subtract
+      name: _mount_holes
 
 #--------------------------------------
 # sect: ***PCB***
@@ -422,12 +462,12 @@ pcbs:
         what: mounting_hole
         where:
           ref: matrix_index_top
-          shift: [8.5, -4]
+          shift: [9, -4]
       hole_right_bot:
         what: mounting_hole
         where:
           ref: matrix_index_bot
-          shift: [8.5, -4]
+          shift: [9, -4]
       hole_btwn_thumb:
         what: mounting_hole
         where:

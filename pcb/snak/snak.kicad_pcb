@@ -249,7 +249,7 @@
           
         (module nice_nano (layer F.Cu) (tedit 6451A4F1)
           (attr virtual)
-          (at 192.2 74.5 0)
+          (at 192.05 74.5 0)
           (fp_text reference "MCU1" (at 0 -15) (layer F.SilkS) hide
             (effects (font (size 1 1) (thickness 0.15)))
           )
@@ -1280,156 +1280,156 @@
         
         
         
-        (segment (start 196.97 71.96) (end 192.96 71.96) (width 0.25) (layer F.Cu))
-        (segment (start 188.15 71.23) (end 187.42 71.96) (width 0.25) (layer B.Cu))
-        (segment (start 192.24 71.23) (end 188.15 71.23) (width 0.25) (layer B.Cu))
-        (segment (start 192.96 71.96) (end 192.24 71.23) (width 0.25) (layer B.Cu))
-        (segment (start 196.97 74.50) (end 192.96 74.50) (width 0.25) (layer F.Cu))
-        (segment (start 188.15 73.77) (end 187.42 74.50) (width 0.25) (layer B.Cu))
-        (segment (start 192.24 73.77) (end 188.15 73.77) (width 0.25) (layer B.Cu))
-        (segment (start 192.96 74.50) (end 192.24 73.77) (width 0.25) (layer B.Cu))
-        (segment (start 196.97 77.04) (end 192.96 77.04) (width 0.25) (layer F.Cu))
-        (segment (start 188.15 76.31) (end 187.42 77.04) (width 0.25) (layer B.Cu))
-        (segment (start 192.24 76.31) (end 188.15 76.31) (width 0.25) (layer B.Cu))
-        (segment (start 192.96 77.04) (end 192.24 76.31) (width 0.25) (layer B.Cu))
-        (segment (start 196.97 79.58) (end 192.96 79.58) (width 0.25) (layer F.Cu))
-        (segment (start 188.15 78.85) (end 187.42 79.58) (width 0.25) (layer B.Cu))
-        (segment (start 192.24 78.85) (end 188.15 78.85) (width 0.25) (layer B.Cu))
-        (segment (start 192.96 79.58) (end 192.24 78.85) (width 0.25) (layer B.Cu))
-        (segment (start 196.97 82.12) (end 192.96 82.12) (width 0.25) (layer F.Cu))
-        (segment (start 188.15 81.39) (end 187.42 82.12) (width 0.25) (layer B.Cu))
-        (segment (start 192.24 81.39) (end 188.15 81.39) (width 0.25) (layer B.Cu))
-        (segment (start 192.96 82.12) (end 192.24 81.39) (width 0.25) (layer B.Cu))
-        (segment (start 196.97 84.66) (end 192.96 84.66) (width 0.25) (layer F.Cu))
-        (segment (start 188.15 83.93) (end 187.42 84.66) (width 0.25) (layer B.Cu))
-        (segment (start 192.24 83.93) (end 188.15 83.93) (width 0.25) (layer B.Cu))
-        (segment (start 192.96 84.66) (end 192.24 83.93) (width 0.25) (layer B.Cu))
-        (segment (start 187.42 82.12) (end 191.44 82.12) (width 0.25) (layer F.Cu))
-        (segment (start 192.16 82.85) (end 196.25 82.85) (width 0.25) (layer B.Cu))
-        (segment (start 196.25 82.85) (end 196.97 82.12) (width 0.25) (layer B.Cu))
-        (segment (start 191.44 82.12) (end 192.16 82.85) (width 0.25) (layer B.Cu))
-        (segment (start 187.42 79.58) (end 191.44 79.58) (width 0.25) (layer F.Cu))
-        (segment (start 192.16 80.31) (end 196.25 80.31) (width 0.25) (layer B.Cu))
-        (segment (start 196.25 80.31) (end 196.97 79.58) (width 0.25) (layer B.Cu))
-        (segment (start 191.44 79.58) (end 192.16 80.31) (width 0.25) (layer B.Cu))
-        (segment (start 187.42 77.04) (end 191.44 77.04) (width 0.25) (layer F.Cu))
-        (segment (start 196.25 77.77) (end 196.97 77.04) (width 0.25) (layer B.Cu))
-        (segment (start 192.16 77.77) (end 196.25 77.77) (width 0.25) (layer B.Cu))
-        (segment (start 191.44 77.04) (end 192.16 77.77) (width 0.25) (layer B.Cu))
-        (segment (start 187.42 84.66) (end 191.44 84.66) (width 0.25) (layer F.Cu))
-        (segment (start 196.25 85.39) (end 196.97 84.66) (width 0.25) (layer B.Cu))
-        (segment (start 191.50 84.66) (end 192.22 85.39) (width 0.25) (layer B.Cu))
-        (segment (start 192.22 85.39) (end 196.25 85.39) (width 0.25) (layer B.Cu))
-        (segment (start 191.44 84.66) (end 191.50 84.66) (width 0.25) (layer B.Cu))
-        (segment (start 192.96 61.80) (end 196.97 61.80) (width 0.25) (layer F.Cu))
-        (segment (start 188.15 61.07) (end 187.42 61.80) (width 0.25) (layer B.Cu))
-        (segment (start 192.24 61.07) (end 188.15 61.07) (width 0.25) (layer B.Cu))
-        (segment (start 192.96 61.80) (end 192.24 61.07) (width 0.25) (layer B.Cu))
-        (segment (start 187.42 66.88) (end 191.44 66.88) (width 0.25) (layer F.Cu))
-        (segment (start 187.42 69.42) (end 191.44 69.42) (width 0.25) (layer F.Cu))
-        (segment (start 196.97 64.34) (end 192.96 64.34) (width 0.25) (layer F.Cu))
-        (segment (start 188.15 63.61) (end 187.42 64.34) (width 0.25) (layer B.Cu))
-        (segment (start 192.24 63.61) (end 188.15 63.61) (width 0.25) (layer B.Cu))
-        (segment (start 192.96 64.34) (end 192.24 63.61) (width 0.25) (layer B.Cu))
-        (segment (start 196.25 67.61) (end 196.97 66.88) (width 0.25) (layer B.Cu))
-        (segment (start 192.16 67.61) (end 196.25 67.61) (width 0.25) (layer B.Cu))
-        (segment (start 191.44 66.88) (end 192.16 67.61) (width 0.25) (layer B.Cu))
-        (segment (start 196.25 70.15) (end 196.97 69.42) (width 0.25) (layer B.Cu))
-        (segment (start 192.16 70.15) (end 196.25 70.15) (width 0.25) (layer B.Cu))
-        (segment (start 191.44 69.42) (end 192.16 70.15) (width 0.25) (layer B.Cu))
-        (segment (start 196.97 66.88) (end 192.96 66.88) (width 0.25) (layer F.Cu))
-        (segment (start 188.15 66.15) (end 187.42 66.88) (width 0.25) (layer B.Cu))
-        (segment (start 192.24 66.15) (end 188.15 66.15) (width 0.25) (layer B.Cu))
-        (segment (start 192.96 66.88) (end 192.24 66.15) (width 0.25) (layer B.Cu))
-        (segment (start 196.97 69.42) (end 192.96 69.42) (width 0.25) (layer F.Cu))
-        (segment (start 192.24 68.69) (end 188.15 68.69) (width 0.25) (layer B.Cu))
-        (segment (start 188.15 68.69) (end 187.42 69.42) (width 0.25) (layer B.Cu))
-        (segment (start 192.96 69.42) (end 192.24 68.69) (width 0.25) (layer B.Cu))
-        (segment (start 196.97 87.20) (end 192.96 87.20) (width 0.25) (layer F.Cu))
-        (segment (start 188.15 86.47) (end 187.42 87.20) (width 0.25) (layer B.Cu))
-        (segment (start 192.24 86.47) (end 188.15 86.47) (width 0.25) (layer B.Cu))
-        (segment (start 192.96 87.20) (end 192.24 86.47) (width 0.25) (layer B.Cu))
-        (segment (start 196.97 89.74) (end 192.96 89.74) (width 0.25) (layer F.Cu))
-        (segment (start 188.15 89.01) (end 187.42 89.74) (width 0.25) (layer B.Cu))
-        (segment (start 192.24 89.01) (end 188.15 89.01) (width 0.25) (layer B.Cu))
-        (segment (start 192.96 89.74) (end 192.24 89.01) (width 0.25) (layer B.Cu))
-        (segment (start 191.44 61.80) (end 187.42 61.80) (width 0.25) (layer F.Cu))
-        (segment (start 196.25 62.53) (end 196.97 61.80) (width 0.25) (layer B.Cu))
-        (segment (start 192.16 62.53) (end 196.25 62.53) (width 0.25) (layer B.Cu))
-        (segment (start 191.44 61.80) (end 192.16 62.53) (width 0.25) (layer B.Cu))
-        (segment (start 187.42 64.34) (end 191.44 64.34) (width 0.25) (layer F.Cu))
-        (segment (start 192.16 65.07) (end 196.25 65.07) (width 0.25) (layer B.Cu))
-        (segment (start 196.25 65.07) (end 196.97 64.34) (width 0.25) (layer B.Cu))
-        (segment (start 191.44 64.34) (end 192.16 65.07) (width 0.25) (layer B.Cu))
-        (segment (start 187.42 71.96) (end 191.44 71.96) (width 0.25) (layer F.Cu))
-        (segment (start 196.25 72.69) (end 196.97 71.96) (width 0.25) (layer B.Cu))
-        (segment (start 192.16 72.69) (end 196.25 72.69) (width 0.25) (layer B.Cu))
-        (segment (start 191.44 71.96) (end 192.16 72.69) (width 0.25) (layer B.Cu))
-        (segment (start 187.42 74.50) (end 191.44 74.50) (width 0.25) (layer F.Cu))
-        (segment (start 196.25 75.23) (end 196.97 74.50) (width 0.25) (layer B.Cu))
-        (segment (start 192.16 75.23) (end 196.25 75.23) (width 0.25) (layer B.Cu))
-        (segment (start 191.44 74.50) (end 192.16 75.23) (width 0.25) (layer B.Cu))
-        (segment (start 187.42 87.20) (end 191.44 87.20) (width 0.25) (layer F.Cu))
-        (segment (start 196.25 87.93) (end 196.97 87.20) (width 0.25) (layer B.Cu))
-        (segment (start 192.16 87.93) (end 196.25 87.93) (width 0.25) (layer B.Cu))
-        (segment (start 191.44 87.20) (end 192.16 87.93) (width 0.25) (layer B.Cu))
-        (segment (start 187.42 89.74) (end 191.44 89.74) (width 0.25) (layer F.Cu))
-        (segment (start 192.16 90.47) (end 196.25 90.47) (width 0.25) (layer B.Cu))
-        (segment (start 196.25 90.47) (end 196.97 89.74) (width 0.25) (layer B.Cu))
-        (segment (start 191.44 89.74) (end 192.16 90.47) (width 0.25) (layer B.Cu))
-        (segment (start 184.58 61.80) (end 186.70 61.80) (width 0.25) (layer F.Cu))
-        (segment (start 184.58 61.80) (end 186.70 61.80) (width 0.25) (layer B.Cu))
-        (segment (start 199.82 61.80) (end 197.70 61.80) (width 0.25) (layer F.Cu))
-        (segment (start 199.82 61.80) (end 197.70 61.80) (width 0.25) (layer B.Cu))
-        (segment (start 199.82 64.34) (end 197.70 64.34) (width 0.25) (layer F.Cu))
-        (segment (start 199.82 64.34) (end 197.70 64.34) (width 0.25) (layer B.Cu))
-        (segment (start 184.58 64.34) (end 186.70 64.34) (width 0.25) (layer F.Cu))
-        (segment (start 184.58 64.34) (end 186.70 64.34) (width 0.25) (layer B.Cu))
-        (segment (start 184.58 66.88) (end 186.70 66.88) (width 0.25) (layer F.Cu))
-        (segment (start 184.58 66.88) (end 186.70 66.88) (width 0.25) (layer B.Cu))
-        (segment (start 199.82 66.88) (end 197.70 66.88) (width 0.25) (layer F.Cu))
-        (segment (start 199.82 66.88) (end 197.70 66.88) (width 0.25) (layer B.Cu))
-        (segment (start 184.58 69.42) (end 186.70 69.42) (width 0.25) (layer F.Cu))
-        (segment (start 184.58 69.42) (end 186.70 69.42) (width 0.25) (layer B.Cu))
-        (segment (start 199.82 69.42) (end 197.70 69.42) (width 0.25) (layer F.Cu))
-        (segment (start 199.82 69.42) (end 197.70 69.42) (width 0.25) (layer B.Cu))
-        (segment (start 199.82 71.96) (end 197.70 71.96) (width 0.25) (layer F.Cu))
-        (segment (start 199.82 71.96) (end 197.70 71.96) (width 0.25) (layer B.Cu))
-        (segment (start 184.58 71.96) (end 186.70 71.96) (width 0.25) (layer F.Cu))
-        (segment (start 184.58 71.96) (end 186.70 71.96) (width 0.25) (layer B.Cu))
-        (segment (start 199.82 74.50) (end 197.70 74.50) (width 0.25) (layer F.Cu))
-        (segment (start 199.82 74.50) (end 197.70 74.50) (width 0.25) (layer B.Cu))
-        (segment (start 184.58 74.50) (end 186.70 74.50) (width 0.25) (layer F.Cu))
-        (segment (start 184.58 74.50) (end 186.70 74.50) (width 0.25) (layer B.Cu))
-        (segment (start 199.82 77.04) (end 197.70 77.04) (width 0.25) (layer F.Cu))
-        (segment (start 199.82 77.04) (end 197.70 77.04) (width 0.25) (layer B.Cu))
-        (segment (start 184.58 77.04) (end 186.70 77.04) (width 0.25) (layer F.Cu))
-        (segment (start 184.58 77.04) (end 186.70 77.04) (width 0.25) (layer B.Cu))
-        (segment (start 199.82 79.58) (end 197.70 79.58) (width 0.25) (layer F.Cu))
-        (segment (start 199.82 79.58) (end 197.70 79.58) (width 0.25) (layer B.Cu))
-        (segment (start 184.58 79.58) (end 186.70 79.58) (width 0.25) (layer F.Cu))
-        (segment (start 184.58 79.58) (end 186.70 79.58) (width 0.25) (layer B.Cu))
-        (segment (start 199.82 82.12) (end 197.70 82.12) (width 0.25) (layer F.Cu))
-        (segment (start 199.82 82.12) (end 197.70 82.12) (width 0.25) (layer B.Cu))
-        (segment (start 184.58 82.12) (end 186.70 82.12) (width 0.25) (layer F.Cu))
-        (segment (start 184.58 82.12) (end 186.70 82.12) (width 0.25) (layer B.Cu))
-        (segment (start 184.58 84.66) (end 186.70 84.66) (width 0.25) (layer F.Cu))
-        (segment (start 184.58 84.66) (end 186.70 84.66) (width 0.25) (layer B.Cu))
-        (segment (start 199.82 84.66) (end 197.70 84.66) (width 0.25) (layer F.Cu))
-        (segment (start 199.82 84.66) (end 197.70 84.66) (width 0.25) (layer B.Cu))
-        (segment (start 184.58 87.20) (end 186.70 87.20) (width 0.25) (layer F.Cu))
-        (segment (start 184.58 87.20) (end 186.70 87.20) (width 0.25) (layer B.Cu))
-        (segment (start 199.82 87.20) (end 197.70 87.20) (width 0.25) (layer F.Cu))
-        (segment (start 199.82 87.20) (end 197.70 87.20) (width 0.25) (layer B.Cu))
-        (segment (start 184.58 89.74) (end 186.70 89.74) (width 0.25) (layer F.Cu))
-        (segment (start 184.58 89.74) (end 186.70 89.74) (width 0.25) (layer B.Cu))
-        (segment (start 199.82 89.74) (end 197.70 89.74) (width 0.25) (layer F.Cu))
-        (segment (start 199.82 89.74) (end 197.70 89.74) (width 0.25) (layer B.Cu))
+        (segment (start 196.83 71.96) (end 192.81 71.96) (width 0.25) (layer F.Cu))
+        (segment (start 188.00 71.23) (end 187.28 71.96) (width 0.25) (layer B.Cu))
+        (segment (start 192.09 71.23) (end 188.00 71.23) (width 0.25) (layer B.Cu))
+        (segment (start 192.81 71.96) (end 192.09 71.23) (width 0.25) (layer B.Cu))
+        (segment (start 196.83 74.50) (end 192.81 74.50) (width 0.25) (layer F.Cu))
+        (segment (start 188.00 73.77) (end 187.28 74.50) (width 0.25) (layer B.Cu))
+        (segment (start 192.09 73.77) (end 188.00 73.77) (width 0.25) (layer B.Cu))
+        (segment (start 192.81 74.50) (end 192.09 73.77) (width 0.25) (layer B.Cu))
+        (segment (start 196.83 77.04) (end 192.81 77.04) (width 0.25) (layer F.Cu))
+        (segment (start 188.00 76.31) (end 187.28 77.04) (width 0.25) (layer B.Cu))
+        (segment (start 192.09 76.31) (end 188.00 76.31) (width 0.25) (layer B.Cu))
+        (segment (start 192.81 77.04) (end 192.09 76.31) (width 0.25) (layer B.Cu))
+        (segment (start 196.83 79.58) (end 192.81 79.58) (width 0.25) (layer F.Cu))
+        (segment (start 188.00 78.85) (end 187.28 79.58) (width 0.25) (layer B.Cu))
+        (segment (start 192.09 78.85) (end 188.00 78.85) (width 0.25) (layer B.Cu))
+        (segment (start 192.81 79.58) (end 192.09 78.85) (width 0.25) (layer B.Cu))
+        (segment (start 196.83 82.12) (end 192.81 82.12) (width 0.25) (layer F.Cu))
+        (segment (start 188.00 81.39) (end 187.28 82.12) (width 0.25) (layer B.Cu))
+        (segment (start 192.09 81.39) (end 188.00 81.39) (width 0.25) (layer B.Cu))
+        (segment (start 192.81 82.12) (end 192.09 81.39) (width 0.25) (layer B.Cu))
+        (segment (start 196.83 84.66) (end 192.81 84.66) (width 0.25) (layer F.Cu))
+        (segment (start 188.00 83.93) (end 187.28 84.66) (width 0.25) (layer B.Cu))
+        (segment (start 192.09 83.93) (end 188.00 83.93) (width 0.25) (layer B.Cu))
+        (segment (start 192.81 84.66) (end 192.09 83.93) (width 0.25) (layer B.Cu))
+        (segment (start 187.28 82.12) (end 191.29 82.12) (width 0.25) (layer F.Cu))
+        (segment (start 192.01 82.85) (end 196.10 82.85) (width 0.25) (layer B.Cu))
+        (segment (start 196.10 82.85) (end 196.83 82.12) (width 0.25) (layer B.Cu))
+        (segment (start 191.29 82.12) (end 192.01 82.85) (width 0.25) (layer B.Cu))
+        (segment (start 187.28 79.58) (end 191.29 79.58) (width 0.25) (layer F.Cu))
+        (segment (start 192.01 80.31) (end 196.10 80.31) (width 0.25) (layer B.Cu))
+        (segment (start 196.10 80.31) (end 196.83 79.58) (width 0.25) (layer B.Cu))
+        (segment (start 191.29 79.58) (end 192.01 80.31) (width 0.25) (layer B.Cu))
+        (segment (start 187.28 77.04) (end 191.29 77.04) (width 0.25) (layer F.Cu))
+        (segment (start 196.10 77.77) (end 196.83 77.04) (width 0.25) (layer B.Cu))
+        (segment (start 192.01 77.77) (end 196.10 77.77) (width 0.25) (layer B.Cu))
+        (segment (start 191.29 77.04) (end 192.01 77.77) (width 0.25) (layer B.Cu))
+        (segment (start 187.28 84.66) (end 191.29 84.66) (width 0.25) (layer F.Cu))
+        (segment (start 196.10 85.39) (end 196.83 84.66) (width 0.25) (layer B.Cu))
+        (segment (start 191.35 84.66) (end 192.07 85.39) (width 0.25) (layer B.Cu))
+        (segment (start 192.07 85.39) (end 196.10 85.39) (width 0.25) (layer B.Cu))
+        (segment (start 191.29 84.66) (end 191.35 84.66) (width 0.25) (layer B.Cu))
+        (segment (start 192.81 61.80) (end 196.83 61.80) (width 0.25) (layer F.Cu))
+        (segment (start 188.00 61.07) (end 187.28 61.80) (width 0.25) (layer B.Cu))
+        (segment (start 192.09 61.07) (end 188.00 61.07) (width 0.25) (layer B.Cu))
+        (segment (start 192.81 61.80) (end 192.09 61.07) (width 0.25) (layer B.Cu))
+        (segment (start 187.28 66.88) (end 191.29 66.88) (width 0.25) (layer F.Cu))
+        (segment (start 187.28 69.42) (end 191.29 69.42) (width 0.25) (layer F.Cu))
+        (segment (start 196.83 64.34) (end 192.81 64.34) (width 0.25) (layer F.Cu))
+        (segment (start 188.00 63.61) (end 187.28 64.34) (width 0.25) (layer B.Cu))
+        (segment (start 192.09 63.61) (end 188.00 63.61) (width 0.25) (layer B.Cu))
+        (segment (start 192.81 64.34) (end 192.09 63.61) (width 0.25) (layer B.Cu))
+        (segment (start 196.10 67.61) (end 196.83 66.88) (width 0.25) (layer B.Cu))
+        (segment (start 192.01 67.61) (end 196.10 67.61) (width 0.25) (layer B.Cu))
+        (segment (start 191.29 66.88) (end 192.01 67.61) (width 0.25) (layer B.Cu))
+        (segment (start 196.10 70.15) (end 196.83 69.42) (width 0.25) (layer B.Cu))
+        (segment (start 192.01 70.15) (end 196.10 70.15) (width 0.25) (layer B.Cu))
+        (segment (start 191.29 69.42) (end 192.01 70.15) (width 0.25) (layer B.Cu))
+        (segment (start 196.83 66.88) (end 192.81 66.88) (width 0.25) (layer F.Cu))
+        (segment (start 188.00 66.15) (end 187.28 66.88) (width 0.25) (layer B.Cu))
+        (segment (start 192.09 66.15) (end 188.00 66.15) (width 0.25) (layer B.Cu))
+        (segment (start 192.81 66.88) (end 192.09 66.15) (width 0.25) (layer B.Cu))
+        (segment (start 196.83 69.42) (end 192.81 69.42) (width 0.25) (layer F.Cu))
+        (segment (start 192.09 68.69) (end 188.00 68.69) (width 0.25) (layer B.Cu))
+        (segment (start 188.00 68.69) (end 187.28 69.42) (width 0.25) (layer B.Cu))
+        (segment (start 192.81 69.42) (end 192.09 68.69) (width 0.25) (layer B.Cu))
+        (segment (start 196.83 87.20) (end 192.81 87.20) (width 0.25) (layer F.Cu))
+        (segment (start 188.00 86.47) (end 187.28 87.20) (width 0.25) (layer B.Cu))
+        (segment (start 192.09 86.47) (end 188.00 86.47) (width 0.25) (layer B.Cu))
+        (segment (start 192.81 87.20) (end 192.09 86.47) (width 0.25) (layer B.Cu))
+        (segment (start 196.83 89.74) (end 192.81 89.74) (width 0.25) (layer F.Cu))
+        (segment (start 188.00 89.01) (end 187.28 89.74) (width 0.25) (layer B.Cu))
+        (segment (start 192.09 89.01) (end 188.00 89.01) (width 0.25) (layer B.Cu))
+        (segment (start 192.81 89.74) (end 192.09 89.01) (width 0.25) (layer B.Cu))
+        (segment (start 191.29 61.80) (end 187.28 61.80) (width 0.25) (layer F.Cu))
+        (segment (start 196.10 62.53) (end 196.83 61.80) (width 0.25) (layer B.Cu))
+        (segment (start 192.01 62.53) (end 196.10 62.53) (width 0.25) (layer B.Cu))
+        (segment (start 191.29 61.80) (end 192.01 62.53) (width 0.25) (layer B.Cu))
+        (segment (start 187.28 64.34) (end 191.29 64.34) (width 0.25) (layer F.Cu))
+        (segment (start 192.01 65.07) (end 196.10 65.07) (width 0.25) (layer B.Cu))
+        (segment (start 196.10 65.07) (end 196.83 64.34) (width 0.25) (layer B.Cu))
+        (segment (start 191.29 64.34) (end 192.01 65.07) (width 0.25) (layer B.Cu))
+        (segment (start 187.28 71.96) (end 191.29 71.96) (width 0.25) (layer F.Cu))
+        (segment (start 196.10 72.69) (end 196.83 71.96) (width 0.25) (layer B.Cu))
+        (segment (start 192.01 72.69) (end 196.10 72.69) (width 0.25) (layer B.Cu))
+        (segment (start 191.29 71.96) (end 192.01 72.69) (width 0.25) (layer B.Cu))
+        (segment (start 187.28 74.50) (end 191.29 74.50) (width 0.25) (layer F.Cu))
+        (segment (start 196.10 75.23) (end 196.83 74.50) (width 0.25) (layer B.Cu))
+        (segment (start 192.01 75.23) (end 196.10 75.23) (width 0.25) (layer B.Cu))
+        (segment (start 191.29 74.50) (end 192.01 75.23) (width 0.25) (layer B.Cu))
+        (segment (start 187.28 87.20) (end 191.29 87.20) (width 0.25) (layer F.Cu))
+        (segment (start 196.10 87.93) (end 196.83 87.20) (width 0.25) (layer B.Cu))
+        (segment (start 192.01 87.93) (end 196.10 87.93) (width 0.25) (layer B.Cu))
+        (segment (start 191.29 87.20) (end 192.01 87.93) (width 0.25) (layer B.Cu))
+        (segment (start 187.28 89.74) (end 191.29 89.74) (width 0.25) (layer F.Cu))
+        (segment (start 192.01 90.47) (end 196.10 90.47) (width 0.25) (layer B.Cu))
+        (segment (start 196.10 90.47) (end 196.83 89.74) (width 0.25) (layer B.Cu))
+        (segment (start 191.29 89.74) (end 192.01 90.47) (width 0.25) (layer B.Cu))
+        (segment (start 184.43 61.80) (end 186.55 61.80) (width 0.25) (layer F.Cu))
+        (segment (start 184.43 61.80) (end 186.55 61.80) (width 0.25) (layer B.Cu))
+        (segment (start 199.67 61.80) (end 197.55 61.80) (width 0.25) (layer F.Cu))
+        (segment (start 199.67 61.80) (end 197.55 61.80) (width 0.25) (layer B.Cu))
+        (segment (start 199.67 64.34) (end 197.55 64.34) (width 0.25) (layer F.Cu))
+        (segment (start 199.67 64.34) (end 197.55 64.34) (width 0.25) (layer B.Cu))
+        (segment (start 184.43 64.34) (end 186.55 64.34) (width 0.25) (layer F.Cu))
+        (segment (start 184.43 64.34) (end 186.55 64.34) (width 0.25) (layer B.Cu))
+        (segment (start 184.43 66.88) (end 186.55 66.88) (width 0.25) (layer F.Cu))
+        (segment (start 184.43 66.88) (end 186.55 66.88) (width 0.25) (layer B.Cu))
+        (segment (start 199.67 66.88) (end 197.55 66.88) (width 0.25) (layer F.Cu))
+        (segment (start 199.67 66.88) (end 197.55 66.88) (width 0.25) (layer B.Cu))
+        (segment (start 184.43 69.42) (end 186.55 69.42) (width 0.25) (layer F.Cu))
+        (segment (start 184.43 69.42) (end 186.55 69.42) (width 0.25) (layer B.Cu))
+        (segment (start 199.67 69.42) (end 197.55 69.42) (width 0.25) (layer F.Cu))
+        (segment (start 199.67 69.42) (end 197.55 69.42) (width 0.25) (layer B.Cu))
+        (segment (start 199.67 71.96) (end 197.55 71.96) (width 0.25) (layer F.Cu))
+        (segment (start 199.67 71.96) (end 197.55 71.96) (width 0.25) (layer B.Cu))
+        (segment (start 184.43 71.96) (end 186.55 71.96) (width 0.25) (layer F.Cu))
+        (segment (start 184.43 71.96) (end 186.55 71.96) (width 0.25) (layer B.Cu))
+        (segment (start 199.67 74.50) (end 197.55 74.50) (width 0.25) (layer F.Cu))
+        (segment (start 199.67 74.50) (end 197.55 74.50) (width 0.25) (layer B.Cu))
+        (segment (start 184.43 74.50) (end 186.55 74.50) (width 0.25) (layer F.Cu))
+        (segment (start 184.43 74.50) (end 186.55 74.50) (width 0.25) (layer B.Cu))
+        (segment (start 199.67 77.04) (end 197.55 77.04) (width 0.25) (layer F.Cu))
+        (segment (start 199.67 77.04) (end 197.55 77.04) (width 0.25) (layer B.Cu))
+        (segment (start 184.43 77.04) (end 186.55 77.04) (width 0.25) (layer F.Cu))
+        (segment (start 184.43 77.04) (end 186.55 77.04) (width 0.25) (layer B.Cu))
+        (segment (start 199.67 79.58) (end 197.55 79.58) (width 0.25) (layer F.Cu))
+        (segment (start 199.67 79.58) (end 197.55 79.58) (width 0.25) (layer B.Cu))
+        (segment (start 184.43 79.58) (end 186.55 79.58) (width 0.25) (layer F.Cu))
+        (segment (start 184.43 79.58) (end 186.55 79.58) (width 0.25) (layer B.Cu))
+        (segment (start 199.67 82.12) (end 197.55 82.12) (width 0.25) (layer F.Cu))
+        (segment (start 199.67 82.12) (end 197.55 82.12) (width 0.25) (layer B.Cu))
+        (segment (start 184.43 82.12) (end 186.55 82.12) (width 0.25) (layer F.Cu))
+        (segment (start 184.43 82.12) (end 186.55 82.12) (width 0.25) (layer B.Cu))
+        (segment (start 184.43 84.66) (end 186.55 84.66) (width 0.25) (layer F.Cu))
+        (segment (start 184.43 84.66) (end 186.55 84.66) (width 0.25) (layer B.Cu))
+        (segment (start 199.67 84.66) (end 197.55 84.66) (width 0.25) (layer F.Cu))
+        (segment (start 199.67 84.66) (end 197.55 84.66) (width 0.25) (layer B.Cu))
+        (segment (start 184.43 87.20) (end 186.55 87.20) (width 0.25) (layer F.Cu))
+        (segment (start 184.43 87.20) (end 186.55 87.20) (width 0.25) (layer B.Cu))
+        (segment (start 199.67 87.20) (end 197.55 87.20) (width 0.25) (layer F.Cu))
+        (segment (start 199.67 87.20) (end 197.55 87.20) (width 0.25) (layer B.Cu))
+        (segment (start 184.43 89.74) (end 186.55 89.74) (width 0.25) (layer F.Cu))
+        (segment (start 184.43 89.74) (end 186.55 89.74) (width 0.25) (layer B.Cu))
+        (segment (start 199.67 89.74) (end 197.55 89.74) (width 0.25) (layer F.Cu))
+        (segment (start 199.67 89.74) (end 197.55 89.74) (width 0.25) (layer B.Cu))
       
     
 
         (module nice!view (layer F.Cu) (tedit 6448AF5B)
-          (at 192.25 80.75 0)
+          (at 192.1 80.75 0)
           (attr virtual)
           (fp_text reference "DISP1" (at 0 20 0) (layer F.SilkS) hide
             (effects (font (size 1 1) (thickness 0.15)))
@@ -1572,7 +1572,7 @@
       
 
       (module VIA-0.6mm (layer F.Cu) (tedit 591DBFB0)
-      (at 184.65 93 0)   
+      (at 184.5 93 0)   
       
       (fp_text reference REF** (at 0 1.4) (layer F.SilkS) hide (effects (font (size 1 1) (thickness 0.15))))
       (fp_text value VIA-0.6mm (at 0 -1.4) (layer F.Fab) hide (effects (font (size 1 1) (thickness 0.15))))
@@ -1583,7 +1583,7 @@
     
 
       (module VIA-0.6mm (layer F.Cu) (tedit 591DBFB0)
-      (at 185.9 92.25 0)   
+      (at 185.75 92.25 0)   
       
       (fp_text reference REF** (at 0 1.4) (layer F.SilkS) hide (effects (font (size 1 1) (thickness 0.15))))
       (fp_text value VIA-0.6mm (at 0 -1.4) (layer F.Fab) hide (effects (font (size 1 1) (thickness 0.15))))
@@ -1594,7 +1594,7 @@
     
 
       (module VIA-0.6mm (layer F.Cu) (tedit 591DBFB0)
-      (at 187.15 91.5 0)   
+      (at 187 91.5 0)   
       
       (fp_text reference REF** (at 0 1.4) (layer F.SilkS) hide (effects (font (size 1 1) (thickness 0.15))))
       (fp_text value VIA-0.6mm (at 0 -1.4) (layer F.Fab) hide (effects (font (size 1 1) (thickness 0.15))))
@@ -1605,7 +1605,7 @@
     
 
       (module VIA-0.6mm (layer F.Cu) (tedit 591DBFB0)
-      (at 194.8 92.25 0)   
+      (at 194.65 92.25 0)   
       
       (fp_text reference REF** (at 0 1.4) (layer F.SilkS) hide (effects (font (size 1 1) (thickness 0.15))))
       (fp_text value VIA-0.6mm (at 0 -1.4) (layer F.Fab) hide (effects (font (size 1 1) (thickness 0.15))))
@@ -3818,13 +3818,13 @@
         (fp_line (start -0.75 0) (end -0.35 0) (layer B.SilkS) (width 0.1))
     
         
-        (pad 1 smd rect (at -1.65 0 0) (size 0.9 1.2) (layers F.Cu F.Paste F.Mask) (net 11 "P16"))
+        (pad 1 smd rect (at -1.65 0 0) (size 0.9 1.2) (layers F.Cu F.Paste F.Mask) (net 7 "P19"))
         (pad 2 smd rect (at 1.65 0 0) (size 0.9 1.2) (layers B.Cu B.Paste B.Mask) (net 51 "pinky_bot"))
-        (pad 1 smd rect (at -1.65 0 0) (size 0.9 1.2) (layers B.Cu B.Paste B.Mask) (net 11 "P16"))
+        (pad 1 smd rect (at -1.65 0 0) (size 0.9 1.2) (layers B.Cu B.Paste B.Mask) (net 7 "P19"))
         (pad 2 smd rect (at 1.65 0 0) (size 0.9 1.2) (layers F.Cu F.Paste F.Mask) (net 51 "pinky_bot"))
         
         
-        (pad 1 thru_hole rect (at -3.81 0 0) (size 1.778 1.778) (drill 0.9906) (layers *.Cu *.Mask) (net 11 "P16"))
+        (pad 1 thru_hole rect (at -3.81 0 0) (size 1.778 1.778) (drill 0.9906) (layers *.Cu *.Mask) (net 7 "P19"))
         (pad 2 thru_hole circle (at 3.81 0 0) (size 1.905 1.905) (drill 0.9906) (layers *.Cu *.Mask) (net 51 "pinky_bot"))
     )
   
@@ -3857,13 +3857,13 @@
         (fp_line (start -0.75 0) (end -0.35 0) (layer B.SilkS) (width 0.1))
     
         
-        (pad 1 smd rect (at -1.65 0 0) (size 0.9 1.2) (layers F.Cu F.Paste F.Mask) (net 10 "P14"))
+        (pad 1 smd rect (at -1.65 0 0) (size 0.9 1.2) (layers F.Cu F.Paste F.Mask) (net 6 "P20"))
         (pad 2 smd rect (at 1.65 0 0) (size 0.9 1.2) (layers B.Cu B.Paste B.Mask) (net 52 "pinky_mid"))
-        (pad 1 smd rect (at -1.65 0 0) (size 0.9 1.2) (layers B.Cu B.Paste B.Mask) (net 10 "P14"))
+        (pad 1 smd rect (at -1.65 0 0) (size 0.9 1.2) (layers B.Cu B.Paste B.Mask) (net 6 "P20"))
         (pad 2 smd rect (at 1.65 0 0) (size 0.9 1.2) (layers F.Cu F.Paste F.Mask) (net 52 "pinky_mid"))
         
         
-        (pad 1 thru_hole rect (at -3.81 0 0) (size 1.778 1.778) (drill 0.9906) (layers *.Cu *.Mask) (net 10 "P14"))
+        (pad 1 thru_hole rect (at -3.81 0 0) (size 1.778 1.778) (drill 0.9906) (layers *.Cu *.Mask) (net 6 "P20"))
         (pad 2 thru_hole circle (at 3.81 0 0) (size 1.905 1.905) (drill 0.9906) (layers *.Cu *.Mask) (net 52 "pinky_mid"))
     )
   
@@ -3896,13 +3896,13 @@
         (fp_line (start -0.75 0) (end -0.35 0) (layer B.SilkS) (width 0.1))
     
         
-        (pad 1 smd rect (at -1.65 0 0) (size 0.9 1.2) (layers F.Cu F.Paste F.Mask) (net 9 "P15"))
+        (pad 1 smd rect (at -1.65 0 0) (size 0.9 1.2) (layers F.Cu F.Paste F.Mask) (net 5 "P21"))
         (pad 2 smd rect (at 1.65 0 0) (size 0.9 1.2) (layers B.Cu B.Paste B.Mask) (net 53 "pinky_top"))
-        (pad 1 smd rect (at -1.65 0 0) (size 0.9 1.2) (layers B.Cu B.Paste B.Mask) (net 9 "P15"))
+        (pad 1 smd rect (at -1.65 0 0) (size 0.9 1.2) (layers B.Cu B.Paste B.Mask) (net 5 "P21"))
         (pad 2 smd rect (at 1.65 0 0) (size 0.9 1.2) (layers F.Cu F.Paste F.Mask) (net 53 "pinky_top"))
         
         
-        (pad 1 thru_hole rect (at -3.81 0 0) (size 1.778 1.778) (drill 0.9906) (layers *.Cu *.Mask) (net 9 "P15"))
+        (pad 1 thru_hole rect (at -3.81 0 0) (size 1.778 1.778) (drill 0.9906) (layers *.Cu *.Mask) (net 5 "P21"))
         (pad 2 thru_hole circle (at 3.81 0 0) (size 1.905 1.905) (drill 0.9906) (layers *.Cu *.Mask) (net 53 "pinky_top"))
     )
   
@@ -3935,13 +3935,13 @@
         (fp_line (start -0.75 0) (end -0.35 0) (layer B.SilkS) (width 0.1))
     
         
-        (pad 1 smd rect (at -1.65 0 0) (size 0.9 1.2) (layers F.Cu F.Paste F.Mask) (net 11 "P16"))
+        (pad 1 smd rect (at -1.65 0 0) (size 0.9 1.2) (layers F.Cu F.Paste F.Mask) (net 7 "P19"))
         (pad 2 smd rect (at 1.65 0 0) (size 0.9 1.2) (layers B.Cu B.Paste B.Mask) (net 54 "ring_bot"))
-        (pad 1 smd rect (at -1.65 0 0) (size 0.9 1.2) (layers B.Cu B.Paste B.Mask) (net 11 "P16"))
+        (pad 1 smd rect (at -1.65 0 0) (size 0.9 1.2) (layers B.Cu B.Paste B.Mask) (net 7 "P19"))
         (pad 2 smd rect (at 1.65 0 0) (size 0.9 1.2) (layers F.Cu F.Paste F.Mask) (net 54 "ring_bot"))
         
         
-        (pad 1 thru_hole rect (at -3.81 0 0) (size 1.778 1.778) (drill 0.9906) (layers *.Cu *.Mask) (net 11 "P16"))
+        (pad 1 thru_hole rect (at -3.81 0 0) (size 1.778 1.778) (drill 0.9906) (layers *.Cu *.Mask) (net 7 "P19"))
         (pad 2 thru_hole circle (at 3.81 0 0) (size 1.905 1.905) (drill 0.9906) (layers *.Cu *.Mask) (net 54 "ring_bot"))
     )
   
@@ -3974,13 +3974,13 @@
         (fp_line (start -0.75 0) (end -0.35 0) (layer B.SilkS) (width 0.1))
     
         
-        (pad 1 smd rect (at -1.65 0 0) (size 0.9 1.2) (layers F.Cu F.Paste F.Mask) (net 10 "P14"))
+        (pad 1 smd rect (at -1.65 0 0) (size 0.9 1.2) (layers F.Cu F.Paste F.Mask) (net 6 "P20"))
         (pad 2 smd rect (at 1.65 0 0) (size 0.9 1.2) (layers B.Cu B.Paste B.Mask) (net 55 "ring_mid"))
-        (pad 1 smd rect (at -1.65 0 0) (size 0.9 1.2) (layers B.Cu B.Paste B.Mask) (net 10 "P14"))
+        (pad 1 smd rect (at -1.65 0 0) (size 0.9 1.2) (layers B.Cu B.Paste B.Mask) (net 6 "P20"))
         (pad 2 smd rect (at 1.65 0 0) (size 0.9 1.2) (layers F.Cu F.Paste F.Mask) (net 55 "ring_mid"))
         
         
-        (pad 1 thru_hole rect (at -3.81 0 0) (size 1.778 1.778) (drill 0.9906) (layers *.Cu *.Mask) (net 10 "P14"))
+        (pad 1 thru_hole rect (at -3.81 0 0) (size 1.778 1.778) (drill 0.9906) (layers *.Cu *.Mask) (net 6 "P20"))
         (pad 2 thru_hole circle (at 3.81 0 0) (size 1.905 1.905) (drill 0.9906) (layers *.Cu *.Mask) (net 55 "ring_mid"))
     )
   
@@ -4013,13 +4013,13 @@
         (fp_line (start -0.75 0) (end -0.35 0) (layer B.SilkS) (width 0.1))
     
         
-        (pad 1 smd rect (at -1.65 0 0) (size 0.9 1.2) (layers F.Cu F.Paste F.Mask) (net 9 "P15"))
+        (pad 1 smd rect (at -1.65 0 0) (size 0.9 1.2) (layers F.Cu F.Paste F.Mask) (net 5 "P21"))
         (pad 2 smd rect (at 1.65 0 0) (size 0.9 1.2) (layers B.Cu B.Paste B.Mask) (net 56 "ring_top"))
-        (pad 1 smd rect (at -1.65 0 0) (size 0.9 1.2) (layers B.Cu B.Paste B.Mask) (net 9 "P15"))
+        (pad 1 smd rect (at -1.65 0 0) (size 0.9 1.2) (layers B.Cu B.Paste B.Mask) (net 5 "P21"))
         (pad 2 smd rect (at 1.65 0 0) (size 0.9 1.2) (layers F.Cu F.Paste F.Mask) (net 56 "ring_top"))
         
         
-        (pad 1 thru_hole rect (at -3.81 0 0) (size 1.778 1.778) (drill 0.9906) (layers *.Cu *.Mask) (net 9 "P15"))
+        (pad 1 thru_hole rect (at -3.81 0 0) (size 1.778 1.778) (drill 0.9906) (layers *.Cu *.Mask) (net 5 "P21"))
         (pad 2 thru_hole circle (at 3.81 0 0) (size 1.905 1.905) (drill 0.9906) (layers *.Cu *.Mask) (net 56 "ring_top"))
     )
   
@@ -4052,13 +4052,13 @@
         (fp_line (start -0.75 0) (end -0.35 0) (layer B.SilkS) (width 0.1))
     
         
-        (pad 1 smd rect (at -1.65 0 0) (size 0.9 1.2) (layers F.Cu F.Paste F.Mask) (net 11 "P16"))
+        (pad 1 smd rect (at -1.65 0 0) (size 0.9 1.2) (layers F.Cu F.Paste F.Mask) (net 7 "P19"))
         (pad 2 smd rect (at 1.65 0 0) (size 0.9 1.2) (layers B.Cu B.Paste B.Mask) (net 57 "middle_bot"))
-        (pad 1 smd rect (at -1.65 0 0) (size 0.9 1.2) (layers B.Cu B.Paste B.Mask) (net 11 "P16"))
+        (pad 1 smd rect (at -1.65 0 0) (size 0.9 1.2) (layers B.Cu B.Paste B.Mask) (net 7 "P19"))
         (pad 2 smd rect (at 1.65 0 0) (size 0.9 1.2) (layers F.Cu F.Paste F.Mask) (net 57 "middle_bot"))
         
         
-        (pad 1 thru_hole rect (at -3.81 0 0) (size 1.778 1.778) (drill 0.9906) (layers *.Cu *.Mask) (net 11 "P16"))
+        (pad 1 thru_hole rect (at -3.81 0 0) (size 1.778 1.778) (drill 0.9906) (layers *.Cu *.Mask) (net 7 "P19"))
         (pad 2 thru_hole circle (at 3.81 0 0) (size 1.905 1.905) (drill 0.9906) (layers *.Cu *.Mask) (net 57 "middle_bot"))
     )
   
@@ -4091,13 +4091,13 @@
         (fp_line (start -0.75 0) (end -0.35 0) (layer B.SilkS) (width 0.1))
     
         
-        (pad 1 smd rect (at -1.65 0 0) (size 0.9 1.2) (layers F.Cu F.Paste F.Mask) (net 10 "P14"))
+        (pad 1 smd rect (at -1.65 0 0) (size 0.9 1.2) (layers F.Cu F.Paste F.Mask) (net 6 "P20"))
         (pad 2 smd rect (at 1.65 0 0) (size 0.9 1.2) (layers B.Cu B.Paste B.Mask) (net 58 "middle_mid"))
-        (pad 1 smd rect (at -1.65 0 0) (size 0.9 1.2) (layers B.Cu B.Paste B.Mask) (net 10 "P14"))
+        (pad 1 smd rect (at -1.65 0 0) (size 0.9 1.2) (layers B.Cu B.Paste B.Mask) (net 6 "P20"))
         (pad 2 smd rect (at 1.65 0 0) (size 0.9 1.2) (layers F.Cu F.Paste F.Mask) (net 58 "middle_mid"))
         
         
-        (pad 1 thru_hole rect (at -3.81 0 0) (size 1.778 1.778) (drill 0.9906) (layers *.Cu *.Mask) (net 10 "P14"))
+        (pad 1 thru_hole rect (at -3.81 0 0) (size 1.778 1.778) (drill 0.9906) (layers *.Cu *.Mask) (net 6 "P20"))
         (pad 2 thru_hole circle (at 3.81 0 0) (size 1.905 1.905) (drill 0.9906) (layers *.Cu *.Mask) (net 58 "middle_mid"))
     )
   
@@ -4130,13 +4130,13 @@
         (fp_line (start -0.75 0) (end -0.35 0) (layer B.SilkS) (width 0.1))
     
         
-        (pad 1 smd rect (at -1.65 0 0) (size 0.9 1.2) (layers F.Cu F.Paste F.Mask) (net 9 "P15"))
+        (pad 1 smd rect (at -1.65 0 0) (size 0.9 1.2) (layers F.Cu F.Paste F.Mask) (net 5 "P21"))
         (pad 2 smd rect (at 1.65 0 0) (size 0.9 1.2) (layers B.Cu B.Paste B.Mask) (net 59 "middle_top"))
-        (pad 1 smd rect (at -1.65 0 0) (size 0.9 1.2) (layers B.Cu B.Paste B.Mask) (net 9 "P15"))
+        (pad 1 smd rect (at -1.65 0 0) (size 0.9 1.2) (layers B.Cu B.Paste B.Mask) (net 5 "P21"))
         (pad 2 smd rect (at 1.65 0 0) (size 0.9 1.2) (layers F.Cu F.Paste F.Mask) (net 59 "middle_top"))
         
         
-        (pad 1 thru_hole rect (at -3.81 0 0) (size 1.778 1.778) (drill 0.9906) (layers *.Cu *.Mask) (net 9 "P15"))
+        (pad 1 thru_hole rect (at -3.81 0 0) (size 1.778 1.778) (drill 0.9906) (layers *.Cu *.Mask) (net 5 "P21"))
         (pad 2 thru_hole circle (at 3.81 0 0) (size 1.905 1.905) (drill 0.9906) (layers *.Cu *.Mask) (net 59 "middle_top"))
     )
   
@@ -4169,13 +4169,13 @@
         (fp_line (start -0.75 0) (end -0.35 0) (layer B.SilkS) (width 0.1))
     
         
-        (pad 1 smd rect (at -1.65 0 0) (size 0.9 1.2) (layers F.Cu F.Paste F.Mask) (net 11 "P16"))
+        (pad 1 smd rect (at -1.65 0 0) (size 0.9 1.2) (layers F.Cu F.Paste F.Mask) (net 7 "P19"))
         (pad 2 smd rect (at 1.65 0 0) (size 0.9 1.2) (layers B.Cu B.Paste B.Mask) (net 60 "index_bot"))
-        (pad 1 smd rect (at -1.65 0 0) (size 0.9 1.2) (layers B.Cu B.Paste B.Mask) (net 11 "P16"))
+        (pad 1 smd rect (at -1.65 0 0) (size 0.9 1.2) (layers B.Cu B.Paste B.Mask) (net 7 "P19"))
         (pad 2 smd rect (at 1.65 0 0) (size 0.9 1.2) (layers F.Cu F.Paste F.Mask) (net 60 "index_bot"))
         
         
-        (pad 1 thru_hole rect (at -3.81 0 0) (size 1.778 1.778) (drill 0.9906) (layers *.Cu *.Mask) (net 11 "P16"))
+        (pad 1 thru_hole rect (at -3.81 0 0) (size 1.778 1.778) (drill 0.9906) (layers *.Cu *.Mask) (net 7 "P19"))
         (pad 2 thru_hole circle (at 3.81 0 0) (size 1.905 1.905) (drill 0.9906) (layers *.Cu *.Mask) (net 60 "index_bot"))
     )
   
@@ -4208,13 +4208,13 @@
         (fp_line (start -0.75 0) (end -0.35 0) (layer B.SilkS) (width 0.1))
     
         
-        (pad 1 smd rect (at -1.65 0 0) (size 0.9 1.2) (layers F.Cu F.Paste F.Mask) (net 10 "P14"))
+        (pad 1 smd rect (at -1.65 0 0) (size 0.9 1.2) (layers F.Cu F.Paste F.Mask) (net 6 "P20"))
         (pad 2 smd rect (at 1.65 0 0) (size 0.9 1.2) (layers B.Cu B.Paste B.Mask) (net 61 "index_mid"))
-        (pad 1 smd rect (at -1.65 0 0) (size 0.9 1.2) (layers B.Cu B.Paste B.Mask) (net 10 "P14"))
+        (pad 1 smd rect (at -1.65 0 0) (size 0.9 1.2) (layers B.Cu B.Paste B.Mask) (net 6 "P20"))
         (pad 2 smd rect (at 1.65 0 0) (size 0.9 1.2) (layers F.Cu F.Paste F.Mask) (net 61 "index_mid"))
         
         
-        (pad 1 thru_hole rect (at -3.81 0 0) (size 1.778 1.778) (drill 0.9906) (layers *.Cu *.Mask) (net 10 "P14"))
+        (pad 1 thru_hole rect (at -3.81 0 0) (size 1.778 1.778) (drill 0.9906) (layers *.Cu *.Mask) (net 6 "P20"))
         (pad 2 thru_hole circle (at 3.81 0 0) (size 1.905 1.905) (drill 0.9906) (layers *.Cu *.Mask) (net 61 "index_mid"))
     )
   
@@ -4247,13 +4247,13 @@
         (fp_line (start -0.75 0) (end -0.35 0) (layer B.SilkS) (width 0.1))
     
         
-        (pad 1 smd rect (at -1.65 0 0) (size 0.9 1.2) (layers F.Cu F.Paste F.Mask) (net 9 "P15"))
+        (pad 1 smd rect (at -1.65 0 0) (size 0.9 1.2) (layers F.Cu F.Paste F.Mask) (net 5 "P21"))
         (pad 2 smd rect (at 1.65 0 0) (size 0.9 1.2) (layers B.Cu B.Paste B.Mask) (net 62 "index_top"))
-        (pad 1 smd rect (at -1.65 0 0) (size 0.9 1.2) (layers B.Cu B.Paste B.Mask) (net 9 "P15"))
+        (pad 1 smd rect (at -1.65 0 0) (size 0.9 1.2) (layers B.Cu B.Paste B.Mask) (net 5 "P21"))
         (pad 2 smd rect (at 1.65 0 0) (size 0.9 1.2) (layers F.Cu F.Paste F.Mask) (net 62 "index_top"))
         
         
-        (pad 1 thru_hole rect (at -3.81 0 0) (size 1.778 1.778) (drill 0.9906) (layers *.Cu *.Mask) (net 9 "P15"))
+        (pad 1 thru_hole rect (at -3.81 0 0) (size 1.778 1.778) (drill 0.9906) (layers *.Cu *.Mask) (net 5 "P21"))
         (pad 2 thru_hole circle (at 3.81 0 0) (size 1.905 1.905) (drill 0.9906) (layers *.Cu *.Mask) (net 62 "index_top"))
     )
   
@@ -4286,13 +4286,13 @@
         (fp_line (start -0.75 0) (end -0.35 0) (layer B.SilkS) (width 0.1))
     
         
-        (pad 1 smd rect (at -1.65 0 0) (size 0.9 1.2) (layers F.Cu F.Paste F.Mask) (net 11 "P16"))
+        (pad 1 smd rect (at -1.65 0 0) (size 0.9 1.2) (layers F.Cu F.Paste F.Mask) (net 7 "P19"))
         (pad 2 smd rect (at 1.65 0 0) (size 0.9 1.2) (layers B.Cu B.Paste B.Mask) (net 63 "inner_bot"))
-        (pad 1 smd rect (at -1.65 0 0) (size 0.9 1.2) (layers B.Cu B.Paste B.Mask) (net 11 "P16"))
+        (pad 1 smd rect (at -1.65 0 0) (size 0.9 1.2) (layers B.Cu B.Paste B.Mask) (net 7 "P19"))
         (pad 2 smd rect (at 1.65 0 0) (size 0.9 1.2) (layers F.Cu F.Paste F.Mask) (net 63 "inner_bot"))
         
         
-        (pad 1 thru_hole rect (at -3.81 0 0) (size 1.778 1.778) (drill 0.9906) (layers *.Cu *.Mask) (net 11 "P16"))
+        (pad 1 thru_hole rect (at -3.81 0 0) (size 1.778 1.778) (drill 0.9906) (layers *.Cu *.Mask) (net 7 "P19"))
         (pad 2 thru_hole circle (at 3.81 0 0) (size 1.905 1.905) (drill 0.9906) (layers *.Cu *.Mask) (net 63 "inner_bot"))
     )
   
@@ -4325,13 +4325,13 @@
         (fp_line (start -0.75 0) (end -0.35 0) (layer B.SilkS) (width 0.1))
     
         
-        (pad 1 smd rect (at -1.65 0 0) (size 0.9 1.2) (layers F.Cu F.Paste F.Mask) (net 10 "P14"))
+        (pad 1 smd rect (at -1.65 0 0) (size 0.9 1.2) (layers F.Cu F.Paste F.Mask) (net 6 "P20"))
         (pad 2 smd rect (at 1.65 0 0) (size 0.9 1.2) (layers B.Cu B.Paste B.Mask) (net 64 "inner_mid"))
-        (pad 1 smd rect (at -1.65 0 0) (size 0.9 1.2) (layers B.Cu B.Paste B.Mask) (net 10 "P14"))
+        (pad 1 smd rect (at -1.65 0 0) (size 0.9 1.2) (layers B.Cu B.Paste B.Mask) (net 6 "P20"))
         (pad 2 smd rect (at 1.65 0 0) (size 0.9 1.2) (layers F.Cu F.Paste F.Mask) (net 64 "inner_mid"))
         
         
-        (pad 1 thru_hole rect (at -3.81 0 0) (size 1.778 1.778) (drill 0.9906) (layers *.Cu *.Mask) (net 10 "P14"))
+        (pad 1 thru_hole rect (at -3.81 0 0) (size 1.778 1.778) (drill 0.9906) (layers *.Cu *.Mask) (net 6 "P20"))
         (pad 2 thru_hole circle (at 3.81 0 0) (size 1.905 1.905) (drill 0.9906) (layers *.Cu *.Mask) (net 64 "inner_mid"))
     )
   
@@ -4364,13 +4364,13 @@
         (fp_line (start -0.75 0) (end -0.35 0) (layer B.SilkS) (width 0.1))
     
         
-        (pad 1 smd rect (at -1.65 0 0) (size 0.9 1.2) (layers F.Cu F.Paste F.Mask) (net 9 "P15"))
+        (pad 1 smd rect (at -1.65 0 0) (size 0.9 1.2) (layers F.Cu F.Paste F.Mask) (net 5 "P21"))
         (pad 2 smd rect (at 1.65 0 0) (size 0.9 1.2) (layers B.Cu B.Paste B.Mask) (net 65 "inner_top"))
-        (pad 1 smd rect (at -1.65 0 0) (size 0.9 1.2) (layers B.Cu B.Paste B.Mask) (net 9 "P15"))
+        (pad 1 smd rect (at -1.65 0 0) (size 0.9 1.2) (layers B.Cu B.Paste B.Mask) (net 5 "P21"))
         (pad 2 smd rect (at 1.65 0 0) (size 0.9 1.2) (layers F.Cu F.Paste F.Mask) (net 65 "inner_top"))
         
         
-        (pad 1 thru_hole rect (at -3.81 0 0) (size 1.778 1.778) (drill 0.9906) (layers *.Cu *.Mask) (net 9 "P15"))
+        (pad 1 thru_hole rect (at -3.81 0 0) (size 1.778 1.778) (drill 0.9906) (layers *.Cu *.Mask) (net 5 "P21"))
         (pad 2 thru_hole circle (at 3.81 0 0) (size 1.905 1.905) (drill 0.9906) (layers *.Cu *.Mask) (net 65 "inner_top"))
     )
   
@@ -4403,13 +4403,13 @@
         (fp_line (start -0.75 0) (end -0.35 0) (layer B.SilkS) (width 0.1))
     
         
-        (pad 1 smd rect (at -1.65 0 -15) (size 0.9 1.2) (layers F.Cu F.Paste F.Mask) (net 12 "P10"))
+        (pad 1 smd rect (at -1.65 0 -15) (size 0.9 1.2) (layers F.Cu F.Paste F.Mask) (net 8 "P18"))
         (pad 2 smd rect (at 1.65 0 -15) (size 0.9 1.2) (layers B.Cu B.Paste B.Mask) (net 66 "out_home"))
-        (pad 1 smd rect (at -1.65 0 -15) (size 0.9 1.2) (layers B.Cu B.Paste B.Mask) (net 12 "P10"))
+        (pad 1 smd rect (at -1.65 0 -15) (size 0.9 1.2) (layers B.Cu B.Paste B.Mask) (net 8 "P18"))
         (pad 2 smd rect (at 1.65 0 -15) (size 0.9 1.2) (layers F.Cu F.Paste F.Mask) (net 66 "out_home"))
         
         
-        (pad 1 thru_hole rect (at -3.81 0 -15) (size 1.778 1.778) (drill 0.9906) (layers *.Cu *.Mask) (net 12 "P10"))
+        (pad 1 thru_hole rect (at -3.81 0 -15) (size 1.778 1.778) (drill 0.9906) (layers *.Cu *.Mask) (net 8 "P18"))
         (pad 2 thru_hole circle (at 3.81 0 -15) (size 1.905 1.905) (drill 0.9906) (layers *.Cu *.Mask) (net 66 "out_home"))
     )
   
@@ -4442,13 +4442,13 @@
         (fp_line (start -0.75 0) (end -0.35 0) (layer B.SilkS) (width 0.1))
     
         
-        (pad 1 smd rect (at -1.65 0 -25) (size 0.9 1.2) (layers F.Cu F.Paste F.Mask) (net 12 "P10"))
+        (pad 1 smd rect (at -1.65 0 -25) (size 0.9 1.2) (layers F.Cu F.Paste F.Mask) (net 8 "P18"))
         (pad 2 smd rect (at 1.65 0 -25) (size 0.9 1.2) (layers B.Cu B.Paste B.Mask) (net 67 "in_home"))
-        (pad 1 smd rect (at -1.65 0 -25) (size 0.9 1.2) (layers B.Cu B.Paste B.Mask) (net 12 "P10"))
+        (pad 1 smd rect (at -1.65 0 -25) (size 0.9 1.2) (layers B.Cu B.Paste B.Mask) (net 8 "P18"))
         (pad 2 smd rect (at 1.65 0 -25) (size 0.9 1.2) (layers F.Cu F.Paste F.Mask) (net 67 "in_home"))
         
         
-        (pad 1 thru_hole rect (at -3.81 0 -25) (size 1.778 1.778) (drill 0.9906) (layers *.Cu *.Mask) (net 12 "P10"))
+        (pad 1 thru_hole rect (at -3.81 0 -25) (size 1.778 1.778) (drill 0.9906) (layers *.Cu *.Mask) (net 8 "P18"))
         (pad 2 thru_hole circle (at 3.81 0 -25) (size 1.905 1.905) (drill 0.9906) (layers *.Cu *.Mask) (net 67 "in_home"))
     )
   
@@ -4850,7 +4850,7 @@
     
 
       (module VIA-0.6mm (layer F.Cu) (tedit 591DBFB0)
-      (at 180.75 102.75 0)   
+      (at 179 102.75 0)   
       
       (fp_text reference REF** (at 0 1.4) (layer F.SilkS) hide (effects (font (size 1 1) (thickness 0.15))))
       (fp_text value VIA-0.6mm (at 0 -1.4) (layer F.Fab) hide (effects (font (size 1 1) (thickness 0.15))))
@@ -5076,7 +5076,7 @@
         
 
             (module mounting_hole (layer F.Cu) (tedit 64B5A986)
-                (at 162.5 58 0)
+                (at 163 58 0)
                 (fp_text reference "H3" (at 0 3) (layer F.SilkS) hide
                     (effects (font (size 1 1) (thickness 0.15)))
                 )
@@ -5090,7 +5090,7 @@
         
 
             (module mounting_hole (layer F.Cu) (tedit 64B5A986)
-                (at 162.5 92 0)
+                (at 163 92 0)
                 (fp_text reference "H4" (at 0 3) (layer F.SilkS) hide
                     (effects (font (size 1 1) (thickness 0.15)))
                 )
@@ -5147,9 +5147,9 @@
             (gr_line (start 98.56053059999999 111.62503309999997) (end 95.60352955641874 111.44022059727617) (angle 90) (layer Edge.Cuts) (width 0.15))
 (gr_line (start 95.5965155469933 111.43977519658021) (end 92.0546619469948 111.21126851270934) (angle 90) (layer Edge.Cuts) (width 0.15))
 (gr_line (start 88.78 107.71852991612903) (end 88.78 60.2) (angle 90) (layer Edge.Cuts) (width 0.15))
-(gr_line (start 182.6 55.200000000000045) (end 182.6848262950495 56.0482629504952) (angle 90) (layer Edge.Cuts) (width 0.15))
-(gr_line (start 186.1674565 59.2) (end 198.35399999999998 59.2) (angle 90) (layer Edge.Cuts) (width 0.15))
-(gr_line (start 201.85399999999998 62.7) (end 201.85399999999998 110.8) (angle 90) (layer Edge.Cuts) (width 0.15))
+(gr_line (start 182.6 54.899999999999864) (end 182.66626426654668 55.52122749887508) (angle 90) (layer Edge.Cuts) (width 0.15))
+(gr_line (start 186.14652145600002 58.65) (end 198.35399999999998 58.65) (angle 90) (layer Edge.Cuts) (width 0.15))
+(gr_line (start 201.85399999999998 62.15) (end 201.85399999999998 110.8) (angle 90) (layer Edge.Cuts) (width 0.15))
 (gr_line (start 201.85399999999998 110.8) (end 201.8518846 111.33477439999999) (angle 90) (layer Edge.Cuts) (width 0.15))
 (gr_line (start 201.8518846 111.33477439999999) (end 201.74654660000002 114.68405849999999) (angle 90) (layer Edge.Cuts) (width 0.15))
 (gr_line (start 201.74654660000002 114.68405849999999) (end 201.70016600000002 115.1479171) (angle 90) (layer Edge.Cuts) (width 0.15))
@@ -5160,8 +5160,8 @@
 (gr_line (start 189.61743886720419 134.905757581416) (end 182.76998156065815 132.04008552422425) (angle 90) (layer Edge.Cuts) (width 0.15))
 (gr_arc (start 95.82185359999852 107.9470365999999) (end 95.59651549999852 111.4397751999999) (angle -0.11505218774311743) (layer Edge.Cuts) (width 0.15))
 (gr_arc (start 92.28 107.71852991612903) (end 88.78 107.71852991612903) (angle -86.30861272245693) (layer Edge.Cuts) (width 0.15))
-(gr_arc (start 186.1674565 55.69999999999982) (end 182.6848263 56.04826289999982) (angle -84.28940800272352) (layer Edge.Cuts) (width 0.15))
-(gr_arc (start 198.35399999999998 62.7) (end 201.85399999999998 62.7) (angle -90) (layer Edge.Cuts) (width 0.15))
+(gr_arc (start 186.14652145600002 55.15000000000009) (end 182.666264256 55.521227500000094) (angle -83.91147078231714) (layer Edge.Cuts) (width 0.15))
+(gr_arc (start 198.35399999999998 62.15) (end 201.85399999999998 62.15) (angle -90) (layer Edge.Cuts) (width 0.15))
 (gr_arc (start 194.23393110742538 124.85363683954932) (end 197.39105880742537 126.36444613954933) (angle -3.4936591856168775) (layer Edge.Cuts) (width 0.15))
 (gr_arc (start 190.96863911772104 131.6770956607072) (end 189.61743881772105 134.9057575607072) (angle -87.13644819919813) (layer Edge.Cuts) (width 0.15))
 (gr_arc (start 181.4187813101413 135.268747444933) (end 182.7699816101413 132.04008554493302) (angle -8.385216624223347) (layer Edge.Cuts) (width 0.15))
@@ -5169,7 +5169,7 @@
 (gr_line (start 88.75999999999999 60.2) (end 88.78 60.2) (angle 90) (layer Edge.Cuts) (width 0.15))
 (gr_line (start 88.7599999 57.397222) (end 88.75999999999999 60.2) (angle 90) (layer Edge.Cuts) (width 0.15))
 (gr_arc (start 136 172.2) (end 179.5517242 44.417969499999984) (angle -23.323974899795346) (layer Edge.Cuts) (width 0.15))
-(gr_line (start 182.6 55.200000000000045) (end 182.6 48.677370499999995) (angle 90) (layer Edge.Cuts) (width 0.15))
+(gr_line (start 182.6 54.899999999999864) (end 182.6 48.677370499999995) (angle 90) (layer Edge.Cuts) (width 0.15))
 (gr_line (start 125.4 37.61679149999998) (end 125.4000001 37.625145700000004) (angle 90) (layer Edge.Cuts) (width 0.15))
 (gr_arc (start 88.5 336.4) (end 182.2847076 131.87755959999998) (angle -22.071293602021456) (layer Edge.Cuts) (width 0.15))
 (gr_arc (start 93.25999999999999 57.397222) (end 90.53684209999999 53.814707399999996) (angle -52.76063703972808) (layer Edge.Cuts) (width 0.15))
