@@ -1,0 +1,301 @@
+---
+#---------------------------------------
+# sect: ***POINTS***
+#---------------------------------------
+points:
+  key:
+    padding: cy
+    spread: 1.05 * cx
+    splay: 0
+    tags:
+      1_u: true
+  zones:
+    matrix:
+      rows:
+        bottom: {}
+        home: {}
+        top: {}
+      columns:
+        pinky:
+          rows:
+            bottom:
+              name: pinky_bot
+              column_net: P8 # Front
+              bind: [0, 60, 5, 1.5]
+            home:
+              name: pinky_home
+              column_net: P5 # Front
+              bind: [0, 60, 0, 1.5]
+            top:
+              name: pinky_top
+              column_net: P2 # Front
+              bind: [1, 60, 0, 1.5]
+        ring:
+          key:
+            stagger: 2cx/3
+          rows:
+            bottom:
+              name: ring_bot
+              column_net: P14 # Back
+              bind: [0, 0, 0, 0]
+            home:
+              name: ring_home
+              column_net: P18 # Back
+              bind: [0, 0, 0, 0]
+            top:
+              name: ring_top
+              column_net: P20 # Back
+              bind: [1, 1, 0, 1.25]
+        middle:
+          key:
+            stagger: cx/3
+          rows:
+            bottom:
+              name: mid_bot
+              column_net: P7 # Front
+              bind: [0, 0, 0, 0]
+              # 18.75 to cover space next
+              # to inner thumb key
+            home:
+              name: mid_home
+              column_net: P4 # Front
+              bind: [0, 0, 0, 0]
+            top:
+              name: mid_top
+              column_net: P0 # Front
+              bind: [1, 1.25, 0, 1.25]
+        index:
+          key:
+            stagger: -cx/3
+          rows:
+            bottom:
+              name: index_bot
+              column_net: P15 # Back
+              bind: [0, 1, 12, 0]
+              # 12 to cover space next
+              # to inner thumb key
+            home:
+              name: index_home
+              column_net: P19 # Back
+              bind: [0, 0, 0, 0]
+            top:
+              name: index_top
+              column_net: P21 # Back
+              bind: [1.25, 1.5, 0, 0.5]
+        inner:
+          key:
+            stagger: -cx/6
+          rows:
+            bottom:
+              name: inner_bot
+              column_net: P6 # Front
+              bind: [0, 21.1, 4, 0]
+            home:
+              name: inner_home
+              column_net: P3 # Front
+              bind: [5.25, 21.1, 0, 1]
+              # surface area for microcontroller
+              # top: 5.25
+              # right: 21.1
+              # bottom: 0
+              # left: 1
+            top:
+              name: inner_top
+              column_net: P1 # Front
+              bind: [1, 1.5, 0, 1]
+              # add surface area for microcontroller
+              # top: 1
+              # right: 1.5
+              # bottom: 0
+              # left: 1
+    thumb:
+      key:
+        row_net: R0
+      anchor:
+        ref: index_bot
+        shift: [8.4, -22]
+      rows:
+        home:
+      columns:
+        inner:
+          key:
+            name: thumb_inr
+            splay: -15
+            # column_net: P9 # Front
+            bind: [1, 14, 10, 63.5]
+          # connect key to matrix
+          # top: 1
+          # right: 14
+          # bottom: 10
+          # left: 63.5
+        home:
+          key:
+            name: thumb_home
+            spread: 1.2cx
+            stagger: -.12cx
+            splay: -10
+            # column_net: P10 # Front
+            bind: [12, 3.85, 7.5, 3]
+          # connect key to microcontroller bottom
+          # top: 11
+          # right: 1.65
+          # bottom: 2
+          # left: 3
+#---------------------------------------
+# sect: ***OUTLINES***
+#---------------------------------------
+outlines:
+  _raw:
+    - what: rectangle
+      where: true
+      bound: true
+      size: [1cx - 0.5, 1cx -0.5]
+
+  keycaps:
+  - what: rectangle
+    where: true
+    size: [1cx - 0.5, 1cy - 0.5]
+    # Choc keycaps are 17.5 x 16.5
+    bound: false
+
+  curved_raw:
+  - what: outline
+    name: _raw
+    fillet: 1.5
+  - what: circle # thumb-promicro curve
+    radius: 150
+    where:
+      ref: thumb_home
+      shift: [-138.5, 5]
+    operation: intersect
+  - what: circle # thumb-promicro curve
+    radius: 90
+    where:
+      ref: thumb_home
+      shift: [-62.5, 43]
+    operation: intersect
+  - what: circle # bottom curve
+    radius: 185
+    where:
+      ref: thumb_home
+      shift: [0, -196]
+    operation: subtract
+
+  pcb_key_preview:
+  - what: outline
+    name: curved_raw
+    fillet: 1.5
+  - what: outline
+    name: keycaps
+    operation: stack
+
+  switch_cutouts:
+  - what: rectangle
+    where: true
+    size: 14
+    #size: [18, 17]
+    bound: false
+
+  panel:
+    - what: outline
+      name: curved_raw
+
+  switch_plate:
+    main:
+      what: outline
+      name: curved_raw
+      fillet: .5
+    keyholes:
+      what: outline
+      name: switch_cutouts
+      operation: subtract
+#---------------------------------------
+# sect: ***PCB***
+#---------------------------------------
+pcbs:
+  ferris:
+    outlines:
+      main:
+        outline: cutout
+      keycaps:
+        outline: keycaps
+        layer: Eco1.User
+    footprints:
+      choc_hotswap:
+        what: choc_new
+        where: true
+        params:
+          keycaps: true
+          reverse: true
+          hotswap: true
+          from: "{{column_net}}"
+          to: GND
+      choc:
+        what: choc
+        where: true
+        adjust:
+          rotate: 180
+        params:
+          keycaps: true
+          reverse: true
+          from: "{{column_net}}"
+          to: GND
+      mcu_pcb: # promicro microcontroller
+        what: promicro_pretty
+        where:
+          ref: inn_hom
+          shift: [20.25, -3.75]
+          rotate: -90
+        params:
+          orientation: down
+      pswitch_pcb: # power switch
+        what: pcm12
+        where:
+          ref: inn_bot
+          shift: [27.25, -8]
+          rotate: 90
+        params:
+          reverse: true
+          from: pos
+          to: RAW
+      reset_pcb: # reset button
+        what: b3u1000p
+        where:
+          ref: inn_bot
+          shift: [27.25, -15]
+          # keep 6.5 space between
+          # power switch and reset button
+          rotate: 0
+        params:
+          reverse: true
+          r1: RST
+          r2: GND
+      battery_holes_pcb: # pitch connector holes
+        what: bat
+        where:
+          ref: inn_bot
+          shift: [20.2, -13]
+          rotate: 90
+        params:
+          neg: GND
+      tenting_puck_pcb:
+        what: puck
+        adjust:
+          ref: mid_hom
+          shift: [6.45, -15.7]
+          rotate: -7
+        params:
+          reverseSilks: false
+          eastHole: false
+#---------------------------------------
+# sect: ***CASES***
+#---------------------------------------
+cases:
+  switchplate:
+    - what: outline
+      name: switch_plate
+      extrude: 1.2
+  bottom:
+    - what: outline
+      name: panel
+      extrude: 1.2

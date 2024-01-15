@@ -1,6 +1,8 @@
 # Keyboard Hardware
 
 Reset button:
+- EVQ-P7A01P
+- [DigiKey](https://www.digikey.com/en/products/detail/panasonic-electronic-components/EVQ-P7A01P/4429447)
 - B3U-1000P(M)
 - [AliExpress](https://www.aliexpress.com/item/1005002267741606.html?spm=a2g0o.order_list.order_list_main.11.44a718026HKxFB)
 
@@ -15,9 +17,11 @@ JST Connector:
 Power Switch:
 - G-Switch MK-12C02-G015
 - [AliExpress](https://www.aliexpress.com/item/4000685483225.html?spm=a2g0o.order_list.order_list_main.116.44a718026HKxFB)
+- PCM12SMTR
+- [DigiKey](https://www.digikey.com/en/products/detail/c-k/PCM12SMTR/1640112)
 
-Microcontroller:
-- Nice!Nano
+MCU:
+- [nice!nano v2](https://nicekeyboards.com/nice-nano)
 
 OLED:
-- Nice!View
+- [nice!view](https://nicekeyboards.com/nice-view)

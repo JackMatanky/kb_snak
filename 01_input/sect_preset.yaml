@@ -1,0 +1,58 @@
+# Did not work in Ergogen GUI 
+
+presets:
+  # These presets provide different layout options
+  # Select a preset in the `units` section below
+  # Note: The appropriate switch footprint will still need to be set in the `pcb` section
+  # * Key and Keycap Measures
+  mx:
+    # Space Between Key Centers
+    kx: u
+    ky: u
+    # Column Spread and Row Padding
+    spread_key: 19
+    padding_key: 19
+    # Switch Plate Key Cutout
+    kcow: 14
+    kcoh: 14
+    # Keycap Size
+    keycw: 18
+    keych: 18
+    # Diode Shift and Rotation
+    horizontal_diode_shift: 7
+    diode_rotation: 0
+    # Switch Rotation
+    switch_rotation: 0 # Hotswap north, led south
+  choc_v1:
+    # Space Between Key Centers
+    kx: cx
+    ky: cy
+    # Column Spread and Row Padding
+    spread_key: 18.5
+    padding_key: 17.5
+    # Switch Plate Key Cutout
+    kcow: 13.9
+    kcoh: 13.9
+    # Keycap Size
+    keycw: 17.5
+    keych: 16.5
+    # Diode Shift and Rotation
+    vertical_diode_shift: 1.5
+    horizontal_diode_shift: -0.5 kcow - 0.85
+    diode_rotation: -180
+    # Switch Rotation
+    switch_rotation: 180 # Hotswap south, led north
+  choc_v2:
+    $extends: presets.choc_v1
+    # Space Between Key Centers
+    kx: u
+    ky: u
+    # Column Spread and Row Padding
+    spread_key: 19
+    padding_key: 19
+    # Switch Plate Key Cutout
+    kcow: 14
+    kcoh: 14
+    # Keycap Size
+    keycw: 18
+    keych: 18
