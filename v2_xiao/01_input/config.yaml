@@ -58,10 +58,10 @@ units:
   splay_thumb_in: -10
   spread_thumb_in: 4(kx)/3
 
-  # nice!nano: 34.1 x 18.3 x 3.3 (mm)
+  # XIAO nRF52840: 20 x 17.5 x 3.3 (mm)
   # The nice nano footprint's center doesn't account
-  mcu_size_x: 18.3
-  mcu_size_y: 34.1
+  mcu_size_x: 17.5
+  mcu_size_y: 20
   mcu_size_xo: 0.5(mcu_size_x)
   mcu_size_yo: 0.5(mcu_size_y)
   mcu_spacing_left: 1.5
@@ -72,25 +72,6 @@ units:
   mcu_top_left_board_shift_x: mcu_spacing_left - mcu_size_xo - 1
   mcu_top_board_shift_y: mcu_size_yo + 1.05
   mcu_bottom_board_shift_y: -(mcu_size_yo + 25.1)
-
-  # nice!view: 36 x 14 x 2.9 (mm)
-  oled_size_x: 14
-  oled_size_y: 36
-  oled_size_xo: 0.5(oled_size_x)
-  oled_size_yo: 0.5(oled_size_y)
-  oled_shift_x: 0
-  oled_shift_y: mcu_size_yo - oled_size_yo - 0.85
-  oled_jumper_y: 2.6
-  # Screen Size and Offset From Center
-  oled_screen_offset_x: 1.6
-  oled_screen_offset_top_y: 2.45 + 3.65 # = 6.1
-  oled_screen_offset_bot_y: 1.3 + 1.7 + 1.6 # = 4.6
-  oled_screen_size_x: oled_size_x - 2(oled_screen_offset_x)
-  oled_screen_size_y: oled_size_y - (oled_screen_offset_top_y + oled_screen_offset_bot_y)
-  oled_screen_size_xo: 0.5(oled_screen_size_x)
-  oled_screen_size_yo: 0.5(oled_screen_size_y)
-  oled_screen_shift_x: 0
-  oled_screen_shift_y: oled_size_yo - (oled_screen_size_yo + oled_screen_offset_top_y)
 
   # Power Switch
   sw_power_size_x: 4.55 # Footprint; Actual width: 3.0 ± 0.05
@@ -111,8 +92,8 @@ units:
   jst_main_size_yo: 0.5(jst_main_size_y)
   jst_sec_size_y: jst_size_y - jst_main_size_y
   jst_sec_size_yo: 0.5(jst_sec_size_y)
-  jst_main_shift_x: oled_size_xo - jst_main_size_yo
-  jst_main_shift_y: -(oled_size_yo + oled_jumper_y + jst_size_xo + 0.5)
+  jst_main_shift_x: mcu_size_xo - jst_main_size_yo
+  jst_main_shift_y: -(mcu_size_yo + mcu_jumper_y + jst_size_xo + 0.5)
   jst_sec_shift_x: 0
   jst_sec_shift_y: -(jst_main_size_yo + jst_sec_size_yo)
   jst_rotate: 270
@@ -321,24 +302,6 @@ points:
       anchor:
         ref: matrix_inner_top
         shift: [mcu_shift_x, mcu_shift_y - kyo]
-    oled:
-      key:
-        tags: part
-        name: oled
-        width: oled_size_x
-        height: oled_size_y
-      anchor:
-        ref: mcu
-        shift: [oled_shift_x, oled_shift_y]
-    oled_screen:
-      key:
-        tags: part
-        name: oled_screen
-        width: oled_screen_size_x
-        height: oled_screen_size_y
-      anchor:
-        ref: oled
-        shift: [oled_screen_shift_x, oled_screen_shift_y]
     sw_power:
       key:
         tags: part
@@ -356,7 +319,7 @@ points:
         width: jst_size_x
         height: jst_main_size_y
       anchor:
-        ref: oled
+        ref: mcu
         shift: [jst_main_shift_x, jst_main_shift_y]
         rotate: jst_rotate
     jst_sec:
@@ -449,16 +412,6 @@ outlines:
       size: [mcu_size_x, mcu_size_y]
       adjust:
         ref: mcu
-  _oled:
-    - what: rectangle
-      size: [oled_size_x, oled_size_y]
-      adjust:
-        ref: oled
-  _oled_screen:
-    - what: rectangle
-      size: [oled_screen_size_x, oled_screen_size_y]
-      adjust:
-        ref: oled_screen
   _sw_power:
     - what: rectangle
       size: [sw_power_size_x, sw_power_size_y]
@@ -576,10 +529,6 @@ outlines:
   _components:
     - name: _mcu
       operation: stack
-    - name: _oled
-      operation: stack
-    - name: _oled_screen
-      operation: stack
     - name: _sw_power
       operation: stack
     - name: _jst
@@ -590,7 +539,6 @@ outlines:
   plate_top:
     - name: _holes_screw
     - name: _switches
-    - name: _oled_screen
   plate_bottom:
     - name: _holes_standoff
     - name: _mcu
@@ -697,7 +645,7 @@ pcbs:
 
       # MCU
       nice_nano:
-        what: nice_nano_pretty
+        what: xiao_flatfoot
         where.ref: mcu
         params:
           traces: true
@@ -733,42 +681,6 @@ pcbs:
           P14: "F4"  # FREE PIN
           P16: "T1" # Thumb Outer
           P10: "T2" # Thumb Inner
-      # OLED
-      nice_view:
-        what: nice_view
-        where.ref: oled
-        params:
-          reverse: true
-          MOSI: DPD
-          SCK: DPC
-          CS: DPE
-          show_labels: true
-          jumpers_at_bottom: true
-      via_oled_mosi:
-        what: via
-        where:
-          ref: mcu
-          shift: [-(mcu_size_xo - 2.4), -(mcu_size_yo + 1.65)]
-        params.net: DPD
-      via_oled_sck:
-        what: via
-        where:
-          ref: mcu
-          shift: [-(mcu_size_xo - 1.6), -(mcu_size_yo + 0.9)]
-        params.net: DPC
-      via_oled_cs:
-        what: via
-        where:
-          ref: mcu
-          shift: [-(mcu_size_xo - 0.8), -(mcu_size_yo + 0.15)]
-        params.net: DPE
-      via_oled_GND:
-        what: via
-        where:
-          ref: mcu
-          shift: [0, -(mcu_size_yo + 4.85)]
-        params.net: GND
-
       # Power Switch
       power:
         what: switch_power
