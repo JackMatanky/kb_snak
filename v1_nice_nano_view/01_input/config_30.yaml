@@ -2,7 +2,7 @@
 # sect: META
 #--------------------------------------
 meta:
-  engine: 4.0.4
+  #engine: 4.0.4
   version: 0.1
   author: JackMatanky
   name: snak
@@ -45,23 +45,23 @@ units:
   dpy: ky + 8
 
   # Column Stagger
-  stagger_ring: 2(kx)/3
+  stagger_ring: 5(kx)/8
   stagger_middle: (kx)/3
   stagger_index: -(kx)/3
-  stagger_inner: -(kx)/6
-  stagger_thumb: -(kx)/8
+  stagger_inner: -(kx)/2
+  stagger_thumb: -(kx)/10
 
   # Thumb
-  offset_thumb_x: 11
-  offset_thumb_y: -25.25
-  splay_thumb_out: -15
+  offset_thumb_x: 15
+  offset_thumb_y: -25
+  splay_thumb_out: -17
   splay_thumb_in: -10
-  spread_thumb_in: 4(kx)/3
+  spread_thumb_in: kx + 2.25
 
-  # XIAO nRF52840: 20 x 17.5 x 3.3 (mm)
+  # nice!nano: 34.1 x 18.3 x 3.3 (mm)
   # The nice nano footprint's center doesn't account
-  mcu_size_x: 17.5
-  mcu_size_y: 20
+  mcu_size_x: 18.3
+  mcu_size_y: 34.1
   mcu_size_xo: 0.5(mcu_size_x)
   mcu_size_yo: 0.5(mcu_size_y)
   mcu_spacing_left: 1.5
@@ -69,17 +69,36 @@ units:
   mcu_shift_x: kxo + mcu_size_xo + mcu_spacing_left
   mcu_shift_y: kyo - mcu_size_yo - 0.35
   mcu_right_board_shift_x: mcu_size_xo + mcu_spacing_right
-  mcu_top_left_board_shift_x: mcu_spacing_left - mcu_size_xo - 1
-  mcu_top_board_shift_y: mcu_size_yo + 1.05
-  mcu_bottom_board_shift_y: -(mcu_size_yo + 25.1)
+  mcu_top_left_board_shift_x: mcu_spacing_left - mcu_size_xo - 4
+  mcu_top_board_shift_y: mcu_size_yo + 1.25
+  mcu_bottom_board_shift_y: -(mcu_size_yo)
+
+  # nice!view: 36 x 14 x 2.9 (mm)
+  oled_size_x: 14
+  oled_size_y: 36
+  oled_size_xo: 0.5(oled_size_x)
+  oled_size_yo: 0.5(oled_size_y)
+  oled_shift_x: 0
+  oled_shift_y: mcu_size_yo - oled_size_yo - 1.1
+  oled_jumper_y: 2.6
+  # Screen Size and Offset From Center
+  oled_screen_offset_x: 1.6
+  oled_screen_offset_top_y: 2.45 + 3.65 # = 6.1
+  oled_screen_offset_bot_y: 1.3 + 1.7 + 1.6 # = 4.6
+  oled_screen_size_x: oled_size_x - 2(oled_screen_offset_x)
+  oled_screen_size_y: oled_size_y - (oled_screen_offset_top_y + oled_screen_offset_bot_y)
+  oled_screen_size_xo: 0.5(oled_screen_size_x)
+  oled_screen_size_yo: 0.5(oled_screen_size_y)
+  oled_screen_shift_x: 0
+  oled_screen_shift_y: oled_size_yo - (oled_screen_size_yo + oled_screen_offset_top_y)
 
   # Power Switch
   sw_power_size_x: 4.55 # Footprint; Actual width: 3.0 ± 0.05
   sw_power_size_y: 8.8 # Footprint; Actual height: 8.3
   sw_power_size_xo: 0.5(sw_power_size_x)
   sw_power_size_yo: 0.5(sw_power_size_y)
-  sw_power_shift_x: -0.35
-  sw_power_shift_y: mcu_size_yo - 0.8 # + sw_power_size_xo
+  sw_power_shift_x: 0
+  sw_power_shift_y: mcu_size_yo - 0.6 # + sw_power_size_xo
   sw_power_rotate: 90
 
   # JST Battery Connector (2P, Curved Needed)
@@ -92,11 +111,20 @@ units:
   jst_main_size_yo: 0.5(jst_main_size_y)
   jst_sec_size_y: jst_size_y - jst_main_size_y
   jst_sec_size_yo: 0.5(jst_sec_size_y)
-  jst_main_shift_x: mcu_size_xo - jst_main_size_yo
-  jst_main_shift_y: -(mcu_size_yo + mcu_jumper_y + jst_size_xo + 0.5)
+  jst_main_shift_x: oled_size_xo - jst_main_size_yo
+  jst_main_shift_y: -(oled_size_yo + oled_jumper_y + jst_size_xo + 0.5)
   jst_sec_shift_x: 0
   jst_sec_shift_y: -(jst_main_size_yo + jst_sec_size_yo)
   jst_rotate: 270
+
+  # Reset Switch
+  sw_reset_size_x: 3.4 # Footprint; Actual width: 2.9
+  sw_reset_size_y: 5.5 # Footprint; Actual height: 4.7
+  sw_reset_size_xo: 0.5(sw_reset_size_x)
+  sw_reset_size_yo: 0.5(sw_reset_size_y)
+  sw_reset_shift_x: -1
+  sw_reset_shift_y: 15
+  sw_reset_rotate: 123
 
   # PCB and Case Holes
   # Points height and width
@@ -106,11 +134,11 @@ units:
   screw: 1
   standoff: 1.5
   # Positions
-  hole_right_shift_x: 9.25
-  hole_right_shift_y: -5.0
-  hole_left_shift_x: 9.25
+  hole_right_shift_x: 9
+  hole_right_shift_y: -6.25
+  hole_left_shift_x: 9
   hole_left_shift_y: 7.5
-  hole_thumb_shift_x: 12
+  hole_thumb_shift_x: .5(spread_thumb_in)
   hole_thumb_shift_y: 0
 
   # Outline Shapes
@@ -118,15 +146,15 @@ units:
   round_board_fillet: 3
 
   # Top Border
-  top_rect_size_x: 5(kx) + 0.5(pxo)
+  top_rect_size_x: 5(kx) + 0.4(pxo)
   top_rect_size_y: 1.5px
-  top_rect_shift_x: 0.3
+  top_rect_shift_x: -0.25
   top_rect_shift_y: 0
   
   # Top Right Circle
-  top_right_crcl_radius: 125
-  top_right_crcl_shift_x: -1.561
-  top_right_crcl_shift_y: -96.4
+  top_right_crcl_radius: 71
+  top_right_crcl_shift_x: 1
+  top_right_crcl_shift_y: -43
 
   # Top Left Circle
   top_left_crcl_radius: 100
@@ -141,7 +169,7 @@ units:
 
   bot_circle_radius: 235
   bot_circle_shift_x: -11.5
-  bot_circle_shift_y: -246
+  bot_circle_shift_y: -270
 
 #--------------------------------------
 # sect: POINTS
@@ -158,109 +186,67 @@ points:
       key:
         padding: padding_key
         spread: spread_key
+        tags: 
+          - key
+          - matrix
       rows:
-        bot.row_net: R3
-        mid.row_net: R2
-        top.row_net: R1
+        bot.key:
+          tags: 
+          - key
+          - matrix
+          - bot
+          row_net: R3
+        mid.key:
+          tags: 
+          - key
+          - matrix
+          - mid
+          row_net: R2
+        top.key:
+          tags: 
+          - key
+          - matrix
+          - top
+          row_net: R1
       columns:
         pinky:
-          key.column_net: C1
-          rows:
-            bot.tags:
-              - key
-              - matrix
-              - bot
-              - pinky
-            mid.tags:
-              - key
-              - matrix
-              - mid
-              - pinky
-            top.tags:
-              - key
-              - matrix
-              - top
-              - pinky
-        ring:
+          rows.bot.skip: true
           key:
-            stagger: stagger_ring
-            column_net: C2
-          rows:
-            bot.tags:
-              - key
-              - matrix
-              - bot
-              - ring
-            mid.tags:
-              - key
-              - matrix
-              - mid
-              - ring
-            top.tags:
-              - key
-              - matrix
-              - top
-              - ring
-        middle:
-          key:
-            stagger: stagger_middle
-            column_net: C3
-          rows:
-            bot.tags:
-              - key
-              - matrix
-              - bot
-              - middle
-            mid.tags:
-              - key
-              - matrix
-              - mid
-              - middle
-            top.tags:
-              - key
-              - matrix
-              - top
-              - middle
-        index:
-          key:
-            stagger: stagger_index
-            column_net: C4
-          rows:
-            bot.tags:
-              - key
-              - matrix
-              - bot
-              - index
-            mid.tags:
-              - key
-              - matrix
-              - mid
-              - index
-            top.tags:
-              - key
-              - matrix
-              - top
-              - index
+            tags: 
+            - key
+            - matrix
+            - pinky
+            column_net: C1
+        ring.key:
+          tags: 
+          - key
+          - matrix
+          - ring
+          stagger: stagger_ring
+          column_net: C2
+        middle.key:
+          tags: 
+          - key
+          - matrix
+          - middle
+          stagger: stagger_middle
+          column_net: C3
+        index.key:
+          tags: 
+          - key
+          - matrix
+          - index
+          stagger: stagger_index
+          column_net: C4
         inner:
+          rows.bot.skip: true
           key:
+            tags: 
+            - key
+            - matrix
+            - inner
             stagger: stagger_inner
             column_net: C5
-          rows:
-            bot.tags:
-              - key
-              - matrix
-              - bot
-              - inner
-            mid.tags:
-              - key
-              - matrix
-              - mid
-              - inner
-            top.tags:
-              - key
-              - matrix
-              - top
-              - inner
     thumb:
       key.tags: 
         - key
@@ -292,7 +278,25 @@ points:
         height: mcu_size_y
       anchor:
         ref: matrix_inner_top
-        shift: [mcu_shift_x, mcu_shift_y - kyo]
+        shift: [mcu_shift_x, mcu_shift_y - .4(kx)]
+    oled:
+      key:
+        tags: part
+        name: oled
+        width: oled_size_x
+        height: oled_size_y
+      anchor:
+        ref: mcu
+        shift: [oled_shift_x, oled_shift_y]
+    oled_screen:
+      key:
+        tags: part
+        name: oled_screen
+        width: oled_screen_size_x
+        height: oled_screen_size_y
+      anchor:
+        ref: oled
+        shift: [oled_screen_shift_x, oled_screen_shift_y]
     sw_power:
       key:
         tags: part
@@ -310,7 +314,7 @@ points:
         width: jst_size_x
         height: jst_main_size_y
       anchor:
-        ref: mcu
+        ref: oled
         shift: [jst_main_shift_x, jst_main_shift_y]
         rotate: jst_rotate
     jst_sec:
@@ -323,6 +327,16 @@ points:
         ref: jst_main
         shift: [jst_sec_shift_x, jst_sec_shift_y]
         #rotate: jst_rotate
+    sw_reset:
+      key:
+        tags: part
+        name: sw_reset
+        width: sw_reset_size_x
+        height: sw_reset_size_y
+      anchor:
+        ref: matrix_pinky_top
+        shift: [sw_reset_shift_x, sw_reset_shift_y]
+        rotate: sw_reset_rotate
 
     # * Mounting Holes
     hole_left_top:
@@ -393,6 +407,16 @@ outlines:
       size: [mcu_size_x, mcu_size_y]
       adjust:
         ref: mcu
+  _oled:
+    - what: rectangle
+      size: [oled_size_x, oled_size_y]
+      adjust:
+        ref: oled
+  _oled_screen:
+    - what: rectangle
+      size: [oled_screen_size_x, oled_screen_size_y]
+      adjust:
+        ref: oled_screen
   _sw_power:
     - what: rectangle
       size: [sw_power_size_x, sw_power_size_y]
@@ -407,6 +431,11 @@ outlines:
       size: [jst_size_x, jst_sec_size_y]
       adjust:
         ref: jst_sec
+  _sw_reset:
+    - what: rectangle
+      size: [sw_reset_size_x, sw_reset_size_y]
+      adjust:
+        ref: sw_reset
   _holes_screw:
     - what: circle
       where: [hole]
@@ -422,7 +451,7 @@ outlines:
       fillet: board_fillet
       points:
         # Pinky
-        - ref: matrix_pinky_bot
+        - ref: matrix_pinky_mid
           shift: [-.95pxo, -pyo]
         - ref: matrix_pinky_top
           shift: [-.95pxo, .5kyo]
@@ -436,7 +465,7 @@ outlines:
           shift: [kxo, kyo]
         # Inner
         - ref: matrix_inner_top
-          shift: [pxo, kyo]
+          shift: [.25(kx), .5(pyo)]
         # MCU
         - ref: mcu # MCU Top Left Corner
           shift: [mcu_top_left_board_shift_x, mcu_top_board_shift_y]
@@ -447,7 +476,7 @@ outlines:
         # Thumb
         # MCU-thumb curve
         - ref: thumb_in
-          shift: [pxo, .96(pyo)]
+          shift: [pxo, .9(pyo)]
         - ref: thumb_in
           shift: [pxo, -pyo]
 
@@ -459,25 +488,13 @@ outlines:
       adjust:
         ref: matrix_middle_top
         shift: [top_rect_shift_x, top_rect_shift_y]
-  _top_right:
+  _top_curve:
     - name: _top_rect
     - what: circle
       radius: top_right_crcl_radius
       adjust:
         ref: matrix_middle_mid
         shift: [top_right_crcl_shift_x, top_right_crcl_shift_y]
-      operation: intersect
-  _top_left:
-    - name: _top_rect
-    - what: circle
-      radius: top_left_crcl_radius
-      adjust:
-        ref: matrix_middle_mid
-        shift: [top_left_crcl_shift_x, top_left_crcl_shift_y]
-      operation: intersect
-  _top_curve:
-    - name: _top_left
-    - name: _top_right
       operation: intersect
   
   # Bottom Border
@@ -492,7 +509,7 @@ outlines:
     - what: circle
       radius: bot_circle_radius
       adjust:
-        ref: matrix_pinky_bot
+        ref: matrix_pinky_mid
         shift: [bot_circle_shift_x, bot_circle_shift_y]
       operation: intersect
 
@@ -505,21 +522,28 @@ outlines:
   _components:
     - name: _mcu
       operation: stack
+    - name: _oled
+      operation: stack
+    - name: _oled_screen
+      operation: stack
     - name: _sw_power
       operation: stack
     - name: _jst
       operation: stack
-
+    - name: _sw_reset
+      operation: stack
 
   plate_top:
     - name: _holes_screw
     - name: _switches
+    - name: _oled_screen
   plate_bottom:
     - name: _holes_standoff
     - name: _mcu
     - name: _jst
   plate_opening:
     - name: _sw_power
+    - name: _sw_reset
   board_keys:
     - name: _board
     - operation: subtract
@@ -619,42 +643,78 @@ pcbs:
 
       # MCU
       nice_nano:
-        what: xiao_flatfoot
+        what: nice_nano_pretty
         where.ref: mcu
         params:
-          # traces: true
-          # show_via_labels: true
-          # show_silk_labels: true
-          # show_instructions: true
+          traces: true
+          show_via_labels: true
+          show_silk_labels: true
+          show_instructions: true
 
-          # # Pin Assignments (Controller on top facing down)
-          # # Right Side
-          # P0: "F1"  # FREE PIN
-          # P1: "F2"  # FREE PIN
-          # # GND
-          # # GND
-          # P2: "F3"  # FREE PIN
-          # P3: "DPD" # MOSI: Display Data
-          # P4: "DPC" # SCK: Display Clock
-          # P5: "DPE" # Display CS (nice!view only)
-          # P6: "R1"  # Row Top
-          # P7: "R2"  # Row Middle
-          # P8: "R3"  # Row Bottom
-          # P9: "R4"  # Row Thumb
+          # Pin Assignments (Controller on top facing down)
+          # Right Side
+          P0: "F1"  # FREE PIN
+          P1: "F2"  # FREE PIN
+          # GND
+          # GND
+          P2: "F3"  # FREE PIN
+          P3: "DPD" # MOSI: Display Data
+          P4: "DPC" # SCK: Display Clock
+          P5: "DPE" # Display CS (nice!view only)
+          P6: "R1"  # Row Top
+          P7: "R2"  # Row Middle
+          P8: "R3"  # Row Bottom
+          P9: "R4"  # Row Thumb
 
-          # # Left Side
-          # # RAW     # Battery Pos
-          # # GND     # Ground / Battery Neg
-          # # RST     # Reset pin
-          # # VCC     # External Power
-          # P21: "C1" # Column Pinky
-          # P20: "C2" # Column Ring
-          # P19: "C3" # Column Middle
-          # P18: "C4" # Column Index
-          # P15: "C5" # Column Inner
-          # P14: "F4"  # FREE PIN
-          # P16: "T1" # Thumb Outer
-          # P10: "T2" # Thumb Inner
+          # Left Side
+          # RAW     # Battery Pos
+          # GND     # Ground / Battery Neg
+          # RST     # Reset pin
+          # VCC     # External Power
+          P21: "C1" # Column Pinky
+          P20: "C2" # Column Ring
+          P19: "C3" # Column Middle
+          P18: "C4" # Column Index
+          P15: "C5" # Column Inner
+          P14: "F4"  # FREE PIN
+          P16: "T1" # Thumb Outer
+          P10: "T2" # Thumb Inner
+      # OLED
+      nice_view:
+        what: nice_view
+        where.ref: oled
+        params:
+          reverse: true
+          MOSI: DPD
+          SCK: DPC
+          CS: DPE
+          show_labels: true
+          jumpers_at_bottom: true
+      via_oled_mosi:
+        what: via
+        where:
+          ref: mcu
+          shift: [-(mcu_size_xo - 2.4), -(mcu_size_yo + 1.65)]
+        params.net: DPD
+      via_oled_sck:
+        what: via
+        where:
+          ref: mcu
+          shift: [-(mcu_size_xo - 1.6), -(mcu_size_yo + 0.9)]
+        params.net: DPC
+      via_oled_cs:
+        what: via
+        where:
+          ref: mcu
+          shift: [-(mcu_size_xo - 0.8), -(mcu_size_yo + 0.15)]
+        params.net: DPE
+      via_oled_GND:
+        what: via
+        where:
+          ref: mcu
+          shift: [0, -(mcu_size_yo + 4.85)]
+        params.net: GND
+
       # Power Switch
       power:
         what: switch_power
@@ -696,6 +756,39 @@ pcbs:
         where:
           ref: jst_main
           shift: [0, jst_main_size_yo + 0.5]
+        params.net: GND
+      
+      # Reset Button
+      reset:
+        what: switch_reset
+        where.ref: sw_reset
+        params:
+          reverse: true
+          from: GND
+          to: RST
+      via_rst_1: # left side
+        what: via
+        where:
+          ref: sw_reset
+          shift: [0.35(sw_reset_size_xo), -(sw_reset_size_yo + 1)]
+        params.net: RST
+      via_rst_2: # left side
+        what: via
+        where:
+          ref: sw_reset
+          shift: [-0.35(sw_reset_size_xo), -(sw_reset_size_yo + 3)]
+        params.net: RST
+      via_reset_gnd_1: # right side
+        what: via
+        where:
+          ref: sw_reset
+          shift: [-0.35(sw_reset_size_xo), -(sw_reset_size_yo + 1)]
+        params.net: GND
+      via_reset_gnd_2: # right side
+        what: via
+        where:
+          ref: sw_reset
+          shift: [0.35(sw_reset_size_xo), -(sw_reset_size_yo + 3)]
         params.net: GND
       
       # M2 Screw Holes

@@ -11,11 +11,17 @@ The two command-line options for generating Ergogen files based on current direc
 1. kn_snak:
 
 ```node
-node D:\keyboard_dev\ergogen\src\cli.js 01_input\config.yaml -o 02_output
+node D:\keyboard_dev\ergogen\src\cli.js v1_nice_nano_view\01_input\config.yaml -o v1_nice_nano_view\02_output
+
+node D:\keyboard_dev\ergogen\src\cli.js v2_xiao\01_input\config.yaml -o v2_xiao\02_output
 ```
 
 2. keyboard_dev:
 
 ```node
-node ergogen\src\cli.js kb_snak\01_input\config.yaml -o kb_snak\02_output
+node ergogen\src\cli.js kb_snak\v1_nice_nano_view\01_input\config.yaml -o kb_snak\v1_nice_nano_view\02_output
+
+node ergogen\src\cli.js kb_snak\v2_xiao\01_input\config.yaml -o kb_snak\v2_xiao\02_output
+
+node ergogen\src\cli.js kb_snak\v2_xiao\rufous.yaml -o kb_snak\v2_xiao\02_output
 ```
