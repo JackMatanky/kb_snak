@@ -2,12 +2,12 @@
 # sect: META
 #--------------------------------------
 meta:
-  engine: 4.0.4
-  version: 0.1
+  #engine: 4.0.4
+  version: 1.2.1
   author: JackMatanky
   name: snak
-  ref: &kb_ref "SNAK v0.1"
-  full_name: &kb_full_name "SNAK: Sisyphus Needed a Keyboard, v0.1"
+  ref: &kb_ref "SNAK v1.2.1"
+  full_name: &kb_full_name "SNAK: Sisyphus Needed a Keyboard, v1.2.1"
   url: &kb_url https://github.com/JackMatanky/kb_snak
   # switch:
   #   $extends: presets.mx
@@ -47,8 +47,8 @@ units:
   # Column Stagger
   stagger_ring: 5(kx)/8
   stagger_middle: (kx)/3
-  stagger_index: -2(kx)/5
-  stagger_inner: -(kx)/6
+  stagger_index: -(kx)/3
+  stagger_inner: -(kx)/2
   stagger_thumb: -(kx)/10
 
   # Thumb
@@ -58,18 +58,17 @@ units:
   splay_thumb_in: -10
   spread_thumb_in: kx + 2.25
 
-  # nice!nano: 34.1 x 18.3 x 3.3 (mm)
-  # The nice nano footprint's center doesn't account
-  mcu_size_x: 18.3
-  mcu_size_y: 34.1
+  # XIAO nRF52840: 20 x 17.5 x 3.3 (mm)
+  mcu_size_x: 17.5
+  mcu_size_y: 20
   mcu_size_xo: 0.5(mcu_size_x)
   mcu_size_yo: 0.5(mcu_size_y)
   mcu_spacing_left: 1.5
   mcu_spacing_right: 0.75
   mcu_shift_x: kxo + mcu_size_xo + mcu_spacing_left
-  mcu_shift_y: kyo - mcu_size_yo - 0.35
+  mcu_shift_y: kyo - mcu_size_yo - 1.5
   mcu_right_board_shift_x: mcu_size_xo + mcu_spacing_right
-  mcu_top_left_board_shift_x: mcu_spacing_left - mcu_size_xo - 1
+  mcu_top_left_board_shift_x: mcu_spacing_left - mcu_size_xo - 4
   mcu_top_board_shift_y: mcu_size_yo + 1.25
   mcu_bottom_board_shift_y: -(mcu_size_yo)
 
@@ -79,7 +78,7 @@ units:
   oled_size_xo: 0.5(oled_size_x)
   oled_size_yo: 0.5(oled_size_y)
   oled_shift_x: 0
-  oled_shift_y: mcu_size_yo - oled_size_yo - 2
+  oled_shift_y: mcu_size_yo - oled_size_yo - .75
   oled_jumper_y: 2.6
 
   # Screen Size and Offset From Center
@@ -98,16 +97,16 @@ units:
   sw_power_size_y: 8.8 # Footprint; Actual height: 8.3
   sw_power_size_xo: 0.5(sw_power_size_x)
   sw_power_size_yo: 0.5(sw_power_size_y)
-  sw_power_shift_x: -0.35
-  sw_power_shift_y: mcu_size_yo - 0.8 # + sw_power_size_xo
+  sw_power_shift_x: 0
+  sw_power_shift_y: mcu_size_yo - 0.6 # + sw_power_size_xo
   sw_power_rotate: 90
 
   # JST Battery Connector (2P, Curved Needed)
+  # Footprint center at (3.45, 1.85)
   jst_size_x: 6.9 # Footprint; Actual width: 4.5 ± 0.2
   jst_size_y: 10.35 # Footprint; Actual height: 6.1 ± 0.1
   jst_size_xo: 0.5(jst_size_x)
   jst_size_yo: 0.5(jst_size_y)
-  # Footprint center at (3.45, 1.85)
   jst_main_size_y: 3.7
   jst_main_size_yo: 0.5(jst_main_size_y)
   jst_sec_size_y: jst_size_y - jst_main_size_y
@@ -118,15 +117,6 @@ units:
   jst_sec_shift_y: -(jst_main_size_yo + jst_sec_size_yo)
   jst_rotate: 270
 
-  # Reset Switch
-  sw_reset_size_x: 3.4 # Footprint; Actual width: 2.9
-  sw_reset_size_y: 5.5 # Footprint; Actual height: 4.7
-  sw_reset_size_xo: 0.5(sw_reset_size_x)
-  sw_reset_size_yo: 0.5(sw_reset_size_y)
-  sw_reset_shift_x: -1
-  sw_reset_shift_y: 15
-  sw_reset_rotate: 123
-
   # PCB and Case Holes
   # Points height and width
   hole_size_x: 0.1
@@ -135,9 +125,9 @@ units:
   screw: 1
   standoff: 1.5
   # Positions
-  hole_right_shift_x: 9.25
-  hole_right_shift_y: -5.0
-  hole_left_shift_x: 9.25
+  hole_right_shift_x: 9
+  hole_right_shift_y: -6.25
+  hole_left_shift_x: 9
   hole_left_shift_y: 7.5
   hole_thumb_shift_x: .5(spread_thumb_in)
   hole_thumb_shift_y: 0
@@ -147,15 +137,15 @@ units:
   round_board_fillet: 3
 
   # Top Border
-  top_rect_size_x: 5(kx) + 0.5(pxo)
+  top_rect_size_x: 5(kx) + 0.4(pxo)
   top_rect_size_y: 1.5px
-  top_rect_shift_x: 0.3
+  top_rect_shift_x: -0.25
   top_rect_shift_y: 0
   
   # Top Right Circle
-  top_right_crcl_radius: 125
-  top_right_crcl_shift_x: -1.561
-  top_right_crcl_shift_y: -96.4
+  top_right_crcl_radius: 71
+  top_right_crcl_shift_x: 1
+  top_right_crcl_shift_y: -43
 
   # Top Left Circle
   top_left_crcl_radius: 100
@@ -170,7 +160,7 @@ units:
 
   bot_circle_radius: 235
   bot_circle_shift_x: -11.5
-  bot_circle_shift_y: -246
+  bot_circle_shift_y: -270
 
 #--------------------------------------
 # sect: POINTS
@@ -178,8 +168,7 @@ units:
 # columns nets up
 points:
   zones:
-
-    # * Base Keyboard Layout 
+    # * Base Keyboard Layout
     matrix:
       # Position in center of KiCAD workspace.
       anchor:
@@ -188,108 +177,64 @@ points:
         padding: padding_key
         spread: spread_key
       rows:
-        bot.row_net: R3
-        mid.row_net: R2
-        top.row_net: R1
+        bot.key:
+          tags: bot
+          row_net: R2
+        mid.key:
+          tags: mid
+          row_net: R1
+        top.key:
+          tags: top
+          row_net: R0
       columns:
         pinky:
-          key.column_net: C1
-          rows:
-            bot.tags:
-              - key
-              - matrix
-              - bot
-              - pinky
-            mid.tags:
-              - key
-              - matrix
-              - mid
-              - pinky
-            top.tags:
-              - key
-              - matrix
-              - top
-              - pinky
+          key.tags: 
+            - key
+            - matrix
+            - pinky
+          rows.bot.skip: true
+          rows.mid.column_net: C1
+          rows.top.column_net: C1
         ring:
           key:
+            tags: 
+            - key
+            - matrix
+            - ring
             stagger: stagger_ring
-            column_net: C2
-          rows:
-            bot.tags:
-              - key
-              - matrix
-              - bot
-              - ring
-            mid.tags:
-              - key
-              - matrix
-              - mid
-              - ring
-            top.tags:
-              - key
-              - matrix
-              - top
-              - ring
+          rows.bot.column_net: C1
+          rows.mid.column_net: C2
+          rows.top.column_net: C2
         middle:
           key:
+            tags: 
+            - key
+            - matrix
+            - middle
             stagger: stagger_middle
-            column_net: C3
-          rows:
-            bot.tags:
-              - key
-              - matrix
-              - bot
-              - middle
-            mid.tags:
-              - key
-              - matrix
-              - mid
-              - middle
-            top.tags:
-              - key
-              - matrix
-              - top
-              - middle
+          rows.bot.column_net: C2
+          rows.mid.column_net: C3
+          rows.top.column_net: C3
         index:
           key:
+            tags: 
+            - key
+            - matrix
+            - index
             stagger: stagger_index
-            column_net: C4
-          rows:
-            bot.tags:
-              - key
-              - matrix
-              - bot
-              - index
-            mid.tags:
-              - key
-              - matrix
-              - mid
-              - index
-            top.tags:
-              - key
-              - matrix
-              - top
-              - index
+          rows.bot.column_net: C3
+          rows.mid.column_net: C4
+          rows.top.column_net: C4
         inner:
           key:
+            tags: 
+            - key
+            - matrix
+            - inner
             stagger: stagger_inner
-            column_net: C5
-          rows:
-            bot.tags:
-              - key
-              - matrix
-              - bot
-              - inner
-            mid.tags:
-              - key
-              - matrix
-              - mid
-              - inner
-            top.tags:
-              - key
-              - matrix
-              - top
-              - inner
+          rows.bot.skip: true
+          rows.mid.column_net: C5
+          rows.top.column_net: C5
     thumb:
       key.tags: 
         - key
@@ -297,7 +242,7 @@ points:
       anchor:
         ref: matrix_index_bot
         shift: [offset_thumb_x, offset_thumb_y]
-      rows.home.row_net: R4
+      rows.home.row_net: R2
       columns:
         # Pinky side
         out.key:
@@ -321,7 +266,7 @@ points:
         height: mcu_size_y
       anchor:
         ref: matrix_inner_top
-        shift: [mcu_shift_x, mcu_shift_y - kyo]
+        shift: [mcu_shift_x, mcu_shift_y - .4(kx)]
     oled:
       key:
         tags: part
@@ -370,16 +315,6 @@ points:
         ref: jst_main
         shift: [jst_sec_shift_x, jst_sec_shift_y]
         #rotate: jst_rotate
-    sw_reset:
-      key:
-        tags: part
-        name: sw_reset
-        width: sw_reset_size_x
-        height: sw_reset_size_y
-      anchor:
-        ref: matrix_pinky_top
-        shift: [sw_reset_shift_x, sw_reset_shift_y]
-        rotate: sw_reset_rotate
 
     # * Mounting Holes
     hole_left_top:
@@ -474,11 +409,6 @@ outlines:
       size: [jst_size_x, jst_sec_size_y]
       adjust:
         ref: jst_sec
-  _sw_reset:
-    - what: rectangle
-      size: [sw_reset_size_x, sw_reset_size_y]
-      adjust:
-        ref: sw_reset
   _holes_screw:
     - what: circle
       where: [hole]
@@ -494,7 +424,7 @@ outlines:
       fillet: board_fillet
       points:
         # Pinky
-        - ref: matrix_pinky_bot
+        - ref: matrix_pinky_mid
           shift: [-.95pxo, -pyo]
         - ref: matrix_pinky_top
           shift: [-.95pxo, .5kyo]
@@ -508,7 +438,7 @@ outlines:
           shift: [kxo, kyo]
         # Inner
         - ref: matrix_inner_top
-          shift: [pxo, kyo]
+          shift: [.25(kx), .5(pyo)]
         # MCU
         - ref: mcu # MCU Top Left Corner
           shift: [mcu_top_left_board_shift_x, mcu_top_board_shift_y]
@@ -519,7 +449,7 @@ outlines:
         # Thumb
         # MCU-thumb curve
         - ref: thumb_in
-          shift: [pxo, .9(pyo)]
+          shift: [pxo, .72(pyo)]
         - ref: thumb_in
           shift: [pxo, -pyo]
 
@@ -531,25 +461,13 @@ outlines:
       adjust:
         ref: matrix_middle_top
         shift: [top_rect_shift_x, top_rect_shift_y]
-  _top_right:
+  _top_curve:
     - name: _top_rect
     - what: circle
       radius: top_right_crcl_radius
       adjust:
         ref: matrix_middle_mid
         shift: [top_right_crcl_shift_x, top_right_crcl_shift_y]
-      operation: intersect
-  _top_left:
-    - name: _top_rect
-    - what: circle
-      radius: top_left_crcl_radius
-      adjust:
-        ref: matrix_middle_mid
-        shift: [top_left_crcl_shift_x, top_left_crcl_shift_y]
-      operation: intersect
-  _top_curve:
-    - name: _top_left
-    - name: _top_right
       operation: intersect
   
   # Bottom Border
@@ -564,7 +482,7 @@ outlines:
     - what: circle
       radius: bot_circle_radius
       adjust:
-        ref: matrix_pinky_bot
+        ref: matrix_pinky_mid
         shift: [bot_circle_shift_x, bot_circle_shift_y]
       operation: intersect
 
@@ -585,8 +503,6 @@ outlines:
       operation: stack
     - name: _jst
       operation: stack
-    - name: _sw_reset
-      operation: stack
 
   plate_top:
     - name: _holes_screw
@@ -598,7 +514,6 @@ outlines:
     - name: _jst
   plate_opening:
     - name: _sw_power
-    - name: _sw_reset
   board_keys:
     - name: _board
     - operation: subtract
@@ -681,20 +596,14 @@ pcbs:
         params.net: "{{column_net}}"
       via_matrix_col_net_low:
         what: via
-        where: [top, mid, index, inner]
+        where: [top, mid]
         adjust.shift: [-5.25, -2.5]
         params.net: "{{column_net}}"
-      via_thumb_row_net_1:
+      via_thumb_row_net:
         what: via
         where:
           ref: thumb_out
-          shift: [hole_thumb_shift_x - 0.5, -6.5]
-        params.net: R4
-      via_thumb_row_net_2:
-        what: via
-        where:
-          ref: matrix_inner_bot
-          shift: [pxo - 2.65, -pyo]
+          shift: [10.5, -6.5]
         params.net: R4
       via_thumb_col_net:
         what: via
@@ -737,9 +646,9 @@ pcbs:
           P19: "C3" # Column Middle
           P18: "C4" # Column Index
           P15: "C5" # Column Inner
-          P14: "F4" # FREE PIN
-          P16: "F5" # Thumb Outer
-          P10: "F6" # Thumb Inner
+          P14: "F4"  # FREE PIN
+          P16: "T1" # Thumb Outer
+          P10: "T2" # Thumb Inner
       # OLED
       nice_view:
         what: nice_view
@@ -772,8 +681,8 @@ pcbs:
       via_oled_GND:
         what: via
         where:
-          ref: oled
-          shift: [0, -(oled_size_yo + 2.1)]
+          ref: mcu
+          shift: [0, -(mcu_size_yo + 4.85)]
         params.net: GND
 
       # Power Switch

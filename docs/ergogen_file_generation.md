@@ -16,12 +16,20 @@ node D:\keyboard_dev\ergogen\src\cli.js v1_nice_nano_view\01_input\config.yaml -
 node D:\keyboard_dev\ergogen\src\cli.js v2_xiao\01_input\config.yaml -o v2_xiao\02_output
 ```
 
-2. keyboard_dev:
+2. keyboard_dev
+
+2.1 Nice!Nano
 
 ```node
-node ergogen\src\cli.js kb_snak\v1_nice_nano_view\01_input\config.yaml -o kb_snak\v1_nice_nano_view\02_output
+node ergogen\src\cli.js kb_snak\v1_nice_nano_view\01_input\config_30.yaml -o kb_snak\v1_nice_nano_view\02_output
 
-node ergogen\src\cli.js kb_snak\v2_xiao\01_input\config.yaml -o kb_snak\v2_xiao\02_output
+node ergogen\src\cli.js kb_snak\v1_nice_nano_view\01_input\config_34.yaml -o kb_snak\v1_nice_nano_view\02_output
+```
 
-node ergogen\src\cli.js kb_snak\v2_xiao\rufous.yaml -o kb_snak\v2_xiao\02_output
+2.2 Xiao
+
+```node
+node ergogen\src\cli.js kb_snak\v2_xiao\01_input\config_30.yaml -o kb_snak\v2_xiao\02_output
+
+node ergogen\src\cli.js kb_snak\v2_xiao\01_input\config_34.yaml -o kb_snak\v2_xiao\02_output
 ```

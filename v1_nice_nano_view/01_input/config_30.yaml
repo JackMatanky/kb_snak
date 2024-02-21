@@ -2,12 +2,12 @@
 # sect: META
 #--------------------------------------
 meta:
-  #engine: 4.0.4
-  version: 0.1
+  engine: 4.0.4
+  version: 0.2.1
   author: JackMatanky
   name: snak
-  ref: &kb_ref "SNAK v0.1"
-  full_name: &kb_full_name "SNAK: Sisyphus Needed a Keyboard, v0.1"
+  ref: &kb_ref "SNAK v0.2.1"
+  full_name: &kb_full_name "SNAK: Sisyphus Needed a Keyboard, v0.2.1"
   url: &kb_url https://github.com/JackMatanky/kb_snak
   # switch:
   #   $extends: presets.mx
@@ -47,7 +47,7 @@ units:
   # Column Stagger
   stagger_ring: 5(kx)/8
   stagger_middle: (kx)/3
-  stagger_index: -(kx)/3
+  stagger_index: -2(kx)/5
   stagger_inner: -(kx)/2
   stagger_thumb: -(kx)/10
 
@@ -79,8 +79,9 @@ units:
   oled_size_xo: 0.5(oled_size_x)
   oled_size_yo: 0.5(oled_size_y)
   oled_shift_x: 0
-  oled_shift_y: mcu_size_yo - oled_size_yo - 1.1
+  oled_shift_y: mcu_size_yo - oled_size_yo - 1.25
   oled_jumper_y: 2.6
+
   # Screen Size and Offset From Center
   oled_screen_offset_x: 1.6
   oled_screen_offset_top_y: 2.45 + 3.65 # = 6.1
@@ -177,8 +178,7 @@ units:
 # columns nets up
 points:
   zones:
-
-    # * Base Keyboard Layout 
+    # * Base Keyboard Layout
     matrix:
       # Position in center of KiCAD workspace.
       anchor:
@@ -186,67 +186,65 @@ points:
       key:
         padding: padding_key
         spread: spread_key
-        tags: 
-          - key
-          - matrix
       rows:
         bot.key:
-          tags: 
-          - key
-          - matrix
-          - bot
-          row_net: R3
-        mid.key:
-          tags: 
-          - key
-          - matrix
-          - mid
+          tags: bot
           row_net: R2
-        top.key:
-          tags: 
-          - key
-          - matrix
-          - top
+        mid.key:
+          tags: mid
           row_net: R1
+        top.key:
+          tags: top
+          row_net: R0
       columns:
         pinky:
+          key.tags: 
+            - key
+            - matrix
+            - pinky
           rows.bot.skip: true
+          rows.mid.column_net: C1
+          rows.top.column_net: C1
+        ring:
           key:
             tags: 
             - key
             - matrix
-            - pinky
-            column_net: C1
-        ring.key:
-          tags: 
-          - key
-          - matrix
-          - ring
-          stagger: stagger_ring
-          column_net: C2
-        middle.key:
-          tags: 
-          - key
-          - matrix
-          - middle
-          stagger: stagger_middle
-          column_net: C3
-        index.key:
-          tags: 
-          - key
-          - matrix
-          - index
-          stagger: stagger_index
-          column_net: C4
+            - ring
+            stagger: stagger_ring
+          rows.bot.column_net: C1
+          rows.mid.column_net: C2
+          rows.top.column_net: C2
+        middle:
+          key:
+            tags: 
+            - key
+            - matrix
+            - middle
+            stagger: stagger_middle
+          rows.bot.column_net: C2
+          rows.mid.column_net: C3
+          rows.top.column_net: C3
+        index:
+          key:
+            tags: 
+            - key
+            - matrix
+            - index
+            stagger: stagger_index
+          rows.bot.column_net: C3
+          rows.mid.column_net: C4
+          rows.top.column_net: C4
         inner:
-          rows.bot.skip: true
           key:
             tags: 
             - key
             - matrix
             - inner
             stagger: stagger_inner
-            column_net: C5
+          rows.bot.skip: true
+          rows.mid.column_net: C5
+          rows.top.column_net: C5
     thumb:
       key.tags: 
         - key
@@ -254,20 +252,20 @@ points:
       anchor:
         ref: matrix_index_bot
         shift: [offset_thumb_x, offset_thumb_y]
-      rows.home.row_net: R4
+      rows.home.row_net: R2
       columns:
         # Pinky side
         out.key:
           name: thumb_out
           splay: splay_thumb_out
-          column_net: T1
+          column_net: C4
         # Inner side
         in.key:
           name: thumb_in
           stagger: stagger_thumb
           spread: spread_thumb_in
           splay: splay_thumb_in
-          column_net: T2
+          column_net: C5
     
     # * Components
     mcu:

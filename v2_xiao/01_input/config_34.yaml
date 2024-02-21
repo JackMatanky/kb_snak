@@ -59,7 +59,6 @@ units:
   spread_thumb_in: 4(kx)/3
 
   # XIAO nRF52840: 20 x 17.5 x 3.3 (mm)
-  # The nice nano footprint's center doesn't account
   mcu_size_x: 17.5
   mcu_size_y: 20
   mcu_size_xo: 0.5(mcu_size_x)
@@ -83,11 +82,11 @@ units:
   sw_power_rotate: 90
 
   # JST Battery Connector (2P, Curved Needed)
+  # Footprint center at (3.45, 1.85)
   jst_size_x: 6.9 # Footprint; Actual width: 4.5 ± 0.2
   jst_size_y: 10.35 # Footprint; Actual height: 6.1 ± 0.1
   jst_size_xo: 0.5(jst_size_x)
   jst_size_yo: 0.5(jst_size_y)
-  # Footprint center at (3.45, 1.85)
   jst_main_size_y: 3.7
   jst_main_size_yo: 0.5(jst_main_size_y)
   jst_sec_size_y: jst_size_y - jst_main_size_y
@@ -110,7 +109,7 @@ units:
   hole_right_shift_y: -5.0
   hole_left_shift_x: 9.25
   hole_left_shift_y: 7.5
-  hole_thumb_shift_x: 12
+  hole_thumb_shift_x: .5(spread_thumb_in)
   hole_thumb_shift_y: 0
 
   # Outline Shapes
