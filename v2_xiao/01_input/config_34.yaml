@@ -3,11 +3,11 @@
 #--------------------------------------
 meta:
   engine: 4.0.4
-  version: 0.1
+  version: 1.1
   author: JackMatanky
   name: snak
-  ref: &kb_ref "SNAK v0.1"
-  full_name: &kb_full_name "SNAK: Sisyphus Needed a Keyboard, v0.1"
+  ref: &kb_ref "SNAK v1.1"
+  full_name: &kb_full_name "SNAK: Sisyphus Needed a Keyboard, v1.1"
   url: &kb_url https://github.com/JackMatanky/kb_snak
   # switch:
   #   $extends: presets.mx
@@ -45,18 +45,18 @@ units:
   dpy: ky + 8
 
   # Column Stagger
-  stagger_ring: 2(kx)/3
+  stagger_ring: 5(kx)/8
   stagger_middle: (kx)/3
-  stagger_index: -(kx)/3
+  stagger_index: -2(kx)/5
   stagger_inner: -(kx)/6
-  stagger_thumb: -(kx)/8
+  stagger_thumb: -(kx)/10
 
   # Thumb
-  offset_thumb_x: 11
-  offset_thumb_y: -25.25
-  splay_thumb_out: -15
+  offset_thumb_x: 15
+  offset_thumb_y: -25
+  splay_thumb_out: -17
   splay_thumb_in: -10
-  spread_thumb_in: 4(kx)/3
+  spread_thumb_in: kx + 2.25
 
   # XIAO nRF52840: 20 x 17.5 x 3.3 (mm)
   mcu_size_x: 17.5
@@ -66,7 +66,7 @@ units:
   mcu_spacing_left: 1.5
   mcu_spacing_right: 0.75
   mcu_shift_x: kxo + mcu_size_xo + mcu_spacing_left
-  mcu_shift_y: kyo - mcu_size_yo - 0.35
+  mcu_shift_y: mcu_size_yo
   mcu_right_board_shift_x: mcu_size_xo + mcu_spacing_right
   mcu_top_left_board_shift_x: mcu_spacing_left - mcu_size_xo - 1
   mcu_top_board_shift_y: mcu_size_yo + 1.05
@@ -92,7 +92,7 @@ units:
   jst_sec_size_y: jst_size_y - jst_main_size_y
   jst_sec_size_yo: 0.5(jst_sec_size_y)
   jst_main_shift_x: mcu_size_xo - jst_main_size_yo
-  jst_main_shift_y: -(mcu_size_yo + jst_size_xo + 0.5)
+  jst_main_shift_y: -(mcu_size_yo + (kx - jst_size_xo))
   jst_sec_shift_x: 0
   jst_sec_shift_y: -(jst_main_size_yo + jst_sec_size_yo)
   jst_rotate: 270
@@ -273,14 +273,14 @@ points:
         out.key:
           name: thumb_out
           splay: splay_thumb_out
-          column_net: T1
+          column_net: C4
         # Inner side
         in.key:
           name: thumb_in
           stagger: stagger_thumb
           spread: spread_thumb_in
           splay: splay_thumb_in
-          column_net: T2
+          column_net: C5
     
     # * Components
     mcu:
@@ -290,7 +290,7 @@ points:
         width: mcu_size_x
         height: mcu_size_y
       anchor:
-        ref: matrix_inner_top
+        ref: matrix_inner_mid
         shift: [mcu_shift_x, mcu_shift_y - kyo]
     sw_power:
       key:
@@ -446,7 +446,7 @@ outlines:
         # Thumb
         # MCU-thumb curve
         - ref: thumb_in
-          shift: [pxo, .96(pyo)]
+          shift: [pxo, .8(pyo)]
         - ref: thumb_in
           shift: [pxo, -pyo]
 
