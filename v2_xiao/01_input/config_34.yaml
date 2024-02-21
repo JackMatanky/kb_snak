@@ -92,7 +92,7 @@ units:
   jst_sec_size_y: jst_size_y - jst_main_size_y
   jst_sec_size_yo: 0.5(jst_sec_size_y)
   jst_main_shift_x: mcu_size_xo - jst_main_size_yo
-  jst_main_shift_y: -(mcu_size_yo + mcu_jumper_y + jst_size_xo + 0.5)
+  jst_main_shift_y: -(mcu_size_yo + jst_size_xo + 0.5)
   jst_sec_shift_x: 0
   jst_sec_shift_y: -(jst_main_size_yo + jst_sec_size_yo)
   jst_rotate: 270
