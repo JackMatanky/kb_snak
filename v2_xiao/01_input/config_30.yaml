@@ -49,14 +49,14 @@ units:
   stagger_middle: (kx)/3
   stagger_index: -2(kx)/5
   stagger_inner: -4(kx)/7
-  stagger_thumb: -(kx)/10
+  stagger_thumb: -(kx)/10 + 0.05
 
   # Thumb
-  offset_thumb_x: 15
+  offset_thumb_x: 15.2
   offset_thumb_y: -25
   splay_thumb_out: -17
   splay_thumb_in: -10
-  spread_thumb_in: kx + 2.25
+  spread_thumb_in: kx + 1.75
 
   # XIAO nRF52840: 20 x 17.5 x 3.3 (mm)
   mcu_size_x: 17.5
@@ -80,7 +80,6 @@ units:
   oled_jumper_y: 2.6
   oled_shift_x: 0
   oled_shift_y: mcu_size_yo - (oled_size_yo - 1)
-
 
   # Screen Size and Offset From Center
   oled_screen_offset_x: 1.6
@@ -139,8 +138,8 @@ units:
   hole_right_shift_y: -6.25
   hole_left_shift_x: 9
   hole_left_shift_y: 7.5
-  hole_thumb_shift_x: .5(spread_thumb_in)
-  hole_thumb_shift_y: 0
+  hole_thumb_shift_x: .5(spread_thumb_in) + 0.45
+  hole_thumb_shift_y: (ky)/4
 
   # Outline Shapes
   board_fillet: 3.5

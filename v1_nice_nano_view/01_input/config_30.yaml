@@ -49,14 +49,14 @@ units:
   stagger_middle: (kx)/3
   stagger_index: -2(kx)/5
   stagger_inner: -4(kx)/7
-  stagger_thumb: -(kx)/10
+  stagger_thumb: -(kx)/10 + 0.05
 
   # Thumb
-  offset_thumb_x: 15
+  offset_thumb_x: 15.2
   offset_thumb_y: -25
   splay_thumb_out: -17
   splay_thumb_in: -10
-  spread_thumb_in: kx + 2.25
+  spread_thumb_in: kx + 1.75
 
   # nice!nano: 34.1 x 18.3 x 3.3 (mm)
   # The nice nano footprint's center doesn't account
@@ -140,8 +140,8 @@ units:
   hole_right_shift_y: -6.25
   hole_left_shift_x: 9
   hole_left_shift_y: 7.5
-  hole_thumb_shift_x: .5(spread_thumb_in)
-  hole_thumb_shift_y: 0
+  hole_thumb_shift_x: .5(spread_thumb_in) + 0.45
+  hole_thumb_shift_y: (ky)/4
 
   # Outline Shapes
   board_fillet: 3.5
