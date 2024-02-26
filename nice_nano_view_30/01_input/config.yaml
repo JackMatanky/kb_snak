@@ -67,7 +67,7 @@ units:
   mcu_spacing_left: 1.5
   mcu_spacing_right: 0.75
   mcu_shift_x: kxo + mcu_size_xo + mcu_spacing_left
-  mcu_shift_y: .815(ky) - mcu_size_yo - 0.1
+  mcu_shift_y: .815(ky) - mcu_size_yo + 0.2
   mcu_right_board_shift_x: mcu_size_xo + mcu_spacing_right
   mcu_top_left_board_shift_x: mcu_spacing_left - mcu_size_xo - 4
   mcu_top_board_shift_y: mcu_size_yo + 1.25
@@ -80,7 +80,7 @@ units:
   oled_size_yo: 0.5(oled_size_y)
   oled_jumper_y: 2.6
   oled_shift_x: 0
-  oled_shift_y: mcu_size_yo - (oled_size_yo + oled_jumper_y + 1.5)
+  oled_shift_y: mcu_size_yo - (oled_size_yo + oled_jumper_y + 2.0)
 
 
   # Screen Size and Offset From Center
@@ -99,8 +99,8 @@ units:
   sw_power_size_y: 8.8 # Footprint; Actual height: 8.3
   sw_power_size_xo: 0.5(sw_power_size_x)
   sw_power_size_yo: 0.5(sw_power_size_y)
-  sw_power_shift_x: 0
-  sw_power_shift_y: mcu_size_yo - 0.6 # + sw_power_size_xo
+  sw_power_shift_x: -0.5
+  sw_power_shift_y: mcu_size_yo - 0.75 # + sw_power_size_xo
   sw_power_rotate: 90
 
   # JST Battery Connector (2P, Curved Needed)
@@ -125,8 +125,8 @@ units:
   sw_reset_size_xo: 0.5(sw_reset_size_x)
   sw_reset_size_yo: 0.5(sw_reset_size_y)
   sw_reset_shift_x: -.2(kx)
-  sw_reset_shift_y: .75(ky)
-  sw_reset_rotate: 127
+  sw_reset_shift_y: .7(ky)
+  sw_reset_rotate: 129
 
   # PCB and Case Holes
   # Points height and width
@@ -136,12 +136,14 @@ units:
   screw: 1
   standoff: 1.5
   # Positions
-  hole_right_shift_x: 9
-  hole_right_shift_y: -6.25
-  hole_left_shift_x: 9
-  hole_left_shift_y: 7.5
-  hole_thumb_shift_x: .5(spread_thumb_in) + 0.45
-  hole_thumb_shift_y: (ky)/4
+  # hole_right_shift_x: 9
+  # hole_right_shift_y: -9
+  # hole_left_shift_x: 9
+  # hole_left_shift_y: 7.5
+  hole_matrix_shift_x: -7.0
+  hole_matrix_shift_y: -8.5
+  hole_thumb_shift_x: .5(spread_thumb_in) + 0.6
+  hole_thumb_shift_y: (ky)/3
 
   # Outline Shapes
   board_fillet: 3.5
@@ -324,32 +326,32 @@ points.zones:
       width: hole_size_x
       height: hole_size_y
     anchor:
-      ref: matrix_pinky_top
-      shift: [hole_left_shift_x, hole_left_shift_y]
+      ref: matrix_ring_top
+      shift: [hole_matrix_shift_x, hole_matrix_shift_y]
   hole_left_bot:
     key:
       tags: hole
       width: hole_size_x
       height: hole_size_y
     anchor:
-      ref: matrix_pinky_bot
-      shift: [hole_left_shift_x, hole_left_shift_y]
+      ref: matrix_ring_mid
+      shift: [hole_matrix_shift_x, hole_matrix_shift_y]
   hole_right_top:
     key:
       tags: hole
       width: hole_size_x
       height: hole_size_y
     anchor:
-      ref: matrix_index_top
-      shift: [hole_right_shift_x, hole_right_shift_y]
-  hole_right_bot:
-    key:
-      tags: hole
-      width: hole_size_x
-      height: hole_size_y
-    anchor:
-      ref: matrix_index_bot
-      shift: [hole_right_shift_x, hole_right_shift_y]
+      ref: matrix_inner_top
+      shift: [hole_matrix_shift_x, hole_matrix_shift_y]
+  # hole_right_bot:
+  #   key:
+  #     tags: hole
+  #     width: hole_size_x
+  #     height: hole_size_y
+  #   anchor:
+  #     ref: matrix_index_bot
+  #     shift: [hole_right_shift_x, hole_right_shift_y]
   hole_btwn_thumb:
     key:
       tags: hole
@@ -450,6 +452,7 @@ outlines:
         - ref: thumb_in
           shift: [pxo, -pyo]
 
+
   # Top Border
   # Right Side
   _top_rect:
@@ -468,20 +471,20 @@ outlines:
       operation: intersect
   
   # Bottom Border
-  _bot_rect:
-    - what: rectangle
-      size: [bot_rect_size_x, bot_rect_size_y]
-      adjust:
-        ref: matrix_middle_mid
-        shift: [bot_rect_shift_x, bot_rect_shift_y]
-  _bot_curve:
-    - name: _bot_rect
-    - what: circle
-      radius: bot_circle_radius
-      adjust:
-        ref: matrix_pinky_mid
-        shift: [bot_circle_shift_x, bot_circle_shift_y]
-      operation: intersect
+  #_bot_rect:
+  #  - what: rectangle
+  #    size: [bot_rect_size_x, bot_rect_size_y]
+  #    adjust:
+  #      ref: matrix_middle_mid
+  #      shift: [bot_rect_shift_x, bot_rect_shift_y]
+  #_bot_curve:
+  #  - name: _bot_rect
+  #  - what: circle
+  #    radius: bot_circle_radius
+  #    adjust:
+  #      ref: matrix_pinky_mid
+  #      shift: [bot_circle_shift_x, bot_circle_shift_y]
+  #    operation: intersect
 
   # DXF PREVIEWS
   # Pure key outline with nice!nano MCU
@@ -526,8 +529,8 @@ outlines:
     - name: _board
     - operation: add
       name: _top_curve
-    - operation: subtract
-      name: _bot_curve
+    #- operation: subtract
+    #  name: _bot_curve
       fillet: round_board_fillet
   _round_board_keys:
     - name: round_board
@@ -563,6 +566,7 @@ pcbs.snak:
     choc:
       what: choc_kim
       where: /(matrix|thumb)_/
+      adjust.rotate: 180
       params:
         reverse: true
         hotswap: true
@@ -572,41 +576,89 @@ pcbs.snak:
         to: "{{colrow}}"
     diode:
       what: diode_kim
-      where: /(matrix|thumb)_/
-      adjust.shift: [0, -5]
+      where: /(matrix|thumb)_/ # /(matrix_|thumb_out)/
+      adjust:
+        rotate: 270
+        shift: [-7.75, 0.25] #[0, 3.5]
       params:
-        include_tht: true
+        include_tht: false
         from: "{{colrow}}"
         to: "{{row_net}}"
-    via_col_row_high:
+    # diode_thumb_in:
+    #   what: diode_kim
+    #   where: thumb_in
+    #   adjust:
+    #     rotate: 270
+    #     shift: [7.75, 0.25] #[0, 3.5]
+    #   params:
+    #     include_tht: false
+    #     from: "{{colrow}}"
+    #     to: "{{row_net}}"
+    diode_via_row_net: # diode high
+      what: via
+      where: /(matrix|thumb)_/ # /(matrix_|thumb_out)/
+      adjust.shift: [-7.75, 3.25]
+      params.net: "{{row_net}}"
+    # diode_via_row_net_thumb_in: # diode high
+    #   what: via
+    #   where: thumb_in
+    #   adjust.shift: [7.75, 3.25]
+    #   params.net: "{{row_net}}"
+    diode_via_colrow: # diode low
+      what: via
+      where: /(matrix|thumb)_/ #/(matrix_|thumb_out)/
+      adjust.shift: [-5.25, -1.5]
+      params.net: "{{colrow}}"
+    # diode_via_colrow_thumb_in: # diode low
+    #   what: via
+    #   where: thumb_in
+    #   adjust.shift: [5.25, -1.5] # [0, 3.5]
+    #   params.net: "{{colrow}}"
+    # via_matrix_col_net:
+    #   what: via
+    #   where: /((rows_top|rows_mid)|(columns_index|columns_inner))/
+    #   adjust.shift: [0, -8.5]
+    #   params.net: "{{column_net}}"
+    # via_col_row_high:
+    #   what: via
+    #   where: /(matrix|thumb)_/
+    #   adjust.shift: [4.0, -1.5]
+    #   params.net: "{{colrow}}"
+    # via_matrix_row_net:
+    #   what: via
+    #   where: [top, mid]
+    #   adjust.shift: [6.0, 5.0]
+    #   params.net: "{{row_net}}"
+    via_matrix_col_row_low:
       what: via
       where: /(matrix|thumb)_/
-      adjust.shift: [-4.0, 1.5]
+      adjust.shift: [0, -2.5]
       params.net: "{{colrow}}"
-    via_matrix_row_net:
-      what: via
-      where: [top, mid]
-      adjust.shift: [-6.0, -5.0]
-      params.net: "{{row_net}}"
-    via_matrix_col_net_high:
-      what: via
-      where: /matrix_*/
-      adjust.shift: [0, 3.0]
-      params.net: "{{column_net}}"
     via_matrix_col_net_low:
       what: via
-      where: /_(rows_top|rows_mid)/
-      adjust.shift: [-5.25, -2.5]
+      where: /(matrix|thumb)_/
+      adjust.shift: [0, -3.5]
       params.net: "{{column_net}}"
-    via_thumb_row_net:
+    # via_matrix_col_net_low:
+    #   what: via
+    #   where: [top, mid, index, inner]
+    #   adjust.shift: [5.25, 2.5]
+    #   params.net: "{{column_net}}"
+    via_thumb_row_net_1:
       what: via
       where:
         ref: thumb_out
-        shift: [10.5, -6.5]
+        shift: [hole_thumb_shift_x - 0.5, -6.5]
+      params.net: R4
+    via_thumb_row_net_2:
+      what: via
+      where:
+        ref: matrix_index_bot
+        shift: [pxo - 2.65, -pyo]
       params.net: R4
     via_thumb_col_net:
       what: via
-      where: /thumb_*/
+      where: /thumb_/
       adjust.shift: [0, 8.5]
       params.net: "{{column_net}}"
 
@@ -658,7 +710,7 @@ pcbs.snak:
         SCK: DPC
         CS: DPE
         show_labels: true
-        jumpers_at_bottom: true
+        jumpers_at_bottom: false
     via_oled_mosi:
       what: via
       where:
@@ -681,7 +733,7 @@ pcbs.snak:
       what: via
       where:
         ref: mcu
-        shift: [0, -(mcu_size_yo + 4.85)]
+        shift: [0, -(mcu_size_yo + 2.0)]
       params.net: GND
 
     # Power Switch
