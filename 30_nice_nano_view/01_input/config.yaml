@@ -48,7 +48,7 @@ units:
   stagger_ring: 5(kx)/8
   stagger_middle: (kx)/3
   stagger_index: -2(kx)/5
-  stagger_inner: -4(kx)/7
+  stagger_inner: -(kx)/2
   stagger_thumb: -(kx)/10 + 0.05
 
   # Thumb
@@ -140,8 +140,8 @@ units:
   # hole_right_shift_y: -9
   # hole_left_shift_x: 9
   # hole_left_shift_y: 7.5
-  hole_matrix_shift_x: -7.0
-  hole_matrix_shift_y: -8.5
+  hole_matrix_shift_x: -9.25
+  hole_matrix_shift_y: -7.4
   hole_thumb_shift_x: .5(spread_thumb_in) + 0.6
   hole_thumb_shift_y: (ky)/3
 
@@ -599,16 +599,16 @@ pcbs.snak:
       where: /(matrix|thumb)_/ # /(matrix_|thumb_out)/
       adjust.shift: [-7.75, 3.25]
       params.net: "{{row_net}}"
-    # diode_via_row_net_thumb_in: # diode high
-    #   what: via
-    #   where: thumb_in
-    #   adjust.shift: [7.75, 3.25]
-    #   params.net: "{{row_net}}"
     diode_via_colrow: # diode low
       what: via
-      where: /(matrix|thumb)_/ #/(matrix_|thumb_out)/
-      adjust.shift: [-5.25, -1.5]
+      where: /(matrix|thumb)_/
+      adjust.shift: [-6.25, -1.5]
       params.net: "{{colrow}}"
+    via_row_net: # diode high
+      what: via
+      where: /(matrix_|thumb_out)/ # /(matrix_|thumb_out)/
+      adjust.shift: [6.25, 3.25]
+      params.net: "{{row_net}}"
     # diode_via_colrow_thumb_in: # diode low
     #   what: via
     #   where: thumb_in
@@ -629,15 +629,10 @@ pcbs.snak:
     #   where: [top, mid]
     #   adjust.shift: [6.0, 5.0]
     #   params.net: "{{row_net}}"
-    via_matrix_col_row_low:
-      what: via
-      where: /(matrix|thumb)_/
-      adjust.shift: [0, -2.5]
-      params.net: "{{colrow}}"
     via_matrix_col_net_low:
       what: via
       where: /(matrix|thumb)_/
-      adjust.shift: [0, -3.5]
+      adjust.shift: [0, -3]
       params.net: "{{column_net}}"
     # via_matrix_col_net_low:
     #   what: via
