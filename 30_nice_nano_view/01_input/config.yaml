@@ -48,7 +48,7 @@ units:
   stagger_ring: 5(kx)/8
   stagger_middle: (kx)/3
   stagger_index: -2(kx)/5
-  stagger_inner: -(kx)/2
+  stagger_inner: -4(kx)/9
   stagger_thumb: -(kx)/10 + 0.05
 
   # Thumb
@@ -67,7 +67,7 @@ units:
   mcu_spacing_left: 1.5
   mcu_spacing_right: 0.75
   mcu_shift_x: kxo + mcu_size_xo + mcu_spacing_left
-  mcu_shift_y: .815(ky) - mcu_size_yo + 0.2
+  mcu_shift_y: kyo - mcu_size_yo
   mcu_right_board_shift_x: mcu_size_xo + mcu_spacing_right
   mcu_top_left_board_shift_x: mcu_spacing_left - mcu_size_xo - 4
   mcu_top_board_shift_y: mcu_size_yo + 1.25
@@ -100,7 +100,7 @@ units:
   sw_power_size_xo: 0.5(sw_power_size_x)
   sw_power_size_yo: 0.5(sw_power_size_y)
   sw_power_shift_x: -0.5
-  sw_power_shift_y: mcu_size_yo - 0.75 # + sw_power_size_xo
+  sw_power_shift_y: mcu_size_yo - 0.7 # + sw_power_size_xo
   sw_power_rotate: 90
 
   # JST Battery Connector (2P, Curved Needed)
@@ -113,8 +113,8 @@ units:
   jst_main_size_yo: 0.5(jst_main_size_y)
   jst_sec_size_y: jst_size_y - jst_main_size_y
   jst_sec_size_yo: 0.5(jst_sec_size_y)
-  jst_main_shift_x: (oled_size_xo - jst_main_size_yo) + 1.5
-  jst_main_shift_y: -(oled_size_yo + jst_size_xo + 1)
+  jst_main_shift_x: (oled_size_xo - jst_main_size_yo)
+  jst_main_shift_y: -(oled_size_yo + jst_size_xo + 0.75)
   jst_sec_shift_x: 0
   jst_sec_shift_y: -(jst_main_size_yo + jst_sec_size_yo)
   jst_rotate: 270
@@ -135,7 +135,10 @@ units:
   # Screw and Standoff Radii
   screw: 1
   standoff: 1.5
-  # Positions
+
+  # Hole Positions
+  # ! add positions for 
+  # ! ring and index top and bottom corners at 0x and 0y
   # hole_right_shift_x: 9
   # hole_right_shift_y: -9
   # hole_left_shift_x: 9
@@ -150,9 +153,9 @@ units:
   round_board_fillet: 3.5
 
   # Top Border
-  top_rect_size_x: 5(kx) + 0.65(pxo)
+  top_rect_size_x: 5(kx) + 0.4(pxo)
   top_rect_size_y: 1.5px
-  top_rect_shift_x: 1.1
+  top_rect_shift_x: -0.25
   top_rect_shift_y: 0
   
   # Top Right Circle
