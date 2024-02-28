@@ -2,7 +2,7 @@
 # sect: META
 #--------------------------------------
 meta:
-  #engine: 4.0.4
+  engine: 4.0.4
   version: 0.2.1
   author: JackMatanky
   name: snak
@@ -31,7 +31,8 @@ units:
   keycap_x: 17.5
   keycap_y: 16.5
   # Switch Plate Key Cutout
-  kco: 13.9
+  kcutout_x: 13.9
+  kcutout_y: 13.9
 
   # Padding Variables
   px: kx + 4
@@ -69,7 +70,7 @@ units:
   mcu_shift_y: kyo - mcu_size_yo
   mcu_right_board_shift_x: mcu_size_xo + mcu_spacing_right
   mcu_top_left_board_shift_x: mcu_spacing_left - mcu_size_xo - 4
-  mcu_top_board_shift_y: mcu_size_yo + 1.45
+  mcu_top_board_shift_y: mcu_size_yo + 1.25
   mcu_bottom_board_shift_y: -(mcu_size_yo)
 
   # nice!view: 36 x 14 x 2.9 (mm)
@@ -99,7 +100,7 @@ units:
   sw_power_size_xo: 0.5(sw_power_size_x)
   sw_power_size_yo: 0.5(sw_power_size_y)
   sw_power_shift_x: -0.5
-  sw_power_shift_y: mcu_size_yo - 0.45 # + sw_power_size_xo
+  sw_power_shift_y: mcu_size_yo - 0.7 # + sw_power_size_xo
   sw_power_rotate: 90
 
   # JST Battery Connector (2P, Curved Needed)
@@ -129,18 +130,21 @@ units:
 
   # PCB and Case Holes
   # Points height and width
-  hole_size: 0.1
-  # Screw, Standoff, and Screw Mount Radii
+  hole_size_x: 0.1
+  hole_size_y: 0.1
+  # Screw and Standoff Radii
   screw: 1
   standoff: 1.5
-  mount: 2.15
 
   # Hole Positions
   # ! add positions for 
   # ! ring and index top and bottom corners at 0x and 0y
-  hole_shift: 9.25
-  hole_matrix_shift_x: kxo + mount
-  hole_matrix_shift_y: kyo + mount
+  # hole_right_shift_x: 9
+  # hole_right_shift_y: -9
+  # hole_left_shift_x: 9
+  # hole_left_shift_y: 7.5
+  hole_matrix_shift_x: -9.25
+  hole_matrix_shift_y: -7.4
   hole_thumb_shift_x: .5(spread_thumb_in) + 0.6
   hole_thumb_shift_y: (ky)/3
 
@@ -322,88 +326,43 @@ points.zones:
   hole_left_top:
     key:
       tags: hole
-      width: hole_size
-      height: hole_size
+      width: hole_size_x
+      height: hole_size_y
     anchor:
-      ref: matrix_pinky_top
-      shift: [.25(kx), hole_matrix_shift_y]
+      ref: matrix_ring_top
+      shift: [hole_matrix_shift_x, hole_matrix_shift_y]
   hole_left_bot:
     key:
       tags: hole
-      width: hole_size
-      height: hole_size
+      width: hole_size_x
+      height: hole_size_y
     anchor:
-      ref: matrix_pinky_mid
-      shift: [.25(kx), -hole_matrix_shift_y]
-
-  hole_top_left:
-    key:
-      tags: hole
-      width: hole_size
-      height: hole_size
-    anchor:
-      ref: matrix_ring_top
-      shift: [0, hole_matrix_shift_y]
-  hole_bot_left:
-    key:
-      tags: hole
-      width: hole_size
-      height: hole_size
-    anchor:
-      ref: matrix_ring_bot
-      shift: [0, -hole_matrix_shift_y]
-
-  hole_top_right:
-    key:
-      tags: hole
-      width: hole_size
-      height: hole_size
-    anchor:
-      ref: matrix_index_top
-      shift: [0, hole_matrix_shift_y]
-  hole_bot_right:
-    key:
-      tags: hole
-      width: hole_size
-      height: hole_size
-    anchor:
-      ref: matrix_index_bot
-      shift: [0, -hole_matrix_shift_y]
-
+      ref: matrix_ring_mid
+      shift: [hole_matrix_shift_x, hole_matrix_shift_y]
   hole_right_top:
     key:
       tags: hole
-      width: hole_size
-      height: hole_size
+      width: hole_size_x
+      height: hole_size_y
     anchor:
       ref: matrix_inner_top
-      shift: [-.25(kx), hole_matrix_shift_y]
-  hole_right_bot:
-    key:
-      tags: hole
-      width: hole_size
-      height: hole_size
-    anchor:
-      ref: matrix_inner_mid
-      shift: [-.25(kx), -hole_matrix_shift_y]
-
+      shift: [hole_matrix_shift_x, hole_matrix_shift_y]
+  # hole_right_bot:
+  #   key:
+  #     tags: hole
+  #     width: hole_size_x
+  #     height: hole_size_y
+  #   anchor:
+  #     ref: matrix_index_bot
+  #     shift: [hole_right_shift_x, hole_right_shift_y]
   hole_btwn_thumb:
     key:
       tags: hole
-      width: hole_size
-      height: hole_size
+      width: hole_size_x
+      height: hole_size_y
     anchor:
       ref: thumb_out
-      shift: [hole_shift, -hole_shift]
-
-  hole_mcu:
-    key:
-      tags: hole
-      width: hole_size
-      height: hole_size
-    anchor:
-      ref: mcu
-      shift: [mcu_size_xo - mount - 0.75, (mcu_size_yo + 1.375) - mount]
+      shift: [hole_thumb_shift_x, hole_thumb_shift_y]
 
 #--------------------------------------
 # sect: OUTLINES
@@ -425,7 +384,7 @@ outlines:
     - what: rectangle
       where: /(matrix|thumb)_/
       bound: false
-      size: [kco, kco]
+      size: [kcutout_x, kcutout_y]
   
   _mcu:
     - what: rectangle
@@ -462,10 +421,6 @@ outlines:
     - what: circle
       where: [hole]
       radius: standoff
-  _holes_mount:
-    - what: circle
-      where: [hole]
-      radius: mount
 
   # SHAPES
   _board:
@@ -492,13 +447,11 @@ outlines:
         - ref: mcu # MCU Top Left Corner
           shift: [mcu_top_left_board_shift_x, mcu_top_board_shift_y]
         - ref: mcu # MCU Top Right Corner
-          shift: [mcu_right_board_shift_x - 2(mount), mcu_top_board_shift_y]
-        - ref: mcu # MCU Top Right Corner
           shift: [mcu_right_board_shift_x, mcu_top_board_shift_y]
         # Thumb
         # MCU-thumb curve
         - ref: thumb_in
-          shift: [pxo, .975(pyo)]
+          shift: [pxo, .9(pyo)]
         - ref: thumb_in
           shift: [pxo, -pyo]
 
@@ -689,12 +642,12 @@ pcbs.snak:
     #   where: [top, mid, index, inner]
     #   adjust.shift: [5.25, 2.5]
     #   params.net: "{{column_net}}"
-    # via_thumb_row_net_1:
-    #   what: via
-    #   where:
-    #     ref: thumb_out
-    #     shift: [hole_thumb_shift_x - 0.5, -6.5]
-    #   params.net: R4
+    via_thumb_row_net_1:
+      what: via
+      where:
+        ref: thumb_out
+        shift: [hole_thumb_shift_x - 0.5, -6.5]
+      params.net: R4
     via_thumb_row_net_2:
       what: via
       where:
@@ -724,9 +677,9 @@ pcbs.snak:
         # GND
         # GND
         P2: "F3"  # FREE PIN
-        P3: "MOSI" # MOSI: Display Data
-        P4: "SCK" # SCK: Display Clock
-        P5: "CS" # Display CS (nice!view only)
+        P3: "DPD" # MOSI: Display Data
+        P4: "DPC" # SCK: Display Clock
+        P5: "DPE" # Display CS (nice!view only)
         P6: "R1"  # Row Top
         P7: "R2"  # Row Middle
         P8: "R3"  # Row Bottom
@@ -751,9 +704,9 @@ pcbs.snak:
       where.ref: oled
       params:
         reverse: true
-        MOSI: MOSI # DPD
-        SCK: SCK # DPC
-        CS: CS # DPE
+        MOSI: DPD
+        SCK: DPC
+        CS: DPE
         show_labels: true
         jumpers_at_bottom: false
     via_oled_mosi:
@@ -761,19 +714,19 @@ pcbs.snak:
       where:
         ref: mcu
         shift: [-(mcu_size_xo - 2.4), -(mcu_size_yo + 1.65)]
-      params.net: MOSI
+      params.net: DPD
     via_oled_sck:
       what: via
       where:
         ref: mcu
         shift: [-(mcu_size_xo - 1.6), -(mcu_size_yo + 0.9)]
-      params.net: SCK
+      params.net: DPC
     via_oled_cs:
       what: via
       where:
         ref: mcu
         shift: [-(mcu_size_xo - 0.8), -(mcu_size_yo + 0.15)]
-      params.net: CS
+      params.net: DPE
     via_oled_GND:
       what: via
       where:

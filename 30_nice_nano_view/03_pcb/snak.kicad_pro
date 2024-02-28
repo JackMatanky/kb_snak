@@ -351,15 +351,15 @@
       },
       {
         "netclass": "Default",
-        "pattern": "DPD"
+        "pattern": "MOSI"
       },
       {
         "netclass": "Default",
-        "pattern": "DPC"
+        "pattern": "SCK"
       },
       {
         "netclass": "Default",
-        "pattern": "DPE"
+        "pattern": "CS"
       },
       {
         "netclass": "Default",
