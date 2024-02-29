@@ -181,7 +181,7 @@
     "pinned_symbol_libs": []
   },
   "meta": {
-    "filename": "snak.kicad_pro",
+    "filename": "snak_30_edge_cuts.kicad_pro",
     "version": 1
   },
   "net_settings": {
@@ -228,11 +228,11 @@
       },
       {
         "netclass": "Default",
-        "pattern": "C2"
+        "pattern": "ring_bot"
       },
       {
         "netclass": "Default",
-        "pattern": "ring_bot"
+        "pattern": "C2"
       },
       {
         "netclass": "Default",
@@ -244,11 +244,11 @@
       },
       {
         "netclass": "Default",
-        "pattern": "C3"
+        "pattern": "middle_bot"
       },
       {
         "netclass": "Default",
-        "pattern": "middle_bot"
+        "pattern": "C3"
       },
       {
         "netclass": "Default",
@@ -260,11 +260,11 @@
       },
       {
         "netclass": "Default",
-        "pattern": "C4"
+        "pattern": "index_bot"
       },
       {
         "netclass": "Default",
-        "pattern": "index_bot"
+        "pattern": "C4"
       },
       {
         "netclass": "Default",
