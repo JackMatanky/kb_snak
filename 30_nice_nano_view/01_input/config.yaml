@@ -562,8 +562,8 @@ outlines:
     - name: _oled_screen
   plate_bottom:
     - name: _holes_standoff
-    - name: _mcu
-    - name: _jst
+    # - name: _mcu
+    # - name: _jst
   plate_opening:
     - name: _sw_power
     - name: _sw_reset
@@ -742,9 +742,9 @@ pcbs.snak:
         P19: "C3" # Column Middle
         P18: "C4" # Column Index
         P15: "C5" # Column Inner
-        P14: "F4"  # FREE PIN
-        P16: "F5" # Thumb Outer
-        P10: "F6" # Thumb Inner
+        P14: "F4" # FREE PIN
+        P16: "F5" # FREE PIN
+        P10: "F6" # FREE PIN
     # OLED
     nice_view:
       what: nice_view
