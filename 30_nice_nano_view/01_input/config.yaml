@@ -51,7 +51,7 @@ units:
   stagger_thumb: -(kx)/10 + 0.05
 
   # Thumb
-  offset_thumb_x: 15.2
+  offset_thumb_x: 15.55
   offset_thumb_y: -25
   splay_thumb_out: -17
   splay_thumb_in: -10
@@ -403,7 +403,7 @@ points.zones:
       height: hole_size
     anchor:
       ref: mcu
-      shift: [mcu_size_xo - mount - 0.75, (mcu_size_yo + 1.375) - mount]
+      shift: [mcu_size_xo - mount - 0.4, (mcu_size_yo + 1.375) - mount]
 
 #--------------------------------------
 # sect: OUTLINES
@@ -498,9 +498,15 @@ outlines:
         # Thumb
         # MCU-thumb curve
         - ref: thumb_in
-          shift: [pxo, .975(pyo)]
+          shift: [pxo, .9(pyo)]
         - ref: thumb_in
           shift: [pxo, -pyo]
+        - ref: thumb_out
+          shift: [-kxo, -pyo]
+        - ref: matrix_index_bot
+          shift: [-kxo, -.75(py)]
+        - ref: matrix_ring_bot
+          shift: [-kxo, -.75(py)]
 
 
   # Top Border
@@ -718,33 +724,33 @@ pcbs.snak:
         show_instructions: true
 
         # Pin Assignments (Controller on top facing down)
-        # Right Side
-        P0: "F1"  # FREE PIN
-        P1: "F2"  # FREE PIN
+        # Right Side - Excluding P8/9, all high frequency and support SPI/I2C
+        P0: "F1"   # FREE PIN 
+        P1: "F2"   # FREE PIN
         # GND
         # GND
-        P2: "F3"  # FREE PIN
+        P2: "F3"   # FREE PIN
         P3: "MOSI" # MOSI: Display Data
-        P4: "SCK" # SCK: Display Clock
-        P5: "CS" # Display CS (nice!view only)
-        P6: "R1"  # Row Top
-        P7: "R2"  # Row Middle
-        P8: "R3"  # Row Bottom
-        P9: "R4"  # Row Thumb
+        P4: "SCK"  # SCK: Display Clock
+        P5: "CS"   # Display CS (nice!view only)
+        P6: "R1"   # Row Top
+        P7: "R2"   # Row Middle
+        P8: "R3"   # Row Bottom
+        P9: "R4"   # Row Thumb
 
-        # Left Side
-        # RAW     # Battery Pos
-        # GND     # Ground / Battery Neg
-        # RST     # Reset pin
-        # VCC     # External Power
-        P21: "C1" # Column Pinky
-        P20: "C2" # Column Ring
-        P19: "C3" # Column Middle
-        P18: "C4" # Column Index
-        P15: "C5" # Column Inner
-        P14: "F4" # FREE PIN
-        P16: "F5" # FREE PIN
-        P10: "F6" # FREE PIN
+        # Left Side - All low frequency
+        # RAW      # Battery Pos
+        # GND      # Ground / Battery Neg
+        # RST      # Reset pin
+        # VCC      # External Power
+        P21: "C1"  # Column Pinky
+        P20: "C2"  # Column Ring
+        P19: "C3"  # Column Middle
+        P18: "C4"  # Column Index
+        P15: "C5"  # Column Inner
+        P14: "F4"  # FREE PIN
+        P16: "F5"  # FREE PIN
+        P10: "F6"  # FREE PIN
     # OLED
     nice_view:
       what: nice_view

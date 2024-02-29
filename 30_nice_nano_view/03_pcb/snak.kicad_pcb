@@ -1907,7 +1907,7 @@
 
             
             (module PG1350 (layer F.Cu) (tedit 5DD50112)
-            (at 170.7 114.95 163)
+            (at 171.05 114.95 163)
             (attr virtual)
 
             
@@ -2035,7 +2035,7 @@
 
             
             (module PG1350 (layer F.Cu) (tedit 5DD50112)
-            (at 189.0753684 122.3978745 153)
+            (at 189.42536840000002 122.3978745 153)
             (attr virtual)
 
             
@@ -2617,7 +2617,7 @@
   
 
   (module ComboDiode (layer F.Cu) (tedit 5B24D78E)
-      (at 163.3617311 112.4450431 253)
+      (at 163.7117311 112.4450431 253)
       (attr virtual)
 
       
@@ -2652,7 +2652,7 @@
   
 
   (module ComboDiode (layer F.Cu) (tedit 5B24D78E)
-      (at 182.2835655 118.6566965 243)
+      (at 182.63356550000003 118.6566965 243)
       (attr virtual)
 
       
@@ -2830,7 +2830,7 @@
     
 
       (module VIA-0.6mm (layer F.Cu) (tedit 591DBFB0)
-      (at 164.23884619999998 109.5761288 -17)   
+      (at 164.5888462 109.5761288 -17)   
       
       (fp_text reference REF** (at 0 1.4) (layer F.SilkS) hide (effects (font (size 1 1) (thickness 0.15))))
       (fp_text value VIA-0.6mm (at 0 -1.4) (layer F.Fab) hide (effects (font (size 1 1) (thickness 0.15))))
@@ -2841,7 +2841,7 @@
     
 
       (module VIA-0.6mm (layer F.Cu) (tedit 591DBFB0)
-      (at 183.645537 115.9836769 -27)   
+      (at 183.995537 115.9836769 -27)   
       
       (fp_text reference REF** (at 0 1.4) (layer F.SilkS) hide (effects (font (size 1 1) (thickness 0.15))))
       (fp_text value VIA-0.6mm (at 0 -1.4) (layer F.Fab) hide (effects (font (size 1 1) (thickness 0.15))))
@@ -2995,7 +2995,7 @@
     
 
       (module VIA-0.6mm (layer F.Cu) (tedit 591DBFB0)
-      (at 164.2845377 114.557134 -17)   
+      (at 164.6345377 114.557134 -17)   
       
       (fp_text reference REF** (at 0 1.4) (layer F.SilkS) hide (effects (font (size 1 1) (thickness 0.15))))
       (fp_text value VIA-0.6mm (at 0 -1.4) (layer F.Fab) hide (effects (font (size 1 1) (thickness 0.15))))
@@ -3006,7 +3006,7 @@
     
 
       (module VIA-0.6mm (layer F.Cu) (tedit 591DBFB0)
-      (at 182.8255919 120.8969437 -27)   
+      (at 183.17559190000003 120.8969437 -27)   
       
       (fp_text reference REF** (at 0 1.4) (layer F.SilkS) hide (effects (font (size 1 1) (thickness 0.15))))
       (fp_text value VIA-0.6mm (at 0 -1.4) (layer F.Fab) hide (effects (font (size 1 1) (thickness 0.15))))
@@ -3160,7 +3160,7 @@
     
 
       (module VIA-0.6mm (layer F.Cu) (tedit 591DBFB0)
-      (at 177.6271128 113.6693327 -17)   
+      (at 177.97711280000001 113.6693327 -17)   
       
       (fp_text reference REF** (at 0 1.4) (layer F.SilkS) hide (effects (font (size 1 1) (thickness 0.15))))
       (fp_text value VIA-0.6mm (at 0 -1.4) (layer F.Fab) hide (effects (font (size 1 1) (thickness 0.15))))
@@ -3314,7 +3314,7 @@
     
 
       (module VIA-0.6mm (layer F.Cu) (tedit 591DBFB0)
-      (at 169.8228849 117.8189143 -17)   
+      (at 170.1728849 117.8189143 -17)   
       
       (fp_text reference REF** (at 0 1.4) (layer F.SilkS) hide (effects (font (size 1 1) (thickness 0.15))))
       (fp_text value VIA-0.6mm (at 0 -1.4) (layer F.Fab) hide (effects (font (size 1 1) (thickness 0.15))))
@@ -3325,7 +3325,7 @@
     
 
       (module VIA-0.6mm (layer F.Cu) (tedit 591DBFB0)
-      (at 187.7133969 125.0708941 -27)   
+      (at 188.06339690000001 125.0708941 -27)   
       
       (fp_text reference REF** (at 0 1.4) (layer F.SilkS) hide (effects (font (size 1 1) (thickness 0.15))))
       (fp_text value VIA-0.6mm (at 0 -1.4) (layer F.Fab) hide (effects (font (size 1 1) (thickness 0.15))))
@@ -3347,7 +3347,7 @@
     
 
       (module VIA-0.6mm (layer F.Cu) (tedit 591DBFB0)
-      (at 173.1851595 106.82140960000001 -17)   
+      (at 173.53515950000002 106.82140960000001 -17)   
       
       (fp_text reference REF** (at 0 1.4) (layer F.SilkS) hide (effects (font (size 1 1) (thickness 0.15))))
       (fp_text value VIA-0.6mm (at 0 -1.4) (layer F.Fab) hide (effects (font (size 1 1) (thickness 0.15))))
@@ -3358,7 +3358,7 @@
     
 
       (module VIA-0.6mm (layer F.Cu) (tedit 591DBFB0)
-      (at 192.9342876 114.824319 -27)   
+      (at 193.28428760000003 114.824319 -27)   
       
       (fp_text reference REF** (at 0 1.4) (layer F.SilkS) hide (effects (font (size 1 1) (thickness 0.15))))
       (fp_text value VIA-0.6mm (at 0 -1.4) (layer F.Fab) hide (effects (font (size 1 1) (thickness 0.15))))
@@ -5261,7 +5261,7 @@
     
 
       (module power_switch (layer F.Cu) (tedit 644556E6)
-        (at 193.15 62.050000000000004 90)
+        (at 193.15 62.1 90)
         (attr smd)
 
     
@@ -5358,7 +5358,7 @@
       
 
       (module VIA-0.6mm (layer F.Cu) (tedit 591DBFB0)
-      (at 193.15 60.9125 90)   
+      (at 193.15 60.9625 90)   
       
       (fp_text reference REF** (at 0 1.4) (layer F.SilkS) hide (effects (font (size 1 1) (thickness 0.15))))
       (fp_text value VIA-0.6mm (at 0 -1.4) (layer F.Fab) hide (effects (font (size 1 1) (thickness 0.15))))
@@ -5794,7 +5794,7 @@
         
 
             (module mounting_hole (layer F.Cu) (tedit 64B5A986)
-                (at 176.8413807 126.5002573 -17)
+                (at 177.19138070000002 126.5002573 -17)
                 (fp_text reference "H9" (at 0 3) (layer F.SilkS) hide
                     (effects (font (size 1 1) (thickness 0.15)))
                 )
@@ -5808,7 +5808,7 @@
         
 
             (module mounting_hole (layer F.Cu) (tedit 64B5A986)
-                (at 199.9 62.5 0)
+                (at 199.9 62.425000000000004 0)
                 (fp_text reference "H10" (at 0 3) (layer F.SilkS) hide
                     (effects (font (size 1 1) (thickness 0.15)))
                 )
@@ -5820,20 +5820,26 @@
         
             )
         
-            (gr_line (start 191.11419297256757 135.49409603083222) (end 91.69908888510237 93.8991711231044) (angle 90) (layer Edge.Cuts) (width 0.15))
-(gr_line (start 89.55 90.67038818749785) (end 89.55 58.6923717) (angle 90) (layer Edge.Cuts) (width 0.15))
-(gr_line (start 187.45 60.150000000000006) (end 200.0484439959178 60.150000000000006) (angle 90) (layer Edge.Cuts) (width 0.15))
-(gr_line (start 203.54844369585115 63.65155574999517) (end 203.52454100380592 117.43063796329079) (angle 90) (layer Edge.Cuts) (width 0.15))
-(gr_line (start 203.14306411378018 119.01804899378516) (end 195.58362689738522 133.8542798757565) (angle 90) (layer Edge.Cuts) (width 0.15))
-(gr_arc (start 93.05 90.67038818749785) (end 89.55 90.67038818749785) (angle -67.29574186347963) (layer Edge.Cuts) (width 0.15))
-(gr_arc (start 200.0484439959178 63.650000000000006) (end 203.5484436959178 63.6515557) (angle -90.02546797442045) (layer Edge.Cuts) (width 0.15))
-(gr_arc (start 200.0245413038726 117.4290822132607) (end 203.1430641038726 119.0180490132607) (angle -26.97453266748596) (layer Edge.Cuts) (width 0.15))
-(gr_arc (start 192.46510408746516 132.2653130952258) (end 191.11419298746517 135.4940959952258) (angle -85.7042574940439) (layer Edge.Cuts) (width 0.15))
-(gr_line (start 183.95 56.650000000000006) (end 183.95 56.354306) (angle 90) (layer Edge.Cuts) (width 0.15))
+            (gr_line (start 108.74106259888246 104.06251728757636) (end 91.30206813422215 94.00996408739623) (angle 90) (layer Edge.Cuts) (width 0.15))
+(gr_line (start 89.55 90.97768201002506) (end 89.55 58.6923717) (angle 90) (layer Edge.Cuts) (width 0.15))
+(gr_line (start 187.45 60.2) (end 200.04801342391946 60.2) (angle 90) (layer Edge.Cuts) (width 0.15))
+(gr_line (start 203.5480128239762 63.70198590005748) (end 203.51712661233034 118.132532762771) (angle 90) (layer Edge.Cuts) (width 0.15))
+(gr_line (start 203.13565002221893 119.71951364332705) (end 195.9231445675412 133.87485260629563) (angle 90) (layer Edge.Cuts) (width 0.15))
+(gr_line (start 191.47671543691217 135.5241978762668) (end 160.24134487409555 122.71578386950006) (angle 90) (layer Edge.Cuts) (width 0.15))
+(gr_line (start 158.79974008607172 121.61752053711021) (end 147.5081376654284 107.00466594264563) (angle 90) (layer Edge.Cuts) (width 0.15))
+(gr_line (start 144.85208045507568 105.64655396070516) (end 110.37554056628024 104.52839591025773) (angle 90) (layer Edge.Cuts) (width 0.15))
+(gr_arc (start 93.05 90.97768201002506) (end 89.55 90.97768201002506) (angle -60.03908618192918) (layer Edge.Cuts) (width 0.15))
+(gr_arc (start 200.04801342391946 63.7) (end 203.54801282391946 63.701985900000004) (angle -90.03250962832044) (layer Edge.Cuts) (width 0.15))
+(gr_arc (start 200.01712721227358 118.13054686278338) (end 203.13565001227357 119.71951366278337) (angle -26.96749101530071) (layer Edge.Cuts) (width 0.15))
+(gr_arc (start 192.80462175762116 132.2858858257648) (end 191.47671545762117 135.52419782576482) (angle -85.296633295741) (layer Edge.Cuts) (width 0.15))
+(gr_arc (start 161.56925119480448 119.47747181899811) (end 158.7997400948045 121.6175205189981) (angle -30.009488911645377) (layer Edge.Cuts) (width 0.15))
+(gr_arc (start 144.7386265566956 109.1447146607577) (end 147.5081376566956 107.0046659607577) (angle -50.44853186045674) (layer Edge.Cuts) (width 0.15))
+(gr_arc (start 110.48899446466032 101.03023521020519) (end 108.74106266466032 104.06251721020519) (angle -28.103322828662357) (layer Edge.Cuts) (width 0.15))
+(gr_line (start 183.95 56.7) (end 183.95 56.354306) (angle 90) (layer Edge.Cuts) (width 0.15))
 (gr_arc (start 138 104.25) (end 182.7714844 53.7350103) (angle -86.16594946248068) (layer Edge.Cuts) (width 0.15))
 (gr_arc (start 93.05 58.6923717) (end 90.59179689999999 56.200938900000004) (angle -45.38465281566448) (layer Edge.Cuts) (width 0.15))
 (gr_arc (start 180.45 56.354306) (end 183.95 56.354306) (angle -48.449397721854844) (layer Edge.Cuts) (width 0.15))
-(gr_arc (start 187.45 56.650000000000006) (end 183.95 56.650000000000006) (angle -90) (layer Edge.Cuts) (width 0.15))
+(gr_arc (start 187.45 56.7) (end 183.95 56.7) (angle -90) (layer Edge.Cuts) (width 0.15))
 (gr_circle (center 104.5 54.35) (end 105.5 54.35) (layer Eco1.User) (width 0.15))
 (gr_circle (center 104.5 93.15) (end 105.5 93.15) (layer Eco1.User) (width 0.15))
 (gr_circle (center 118.5 43.1) (end 119.5 43.1) (layer Eco1.User) (width 0.15))
@@ -5842,8 +5848,8 @@
 (gr_circle (center 155.5 100.60000000000001) (end 156.5 100.60000000000001) (layer Eco1.User) (width 0.15))
 (gr_circle (center 169.5 52.300000000000004) (end 170.5 52.300000000000004) (layer Eco1.User) (width 0.15))
 (gr_circle (center 169.5 91.10000000000001) (end 170.5 91.10000000000001) (layer Eco1.User) (width 0.15))
-(gr_circle (center 176.8413807 126.5002573) (end 177.8413807 126.5002573) (layer Eco1.User) (width 0.15))
-(gr_circle (center 199.9 62.5) (end 200.9 62.5) (layer Eco1.User) (width 0.15))
+(gr_circle (center 177.19138070000002 126.5002573) (end 178.19138070000002 126.5002573) (layer Eco1.User) (width 0.15))
+(gr_circle (center 199.9 62.425000000000004) (end 200.9 62.425000000000004) (layer Eco1.User) (width 0.15))
 (gr_line (start 93.05 89.45) (end 106.95 89.45) (angle 90) (layer Eco1.User) (width 0.15))
 (gr_line (start 106.95 89.45) (end 106.95 75.55) (angle 90) (layer Eco1.User) (width 0.15))
 (gr_line (start 106.95 75.55) (end 93.05 75.55) (angle 90) (layer Eco1.User) (width 0.15))
@@ -5896,14 +5902,14 @@
 (gr_line (start 180.95000000000002 69.9) (end 180.95000000000002 56.00000000000001) (angle 90) (layer Eco1.User) (width 0.15))
 (gr_line (start 180.95000000000002 56.00000000000001) (end 167.05 56.00000000000001) (angle 90) (layer Eco1.User) (width 0.15))
 (gr_line (start 167.05 56.00000000000001) (end 167.05 69.9) (angle 90) (layer Eco1.User) (width 0.15))
-(gr_line (start 162.0216986 119.5643347) (end 175.3143347 123.62830140000001) (angle 90) (layer Eco1.User) (width 0.15))
-(gr_line (start 175.3143347 123.62830140000001) (end 179.3783014 110.3356653) (angle 90) (layer Eco1.User) (width 0.15))
-(gr_line (start 179.3783014 110.3356653) (end 166.0856653 106.27169860000001) (angle 90) (layer Eco1.User) (width 0.15))
-(gr_line (start 166.0856653 106.27169860000001) (end 162.0216986 119.5643347) (angle 90) (layer Eco1.User) (width 0.15))
-(gr_line (start 179.7276391 125.43513589999999) (end 192.1126298 131.7456038) (angle 90) (layer Eco1.User) (width 0.15))
-(gr_line (start 192.1126298 131.7456038) (end 198.42309770000003 119.3606131) (angle 90) (layer Eco1.User) (width 0.15))
-(gr_line (start 198.42309770000003 119.3606131) (end 186.03810700000002 113.05014519999999) (angle 90) (layer Eco1.User) (width 0.15))
-(gr_line (start 186.03810700000002 113.05014519999999) (end 179.7276391 125.43513589999999) (angle 90) (layer Eco1.User) (width 0.15))
+(gr_line (start 162.37169860000003 119.5643347) (end 175.6643347 123.62830140000001) (angle 90) (layer Eco1.User) (width 0.15))
+(gr_line (start 175.6643347 123.62830140000001) (end 179.72830140000002 110.3356653) (angle 90) (layer Eco1.User) (width 0.15))
+(gr_line (start 179.72830140000002 110.3356653) (end 166.4356653 106.27169860000001) (angle 90) (layer Eco1.User) (width 0.15))
+(gr_line (start 166.4356653 106.27169860000001) (end 162.37169860000003 119.5643347) (angle 90) (layer Eco1.User) (width 0.15))
+(gr_line (start 180.07763910000003 125.43513589999999) (end 192.46262980000003 131.7456038) (angle 90) (layer Eco1.User) (width 0.15))
+(gr_line (start 192.46262980000003 131.7456038) (end 198.77309770000005 119.3606131) (angle 90) (layer Eco1.User) (width 0.15))
+(gr_line (start 198.77309770000005 119.3606131) (end 186.38810700000005 113.05014519999999) (angle 90) (layer Eco1.User) (width 0.15))
+(gr_line (start 186.38810700000005 113.05014519999999) (end 180.07763910000003 125.43513589999999) (angle 90) (layer Eco1.User) (width 0.15))
 (gr_line (start 188.25 97.65) (end 199.05 97.65) (angle 90) (layer Eco1.User) (width 0.15))
 (gr_line (start 199.05 97.65) (end 199.05 72.35000000000001) (angle 90) (layer Eco1.User) (width 0.15))
 (gr_line (start 199.05 72.35000000000001) (end 188.25 72.35000000000001) (angle 90) (layer Eco1.User) (width 0.15))
@@ -5916,17 +5922,8 @@
 (gr_circle (center 155.5 100.60000000000001) (end 157 100.60000000000001) (layer Eco2.User) (width 0.15))
 (gr_circle (center 169.5 52.300000000000004) (end 171 52.300000000000004) (layer Eco2.User) (width 0.15))
 (gr_circle (center 169.5 91.10000000000001) (end 171 91.10000000000001) (layer Eco2.User) (width 0.15))
-(gr_circle (center 176.8413807 126.5002573) (end 178.3413807 126.5002573) (layer Eco2.User) (width 0.15))
-(gr_arc (start 199.9 62.5) (end 201.1359207 61.65) (angle -110.96378390961587) (layer Eco2.User) (width 0.15))
-(gr_line (start 184.5 95.75) (end 202.8 95.75) (angle 90) (layer Eco2.User) (width 0.15))
-(gr_line (start 202.8 95.75) (end 202.8 61.65) (angle 90) (layer Eco2.User) (width 0.15))
-(gr_line (start 202.8 61.65) (end 201.1359207 61.65) (angle 90) (layer Eco2.User) (width 0.15))
-(gr_line (start 198.6640793 61.65) (end 184.5 61.65) (angle 90) (layer Eco2.User) (width 0.15))
-(gr_line (start 184.5 61.65) (end 184.5 95.75) (angle 90) (layer Eco2.User) (width 0.15))
-(gr_line (start 190.3 109.89999999999999) (end 200.65000000000003 109.89999999999999) (angle 90) (layer Eco2.User) (width 0.15))
-(gr_line (start 200.65000000000003 109.89999999999999) (end 200.65000000000003 103) (angle 90) (layer Eco2.User) (width 0.15))
-(gr_line (start 190.3 103) (end 200.65000000000003 103) (angle 90) (layer Eco2.User) (width 0.15))
-(gr_line (start 190.3 103) (end 190.3 109.9) (angle 90) (layer Eco2.User) (width 0.15))
+(gr_circle (center 177.19138070000002 126.5002573) (end 178.69138070000002 126.5002573) (layer Eco2.User) (width 0.15))
+(gr_circle (center 199.9 62.425000000000004) (end 201.4 62.425000000000004) (layer Eco2.User) (width 0.15))
             
 )
 
