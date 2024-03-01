@@ -2162,7 +2162,7 @@
         
 
       (module "ceoloide:diode_tht_sod123" (layer F.Cu) (tedit 5B24D78E)
-          (at 107.75 82.25 270)
+          (at 108.25 81 270)
           (fp_text reference "D1" (at 0 0 270) (layer F.SilkS) hide (effects (font (size 1.27 1.27) (thickness 0.15))))
       
           (fp_line (start 0.25 0) (end 0.75 0) (layer F.SilkS) (width 0.1))
@@ -2179,7 +2179,7 @@
       
 
       (module "ceoloide:diode_tht_sod123" (layer F.Cu) (tedit 5B24D78E)
-          (at 107.75 64.75 270)
+          (at 108.25 63.5 270)
           (fp_text reference "D2" (at 0 0 270) (layer F.SilkS) hide (effects (font (size 1.27 1.27) (thickness 0.15))))
       
           (fp_line (start 0.25 0) (end 0.75 0) (layer F.SilkS) (width 0.1))
@@ -2196,7 +2196,7 @@
       
 
       (module "ceoloide:diode_tht_sod123" (layer F.Cu) (tedit 5B24D78E)
-          (at 126.25 88.5 270)
+          (at 126.75 87.25 270)
           (fp_text reference "D3" (at 0 0 270) (layer F.SilkS) hide (effects (font (size 1.27 1.27) (thickness 0.15))))
       
           (fp_line (start 0.25 0) (end 0.75 0) (layer F.SilkS) (width 0.1))
@@ -2213,7 +2213,7 @@
       
 
       (module "ceoloide:diode_tht_sod123" (layer F.Cu) (tedit 5B24D78E)
-          (at 126.25 71 270)
+          (at 126.75 69.75 270)
           (fp_text reference "D4" (at 0 0 270) (layer F.SilkS) hide (effects (font (size 1.27 1.27) (thickness 0.15))))
       
           (fp_line (start 0.25 0) (end 0.75 0) (layer F.SilkS) (width 0.1))
@@ -2230,7 +2230,7 @@
       
 
       (module "ceoloide:diode_tht_sod123" (layer F.Cu) (tedit 5B24D78E)
-          (at 126.25 53.5 270)
+          (at 126.75 52.25 270)
           (fp_text reference "D5" (at 0 0 270) (layer F.SilkS) hide (effects (font (size 1.27 1.27) (thickness 0.15))))
       
           (fp_line (start 0.25 0) (end 0.75 0) (layer F.SilkS) (width 0.1))
@@ -2247,7 +2247,7 @@
       
 
       (module "ceoloide:diode_tht_sod123" (layer F.Cu) (tedit 5B24D78E)
-          (at 144.75 82.5 270)
+          (at 145.25 81.25 270)
           (fp_text reference "D6" (at 0 0 270) (layer F.SilkS) hide (effects (font (size 1.27 1.27) (thickness 0.15))))
       
           (fp_line (start 0.25 0) (end 0.75 0) (layer F.SilkS) (width 0.1))
@@ -2264,7 +2264,7 @@
       
 
       (module "ceoloide:diode_tht_sod123" (layer F.Cu) (tedit 5B24D78E)
-          (at 144.75 65 270)
+          (at 145.25 63.75 270)
           (fp_text reference "D7" (at 0 0 270) (layer F.SilkS) hide (effects (font (size 1.27 1.27) (thickness 0.15))))
       
           (fp_line (start 0.25 0) (end 0.75 0) (layer F.SilkS) (width 0.1))
@@ -2281,7 +2281,7 @@
       
 
       (module "ceoloide:diode_tht_sod123" (layer F.Cu) (tedit 5B24D78E)
-          (at 144.75 47.5 270)
+          (at 145.25 46.25 270)
           (fp_text reference "D8" (at 0 0 270) (layer F.SilkS) hide (effects (font (size 1.27 1.27) (thickness 0.15))))
       
           (fp_line (start 0.25 0) (end 0.75 0) (layer F.SilkS) (width 0.1))
@@ -2298,7 +2298,7 @@
       
 
       (module "ceoloide:diode_tht_sod123" (layer F.Cu) (tedit 5B24D78E)
-          (at 163.25 89.7 270)
+          (at 163.75 88.45 270)
           (fp_text reference "D9" (at 0 0 270) (layer F.SilkS) hide (effects (font (size 1.27 1.27) (thickness 0.15))))
       
           (fp_line (start 0.25 0) (end 0.75 0) (layer F.SilkS) (width 0.1))
@@ -2315,7 +2315,7 @@
       
 
       (module "ceoloide:diode_tht_sod123" (layer F.Cu) (tedit 5B24D78E)
-          (at 163.25 72.2 270)
+          (at 163.75 70.95 270)
           (fp_text reference "D10" (at 0 0 270) (layer F.SilkS) hide (effects (font (size 1.27 1.27) (thickness 0.15))))
       
           (fp_line (start 0.25 0) (end 0.75 0) (layer F.SilkS) (width 0.1))
@@ -2332,7 +2332,7 @@
       
 
       (module "ceoloide:diode_tht_sod123" (layer F.Cu) (tedit 5B24D78E)
-          (at 163.25 54.7 270)
+          (at 163.75 53.45 270)
           (fp_text reference "D11" (at 0 0 270) (layer F.SilkS) hide (effects (font (size 1.27 1.27) (thickness 0.15))))
       
           (fp_line (start 0.25 0) (end 0.75 0) (layer F.SilkS) (width 0.1))
@@ -2349,7 +2349,7 @@
       
 
       (module "ceoloide:diode_tht_sod123" (layer F.Cu) (tedit 5B24D78E)
-          (at 181.75 80.2 270)
+          (at 182.25 78.95 270)
           (fp_text reference "D12" (at 0 0 270) (layer F.SilkS) hide (effects (font (size 1.27 1.27) (thickness 0.15))))
       
           (fp_line (start 0.25 0) (end 0.75 0) (layer F.SilkS) (width 0.1))
@@ -2366,7 +2366,7 @@
       
 
       (module "ceoloide:diode_tht_sod123" (layer F.Cu) (tedit 5B24D78E)
-          (at 181.75 62.7 270)
+          (at 182.25 61.45 270)
           (fp_text reference "D13" (at 0 0 270) (layer F.SilkS) hide (effects (font (size 1.27 1.27) (thickness 0.15))))
       
           (fp_line (start 0.25 0) (end 0.75 0) (layer F.SilkS) (width 0.1))
@@ -2383,7 +2383,7 @@
       
 
       (module "ceoloide:diode_tht_sod123" (layer F.Cu) (tedit 5B24D78E)
-          (at 178.53445480000002 116.9768045 253)
+          (at 179.37807180000001 115.92760940000001 253)
           (fp_text reference "D14" (at 0 0 253) (layer F.SilkS) hide (effects (font (size 1.27 1.27) (thickness 0.15))))
       
           (fp_line (start 0.25 0) (end 0.75 0) (layer F.SilkS) (width 0.1))
@@ -2400,7 +2400,7 @@
       
 
       (module "ceoloide:diode_tht_sod123" (layer F.Cu) (tedit 5B24D78E)
-          (at 196.44416660000002 125.6935492 243)
+          (at 197.45715800000002 124.8067863 243)
           (fp_text reference "D15" (at 0 0 243) (layer F.SilkS) hide (effects (font (size 1.27 1.27) (thickness 0.15))))
       
           (fp_line (start 0.25 0) (end 0.75 0) (layer F.SilkS) (width 0.1))
@@ -2417,7 +2417,7 @@
       
 
       (module "ceoloide:diode_tht_sod123" (layer B.Cu) (tedit 5B24D78E)
-          (at 92.25 82.25 270)
+          (at 91.75 81 270)
           (fp_text reference "D16" (at 0 0 270) (layer B.SilkS) hide (effects (font (size 1.27 1.27) (thickness 0.15))))
       
           (fp_line (start 0.25 0) (end 0.75 0) (layer B.SilkS) (width 0.1))
@@ -2434,7 +2434,7 @@
       
 
       (module "ceoloide:diode_tht_sod123" (layer B.Cu) (tedit 5B24D78E)
-          (at 92.25 64.75 270)
+          (at 91.75 63.5 270)
           (fp_text reference "D17" (at 0 0 270) (layer B.SilkS) hide (effects (font (size 1.27 1.27) (thickness 0.15))))
       
           (fp_line (start 0.25 0) (end 0.75 0) (layer B.SilkS) (width 0.1))
@@ -2451,7 +2451,7 @@
       
 
       (module "ceoloide:diode_tht_sod123" (layer B.Cu) (tedit 5B24D78E)
-          (at 110.75 88.5 270)
+          (at 110.25 87.25 270)
           (fp_text reference "D18" (at 0 0 270) (layer B.SilkS) hide (effects (font (size 1.27 1.27) (thickness 0.15))))
       
           (fp_line (start 0.25 0) (end 0.75 0) (layer B.SilkS) (width 0.1))
@@ -2468,7 +2468,7 @@
       
 
       (module "ceoloide:diode_tht_sod123" (layer B.Cu) (tedit 5B24D78E)
-          (at 110.75 71 270)
+          (at 110.25 69.75 270)
           (fp_text reference "D19" (at 0 0 270) (layer B.SilkS) hide (effects (font (size 1.27 1.27) (thickness 0.15))))
       
           (fp_line (start 0.25 0) (end 0.75 0) (layer B.SilkS) (width 0.1))
@@ -2485,7 +2485,7 @@
       
 
       (module "ceoloide:diode_tht_sod123" (layer B.Cu) (tedit 5B24D78E)
-          (at 110.75 53.5 270)
+          (at 110.25 52.25 270)
           (fp_text reference "D20" (at 0 0 270) (layer B.SilkS) hide (effects (font (size 1.27 1.27) (thickness 0.15))))
       
           (fp_line (start 0.25 0) (end 0.75 0) (layer B.SilkS) (width 0.1))
@@ -2502,7 +2502,7 @@
       
 
       (module "ceoloide:diode_tht_sod123" (layer B.Cu) (tedit 5B24D78E)
-          (at 129.25 82.5 270)
+          (at 128.75 81.25 270)
           (fp_text reference "D21" (at 0 0 270) (layer B.SilkS) hide (effects (font (size 1.27 1.27) (thickness 0.15))))
       
           (fp_line (start 0.25 0) (end 0.75 0) (layer B.SilkS) (width 0.1))
@@ -2519,7 +2519,7 @@
       
 
       (module "ceoloide:diode_tht_sod123" (layer B.Cu) (tedit 5B24D78E)
-          (at 129.25 65 270)
+          (at 128.75 63.75 270)
           (fp_text reference "D22" (at 0 0 270) (layer B.SilkS) hide (effects (font (size 1.27 1.27) (thickness 0.15))))
       
           (fp_line (start 0.25 0) (end 0.75 0) (layer B.SilkS) (width 0.1))
@@ -2536,7 +2536,7 @@
       
 
       (module "ceoloide:diode_tht_sod123" (layer B.Cu) (tedit 5B24D78E)
-          (at 129.25 47.5 270)
+          (at 128.75 46.25 270)
           (fp_text reference "D23" (at 0 0 270) (layer B.SilkS) hide (effects (font (size 1.27 1.27) (thickness 0.15))))
       
           (fp_line (start 0.25 0) (end 0.75 0) (layer B.SilkS) (width 0.1))
@@ -2553,7 +2553,7 @@
       
 
       (module "ceoloide:diode_tht_sod123" (layer B.Cu) (tedit 5B24D78E)
-          (at 147.75 89.7 270)
+          (at 147.25 88.45 270)
           (fp_text reference "D24" (at 0 0 270) (layer B.SilkS) hide (effects (font (size 1.27 1.27) (thickness 0.15))))
       
           (fp_line (start 0.25 0) (end 0.75 0) (layer B.SilkS) (width 0.1))
@@ -2570,7 +2570,7 @@
       
 
       (module "ceoloide:diode_tht_sod123" (layer B.Cu) (tedit 5B24D78E)
-          (at 147.75 72.2 270)
+          (at 147.25 70.95 270)
           (fp_text reference "D25" (at 0 0 270) (layer B.SilkS) hide (effects (font (size 1.27 1.27) (thickness 0.15))))
       
           (fp_line (start 0.25 0) (end 0.75 0) (layer B.SilkS) (width 0.1))
@@ -2587,7 +2587,7 @@
       
 
       (module "ceoloide:diode_tht_sod123" (layer B.Cu) (tedit 5B24D78E)
-          (at 147.75 54.7 270)
+          (at 147.25 53.45 270)
           (fp_text reference "D26" (at 0 0 270) (layer B.SilkS) hide (effects (font (size 1.27 1.27) (thickness 0.15))))
       
           (fp_line (start 0.25 0) (end 0.75 0) (layer B.SilkS) (width 0.1))
@@ -2604,7 +2604,7 @@
       
 
       (module "ceoloide:diode_tht_sod123" (layer B.Cu) (tedit 5B24D78E)
-          (at 166.25 80.2 270)
+          (at 165.75 78.95 270)
           (fp_text reference "D27" (at 0 0 270) (layer B.SilkS) hide (effects (font (size 1.27 1.27) (thickness 0.15))))
       
           (fp_line (start 0.25 0) (end 0.75 0) (layer B.SilkS) (width 0.1))
@@ -2621,7 +2621,7 @@
       
 
       (module "ceoloide:diode_tht_sod123" (layer B.Cu) (tedit 5B24D78E)
-          (at 166.25 62.7 270)
+          (at 165.75 61.45 270)
           (fp_text reference "D28" (at 0 0 270) (layer B.SilkS) hide (effects (font (size 1.27 1.27) (thickness 0.15))))
       
           (fp_line (start 0.25 0) (end 0.75 0) (layer B.SilkS) (width 0.1))
@@ -2638,7 +2638,7 @@
       
 
       (module "ceoloide:diode_tht_sod123" (layer B.Cu) (tedit 5B24D78E)
-          (at 163.7117311 112.4450431 253)
+          (at 163.5990433 111.1034763 253)
           (fp_text reference "D29" (at 0 0 253) (layer B.SilkS) hide (effects (font (size 1.27 1.27) (thickness 0.15))))
       
           (fp_line (start 0.25 0) (end 0.75 0) (layer B.SilkS) (width 0.1))
@@ -2655,7 +2655,7 @@
       
 
       (module "ceoloide:diode_tht_sod123" (layer B.Cu) (tedit 5B24D78E)
-          (at 182.63356550000003 118.6566965 243)
+          (at 182.75555030000004 117.3159431 243)
           (fp_text reference "D30" (at 0 0 243) (layer B.SilkS) hide (effects (font (size 1.27 1.27) (thickness 0.15))))
       
           (fp_line (start 0.25 0) (end 0.75 0) (layer B.SilkS) (width 0.1))
@@ -2672,7 +2672,7 @@
       
 
       (module VIA-0.6mm (layer F.Cu) (tedit 591DBFB0)
-      (at 107.75 79.25 0)   
+      (at 107.75 78 0)   
       
       (fp_text reference REF** (at 0 1.4) (layer F.SilkS) hide (effects (font (size 1 1) (thickness 0.15))))
       (fp_text value VIA-0.6mm (at 0 -1.4) (layer F.Fab) hide (effects (font (size 1 1) (thickness 0.15))))
@@ -2683,7 +2683,7 @@
     
 
       (module VIA-0.6mm (layer F.Cu) (tedit 591DBFB0)
-      (at 107.75 61.75 0)   
+      (at 107.75 60.5 0)   
       
       (fp_text reference REF** (at 0 1.4) (layer F.SilkS) hide (effects (font (size 1 1) (thickness 0.15))))
       (fp_text value VIA-0.6mm (at 0 -1.4) (layer F.Fab) hide (effects (font (size 1 1) (thickness 0.15))))
@@ -2694,7 +2694,7 @@
     
 
       (module VIA-0.6mm (layer F.Cu) (tedit 591DBFB0)
-      (at 126.25 85.5 0)   
+      (at 126.25 84.25 0)   
       
       (fp_text reference REF** (at 0 1.4) (layer F.SilkS) hide (effects (font (size 1 1) (thickness 0.15))))
       (fp_text value VIA-0.6mm (at 0 -1.4) (layer F.Fab) hide (effects (font (size 1 1) (thickness 0.15))))
@@ -2705,7 +2705,7 @@
     
 
       (module VIA-0.6mm (layer F.Cu) (tedit 591DBFB0)
-      (at 126.25 68 0)   
+      (at 126.25 66.75 0)   
       
       (fp_text reference REF** (at 0 1.4) (layer F.SilkS) hide (effects (font (size 1 1) (thickness 0.15))))
       (fp_text value VIA-0.6mm (at 0 -1.4) (layer F.Fab) hide (effects (font (size 1 1) (thickness 0.15))))
@@ -2716,7 +2716,7 @@
     
 
       (module VIA-0.6mm (layer F.Cu) (tedit 591DBFB0)
-      (at 126.25 50.5 0)   
+      (at 126.25 49.25 0)   
       
       (fp_text reference REF** (at 0 1.4) (layer F.SilkS) hide (effects (font (size 1 1) (thickness 0.15))))
       (fp_text value VIA-0.6mm (at 0 -1.4) (layer F.Fab) hide (effects (font (size 1 1) (thickness 0.15))))
@@ -2727,7 +2727,7 @@
     
 
       (module VIA-0.6mm (layer F.Cu) (tedit 591DBFB0)
-      (at 144.75 79.5 0)   
+      (at 144.75 78.25 0)   
       
       (fp_text reference REF** (at 0 1.4) (layer F.SilkS) hide (effects (font (size 1 1) (thickness 0.15))))
       (fp_text value VIA-0.6mm (at 0 -1.4) (layer F.Fab) hide (effects (font (size 1 1) (thickness 0.15))))
@@ -2738,7 +2738,7 @@
     
 
       (module VIA-0.6mm (layer F.Cu) (tedit 591DBFB0)
-      (at 144.75 62 0)   
+      (at 144.75 60.75 0)   
       
       (fp_text reference REF** (at 0 1.4) (layer F.SilkS) hide (effects (font (size 1 1) (thickness 0.15))))
       (fp_text value VIA-0.6mm (at 0 -1.4) (layer F.Fab) hide (effects (font (size 1 1) (thickness 0.15))))
@@ -2749,7 +2749,7 @@
     
 
       (module VIA-0.6mm (layer F.Cu) (tedit 591DBFB0)
-      (at 144.75 44.5 0)   
+      (at 144.75 43.25 0)   
       
       (fp_text reference REF** (at 0 1.4) (layer F.SilkS) hide (effects (font (size 1 1) (thickness 0.15))))
       (fp_text value VIA-0.6mm (at 0 -1.4) (layer F.Fab) hide (effects (font (size 1 1) (thickness 0.15))))
@@ -2760,7 +2760,7 @@
     
 
       (module VIA-0.6mm (layer F.Cu) (tedit 591DBFB0)
-      (at 163.25 86.7 0)   
+      (at 163.25 85.45 0)   
       
       (fp_text reference REF** (at 0 1.4) (layer F.SilkS) hide (effects (font (size 1 1) (thickness 0.15))))
       (fp_text value VIA-0.6mm (at 0 -1.4) (layer F.Fab) hide (effects (font (size 1 1) (thickness 0.15))))
@@ -2771,7 +2771,7 @@
     
 
       (module VIA-0.6mm (layer F.Cu) (tedit 591DBFB0)
-      (at 163.25 69.2 0)   
+      (at 163.25 67.95 0)   
       
       (fp_text reference REF** (at 0 1.4) (layer F.SilkS) hide (effects (font (size 1 1) (thickness 0.15))))
       (fp_text value VIA-0.6mm (at 0 -1.4) (layer F.Fab) hide (effects (font (size 1 1) (thickness 0.15))))
@@ -2782,7 +2782,7 @@
     
 
       (module VIA-0.6mm (layer F.Cu) (tedit 591DBFB0)
-      (at 163.25 51.7 0)   
+      (at 163.25 50.45 0)   
       
       (fp_text reference REF** (at 0 1.4) (layer F.SilkS) hide (effects (font (size 1 1) (thickness 0.15))))
       (fp_text value VIA-0.6mm (at 0 -1.4) (layer F.Fab) hide (effects (font (size 1 1) (thickness 0.15))))
@@ -2793,7 +2793,7 @@
     
 
       (module VIA-0.6mm (layer F.Cu) (tedit 591DBFB0)
-      (at 181.75 77.2 0)   
+      (at 181.75 75.95 0)   
       
       (fp_text reference REF** (at 0 1.4) (layer F.SilkS) hide (effects (font (size 1 1) (thickness 0.15))))
       (fp_text value VIA-0.6mm (at 0 -1.4) (layer F.Fab) hide (effects (font (size 1 1) (thickness 0.15))))
@@ -2804,7 +2804,7 @@
     
 
       (module VIA-0.6mm (layer F.Cu) (tedit 591DBFB0)
-      (at 181.75 59.7 0)   
+      (at 181.75 58.45 0)   
       
       (fp_text reference REF** (at 0 1.4) (layer F.SilkS) hide (effects (font (size 1 1) (thickness 0.15))))
       (fp_text value VIA-0.6mm (at 0 -1.4) (layer F.Fab) hide (effects (font (size 1 1) (thickness 0.15))))
@@ -2815,7 +2815,7 @@
     
 
       (module VIA-0.6mm (layer F.Cu) (tedit 591DBFB0)
-      (at 179.41156990000002 114.10789030000001 -17)   
+      (at 179.7770345 112.9125093 -17)   
       
       (fp_text reference REF** (at 0 1.4) (layer F.SilkS) hide (effects (font (size 1 1) (thickness 0.15))))
       (fp_text value VIA-0.6mm (at 0 -1.4) (layer F.Fab) hide (effects (font (size 1 1) (thickness 0.15))))
@@ -2826,7 +2826,7 @@
     
 
       (module VIA-0.6mm (layer F.Cu) (tedit 591DBFB0)
-      (at 197.80613810000003 123.0205297 -27)   
+      (at 198.37362620000002 121.9067715 -27)   
       
       (fp_text reference REF** (at 0 1.4) (layer F.SilkS) hide (effects (font (size 1 1) (thickness 0.15))))
       (fp_text value VIA-0.6mm (at 0 -1.4) (layer F.Fab) hide (effects (font (size 1 1) (thickness 0.15))))
@@ -2837,7 +2837,7 @@
     
 
       (module VIA-0.6mm (layer F.Cu) (tedit 591DBFB0)
-      (at 104.75 84 0)   
+      (at 103.5 84 0)   
       
       (fp_text reference REF** (at 0 1.4) (layer F.SilkS) hide (effects (font (size 1 1) (thickness 0.15))))
       (fp_text value VIA-0.6mm (at 0 -1.4) (layer F.Fab) hide (effects (font (size 1 1) (thickness 0.15))))
@@ -2848,7 +2848,7 @@
     
 
       (module VIA-0.6mm (layer F.Cu) (tedit 591DBFB0)
-      (at 104.75 66.5 0)   
+      (at 103.5 66.5 0)   
       
       (fp_text reference REF** (at 0 1.4) (layer F.SilkS) hide (effects (font (size 1 1) (thickness 0.15))))
       (fp_text value VIA-0.6mm (at 0 -1.4) (layer F.Fab) hide (effects (font (size 1 1) (thickness 0.15))))
@@ -2859,7 +2859,7 @@
     
 
       (module VIA-0.6mm (layer F.Cu) (tedit 591DBFB0)
-      (at 123.25 90.25 0)   
+      (at 122 90.25 0)   
       
       (fp_text reference REF** (at 0 1.4) (layer F.SilkS) hide (effects (font (size 1 1) (thickness 0.15))))
       (fp_text value VIA-0.6mm (at 0 -1.4) (layer F.Fab) hide (effects (font (size 1 1) (thickness 0.15))))
@@ -2870,7 +2870,7 @@
     
 
       (module VIA-0.6mm (layer F.Cu) (tedit 591DBFB0)
-      (at 123.25 72.75 0)   
+      (at 122 72.75 0)   
       
       (fp_text reference REF** (at 0 1.4) (layer F.SilkS) hide (effects (font (size 1 1) (thickness 0.15))))
       (fp_text value VIA-0.6mm (at 0 -1.4) (layer F.Fab) hide (effects (font (size 1 1) (thickness 0.15))))
@@ -2881,7 +2881,7 @@
     
 
       (module VIA-0.6mm (layer F.Cu) (tedit 591DBFB0)
-      (at 123.25 55.25 0)   
+      (at 122 55.25 0)   
       
       (fp_text reference REF** (at 0 1.4) (layer F.SilkS) hide (effects (font (size 1 1) (thickness 0.15))))
       (fp_text value VIA-0.6mm (at 0 -1.4) (layer F.Fab) hide (effects (font (size 1 1) (thickness 0.15))))
@@ -2892,7 +2892,7 @@
     
 
       (module VIA-0.6mm (layer F.Cu) (tedit 591DBFB0)
-      (at 141.75 84.25 0)   
+      (at 140.5 84.25 0)   
       
       (fp_text reference REF** (at 0 1.4) (layer F.SilkS) hide (effects (font (size 1 1) (thickness 0.15))))
       (fp_text value VIA-0.6mm (at 0 -1.4) (layer F.Fab) hide (effects (font (size 1 1) (thickness 0.15))))
@@ -2903,7 +2903,7 @@
     
 
       (module VIA-0.6mm (layer F.Cu) (tedit 591DBFB0)
-      (at 141.75 66.75 0)   
+      (at 140.5 66.75 0)   
       
       (fp_text reference REF** (at 0 1.4) (layer F.SilkS) hide (effects (font (size 1 1) (thickness 0.15))))
       (fp_text value VIA-0.6mm (at 0 -1.4) (layer F.Fab) hide (effects (font (size 1 1) (thickness 0.15))))
@@ -2914,7 +2914,7 @@
     
 
       (module VIA-0.6mm (layer F.Cu) (tedit 591DBFB0)
-      (at 141.75 49.25 0)   
+      (at 140.5 49.25 0)   
       
       (fp_text reference REF** (at 0 1.4) (layer F.SilkS) hide (effects (font (size 1 1) (thickness 0.15))))
       (fp_text value VIA-0.6mm (at 0 -1.4) (layer F.Fab) hide (effects (font (size 1 1) (thickness 0.15))))
@@ -2925,7 +2925,7 @@
     
 
       (module VIA-0.6mm (layer F.Cu) (tedit 591DBFB0)
-      (at 160.25 91.45 0)   
+      (at 159 91.45 0)   
       
       (fp_text reference REF** (at 0 1.4) (layer F.SilkS) hide (effects (font (size 1 1) (thickness 0.15))))
       (fp_text value VIA-0.6mm (at 0 -1.4) (layer F.Fab) hide (effects (font (size 1 1) (thickness 0.15))))
@@ -2936,7 +2936,7 @@
     
 
       (module VIA-0.6mm (layer F.Cu) (tedit 591DBFB0)
-      (at 160.25 73.95 0)   
+      (at 159 73.95 0)   
       
       (fp_text reference REF** (at 0 1.4) (layer F.SilkS) hide (effects (font (size 1 1) (thickness 0.15))))
       (fp_text value VIA-0.6mm (at 0 -1.4) (layer F.Fab) hide (effects (font (size 1 1) (thickness 0.15))))
@@ -2947,7 +2947,7 @@
     
 
       (module VIA-0.6mm (layer F.Cu) (tedit 591DBFB0)
-      (at 160.25 56.45 0)   
+      (at 159 56.45 0)   
       
       (fp_text reference REF** (at 0 1.4) (layer F.SilkS) hide (effects (font (size 1 1) (thickness 0.15))))
       (fp_text value VIA-0.6mm (at 0 -1.4) (layer F.Fab) hide (effects (font (size 1 1) (thickness 0.15))))
@@ -2958,7 +2958,7 @@
     
 
       (module VIA-0.6mm (layer F.Cu) (tedit 591DBFB0)
-      (at 178.75 81.95 0)   
+      (at 177.5 81.95 0)   
       
       (fp_text reference REF** (at 0 1.4) (layer F.SilkS) hide (effects (font (size 1 1) (thickness 0.15))))
       (fp_text value VIA-0.6mm (at 0 -1.4) (layer F.Fab) hide (effects (font (size 1 1) (thickness 0.15))))
@@ -2969,7 +2969,7 @@
     
 
       (module VIA-0.6mm (layer F.Cu) (tedit 591DBFB0)
-      (at 178.75 64.45 0)   
+      (at 177.5 64.45 0)   
       
       (fp_text reference REF** (at 0 1.4) (layer F.SilkS) hide (effects (font (size 1 1) (thickness 0.15))))
       (fp_text value VIA-0.6mm (at 0 -1.4) (layer F.Fab) hide (effects (font (size 1 1) (thickness 0.15))))
@@ -2980,7 +2980,7 @@
     
 
       (module VIA-0.6mm (layer F.Cu) (tedit 591DBFB0)
-      (at 175.15389000000002 117.7732227 -17)   
+      (at 173.95850910000001 117.40775810000001 -17)   
       
       (fp_text reference REF** (at 0 1.4) (layer F.SilkS) hide (effects (font (size 1 1) (thickness 0.15))))
       (fp_text value VIA-0.6mm (at 0 -1.4) (layer F.Fab) hide (effects (font (size 1 1) (thickness 0.15))))
@@ -2991,7 +2991,7 @@
     
 
       (module VIA-0.6mm (layer F.Cu) (tedit 591DBFB0)
-      (at 192.97666360000002 125.8908392 -27)   
+      (at 191.8629055 125.323351 -27)   
       
       (fp_text reference REF** (at 0 1.4) (layer F.SilkS) hide (effects (font (size 1 1) (thickness 0.15))))
       (fp_text value VIA-0.6mm (at 0 -1.4) (layer F.Fab) hide (effects (font (size 1 1) (thickness 0.15))))
@@ -3002,7 +3002,7 @@
     
 
       (module VIA-0.6mm (layer F.Cu) (tedit 591DBFB0)
-      (at 92.25 79.25 0)   
+      (at 92.25 78 0)   
       
       (fp_text reference REF** (at 0 1.4) (layer F.SilkS) hide (effects (font (size 1 1) (thickness 0.15))))
       (fp_text value VIA-0.6mm (at 0 -1.4) (layer F.Fab) hide (effects (font (size 1 1) (thickness 0.15))))
@@ -3013,7 +3013,7 @@
     
 
       (module VIA-0.6mm (layer F.Cu) (tedit 591DBFB0)
-      (at 92.25 61.75 0)   
+      (at 92.25 60.5 0)   
       
       (fp_text reference REF** (at 0 1.4) (layer F.SilkS) hide (effects (font (size 1 1) (thickness 0.15))))
       (fp_text value VIA-0.6mm (at 0 -1.4) (layer F.Fab) hide (effects (font (size 1 1) (thickness 0.15))))
@@ -3024,7 +3024,7 @@
     
 
       (module VIA-0.6mm (layer F.Cu) (tedit 591DBFB0)
-      (at 110.75 85.5 0)   
+      (at 110.75 84.25 0)   
       
       (fp_text reference REF** (at 0 1.4) (layer F.SilkS) hide (effects (font (size 1 1) (thickness 0.15))))
       (fp_text value VIA-0.6mm (at 0 -1.4) (layer F.Fab) hide (effects (font (size 1 1) (thickness 0.15))))
@@ -3035,7 +3035,7 @@
     
 
       (module VIA-0.6mm (layer F.Cu) (tedit 591DBFB0)
-      (at 110.75 68 0)   
+      (at 110.75 66.75 0)   
       
       (fp_text reference REF** (at 0 1.4) (layer F.SilkS) hide (effects (font (size 1 1) (thickness 0.15))))
       (fp_text value VIA-0.6mm (at 0 -1.4) (layer F.Fab) hide (effects (font (size 1 1) (thickness 0.15))))
@@ -3046,7 +3046,7 @@
     
 
       (module VIA-0.6mm (layer F.Cu) (tedit 591DBFB0)
-      (at 110.75 50.5 0)   
+      (at 110.75 49.25 0)   
       
       (fp_text reference REF** (at 0 1.4) (layer F.SilkS) hide (effects (font (size 1 1) (thickness 0.15))))
       (fp_text value VIA-0.6mm (at 0 -1.4) (layer F.Fab) hide (effects (font (size 1 1) (thickness 0.15))))
@@ -3057,7 +3057,7 @@
     
 
       (module VIA-0.6mm (layer F.Cu) (tedit 591DBFB0)
-      (at 129.25 79.5 0)   
+      (at 129.25 78.25 0)   
       
       (fp_text reference REF** (at 0 1.4) (layer F.SilkS) hide (effects (font (size 1 1) (thickness 0.15))))
       (fp_text value VIA-0.6mm (at 0 -1.4) (layer F.Fab) hide (effects (font (size 1 1) (thickness 0.15))))
@@ -3068,7 +3068,7 @@
     
 
       (module VIA-0.6mm (layer F.Cu) (tedit 591DBFB0)
-      (at 129.25 62 0)   
+      (at 129.25 60.75 0)   
       
       (fp_text reference REF** (at 0 1.4) (layer F.SilkS) hide (effects (font (size 1 1) (thickness 0.15))))
       (fp_text value VIA-0.6mm (at 0 -1.4) (layer F.Fab) hide (effects (font (size 1 1) (thickness 0.15))))
@@ -3079,7 +3079,7 @@
     
 
       (module VIA-0.6mm (layer F.Cu) (tedit 591DBFB0)
-      (at 129.25 44.5 0)   
+      (at 129.25 43.25 0)   
       
       (fp_text reference REF** (at 0 1.4) (layer F.SilkS) hide (effects (font (size 1 1) (thickness 0.15))))
       (fp_text value VIA-0.6mm (at 0 -1.4) (layer F.Fab) hide (effects (font (size 1 1) (thickness 0.15))))
@@ -3090,7 +3090,7 @@
     
 
       (module VIA-0.6mm (layer F.Cu) (tedit 591DBFB0)
-      (at 147.75 86.7 0)   
+      (at 147.75 85.45 0)   
       
       (fp_text reference REF** (at 0 1.4) (layer F.SilkS) hide (effects (font (size 1 1) (thickness 0.15))))
       (fp_text value VIA-0.6mm (at 0 -1.4) (layer F.Fab) hide (effects (font (size 1 1) (thickness 0.15))))
@@ -3101,7 +3101,7 @@
     
 
       (module VIA-0.6mm (layer F.Cu) (tedit 591DBFB0)
-      (at 147.75 69.2 0)   
+      (at 147.75 67.95 0)   
       
       (fp_text reference REF** (at 0 1.4) (layer F.SilkS) hide (effects (font (size 1 1) (thickness 0.15))))
       (fp_text value VIA-0.6mm (at 0 -1.4) (layer F.Fab) hide (effects (font (size 1 1) (thickness 0.15))))
@@ -3112,7 +3112,7 @@
     
 
       (module VIA-0.6mm (layer F.Cu) (tedit 591DBFB0)
-      (at 147.75 51.7 0)   
+      (at 147.75 50.45 0)   
       
       (fp_text reference REF** (at 0 1.4) (layer F.SilkS) hide (effects (font (size 1 1) (thickness 0.15))))
       (fp_text value VIA-0.6mm (at 0 -1.4) (layer F.Fab) hide (effects (font (size 1 1) (thickness 0.15))))
@@ -3123,7 +3123,7 @@
     
 
       (module VIA-0.6mm (layer F.Cu) (tedit 591DBFB0)
-      (at 166.25 77.2 0)   
+      (at 166.25 75.95 0)   
       
       (fp_text reference REF** (at 0 1.4) (layer F.SilkS) hide (effects (font (size 1 1) (thickness 0.15))))
       (fp_text value VIA-0.6mm (at 0 -1.4) (layer F.Fab) hide (effects (font (size 1 1) (thickness 0.15))))
@@ -3134,7 +3134,7 @@
     
 
       (module VIA-0.6mm (layer F.Cu) (tedit 591DBFB0)
-      (at 166.25 59.7 0)   
+      (at 166.25 58.45 0)   
       
       (fp_text reference REF** (at 0 1.4) (layer F.SilkS) hide (effects (font (size 1 1) (thickness 0.15))))
       (fp_text value VIA-0.6mm (at 0 -1.4) (layer F.Fab) hide (effects (font (size 1 1) (thickness 0.15))))
@@ -3145,7 +3145,7 @@
     
 
       (module VIA-0.6mm (layer F.Cu) (tedit 591DBFB0)
-      (at 164.5888462 109.5761288 -17)   
+      (at 164.9543108 108.3807479 -17)   
       
       (fp_text reference REF** (at 0 1.4) (layer F.SilkS) hide (effects (font (size 1 1) (thickness 0.15))))
       (fp_text value VIA-0.6mm (at 0 -1.4) (layer F.Fab) hide (effects (font (size 1 1) (thickness 0.15))))
@@ -3156,7 +3156,7 @@
     
 
       (module VIA-0.6mm (layer F.Cu) (tedit 591DBFB0)
-      (at 183.995537 115.9836769 -27)   
+      (at 184.56302510000003 114.8699188 -27)   
       
       (fp_text reference REF** (at 0 1.4) (layer F.SilkS) hide (effects (font (size 1 1) (thickness 0.15))))
       (fp_text value VIA-0.6mm (at 0 -1.4) (layer F.Fab) hide (effects (font (size 1 1) (thickness 0.15))))
@@ -3167,7 +3167,7 @@
     
 
       (module VIA-0.6mm (layer F.Cu) (tedit 591DBFB0)
-      (at 95.25 84 0)   
+      (at 96.5 84 0)   
       
       (fp_text reference REF** (at 0 1.4) (layer F.SilkS) hide (effects (font (size 1 1) (thickness 0.15))))
       (fp_text value VIA-0.6mm (at 0 -1.4) (layer F.Fab) hide (effects (font (size 1 1) (thickness 0.15))))
@@ -3178,7 +3178,7 @@
     
 
       (module VIA-0.6mm (layer F.Cu) (tedit 591DBFB0)
-      (at 95.25 66.5 0)   
+      (at 96.5 66.5 0)   
       
       (fp_text reference REF** (at 0 1.4) (layer F.SilkS) hide (effects (font (size 1 1) (thickness 0.15))))
       (fp_text value VIA-0.6mm (at 0 -1.4) (layer F.Fab) hide (effects (font (size 1 1) (thickness 0.15))))
@@ -3189,7 +3189,7 @@
     
 
       (module VIA-0.6mm (layer F.Cu) (tedit 591DBFB0)
-      (at 113.75 90.25 0)   
+      (at 115 90.25 0)   
       
       (fp_text reference REF** (at 0 1.4) (layer F.SilkS) hide (effects (font (size 1 1) (thickness 0.15))))
       (fp_text value VIA-0.6mm (at 0 -1.4) (layer F.Fab) hide (effects (font (size 1 1) (thickness 0.15))))
@@ -3200,7 +3200,7 @@
     
 
       (module VIA-0.6mm (layer F.Cu) (tedit 591DBFB0)
-      (at 113.75 72.75 0)   
+      (at 115 72.75 0)   
       
       (fp_text reference REF** (at 0 1.4) (layer F.SilkS) hide (effects (font (size 1 1) (thickness 0.15))))
       (fp_text value VIA-0.6mm (at 0 -1.4) (layer F.Fab) hide (effects (font (size 1 1) (thickness 0.15))))
@@ -3211,7 +3211,7 @@
     
 
       (module VIA-0.6mm (layer F.Cu) (tedit 591DBFB0)
-      (at 113.75 55.25 0)   
+      (at 115 55.25 0)   
       
       (fp_text reference REF** (at 0 1.4) (layer F.SilkS) hide (effects (font (size 1 1) (thickness 0.15))))
       (fp_text value VIA-0.6mm (at 0 -1.4) (layer F.Fab) hide (effects (font (size 1 1) (thickness 0.15))))
@@ -3222,7 +3222,7 @@
     
 
       (module VIA-0.6mm (layer F.Cu) (tedit 591DBFB0)
-      (at 132.25 84.25 0)   
+      (at 133.5 84.25 0)   
       
       (fp_text reference REF** (at 0 1.4) (layer F.SilkS) hide (effects (font (size 1 1) (thickness 0.15))))
       (fp_text value VIA-0.6mm (at 0 -1.4) (layer F.Fab) hide (effects (font (size 1 1) (thickness 0.15))))
@@ -3233,7 +3233,7 @@
     
 
       (module VIA-0.6mm (layer F.Cu) (tedit 591DBFB0)
-      (at 132.25 66.75 0)   
+      (at 133.5 66.75 0)   
       
       (fp_text reference REF** (at 0 1.4) (layer F.SilkS) hide (effects (font (size 1 1) (thickness 0.15))))
       (fp_text value VIA-0.6mm (at 0 -1.4) (layer F.Fab) hide (effects (font (size 1 1) (thickness 0.15))))
@@ -3244,7 +3244,7 @@
     
 
       (module VIA-0.6mm (layer F.Cu) (tedit 591DBFB0)
-      (at 132.25 49.25 0)   
+      (at 133.5 49.25 0)   
       
       (fp_text reference REF** (at 0 1.4) (layer F.SilkS) hide (effects (font (size 1 1) (thickness 0.15))))
       (fp_text value VIA-0.6mm (at 0 -1.4) (layer F.Fab) hide (effects (font (size 1 1) (thickness 0.15))))
@@ -3255,7 +3255,7 @@
     
 
       (module VIA-0.6mm (layer F.Cu) (tedit 591DBFB0)
-      (at 150.75 91.45 0)   
+      (at 152 91.45 0)   
       
       (fp_text reference REF** (at 0 1.4) (layer F.SilkS) hide (effects (font (size 1 1) (thickness 0.15))))
       (fp_text value VIA-0.6mm (at 0 -1.4) (layer F.Fab) hide (effects (font (size 1 1) (thickness 0.15))))
@@ -3266,7 +3266,7 @@
     
 
       (module VIA-0.6mm (layer F.Cu) (tedit 591DBFB0)
-      (at 150.75 73.95 0)   
+      (at 152 73.95 0)   
       
       (fp_text reference REF** (at 0 1.4) (layer F.SilkS) hide (effects (font (size 1 1) (thickness 0.15))))
       (fp_text value VIA-0.6mm (at 0 -1.4) (layer F.Fab) hide (effects (font (size 1 1) (thickness 0.15))))
@@ -3277,7 +3277,7 @@
     
 
       (module VIA-0.6mm (layer F.Cu) (tedit 591DBFB0)
-      (at 150.75 56.45 0)   
+      (at 152 56.45 0)   
       
       (fp_text reference REF** (at 0 1.4) (layer F.SilkS) hide (effects (font (size 1 1) (thickness 0.15))))
       (fp_text value VIA-0.6mm (at 0 -1.4) (layer F.Fab) hide (effects (font (size 1 1) (thickness 0.15))))
@@ -3288,7 +3288,7 @@
     
 
       (module VIA-0.6mm (layer F.Cu) (tedit 591DBFB0)
-      (at 169.25 81.95 0)   
+      (at 170.5 81.95 0)   
       
       (fp_text reference REF** (at 0 1.4) (layer F.SilkS) hide (effects (font (size 1 1) (thickness 0.15))))
       (fp_text value VIA-0.6mm (at 0 -1.4) (layer F.Fab) hide (effects (font (size 1 1) (thickness 0.15))))
@@ -3299,7 +3299,7 @@
     
 
       (module VIA-0.6mm (layer F.Cu) (tedit 591DBFB0)
-      (at 169.25 64.45 0)   
+      (at 170.5 64.45 0)   
       
       (fp_text reference REF** (at 0 1.4) (layer F.SilkS) hide (effects (font (size 1 1) (thickness 0.15))))
       (fp_text value VIA-0.6mm (at 0 -1.4) (layer F.Fab) hide (effects (font (size 1 1) (thickness 0.15))))
@@ -3310,7 +3310,7 @@
     
 
       (module VIA-0.6mm (layer F.Cu) (tedit 591DBFB0)
-      (at 166.0689949 114.9956915 -17)   
+      (at 167.2643758 115.3611562 -17)   
       
       (fp_text reference REF** (at 0 1.4) (layer F.SilkS) hide (effects (font (size 1 1) (thickness 0.15))))
       (fp_text value VIA-0.6mm (at 0 -1.4) (layer F.Fab) hide (effects (font (size 1 1) (thickness 0.15))))
@@ -3321,7 +3321,7 @@
     
 
       (module VIA-0.6mm (layer F.Cu) (tedit 591DBFB0)
-      (at 184.51210170000002 121.5779294 -27)   
+      (at 185.62585980000003 122.1454175 -27)   
       
       (fp_text reference REF** (at 0 1.4) (layer F.SilkS) hide (effects (font (size 1 1) (thickness 0.15))))
       (fp_text value VIA-0.6mm (at 0 -1.4) (layer F.Fab) hide (effects (font (size 1 1) (thickness 0.15))))
@@ -5695,10 +5695,10 @@
     
 
             (module "JST_PH_S2B-PH-K" (layer F.Cu) (tedit 6135B927)
-                (at 178.45 100.30000000000001 180)
+                (at 179.55 91.8 0)
 
                 (descr "JST PH series connector, S2B-PH-K (http://www.jst-mfg.com/product/pdf/eng/ePH.pdf)")
-                (fp_text reference "JST1" (at 1 -2.55 180) (layer "F.SilkS") hide
+                (fp_text reference "JST1" (at 1 -2.55 0) (layer "F.SilkS") hide
                     (effects (font (size 1 1) (thickness 0.15)))
                 )
             
@@ -5754,9 +5754,9 @@
                 (fp_line (start 2.14 7.85) (end 3.06 7.85) (width 0.12) (layer "B.SilkS"))
                 (fp_line (start 3.06 7.85) (end 3.06 6.85) (width 0.12) (layer "B.SilkS"))
         
-                (pad 11 thru_hole oval (at -1 0 180) (size 1.2 1.75) (drill 0.75) (layers "*.Cu" "*.Mask") (net 67 "JST1_1"))
-                (pad 12 thru_hole oval (at 1 0 180) (size 1.2 1.75) (drill 0.75) (layers "*.Cu" "*.Mask") (net 68 "JST1_2"))
-                (pad 21 smd custom (at -1 1.8 360) (size 0.1 0.1) (layers "F.Cu" "F.Mask")
+                (pad 11 thru_hole oval (at -1 0 0) (size 1.2 1.75) (drill 0.75) (layers "*.Cu" "*.Mask") (net 67 "JST1_1"))
+                (pad 12 thru_hole oval (at 1 0 0) (size 1.2 1.75) (drill 0.75) (layers "*.Cu" "*.Mask") (net 68 "JST1_2"))
+                (pad 21 smd custom (at -1 1.8 180) (size 0.1 0.1) (layers "F.Cu" "F.Mask")
                     (clearance 0.1) (zone_connect 0)
                     (options (clearance outline) (anchor rect))
                     (primitives
@@ -5771,7 +5771,7 @@
                         (width 0))
                     )
                     (net 67 "JST1_1"))
-                (pad 31 smd custom (at -1 1.8 360) (size 0.1 0.1) (layers "B.Cu" "B.Mask")
+                (pad 31 smd custom (at -1 1.8 180) (size 0.1 0.1) (layers "B.Cu" "B.Mask")
                     (clearance 0.1) (zone_connect 0)
                     (options (clearance outline) (anchor rect))
                     (primitives
@@ -5786,7 +5786,7 @@
                         (width 0))
                     )
                     (net 67 "JST1_1"))
-                (pad 22 smd custom (at 1 1.8 360) (size 0.1 0.1) (layers "F.Cu" "F.Mask")
+                (pad 22 smd custom (at 1 1.8 180) (size 0.1 0.1) (layers "F.Cu" "F.Mask")
                     (clearance 0.1) (zone_connect 0)
                     (options (clearance outline) (anchor rect))
                     (primitives
@@ -5801,7 +5801,7 @@
                         (width 0))
                     )
                     (net 68 "JST1_2"))
-                (pad 32 smd custom (at 1 1.8 360) (size 0.1 0.1) (layers "B.Cu" "B.Mask")
+                (pad 32 smd custom (at 1 1.8 180) (size 0.1 0.1) (layers "B.Cu" "B.Mask")
                     (clearance 0.1) (zone_connect 0)
                     (options (clearance outline) (anchor rect))
                     (primitives
@@ -5816,7 +5816,7 @@
                         (width 0))
                     )
                     (net 68 "JST1_2"))
-                (pad 1 smd custom (at -1 2.816 360) (size 1.2 0.5) (layers "F.Cu" "F.Mask") (net 26 "GND")
+                (pad 1 smd custom (at -1 2.816 180) (size 1.2 0.5) (layers "F.Cu" "F.Mask") (net 26 "GND")
                     (clearance 0.1) (zone_connect 0)
                     (options (clearance outline) (anchor rect))
                     (primitives
@@ -5830,7 +5830,7 @@
                         )
                         (width 0))
                     ) )
-                (pad 1 smd custom (at 1 2.816 360) (size 1.2 0.5) (layers "B.Cu" "B.Mask") (net 26 "GND")
+                (pad 1 smd custom (at 1 2.816 180) (size 1.2 0.5) (layers "B.Cu" "B.Mask") (net 26 "GND")
                     (clearance 0.1) (zone_connect 0)
                     (options (clearance outline) (anchor rect))
                     (primitives
@@ -5844,7 +5844,7 @@
                         )
                         (width 0))
                     ) )
-                (pad 2 smd custom (at -1 2.816 360) (size 1.2 0.5) (layers "B.Cu" "B.Mask") (net 66 "pos")
+                (pad 2 smd custom (at -1 2.816 180) (size 1.2 0.5) (layers "B.Cu" "B.Mask") (net 66 "pos")
                     (clearance 0.1) (zone_connect 0)
                     (options (clearance outline) (anchor rect))
                     (primitives
@@ -5858,7 +5858,7 @@
                         )
                         (width 0))
                     ) )
-                (pad 2 smd custom (at 1 2.816 360) (size 1.2 0.5) (layers "F.Cu" "F.Mask") (net 66 "pos")
+                (pad 2 smd custom (at 1 2.816 180) (size 1.2 0.5) (layers "F.Cu" "F.Mask") (net 66 "pos")
                     (clearance 0.1) (zone_connect 0)
                     (options (clearance outline) (anchor rect))
                     (primitives
@@ -5875,14 +5875,14 @@
             
             )
          
-        (segment (start 179.450 98.500) (end 179.450 100.300) (width 0.25) (layer "F.Cu") (net 67))
-        (segment (start 179.450 98.500) (end 179.450 100.300) (width 0.25) (layer "B.Cu") (net 67))
-        (segment (start 177.450 98.500) (end 177.450 100.300) (width 0.25) (layer "F.Cu") (net 68))
-        (segment (start 177.450 98.500) (end 177.450 100.300) (width 0.25) (layer "B.Cu") (net 68))
+        (segment (start 178.550 93.600) (end 178.550 91.800) (width 0.25) (layer "F.Cu") (net 67))
+        (segment (start 178.550 93.600) (end 178.550 91.800) (width 0.25) (layer "B.Cu") (net 67))
+        (segment (start 180.550 93.600) (end 180.550 91.800) (width 0.25) (layer "F.Cu") (net 68))
+        (segment (start 180.550 93.600) (end 180.550 91.800) (width 0.25) (layer "B.Cu") (net 68))
         
 
       (module VIA-0.6mm (layer F.Cu) (tedit 591DBFB0)
-      (at 178.45 96.37500000000001 180)   
+      (at 179.55 95.725 0)   
       
       (fp_text reference REF** (at 0 1.4) (layer F.SilkS) hide (effects (font (size 1 1) (thickness 0.15))))
       (fp_text value VIA-0.6mm (at 0 -1.4) (layer F.Fab) hide (effects (font (size 1 1) (thickness 0.15))))
@@ -5893,7 +5893,7 @@
     
 
       (module VIA-0.6mm (layer F.Cu) (tedit 591DBFB0)
-      (at 178.45 102.60000000000001 180)   
+      (at 179.55 89.5 0)   
       
       (fp_text reference REF** (at 0 1.4) (layer F.SilkS) hide (effects (font (size 1 1) (thickness 0.15))))
       (fp_text value VIA-0.6mm (at 0 -1.4) (layer F.Fab) hide (effects (font (size 1 1) (thickness 0.15))))

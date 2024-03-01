@@ -112,8 +112,8 @@ units:
   jst_main_size_yo: 0.5(jst_main_size_y)
   jst_sec_size_y: jst_size_y - jst_main_size_y
   jst_sec_size_yo: 0.5(jst_sec_size_y)
-  jst_main_shift_x: (jst_size_xo + 1)
-  jst_main_shift_y: -(jst_size_y + kyo + 1)
+  jst_main_shift_x: kxo - jst_size_xo
+  jst_main_shift_y: -(jst_size_y + 1)
   jst_sec_shift_x: 0
   jst_sec_shift_y: -(jst_main_size_yo + jst_sec_size_yo)
   jst_rotate: 0
@@ -128,10 +128,11 @@ units:
   sw_reset_rotate: 127.5
 
   # Key Diodes
-  diode_shift_x: 7.75
-  diode_shift_y: 0.25
-  diode_shift_row_net_y: 3.25
-  diode_shift_colrow_x: 4
+  diode_shift_x: 8.25
+  diode_shift_y: 1.5
+  diode_shift_row_net_x: 7.75
+  diode_shift_row_net_y: 4.5
+  diode_shift_colrow_x: 3.5
   diode_shift_colrow_y: -1.5
 
   # PCB and Case Holes
@@ -644,7 +645,7 @@ pcbs.snak:
     diode_right_via_row_net: # diode high
       what: via
       where: /(matrix|thumb)_/
-      adjust.shift: [diode_shift_x, diode_shift_row_net_y]
+      adjust.shift: [diode_shift_row_net_x, diode_shift_row_net_y]
       params.net: "{{row_net}}"
     diode_right_via_colrow: # diode low
       what: via
@@ -654,7 +655,7 @@ pcbs.snak:
     diode_left_via_row_net: # diode high
       what: via
       where: /(matrix|thumb)_/
-      adjust.shift: [-diode_shift_x, diode_shift_row_net_y]
+      adjust.shift: [-diode_shift_row_net_x, diode_shift_row_net_y]
       params.net: "{{row_net}}"
     diode_left_via_colrow: # diode low
       what: via
