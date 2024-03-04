@@ -49,13 +49,13 @@ units:
   stagger_middle: (kx)/3
   stagger_index: -2(kx)/5
   stagger_inner: -4(kx)/9
-  stagger_thumb: -(kx)/10 + 0.05
+  stagger_thumb: -(kx)/8
 
   # Thumb
   offset_thumb_x: 15.55
   offset_thumb_y: -25
-  splay_thumb_out: -17
-  splay_thumb_in: -10
+  splay_thumb_out: -18
+  splay_thumb_in: -13
   spread_thumb_in: kx + 1.75
 
   # nice!nano: 34.1 x 18.3 x 3.3 (mm)
@@ -67,7 +67,7 @@ units:
   mcu_spacing_left: 1.5
   mcu_spacing_right: 0.75
   mcu_shift_x: kxo + mcu_size_xo + mcu_spacing_left
-  mcu_shift_y: kyo - mcu_size_yo
+  mcu_shift_y: ky - (mcu_size_yo + 3)
   mcu_right_board_shift_x: mcu_size_xo + mcu_spacing_right
   mcu_top_left_board_shift_x: mcu_spacing_left - mcu_size_xo - 4
   mcu_top_board_shift_y: mcu_size_yo + 1.45
@@ -112,11 +112,11 @@ units:
   jst_main_size_yo: 0.5(jst_main_size_y)
   jst_sec_size_y: jst_size_y - jst_main_size_y
   jst_sec_size_yo: 0.5(jst_sec_size_y)
-  jst_main_shift_x: kxo - jst_size_xo
+  jst_main_shift_x: kxo - jst_size_xo + 1
   jst_main_shift_y: -(jst_size_y + 1)
   jst_sec_shift_x: 0
   jst_sec_shift_y: -(jst_main_size_yo + jst_sec_size_yo)
-  jst_rotate: 0
+  jst_rotate: 270
 
   # Reset Switch
   sw_reset_size_x: 3.4 # Footprint; Actual width: 2.9
