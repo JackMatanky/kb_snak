@@ -80,7 +80,7 @@ units:
   oled_size_yo: 0.5(oled_size_y)
   oled_jumper_y: 2.6
   oled_shift_x: 0
-  oled_shift_y: mcu_size_yo - (oled_size_yo + oled_jumper_y + 2.0)
+  oled_shift_y: mcu_size_yo - (oled_size_yo + oled_jumper_y + 0.5)
 
   # Screen Size and Offset From Center
   oled_screen_offset_x: 1.6
@@ -112,8 +112,8 @@ units:
   jst_main_size_yo: 0.5(jst_main_size_y)
   jst_sec_size_y: jst_size_y - jst_main_size_y
   jst_sec_size_yo: 0.5(jst_sec_size_y)
-  jst_main_shift_x: kxo - jst_size_xo + 1
-  jst_main_shift_y: -(jst_size_y + 1)
+  jst_main_shift_x: kxo - jst_size_xo + 1.5
+  jst_main_shift_y: -(jst_size_y + 1.5)
   jst_sec_shift_x: 0
   jst_sec_shift_y: -(jst_main_size_yo + jst_sec_size_yo)
   jst_rotate: 270
@@ -509,7 +509,7 @@ outlines:
         # Thumb
         # MCU-thumb curve
         - ref: thumb_in
-          shift: [pxo, .9(pyo)]
+          shift: [pxo, .915(pyo)]
         - ref: thumb_in
           shift: [pxo, -pyo]
 
@@ -707,32 +707,32 @@ pcbs.snak:
 
         # Pin Assignments (Controller on top facing down)
         # Right Side - Excluding P8/9, all high frequency and support SPI/I2C
-        P0: "F1" # FREE PIN
-        P1: "F2" # FREE PIN
+        P0: "F1"   # FREE PIN
+        P1: "F2"   # FREE PIN
         # GND
         # GND
-        P2: "F3" # FREE PIN
-        P3: "MOSI" # MOSI: Display Data
-        P4: "SCK" # SCK: Display Clock
-        P5: "CS" # Display CS (nice!view only)
-        P6: "R1" # Row Top
-        P7: "R2" # Row Middle
-        P8: "R3" # Row Bottom
-        P9: "R4" # Row Thumb
+        P2: "F3"   # FREE PIN
+        P3: "R1"   # Row Top
+        P4: "R2"   # Row Middle
+        P5: "R3"   # Row Bottom
+        P6: "MOSI" # MOSI: Display Data
+        P7: "SCK"  # SCK: Display Clock
+        P8: "CS"   # Display CS (nice!view only)
+        P9: "R4"   # Row Thumb
 
         # Left Side - All low frequency
         # RAW      # Battery Pos
         # GND      # Ground / Battery Neg
         # RST      # Reset pin
         # VCC      # External Power
-        P21: "C1" # Column Pinky
-        P20: "C2" # Column Ring
-        P19: "C3" # Column Middle
-        P18: "C4" # Column Index
-        P15: "C5" # Column Inner
-        P14: "F4" # FREE PIN
-        P16: "F5" # FREE PIN
-        P10: "F6" # FREE PIN
+        P21: "C1"  # Column Pinky
+        P20: "C2"  # Column Ring
+        P19: "C3"  # Column Middle
+        P18: "C4"  # Column Index
+        P15: "C5"  # Column Inner
+        P14: "F4"  # FREE PIN
+        P16: "F5"  # FREE PIN
+        P10: "F6"  # FREE PIN
     # OLED
     nice_view:
       what: nice_view
@@ -744,29 +744,41 @@ pcbs.snak:
         CS: CS # DPE
         show_labels: true
         jumpers_at_bottom: false
-    via_oled_mosi:
+    via_oled_mosi_1:
       what: via
       where:
-        ref: mcu
-        shift: [-(mcu_size_xo - 2.4), -(mcu_size_yo + 1.65)]
+        ref: oled
+        shift: [-4.4, -(oled_size_yo - 5.5)]
+      params.net: MOSI
+    via_oled_mosi_2:
+      what: via
+      where:
+        ref: oled
+        shift: [4.4, -(oled_size_yo - 5.5)]
       params.net: MOSI
     via_oled_sck:
       what: via
       where:
-        ref: mcu
-        shift: [-(mcu_size_xo - 1.6), -(mcu_size_yo + 0.9)]
+        ref: oled
+        shift: [0, -(oled_size_yo - 4.6)]
       params.net: SCK
-    via_oled_cs:
+    via_oled_cs_1:
       what: via
       where:
-        ref: mcu
-        shift: [-(mcu_size_xo - 0.8), -(mcu_size_yo + 0.15)]
+        ref: oled
+        shift: [-3.8, -(oled_size_yo - 4.6)]
+      params.net: CS
+    via_oled_cs_2:
+      what: via
+      where:
+        ref: oled
+        shift: [3.8, -(oled_size_yo - 4.6)]
       params.net: CS
     via_oled_GND:
       what: via
       where:
-        ref: mcu
-        shift: [0, -(mcu_size_yo + 2.0)]
+        ref: oled
+        shift: [0, -(oled_size_yo - 3.5)]
       params.net: GND
 
     # Power Switch
@@ -796,13 +808,13 @@ pcbs.snak:
       what: via
       where:
         ref: jst_main
-        shift: [0, -(jst_size_yo - 1.25)]
+        shift: [0, -(jst_size_yo - 1.5)]
       params.net: pos
     via_jst_gnd: # adjacent to jst
       what: via
       where:
         ref: jst_main
-        shift: [0, jst_main_size_yo + 0.45]
+        shift: [0, (jst_main_size_yo - 0.5)]
       params.net: GND
 
     # Reset Button
