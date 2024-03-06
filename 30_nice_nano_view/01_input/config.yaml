@@ -98,7 +98,7 @@ units:
   sw_power_size_y: 8.8 # Footprint; Actual height: 8.3
   sw_power_size_xo: 0.5(sw_power_size_x)
   sw_power_size_yo: 0.5(sw_power_size_y)
-  sw_power_shift_x: -0.5
+  sw_power_shift_x: 0.45
   sw_power_shift_y: mcu_size_yo - 0.45 # + sw_power_size_xo
   sw_power_rotate: 90
 
@@ -152,7 +152,7 @@ units:
   hole_matrix_side_shift_x: (kx)/5
   hole_thumb_shift_x: .5(spread_thumb_in) + 0.6
   hole_thumb_shift_y: (ky)/3
-  hole_mcu_shift_x: mcu_size_xo - mount - 0.25
+  hole_mcu_shift_x: mcu_size_xo - mount
   hole_mcu_shift_y: (mcu_size_yo + 1.35) - mount
 
   # Outline Shapes
@@ -174,16 +174,6 @@ units:
   top_left_crcl_radius: 100
   top_left_crcl_shift_x: 15
   top_left_crcl_shift_y: -68
-
-  # Bottom Curve
-  bot_rect_size_x: 5.25(px)
-  bot_rect_size_y: 2(px)
-  bot_rect_shift_x: 7
-  bot_rect_shift_y: -60
-
-  bot_circle_radius: 235
-  bot_circle_shift_x: -11.5
-  bot_circle_shift_y: -270
 
 #--------------------------------------
 # sect: POINTS

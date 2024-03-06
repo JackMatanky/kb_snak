@@ -5609,7 +5609,7 @@
     
 
       (module power_switch (layer F.Cu) (tedit 644556E6)
-        (at 193.15 56.6 90)
+        (at 194.15 56.6 90)
         (attr smd)
 
     
@@ -5706,7 +5706,7 @@
       
 
       (module VIA-0.6mm (layer F.Cu) (tedit 591DBFB0)
-      (at 193.15 55.4625 90)   
+      (at 194.15 55.4625 90)   
       
       (fp_text reference REF** (at 0 1.4) (layer F.SilkS) hide (effects (font (size 1 1) (thickness 0.15))))
       (fp_text value VIA-0.6mm (at 0 -1.4) (layer F.Fab) hide (effects (font (size 1 1) (thickness 0.15))))
@@ -5717,7 +5717,7 @@
     
 
             (module "JST_PH_S2B-PH-K" (layer F.Cu) (tedit 6135B927)
-                (at 180.95 92.3 270)
+                (at 181.05 92.3 270)
 
                 (descr "JST PH series connector, S2B-PH-K (http://www.jst-mfg.com/product/pdf/eng/ePH.pdf)")
                 (fp_text reference "JST1" (at 1 -2.55 270) (layer "F.SilkS") hide
@@ -5897,14 +5897,14 @@
             
             )
          
-        (segment (start 179.150 91.300) (end 180.950 91.300) (width 0.25) (layer "F.Cu") (net 67))
-        (segment (start 179.150 91.300) (end 180.950 91.300) (width 0.25) (layer "B.Cu") (net 67))
-        (segment (start 179.150 93.300) (end 180.950 93.300) (width 0.25) (layer "F.Cu") (net 68))
-        (segment (start 179.150 93.300) (end 180.950 93.300) (width 0.25) (layer "B.Cu") (net 68))
+        (segment (start 179.250 91.300) (end 181.050 91.300) (width 0.25) (layer "F.Cu") (net 67))
+        (segment (start 179.250 91.300) (end 181.050 91.300) (width 0.25) (layer "B.Cu") (net 67))
+        (segment (start 179.250 93.300) (end 181.050 93.300) (width 0.25) (layer "F.Cu") (net 68))
+        (segment (start 179.250 93.300) (end 181.050 93.300) (width 0.25) (layer "B.Cu") (net 68))
         
 
       (module VIA-0.6mm (layer F.Cu) (tedit 591DBFB0)
-      (at 177.27499999999998 92.3 270)   
+      (at 177.375 92.3 270)   
       
       (fp_text reference REF** (at 0 1.4) (layer F.SilkS) hide (effects (font (size 1 1) (thickness 0.15))))
       (fp_text value VIA-0.6mm (at 0 -1.4) (layer F.Fab) hide (effects (font (size 1 1) (thickness 0.15))))
@@ -5915,7 +5915,7 @@
     
 
       (module VIA-0.6mm (layer F.Cu) (tedit 591DBFB0)
-      (at 182.29999999999998 92.3 270)   
+      (at 182.4 92.3 270)   
       
       (fp_text reference REF** (at 0 1.4) (layer F.SilkS) hide (effects (font (size 1 1) (thickness 0.15))))
       (fp_text value VIA-0.6mm (at 0 -1.4) (layer F.Fab) hide (effects (font (size 1 1) (thickness 0.15))))
@@ -6134,7 +6134,7 @@
         
 
             (module mounting_hole (layer F.Cu) (tedit 64B5A986)
-                (at 200.4 56.95 0)
+                (at 200.65 56.95 0)
                 (fp_text reference "H10" (at 0 3) (layer F.SilkS) hide
                     (effects (font (size 1 1) (thickness 0.15)))
                 )
@@ -6167,7 +6167,7 @@
 (gr_circle (center 170.4 52.300000000000004) (end 171.4 52.300000000000004) (layer Eco1.User) (width 0.15))
 (gr_circle (center 170.4 91.10000000000001) (end 171.4 91.10000000000001) (layer Eco1.User) (width 0.15))
 (gr_circle (center 176.9888656 126.60568) (end 177.9888656 126.60568) (layer Eco1.User) (width 0.15))
-(gr_circle (center 200.4 56.95) (end 201.4 56.95) (layer Eco1.User) (width 0.15))
+(gr_circle (center 200.65 56.95) (end 201.65 56.95) (layer Eco1.User) (width 0.15))
 (gr_line (start 93.05 89.45) (end 106.95 89.45) (angle 90) (layer Eco1.User) (width 0.15))
 (gr_line (start 106.95 89.45) (end 106.95 75.55) (angle 90) (layer Eco1.User) (width 0.15))
 (gr_line (start 106.95 75.55) (end 93.05 75.55) (angle 90) (layer Eco1.User) (width 0.15))
@@ -6241,7 +6241,7 @@
 (gr_circle (center 170.4 52.300000000000004) (end 171.9 52.300000000000004) (layer Eco2.User) (width 0.15))
 (gr_circle (center 170.4 91.10000000000001) (end 171.9 91.10000000000001) (layer Eco2.User) (width 0.15))
 (gr_circle (center 176.9888656 126.60568) (end 178.4888656 126.60568) (layer Eco2.User) (width 0.15))
-(gr_circle (center 200.4 56.95) (end 201.9 56.95) (layer Eco2.User) (width 0.15))
+(gr_circle (center 200.65 56.95) (end 202.15 56.95) (layer Eco2.User) (width 0.15))
             
 )
 
