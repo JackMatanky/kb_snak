@@ -67,7 +67,7 @@ units:
   mcu_spacing_left: 1.5
   mcu_spacing_right: 0.75
   mcu_shift_x: kxo + mcu_size_xo + mcu_spacing_left
-  mcu_shift_y: ky - mcu_size_yo
+  mcu_shift_y: ky - mcu_size_yo - 3
   mcu_right_board_shift_x: mcu_size_xo + mcu_spacing_right
   mcu_top_left_board_shift_x: mcu_spacing_left - mcu_size_xo - 4
   mcu_top_board_shift_y: mcu_size_yo + 1.45
@@ -107,8 +107,8 @@ units:
   sw_reset_size_y: 5.5 # Footprint; Actual height: 4.7
   sw_reset_size_xo: 0.5(sw_reset_size_x)
   sw_reset_size_yo: 0.5(sw_reset_size_y)
-  sw_reset_shift_x: (sw_reset_size_yo - mcu_size_xo) - 1.25
-  sw_reset_shift_y: mcu_size_yo - 0.1
+  sw_reset_shift_x: (sw_reset_size_yo - mcu_size_xo) - 0.5
+  sw_reset_shift_y: mcu_size_yo
   sw_reset_rotate: 90
 
   # JST Battery Connector (2P, Curved Needed)
@@ -121,11 +121,11 @@ units:
   jst_main_size_yo: 0.5(jst_main_size_y)
   jst_sec_size_y: jst_size_y - jst_main_size_y
   jst_sec_size_yo: 0.5(jst_sec_size_y)
-  jst_main_shift_x: jst_size_xo - 0.85
-  jst_main_shift_y: kyo + jst_main_size_y - 0.75
+  jst_main_shift_x: kxo - jst_size_xo + 1.75
+  jst_main_shift_y: -(jst_size_y + 1.5)
   jst_sec_shift_x: 0
   jst_sec_shift_y: -(jst_main_size_yo + jst_sec_size_yo)
-  jst_rotate: 0
+  jst_rotate: 270
 
   # Key Diodes
   diode_shift_x: 8.25
@@ -159,15 +159,15 @@ units:
   round_board_fillet: 3.5
 
   # Top Border
-  top_rect_size_x: 5(kx) + 0.4(pxo)
+  top_rect_size_x: 5(kx) + 0.475(pxo)
   top_rect_size_y: 1.5px
-  top_rect_shift_x: -0.25
+  top_rect_shift_x: 0.15
   top_rect_shift_y: 0
 
   # Top Right Circle
-  top_crcl_radius: 67.5
+  top_crcl_radius: 67
   top_crcl_shift_x: 1
-  top_crcl_shift_y: -39
+  top_crcl_shift_y: -39.35
 
 #--------------------------------------
 # sect: POINTS
@@ -299,7 +299,7 @@ points.zones:
       width: jst_size_x
       height: jst_main_size_y
     anchor:
-      ref: matrix_inner_top
+      ref: matrix_inner_mid
       shift: [jst_main_shift_x, jst_main_shift_y]
       rotate: jst_rotate
   jst_sec:
@@ -495,12 +495,11 @@ outlines:
         # Thumb
         # MCU-thumb curve
         - ref: thumb_in
-          shift: [pxo, .92(pyo)]
+          shift: [pxo, .915(pyo)]
         - ref: thumb_in
           shift: [pxo, -pyo]
 
   # Top Border
-  # Right Side
   _top_rect:
     - what: rectangle
       size: [top_rect_size_x, top_rect_size_y]
@@ -580,8 +579,6 @@ outlines:
       name: _components
     - operation: stack
       name: _holes_mount
-    - operation: stack
-      name: _switches
 
 #--------------------------------------
 # sect: PCB
@@ -815,17 +812,17 @@ pcbs.snak:
         reverse: true
         from: GND
         to: RST
-    via_reset_rst: # left side
+    via_rst_1: # left side
       what: via
       where:
         ref: sw_reset
-        shift:  [-0.35(sw_reset_size_xo), (sw_reset_size_yo + 1.6)]
+        shift: [0.35(sw_reset_size_xo), (sw_reset_size_yo + 1)]
       params.net: RST
-    via_reset_gnd: # right side
+    via_reset_gnd_1: # right side
       what: via
       where:
         ref: sw_reset
-        shift: [-0.35(sw_reset_size_xo), (sw_reset_size_yo + 0.6)]
+        shift: [-0.35(sw_reset_size_xo), (sw_reset_size_yo + 1)]
       params.net: GND
 
     # M2 Screw Holes

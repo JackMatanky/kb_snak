@@ -3,7 +3,7 @@
 # sect: META
 #--------------------------------------
 meta:
-  #engine: 4.0.4
+  engine: 4.0.4
   version: 0.2.1
   author: JackMatanky
   name: snak
@@ -48,7 +48,7 @@ units:
   stagger_ring: 5(kx)/8
   stagger_middle: (kx)/3
   stagger_index: -2(kx)/5
-  stagger_inner: -5(kx)/9
+  stagger_inner: -4(kx)/9
   stagger_thumb: -(kx)/8
 
   # Thumb
@@ -67,7 +67,7 @@ units:
   mcu_spacing_left: 1.5
   mcu_spacing_right: 0.75
   mcu_shift_x: kxo + mcu_size_xo + mcu_spacing_left
-  mcu_shift_y: ky - mcu_size_yo
+  mcu_shift_y: ky - (mcu_size_yo + 3)
   mcu_right_board_shift_x: mcu_size_xo + mcu_spacing_right
   mcu_top_left_board_shift_x: mcu_spacing_left - mcu_size_xo - 4
   mcu_top_board_shift_y: mcu_size_yo + 1.45
@@ -102,15 +102,6 @@ units:
   sw_power_shift_y: mcu_size_yo - 0.45 # + sw_power_size_xo
   sw_power_rotate: 90
 
-  # Reset Switch
-  sw_reset_size_x: 3.4 # Footprint; Actual width: 2.9
-  sw_reset_size_y: 5.5 # Footprint; Actual height: 4.7
-  sw_reset_size_xo: 0.5(sw_reset_size_x)
-  sw_reset_size_yo: 0.5(sw_reset_size_y)
-  sw_reset_shift_x: (sw_reset_size_yo - mcu_size_xo) - 1.25
-  sw_reset_shift_y: mcu_size_yo - 0.1
-  sw_reset_rotate: 90
-
   # JST Battery Connector (2P, Curved Needed)
   # Footprint center at (3.45, 1.85)
   jst_size_x: 6.9 # Footprint; Actual width: 4.5 ± 0.2
@@ -121,11 +112,20 @@ units:
   jst_main_size_yo: 0.5(jst_main_size_y)
   jst_sec_size_y: jst_size_y - jst_main_size_y
   jst_sec_size_yo: 0.5(jst_sec_size_y)
-  jst_main_shift_x: jst_size_xo - 0.85
-  jst_main_shift_y: kyo + jst_main_size_y - 0.75
+  jst_main_shift_x: kxo - jst_size_xo + 1.5
+  jst_main_shift_y: -(jst_size_y + 1.5)
   jst_sec_shift_x: 0
   jst_sec_shift_y: -(jst_main_size_yo + jst_sec_size_yo)
-  jst_rotate: 0
+  jst_rotate: 270
+
+  # Reset Switch
+  sw_reset_size_x: 3.4 # Footprint; Actual width: 2.9
+  sw_reset_size_y: 5.5 # Footprint; Actual height: 4.7
+  sw_reset_size_xo: 0.5(sw_reset_size_x)
+  sw_reset_size_yo: 0.5(sw_reset_size_y)
+  sw_reset_shift_x: -(kx)/6
+  sw_reset_shift_y: .71(ky)
+  sw_reset_rotate: 127.5
 
   # Key Diodes
   diode_shift_x: 8.25
@@ -147,6 +147,7 @@ units:
   # ! add positions for
   # ! ring and index top and bottom corners at 0x and 0y
   hole_shift: 9.25
+  hole_matrix_shift_x: kxo + mount
   hole_matrix_shift_y: kyo + mount
   hole_matrix_side_shift_x: (kx)/5
   hole_thumb_shift_x: .5(spread_thumb_in) + 0.6
@@ -165,9 +166,14 @@ units:
   top_rect_shift_y: 0
 
   # Top Right Circle
-  top_crcl_radius: 67.5
-  top_crcl_shift_x: 1
-  top_crcl_shift_y: -39
+  top_right_crcl_radius: 67.5
+  top_right_crcl_shift_x: 1
+  top_right_crcl_shift_y: -39
+
+  # Top Left Circle
+  top_left_crcl_radius: 100
+  top_left_crcl_shift_x: 15
+  top_left_crcl_shift_y: -68
 
 #--------------------------------------
 # sect: POINTS
@@ -282,16 +288,6 @@ points.zones:
       ref: mcu
       shift: [sw_power_shift_x, sw_power_shift_y]
       rotate: sw_power_rotate
-  sw_reset:
-    key:
-      tags: part
-      name: sw_reset
-      width: sw_reset_size_x
-      height: sw_reset_size_y
-    anchor:
-      ref: mcu
-      shift: [sw_reset_shift_x, sw_reset_shift_y]
-      rotate: sw_reset_rotate
   jst_main:
     key:
       tags: part
@@ -299,7 +295,7 @@ points.zones:
       width: jst_size_x
       height: jst_main_size_y
     anchor:
-      ref: matrix_inner_top
+      ref: matrix_inner_mid
       shift: [jst_main_shift_x, jst_main_shift_y]
       rotate: jst_rotate
   jst_sec:
@@ -312,6 +308,16 @@ points.zones:
       ref: jst_main
       shift: [jst_sec_shift_x, jst_sec_shift_y]
       #rotate: jst_rotate
+  sw_reset:
+    key:
+      tags: part
+      name: sw_reset
+      width: sw_reset_size_x
+      height: sw_reset_size_y
+    anchor:
+      ref: matrix_pinky_top
+      shift: [sw_reset_shift_x, sw_reset_shift_y]
+      rotate: sw_reset_rotate
 
   # * Mounting Holes
   hole_left_top:
@@ -461,8 +467,6 @@ outlines:
     - what: circle
       where: [hole]
       radius: mount
-    - operation: stack
-      name: _holes_screw
 
   # SHAPES
   _board:
@@ -471,7 +475,7 @@ outlines:
       points:
         # Pinky
         - ref: matrix_pinky_mid
-          shift: [-.95pxo, -.9pyo]
+          shift: [-.95pxo, -pyo]
         - ref: matrix_pinky_top
           shift: [-.95pxo, .5kyo]
         # Ring
@@ -495,7 +499,7 @@ outlines:
         # Thumb
         # MCU-thumb curve
         - ref: thumb_in
-          shift: [pxo, .92(pyo)]
+          shift: [pxo, .915(pyo)]
         - ref: thumb_in
           shift: [pxo, -pyo]
 
@@ -510,10 +514,10 @@ outlines:
   _top_curve:
     - name: _top_rect
     - what: circle
-      radius: top_crcl_radius
+      radius: top_right_crcl_radius
       adjust:
         ref: matrix_middle_mid
-        shift: [top_crcl_shift_x, top_crcl_shift_y]
+        shift: [top_right_crcl_shift_x, top_right_crcl_shift_y]
       operation: intersect
 
   # DXF PREVIEWS
@@ -578,10 +582,6 @@ outlines:
     - name: _round_board_keys
     - operation: stack
       name: _components
-    - operation: stack
-      name: _holes_mount
-    - operation: stack
-      name: _switches
 
 #--------------------------------------
 # sect: PCB
@@ -815,17 +815,17 @@ pcbs.snak:
         reverse: true
         from: GND
         to: RST
-    via_reset_rst: # left side
+    via_rst_1: # left side
       what: via
       where:
         ref: sw_reset
-        shift:  [-0.35(sw_reset_size_xo), (sw_reset_size_yo + 1.6)]
+        shift: [0.35(sw_reset_size_xo), (sw_reset_size_yo + 1)]
       params.net: RST
-    via_reset_gnd: # right side
+    via_reset_gnd_1: # right side
       what: via
       where:
         ref: sw_reset
-        shift: [-0.35(sw_reset_size_xo), (sw_reset_size_yo + 0.6)]
+        shift: [-0.35(sw_reset_size_xo), (sw_reset_size_yo + 1)]
       params.net: GND
 
     # M2 Screw Holes
