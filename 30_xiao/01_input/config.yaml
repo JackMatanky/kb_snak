@@ -97,9 +97,9 @@ units:
   sw_power_size_y: 8.8 # Footprint; Actual height: 8.3
   sw_power_size_xo: 0.5(sw_power_size_x)
   sw_power_size_yo: 0.5(sw_power_size_y)
-  sw_power_shift_x: 0.4
-  sw_power_shift_y: mcu_size_yo - 0.45 # + sw_power_size_xo
-  sw_power_rotate: 90
+  sw_power_shift_x: mcu_size_xo - sw_power_size_xo
+  sw_power_shift_y: -(mcu_size_yo + sw_power_size_yo + 1)
+  sw_power_rotate: 0
 
   # Reset Switch
   sw_reset_size_x: 3.4 # Footprint; Actual width: 2.9
@@ -150,8 +150,8 @@ units:
   hole_matrix_side_shift_x: (kx)/5
   hole_thumb_shift_x: .5(spread_thumb_in) + 0.6
   hole_thumb_shift_y: (ky)/3
-  hole_mcu_shift_x: mcu_size_xo - mount
-  hole_mcu_shift_y: (mcu_size_yo + 1.35) - mount
+  hole_mcu_shift_x: 0
+  hole_mcu_shift_y: -(mcu_size_yo + mount + 1)
 
   # Outline Shapes
   board_fillet: 6.5
@@ -181,67 +181,67 @@ points.zones:
       padding: padding_key
       spread: spread_key
     rows:
-      bot.row_net: P7 # R3
-      mid.row_net: P6 # R2
-      top.row_net: P5 # R1
+      bot.row_net: R3
+      mid.row_net: R2
+      top.row_net: R1
     columns:
       pinky:
         key.tags: pinky
         rows:
           bot.skip: true
-          mid.column_net: P0 # C1
-          top.column_net: P0 # C1
+          mid.column_net: C1
+          top.column_net: C1
       ring:
         key:
           tags: ring
           stagger: stagger_ring
         rows:
-          bot.column_net: P0 # C1
-          mid.column_net: P1 # C2
-          top.column_net: P1 # C2
+          bot.column_net: C1
+          mid.column_net: C2
+          top.column_net: C2
       middle:
         key:
           tags: middle
           stagger: stagger_middle
         rows:
-          bot.column_net: P1 # C2
-          mid.column_net: P2 # C3
-          top.column_net: P2 # C3
+          bot.column_net: C2
+          mid.column_net: C3
+          top.column_net: C3
       index:
         key:
           tags: index
           stagger: stagger_index
         rows:
-          bot.column_net: P2 # C3
-          mid.column_net: P3 # C4
-          top.column_net: P3 # C4
+          bot.column_net: C3
+          mid.column_net: C4
+          top.column_net: C4
       inner:
         key:
           tags: inner
           stagger: stagger_inner
         rows:
           bot.skip: true
-          mid.column_net: P4 # C5
-          top.column_net: P4 # C5
+          mid.column_net: C5
+          top.column_net: C5
   thumb:
     key.tags: thumb
     anchor:
       ref: matrix_index_bot
       shift: [offset_thumb_x, offset_thumb_y]
-    rows.home.row_net: P7
+    rows.home.row_net: R3
     columns:
       # Pinky side
       out.key:
         name: thumb_out
         splay: splay_thumb_out
-        column_net: P3 # C4
+        column_net: C4
       # Inner side
       in.key:
         name: thumb_in
         stagger: stagger_thumb
         spread: spread_thumb_in
         splay: splay_thumb_in
-        column_net: P4 # C5
+        column_net: C5
 
   # * Components
   mcu:
@@ -686,13 +686,13 @@ pcbs.snak_30:
 
     # MCU
     xiao:
-      what: xiao_virginia2244
+      what: xiao_flatfoot #xiao_virginia2244
       where.ref: mcu
       params:
-        reversable: true
-        label: true
-        instructions: true
-        traces: true
+        # reversable: true
+        # label: true
+        # instructions: true
+        # traces: true
 
         # Left Side
         P0: "C1" # Column Pinky
@@ -704,13 +704,27 @@ pcbs.snak_30:
         P6: "P6"  # Row Middle
 
         # Right Side
-        P7: "P7"  # Row Bottom
-        P8: "DPC" # SCK: Display Clock
-        P9: "DPE" # Display CS (nice!view only)
+        # RAW5V: 
+        # GND: 
+        # RAW3V3: 
         P10: "DPD" # MOSI: Display Data
-        VCC:
-        GND:
-        V3:
+        P9: "DPE" # Display CS (nice!view only)
+        P8: "DPC" # SCK: Display Clock
+        P7: "P7"  # Row Bottom
+
+        # Main Cutout
+        # SWCLK:
+        # SWDIO:
+        # # GND Again
+        # RST: 
+
+        # Power Cutout
+        # BAT_POS:
+        # BAT_NEG:
+
+        # NFC Cutout
+        # NFC0:
+        # NFC1:
 
     # OLED
     nice_view:
@@ -722,7 +736,7 @@ pcbs.snak_30:
         SCK: P8 # DPC: Display Clock
         CS: P9 # DPE: Display CS (nice!view only)
         show_labels: true
-        jumpers_at_bottom: true
+        jumpers_at_bottom: false
     via_oled_mosi_1:
       what: via
       where:
@@ -766,8 +780,8 @@ pcbs.snak_30:
       where.ref: sw_power
       params:
         reverse: true
-        from: pos
-        to: RAW
+        from: BAT_POS
+        to: RAW3V3 #RAW
     via_pos: # left side of pwr switch
       what: via
       where:
@@ -776,46 +790,46 @@ pcbs.snak_30:
       params.net: pos
 
     # JST Battery Connector
-    jst_connector:
-      what: jst_bat
-      where.ref: jst_main
-      params:
-        reversible: true
-        BAT_P: pos
-        BAT_N: GND
-    via_jst_pos: # adjacent to jst
-      what: via
-      where:
-        ref: jst_main
-        shift: [0, -(jst_size_yo - 1.5)]
-      params.net: pos
-    via_jst_gnd: # adjacent to jst
-      what: via
-      where:
-        ref: jst_main
-        shift: [0, (jst_main_size_yo - 0.5)]
-      params.net: GND
+    # jst_connector:
+    #   what: jst_bat
+    #   where.ref: jst_main
+    #   params:
+    #     reversible: true
+    #     BAT_P: pos
+    #     BAT_N: GND
+    # via_jst_pos: # adjacent to jst
+    #   what: via
+    #   where:
+    #     ref: jst_main
+    #     shift: [0, -(jst_size_yo - 1.5)]
+    #   params.net: pos
+    # via_jst_gnd: # adjacent to jst
+    #   what: via
+    #   where:
+    #     ref: jst_main
+    #     shift: [0, (jst_main_size_yo - 0.5)]
+    #   params.net: GND
 
-    # Reset Button
-    reset:
-      what: switch_reset
-      where.ref: sw_reset
-      params:
-        reverse: true
-        from: GND
-        to: RST
-    via_reset_rst: # left side
-      what: via
-      where:
-        ref: sw_reset
-        shift:  [-0.35(sw_reset_size_xo), (sw_reset_size_yo + 1.6)]
-      params.net: RST
-    via_reset_gnd: # right side
-      what: via
-      where:
-        ref: sw_reset
-        shift: [-0.35(sw_reset_size_xo), (sw_reset_size_yo + 0.6)]
-      params.net: GND
+    # # Reset Button
+    # reset:
+    #   what: switch_reset
+    #   where.ref: sw_reset
+    #   params:
+    #     reverse: true
+    #     from: GND
+    #     to: RST
+    # via_reset_rst: # left side
+    #   what: via
+    #   where:
+    #     ref: sw_reset
+    #     shift:  [-0.35(sw_reset_size_xo), (sw_reset_size_yo + 1.6)]
+    #   params.net: RST
+    # via_reset_gnd: # right side
+    #   what: via
+    #   where:
+    #     ref: sw_reset
+    #     shift: [-0.35(sw_reset_size_xo), (sw_reset_size_yo + 0.6)]
+    #   params.net: GND
 
     # M2 Screw Holes
     holes_mount:

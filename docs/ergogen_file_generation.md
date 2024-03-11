@@ -29,7 +29,7 @@ node ergogen\src\cli.js kb_snak\34_nice_nano_view\01_input\config.yaml -o kb_sna
 2.2 Xiao
 
 ```node
-node ergogen\src\cli.js kb_snak\xiao_30\01_input\config.yaml -o kb_snak\xiao_30\02_output
+node ergogen\src\cli.js kb_snak\30_xiao\01_input\config.yaml -o kb_snak\30_xiao\02_output
 
 node ergogen\src\cli.js kb_snak\xiao_34\01_input\config.yaml -o kb_snak\xiao_34\02_output
 ```
