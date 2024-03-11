@@ -3,7 +3,7 @@
 # sect: META
 #--------------------------------------
 meta:
-  #engine: 4.0.4
+  engine: 4.0.4
   version: 0.2.1
   author: JackMatanky
   name: snak
@@ -98,7 +98,7 @@ units:
   sw_power_size_y: 8.8 # Footprint; Actual height: 8.3
   sw_power_size_xo: 0.5(sw_power_size_x)
   sw_power_size_yo: 0.5(sw_power_size_y)
-  sw_power_shift_x: 0.45
+  sw_power_shift_x: 0.4
   sw_power_shift_y: mcu_size_yo - 0.45 # + sw_power_size_xo
   sw_power_rotate: 90
 
@@ -108,7 +108,7 @@ units:
   sw_reset_size_xo: 0.5(sw_reset_size_x)
   sw_reset_size_yo: 0.5(sw_reset_size_y)
   sw_reset_shift_x: (sw_reset_size_yo - mcu_size_xo) - 1.25
-  sw_reset_shift_y: mcu_size_yo - 0.1
+  sw_reset_shift_y: mcu_size_yo - 0.25
   sw_reset_rotate: 90
 
   # JST Battery Connector (2P, Curved Needed)
@@ -155,8 +155,8 @@ units:
   hole_mcu_shift_y: (mcu_size_yo + 1.35) - mount
 
   # Outline Shapes
-  board_fillet: 3.5
-  round_board_fillet: 3.5
+  board_fillet: 6.5
+  round_board_fillet: 2.5
 
   # Top Border
   top_rect_size_x: 5(kx) + 0.4(pxo)
@@ -165,9 +165,9 @@ units:
   top_rect_shift_y: 0
 
   # Top Right Circle
-  top_crcl_radius: 67.5
+  top_crcl_radius: 69
   top_crcl_shift_x: 1
-  top_crcl_shift_y: -39
+  top_crcl_shift_y: -40.25
 
 #--------------------------------------
 # sect: POINTS
@@ -471,9 +471,9 @@ outlines:
       points:
         # Pinky
         - ref: matrix_pinky_mid
-          shift: [-.95pxo, -.9pyo]
+          shift: [-.95pxo, -pyo]
         - ref: matrix_pinky_top
-          shift: [-.95pxo, .5kyo]
+          shift: [-.95pxo, kyo]
         # Ring
         - ref: matrix_ring_top
           shift: [-kxo, kyo]
@@ -586,7 +586,7 @@ outlines:
 #--------------------------------------
 # sect: PCB
 #--------------------------------------
-pcbs.snak:
+pcbs.snak_30:
   outlines:
     main.outline: round_board
     plate_top:
