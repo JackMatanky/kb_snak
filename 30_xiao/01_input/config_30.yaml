@@ -181,67 +181,67 @@ points.zones:
       padding: padding_key
       spread: spread_key
     rows:
-      bot.row_net: R3
-      mid.row_net: R2
-      top.row_net: R1
+      bot.row_net: P7 # R3
+      mid.row_net: P6 # R2
+      top.row_net: P5 # R1
     columns:
       pinky:
         key.tags: pinky
         rows:
           bot.skip: true
-          mid.column_net: C1
-          top.column_net: C1
+          mid.column_net: P0 # C1
+          top.column_net: P0 # C1
       ring:
         key:
           tags: ring
           stagger: stagger_ring
         rows:
-          bot.column_net: C2
-          mid.column_net: C2
-          top.column_net: C2
+          bot.column_net: P0 # C1
+          mid.column_net: P1 # C2
+          top.column_net: P1 # C2
       middle:
         key:
           tags: middle
           stagger: stagger_middle
         rows:
-          bot.column_net: C3
-          mid.column_net: C3
-          top.column_net: C3
+          bot.column_net: P1 # C2
+          mid.column_net: P2 # C3
+          top.column_net: P2 # C3
       index:
         key:
           tags: index
           stagger: stagger_index
         rows:
-          bot.column_net: C4
-          mid.column_net: C4
-          top.column_net: C4
+          bot.column_net: P2 # C3
+          mid.column_net: P3 # C4
+          top.column_net: P3 # C4
       inner:
         key:
           tags: inner
           stagger: stagger_inner
         rows:
           bot.skip: true
-          mid.column_net: C5
-          top.column_net: C5
+          mid.column_net: P4 # C5
+          top.column_net: P4 # C5
   thumb:
     key.tags: thumb
     anchor:
       ref: matrix_index_bot
       shift: [offset_thumb_x, offset_thumb_y]
-    rows.home.row_net: R4
+    rows.home.row_net: P7
     columns:
       # Pinky side
       out.key:
         name: thumb_out
         splay: splay_thumb_out
-        column_net: C4
+        column_net: P3 # C4
       # Inner side
       in.key:
         name: thumb_in
         stagger: stagger_thumb
         spread: spread_thumb_in
         splay: splay_thumb_in
-        column_net: C5
+        column_net: P4 # C5
 
   # * Components
   mcu:
@@ -585,7 +585,7 @@ outlines:
 #--------------------------------------
 # sect: PCB
 #--------------------------------------
-pcbs.snak:
+pcbs.snak_30:
   outlines:
     main.outline: round_board
     plate_top:
@@ -599,6 +599,7 @@ pcbs.snak:
     choc:
       what: choc_kim
       where: /(matrix|thumb)_/
+      adjust.rotate: 180
       params:
         reverse: true
         hotswap: true
@@ -606,44 +607,81 @@ pcbs.snak:
         show_keycaps: true
         from: "{{column_net}}"
         to: "{{colrow}}"
-    diode:
-      what: diode_kim
-      where: /(matrix|thumb)_/
-      adjust.shift: [0, -5]
+    diode_right:
+      what: diode_ceoloide
+      where: /(matrix|thumb)_/ # /(matrix_|thumb_out)/
+      adjust:
+        rotate: 270
+        shift: [diode_shift_x, diode_shift_y] #[0, 3.5]
       params:
-        include_tht: true
+        side: "F"
+        reversible: false
+        include_tht: false
         from: "{{colrow}}"
         to: "{{row_net}}"
-    via_col_row_high:
+    diode_left:
+      what: diode_ceoloide
+      where: /(matrix|thumb)_/ # /(matrix_|thumb_out)/
+      adjust:
+        rotate: 270
+        shift: [-diode_shift_x, diode_shift_y] #[0, 3.5]
+      params:
+        side: "B"
+        reversible: false
+        include_tht: false
+        from: "{{colrow}}"
+        to: "{{row_net}}"
+    diode_right_via_row_net: # diode high
       what: via
       where: /(matrix|thumb)_/
-      adjust.shift: [-4.0, 1.5]
-      params.net: "{{colrow}}"
-    via_matrix_row_net:
-      what: via
-      where: [top, mid]
-      adjust.shift: [-6.0, -5.0]
+      adjust.shift: [diode_shift_row_net_x, diode_shift_row_net_y]
       params.net: "{{row_net}}"
-    via_matrix_col_net_high:
+    diode_right_via_colrow: # diode low
       what: via
-      where: /matrix_*/
-      adjust.shift: [0, 3.0]
-      params.net: "{{column_net}}"
-    via_matrix_col_net_low:
+      where: /(matrix|thumb)_/
+      adjust.shift: [diode_shift_colrow_x, diode_shift_colrow_y]
+      params.net: "{{colrow}}"
+    diode_left_via_row_net: # diode high
       what: via
-      where: /_(rows_top|rows_mid)/
-      adjust.shift: [-5.25, -2.5]
+      where: /(matrix|thumb)_/
+      adjust.shift: [-diode_shift_row_net_x, diode_shift_row_net_y]
+      params.net: "{{row_net}}"
+    diode_left_via_colrow: # diode low
+      what: via
+      where: /(matrix|thumb)_/
+      adjust.shift: [-diode_shift_colrow_x, diode_shift_colrow_y]
+      params.net: "{{colrow}}"
+    via_col_net:
+      what: via
+      where: /(matrix|thumb)_/
+      adjust.shift: [0, -3.6]
       params.net: "{{column_net}}"
+    via_colrow: # diode low
+      what: via
+      where: /(matrix|thumb)_/
+      adjust.shift: [0, -2.5]
+      params.net: "{{colrow}}"
+    # via_matrix_col_net_low:
+    #   what: via
+    #   where: [top, mid, index, inner]
+    #   adjust.shift: [5.25, 2.5]
+    #   params.net: "{{column_net}}"
+    # via_thumb_row_net_1:
+    #   what: via
+    #   where:
+    #     ref: thumb_out
+    #     shift: [hole_thumb_shift_x - 0.5, -6.5]
+    #   params.net: R4
     via_thumb_row_net:
       what: via
       where:
         ref: thumb_out
-        shift: [10.5, -6.5]
+        shift: [hole_thumb_shift_x, hole_thumb_shift_y]
       params.net: R4
     via_thumb_col_net:
       what: via
-      where: /thumb_*/
-      adjust.shift: [0, 8.5]
+      where: /thumb_/
+      adjust.shift: [-8.5, 8.5]
       params.net: "{{column_net}}"
 
     # MCU
@@ -656,68 +694,70 @@ pcbs.snak:
         instructions: true
         traces: true
 
-        # # Pin Assignments (Controller on top facing down)
-        # # Right Side
-        # P0: "F1"  # FREE PIN
-        # P1: "F2"  # FREE PIN
-        # # GND
-        # # GND
-        # P2: "F3"  # FREE PIN
-        # P3: "DPD" # MOSI: Display Data
-        # P4: "DPC" # SCK: Display Clock
-        # P5: "DPE" # Display CS (nice!view only)
-        # P6: "R1"  # Row Top
-        # P7: "R2"  # Row Middle
-        # P8: "R3"  # Row Bottom
-        # P9: "R4"  # Row Thumb
+        # Left Side
+        P0: "C1" # Column Pinky
+        P1: "C2" # Column Ring
+        P2: "C3" # Column Middle
+        P3: "C4" # Column Index
+        P4: "C5" # Column Inner
+        P5: "P5"  # Row Top
+        P6: "P6"  # Row Middle
 
-        # # Left Side
-        # # RAW     # Battery Pos
-        # # GND     # Ground / Battery Neg
-        # # RST     # Reset pin
-        # # VCC     # External Power
-        # P21: "C1" # Column Pinky
-        # P20: "C2" # Column Ring
-        # P19: "C3" # Column Middle
-        # P18: "C4" # Column Index
-        # P15: "C5" # Column Inner
-        # P14: "F4"  # FREE PIN
-        # P16: "F5" # Thumb Outer
-        # P10: "F6" # Thumb Inner
+        # Right Side
+        P7: "P7"  # Row Bottom
+        P8: "DPC" # SCK: Display Clock
+        P9: "DPE" # Display CS (nice!view only)
+        P10: "DPD" # MOSI: Display Data
+        VCC:
+        GND:
+        V3:
+
     # OLED
     nice_view:
       what: nice_view
       where.ref: oled
       params:
         reverse: true
-        MOSI: DPD
-        SCK: DPC
-        CS: DPE
+        MOSI: P10 # DPD: Display Data
+        SCK: P8 # DPC: Display Clock
+        CS: P9 # DPE: Display CS (nice!view only)
         show_labels: true
         jumpers_at_bottom: true
-    via_oled_mosi:
+    via_oled_mosi_1:
       what: via
       where:
-        ref: mcu
-        shift: [-(mcu_size_xo - 2.4), -(mcu_size_yo + 1.65)]
-      params.net: DPD
+        ref: oled
+        shift: [-4.4, -(oled_size_yo - 5.5)]
+      params.net: MOSI
+    via_oled_mosi_2:
+      what: via
+      where:
+        ref: oled
+        shift: [4.4, -(oled_size_yo - 5.5)]
+      params.net: MOSI
     via_oled_sck:
       what: via
       where:
-        ref: mcu
-        shift: [-(mcu_size_xo - 1.6), -(mcu_size_yo + 0.9)]
-      params.net: DPC
-    via_oled_cs:
+        ref: oled
+        shift: [0, -(oled_size_yo - 4.6)]
+      params.net: SCK
+    via_oled_cs_1:
       what: via
       where:
-        ref: mcu
-        shift: [-(mcu_size_xo - 0.8), -(mcu_size_yo + 0.15)]
-      params.net: DPE
+        ref: oled
+        shift: [-3.8, -(oled_size_yo - 4.6)]
+      params.net: CS
+    via_oled_cs_2:
+      what: via
+      where:
+        ref: oled
+        shift: [3.8, -(oled_size_yo - 4.6)]
+      params.net: CS
     via_oled_GND:
       what: via
       where:
-        ref: mcu
-        shift: [0, -(mcu_size_yo + 4.85)]
+        ref: oled
+        shift: [0, -(oled_size_yo - 3.5)]
       params.net: GND
 
     # Power Switch
@@ -728,20 +768,13 @@ pcbs.snak:
         reverse: true
         from: pos
         to: RAW
-    # via_raw: # right side of pwr switch
-    #   what: via
-    #   where:
-    #     ref: sw_power
-    #     shift: [-(sw_power_size_xo - 0.25), sw_power_size_yo - 1.1]
-    #     # shift: [0, sw_power_size_y]
-    #   params.net: RAW
     via_pos: # left side of pwr switch
       what: via
       where:
         ref: sw_power
         shift: [0.5(sw_power_size_xo), 0]
       params.net: pos
-    
+
     # JST Battery Connector
     jst_connector:
       what: jst_bat
@@ -754,15 +787,15 @@ pcbs.snak:
       what: via
       where:
         ref: jst_main
-        shift: [0, -(jst_size_yo - 1.25)]
+        shift: [0, -(jst_size_yo - 1.5)]
       params.net: pos
     via_jst_gnd: # adjacent to jst
       what: via
       where:
         ref: jst_main
-        shift: [0, jst_main_size_yo + 0.5]
+        shift: [0, (jst_main_size_yo - 0.5)]
       params.net: GND
-    
+
     # Reset Button
     reset:
       what: switch_reset
@@ -771,31 +804,19 @@ pcbs.snak:
         reverse: true
         from: GND
         to: RST
-    via_rst_1: # left side
+    via_reset_rst: # left side
       what: via
       where:
         ref: sw_reset
-        shift: [0.35(sw_reset_size_xo), -(sw_reset_size_yo + 1)]
+        shift:  [-0.35(sw_reset_size_xo), (sw_reset_size_yo + 1.6)]
       params.net: RST
-    via_rst_2: # left side
+    via_reset_gnd: # right side
       what: via
       where:
         ref: sw_reset
-        shift: [-0.35(sw_reset_size_xo), -(sw_reset_size_yo + 3)]
-      params.net: RST
-    via_reset_gnd_1: # right side
-      what: via
-      where:
-        ref: sw_reset
-        shift: [-0.35(sw_reset_size_xo), -(sw_reset_size_yo + 1)]
+        shift: [-0.35(sw_reset_size_xo), (sw_reset_size_yo + 0.6)]
       params.net: GND
-    via_reset_gnd_2: # right side
-      what: via
-      where:
-        ref: sw_reset
-        shift: [0.35(sw_reset_size_xo), -(sw_reset_size_yo + 3)]
-      params.net: GND
-    
+
     # M2 Screw Holes
     holes_mount:
       what: mounting_hole
