@@ -180,7 +180,7 @@
     "pinned_symbol_libs": []
   },
   "meta": {
-    "filename": "snak_30.kicad_pro",
+    "filename": "snak_30_virginia.kicad_pro",
     "version": 1
   },
   "net_settings": {
@@ -311,6 +311,14 @@
       },
       {
         "netclass": "Default",
+        "pattern": "P5"
+      },
+      {
+        "netclass": "Default",
+        "pattern": "P6"
+      },
+      {
+        "netclass": "Default",
         "pattern": "RAW5V"
       },
       {
@@ -339,43 +347,11 @@
       },
       {
         "netclass": "Default",
-        "pattern": "P5"
+        "pattern": "MCU1_0"
       },
       {
         "netclass": "Default",
-        "pattern": "P6"
-      },
-      {
-        "netclass": "Default",
-        "pattern": "SWCLK"
-      },
-      {
-        "netclass": "Default",
-        "pattern": "SWDIO"
-      },
-      {
-        "netclass": "Default",
-        "pattern": "RST"
-      },
-      {
-        "netclass": "Default",
-        "pattern": "BAT_POS"
-      },
-      {
-        "netclass": "Default",
-        "pattern": "BAT_NEG"
-      },
-      {
-        "netclass": "Default",
-        "pattern": "NFC0"
-      },
-      {
-        "netclass": "Default",
-        "pattern": "NFC1"
-      },
-      {
-        "netclass": "Default",
-        "pattern": "MCU1_24"
+        "pattern": "MCU1_13"
       },
       {
         "netclass": "Default",
@@ -383,7 +359,7 @@
       },
       {
         "netclass": "Default",
-        "pattern": "MCU1_23"
+        "pattern": "MCU1_12"
       },
       {
         "netclass": "Default",
@@ -391,7 +367,7 @@
       },
       {
         "netclass": "Default",
-        "pattern": "MCU1_22"
+        "pattern": "MCU1_11"
       },
       {
         "netclass": "Default",
@@ -399,7 +375,7 @@
       },
       {
         "netclass": "Default",
-        "pattern": "MCU1_21"
+        "pattern": "MCU1_10"
       },
       {
         "netclass": "Default",
@@ -407,7 +383,7 @@
       },
       {
         "netclass": "Default",
-        "pattern": "MCU1_20"
+        "pattern": "MCU1_9"
       },
       {
         "netclass": "Default",
@@ -415,15 +391,11 @@
       },
       {
         "netclass": "Default",
-        "pattern": "MCU1_19"
+        "pattern": "MCU1_8"
       },
       {
         "netclass": "Default",
         "pattern": "MCU1_6"
-      },
-      {
-        "netclass": "Default",
-        "pattern": "MCU1_18"
       },
       {
         "netclass": "Default",
@@ -460,6 +432,10 @@
       {
         "netclass": "Default",
         "pattern": "CS"
+      },
+      {
+        "netclass": "Default",
+        "pattern": "BAT_POS"
       },
       {
         "netclass": "Default",

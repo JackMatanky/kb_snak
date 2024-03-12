@@ -331,7 +331,9 @@ pcbs:
       xiao:
         what: xiao_flippable
         where: mcu
-        adjust.shift: [-0.5xiao_x, -0.5xiao_y]  # Anchor is topleft corner
+        adjust:
+          shift: [-0.5xiao_x, -0.5xiao_y]  # Anchor is topleft corner
+          rotate: 270
       mounting_hole:
         what: mounting_hole
         where: mounting_hole

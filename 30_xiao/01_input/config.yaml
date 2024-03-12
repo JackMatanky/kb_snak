@@ -686,13 +686,17 @@ pcbs.snak_30:
 
     # MCU
     xiao:
-      what: xiao_flatfoot #xiao_virginia2244
+      what: xiao_dev #xiao_flatfoot  xiao_virginia2244
       where.ref: mcu
       params:
         # reversable: true
         # label: true
         # instructions: true
         # traces: true
+        traces: true,
+        show_instructions: true,
+        show_silk_labels: true,
+        show_via_labels: true,
 
         # Left Side
         P0: "C1" # Column Pinky
@@ -732,9 +736,9 @@ pcbs.snak_30:
       where.ref: oled
       params:
         reverse: true
-        MOSI: P10 # DPD: Display Data
-        SCK: P8 # DPC: Display Clock
-        CS: P9 # DPE: Display CS (nice!view only)
+        MOSI: DPD # Display Data
+        SCK: DPC # Display Clock
+        CS: DPE # Display CS (nice!view only)
         show_labels: true
         jumpers_at_bottom: false
     via_oled_mosi_1:

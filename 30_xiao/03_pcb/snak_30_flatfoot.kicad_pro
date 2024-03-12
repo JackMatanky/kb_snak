@@ -180,7 +180,7 @@
     "pinned_symbol_libs": []
   },
   "meta": {
-    "filename": "snak_30.kicad_pro",
+    "filename": "snak_30_flatfoot.kicad_pro",
     "version": 1
   },
   "net_settings": {
@@ -311,6 +311,14 @@
       },
       {
         "netclass": "Default",
+        "pattern": "P5"
+      },
+      {
+        "netclass": "Default",
+        "pattern": "P6"
+      },
+      {
+        "netclass": "Default",
         "pattern": "RAW5V"
       },
       {
@@ -336,14 +344,6 @@
       {
         "netclass": "Default",
         "pattern": "P7"
-      },
-      {
-        "netclass": "Default",
-        "pattern": "P5"
-      },
-      {
-        "netclass": "Default",
-        "pattern": "P6"
       },
       {
         "netclass": "Default",
@@ -375,63 +375,19 @@
       },
       {
         "netclass": "Default",
-        "pattern": "MCU1_24"
+        "pattern": "P10"
       },
       {
         "netclass": "Default",
-        "pattern": "MCU1_1"
-      },
-      {
-        "netclass": "Default",
-        "pattern": "MCU1_23"
-      },
-      {
-        "netclass": "Default",
-        "pattern": "MCU1_2"
-      },
-      {
-        "netclass": "Default",
-        "pattern": "MCU1_22"
-      },
-      {
-        "netclass": "Default",
-        "pattern": "MCU1_3"
-      },
-      {
-        "netclass": "Default",
-        "pattern": "MCU1_21"
-      },
-      {
-        "netclass": "Default",
-        "pattern": "MCU1_4"
-      },
-      {
-        "netclass": "Default",
-        "pattern": "MCU1_20"
-      },
-      {
-        "netclass": "Default",
-        "pattern": "MCU1_5"
-      },
-      {
-        "netclass": "Default",
-        "pattern": "MCU1_19"
-      },
-      {
-        "netclass": "Default",
-        "pattern": "MCU1_6"
-      },
-      {
-        "netclass": "Default",
-        "pattern": "MCU1_18"
-      },
-      {
-        "netclass": "Default",
-        "pattern": "MCU1_7"
+        "pattern": "P8"
       },
       {
         "netclass": "Default",
         "pattern": "VCC"
+      },
+      {
+        "netclass": "Default",
+        "pattern": "P9"
       },
       {
         "netclass": "Default",
