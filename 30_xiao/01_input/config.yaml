@@ -732,7 +732,7 @@ pcbs.snak_30:
 
     # OLED
     nice_view:
-      what: nice_view
+      what: nice_view_kim
       where.ref: oled
       params:
         reverse: true
