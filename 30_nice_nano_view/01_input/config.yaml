@@ -98,7 +98,7 @@ units:
   sw_power_size_y: 8.8 # Footprint; Actual height: 8.3
   sw_power_size_xo: 0.5(sw_power_size_x)
   sw_power_size_yo: 0.5(sw_power_size_y)
-  sw_power_shift_x: 0.4
+  sw_power_shift_x: 0.9
   sw_power_shift_y: mcu_size_yo - 0.45 # + sw_power_size_xo
   sw_power_rotate: 90
 
@@ -107,7 +107,7 @@ units:
   sw_reset_size_y: 5.5 # Footprint; Actual height: 4.7
   sw_reset_size_xo: 0.5(sw_reset_size_x)
   sw_reset_size_yo: 0.5(sw_reset_size_y)
-  sw_reset_shift_x: (sw_reset_size_yo - mcu_size_xo) - 1.25
+  sw_reset_shift_x: (sw_reset_size_yo - mcu_size_xo) - 0.75
   sw_reset_shift_y: mcu_size_yo - 0.25
   sw_reset_rotate: 90
 
@@ -122,7 +122,7 @@ units:
   jst_sec_size_y: jst_size_y - jst_main_size_y
   jst_sec_size_yo: 0.5(jst_sec_size_y)
   jst_main_shift_x: jst_size_xo - 0.85
-  jst_main_shift_y: kyo + jst_main_size_y - 0.75
+  jst_main_shift_y: kyo + jst_main_size_y - 0.5
   jst_sec_shift_x: 0
   jst_sec_shift_y: -(jst_main_size_yo + jst_sec_size_yo)
   jst_rotate: 0
@@ -151,7 +151,7 @@ units:
   hole_matrix_side_shift_x: (kx)/5
   hole_thumb_shift_x: .5(spread_thumb_in) + 0.6
   hole_thumb_shift_y: (ky)/3
-  hole_mcu_shift_x: mcu_size_xo - mount
+  hole_mcu_shift_x: (mcu_size_xo - mount) + 0.5
   hole_mcu_shift_y: (mcu_size_yo + 1.35) - mount
 
   # Outline Shapes
