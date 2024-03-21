@@ -45,15 +45,15 @@ units:
   dpy: ky + 8
 
   # Column Stagger
-  stagger_ring: 5(kx)/8
+  stagger_ring: 3(kx)/4
   stagger_middle: (kx)/3
   stagger_index: -2(kx)/5
   stagger_inner: -5(kx)/9
   stagger_thumb: -(kx)/8
 
   # Thumb
-  offset_thumb_x: 12
-  offset_thumb_y: -25
+  offset_thumb_x: (kx)/2
+  offset_thumb_y: -27.5
   splay_thumb_out: -18
   splay_thumb_in: -13
   spread_thumb_in: kx + 1.75
@@ -68,11 +68,6 @@ units:
   mcu_spacing_right: 0.75
   mcu_shift_x: kxo + mcu_size_xo + mcu_spacing_left
   mcu_shift_y: ky - mcu_size_yo
-  # Board Outline
-  mcu_top_board_shift_y: mcu_size_yo + 1.45
-  mcu_bottom_board_shift_y: -(mcu_size_yo)
-  mcu_right_board_shift_x: mcu_size_xo + mcu_spacing_right
-  mcu_left_board_shift_x: mcu_spacing_left - mcu_size_xo - 4
 
   # nice!view: 36 x 14 x 2.9 (mm)
   oled_size_x: 14
@@ -122,11 +117,27 @@ units:
   jst_main_size_yo: 0.5(jst_main_size_y)
   jst_sec_size_y: jst_size_y - jst_main_size_y
   jst_sec_size_yo: 0.5(jst_sec_size_y)
-  jst_main_shift_x: jst_size_xo - 0.85
-  jst_main_shift_y: kyo + jst_main_size_y - 0.5
+  jst_main_shift_x: 0 #jst_size_xo - 0.85
+  jst_main_shift_y: kyo + jst_main_size_y
   jst_sec_shift_x: 0
   jst_sec_shift_y: -(jst_main_size_yo + jst_sec_size_yo)
-  jst_rotate: 270 # 0
+  jst_rotate: 0 #270
+
+  # Trackpoint
+  tp_size_x: 12.5
+  tp_size_y: 23.3
+  tp_size_xo: 0.5(tp_size_x)
+  tp_size_yo: 0.5(tp_size_y)
+  tp_shift_x: 0
+  tp_shift_y: -(kyo + tp_size_yo)
+  tp_rotate: 0
+  # Outline
+  tp_size_hole_x: 5.5
+  tp_size_hole_y: 5
+  tp_size_hex1_x: 3.5
+  tp_size_hex1_y: 3.5
+  tp_size_hex2_x: 0
+  tp_size_hex2_y: 6
 
   # Key Diodes
   diode_shift_x: 8.25
@@ -149,26 +160,34 @@ units:
   # ! ring and index top and bottom corners at 0x and 0y
   hole_shift: 9.25
   hole_matrix_shift_y: kyo + mount
-  hole_matrix_side_shift_x: 2(kx)/5
+  hole_matrix_side_shift_x: kxo - 2.5
   hole_thumb_shift_x: .5(spread_thumb_in) + 0.6
   hole_thumb_shift_y: (ky)/3
   hole_mcu_shift_x: (mcu_size_xo - mount) + 0.5
   hole_mcu_shift_y: (mcu_size_yo + 1.35) - mount
+  hole_tp_shift_x: 0
+  hole_tp_shift_y: (tp_size_yo - mount)
 
-  # Outline Shapes
-  board_fillet: 6.5
-  round_board_fillet: 2.5
+  # Board Outline
+  mcu_top_board_shift_y: mcu_size_yo + 1.45
+  mcu_bottom_board_shift_y: -(mcu_size_yo - oled_shift_y)
+  mcu_right_board_shift_x: mcu_size_xo + mcu_spacing_right
+  mcu_left_board_shift_x: mcu_spacing_left - mcu_size_xo - 4
 
   # Top Border
-  top_rect_size_x: 5(kx) + 0.4(pxo)
+  top_rect_size_x: 5(kx) + 0.42(pxo)
   top_rect_size_y: 1.5px
-  top_rect_shift_x: -0.25
+  top_rect_shift_x: -0.14
   top_rect_shift_y: 0
 
   # Top Right Circle
   top_crcl_radius: 69
-  top_crcl_shift_x: 1
+  top_crcl_shift_x: 1.5
   top_crcl_shift_y: -40.25
+
+  # Outline Fillet
+  board_fillet: 6.5
+  round_board_fillet: 2.5
 
 #--------------------------------------
 # sect: POINTS
@@ -313,6 +332,15 @@ points.zones:
       ref: jst_main
       shift: [jst_sec_shift_x, jst_sec_shift_y]
       #rotate: jst_rotate
+  trackpoint:
+    key:
+      tags: part
+      name: trackpoint
+      width: tp_size_x
+      height: tp_size_y
+    anchor:
+      ref: matrix_inner_top
+      shift: [tp_shift_x, tp_shift_y]
 
   # * Mounting Holes
   hole_left_top:
@@ -322,7 +350,7 @@ points.zones:
       height: hole_size
     anchor:
       ref: matrix_pinky_top
-      shift: [0, hole_matrix_shift_y]
+      shift: [2, hole_matrix_shift_y]
   hole_left_bot:
     key:
       tags: hole
@@ -330,7 +358,7 @@ points.zones:
       height: hole_size
     anchor:
       ref: matrix_pinky_mid
-      shift: [0, -hole_matrix_shift_y]
+      shift: [2, -hole_matrix_shift_y]
 
   hole_top_left:
     key:
@@ -401,6 +429,23 @@ points.zones:
       ref: mcu
       shift: [hole_mcu_shift_x, hole_mcu_shift_y]
 
+  hole_tp_top:
+    key:
+      tags: tp_hole
+      width: hole_size
+      height: hole_size
+    anchor:
+      ref: trackpoint
+      shift: [hole_tp_shift_x, hole_tp_shift_y]
+  hole_tp_bot:
+    key:
+      tags: tp_hole
+      width: hole_size
+      height: hole_size
+    anchor:
+      ref: trackpoint
+      shift: [hole_tp_shift_x, -hole_tp_shift_y]
+
 #--------------------------------------
 # sect: OUTLINES
 #--------------------------------------
@@ -450,6 +495,46 @@ outlines:
     - what: rectangle
       size: [sw_reset_size_x, sw_reset_size_y]
       adjust.ref: sw_reset
+  _trackpoint:
+    - what: polygon
+      points:
+        - ref: trackpoint
+          shift: [-tp_size_hole_x/2, tp_size_yo]
+        - ref: trackpoint
+          shift: [tp_size_hole_x/2, tp_size_yo]
+        - ref: trackpoint
+          shift: [tp_size_hole_x/2, tp_size_hex2_y/2 + tp_size_hex1_y]
+        - ref: trackpoint
+          shift: [tp_size_xo, tp_size_hex2_y/2]
+        - ref: trackpoint
+          shift: [tp_size_xo, -tp_size_hex2_y/2]
+        - ref: trackpoint
+          shift: [tp_size_hole_x/2, -(tp_size_hex2_y/2 + tp_size_hex1_y)]
+        - ref: trackpoint
+          shift: [tp_size_hole_x/2, -tp_size_yo]
+        - ref: trackpoint
+          shift: [-tp_size_hole_x/2, -tp_size_yo]
+        - ref: trackpoint
+          shift: [-tp_size_hole_x/2, -(tp_size_hex2_y/2 + tp_size_hex1_y)]
+        - ref: trackpoint
+          shift: [-tp_size_xo, -tp_size_hex2_y/2]
+        - ref: trackpoint
+          shift: [-tp_size_xo, tp_size_hex2_y/2]
+        - ref: trackpoint
+          shift: [-tp_size_hole_x/2, tp_size_hex2_y/2 + tp_size_hex1_y]
+    - what: circle
+      where: [tp_hole]
+      radius: screw
+      operation: stack
+    - what: circle
+      where: [tp_hole]
+      radius: standoff
+      operation: stack
+    - what: circle
+      adjust:
+        ref: trackpoint
+      radius: 3.7
+      operation: stack
   _holes_screw:
     - what: circle
       where: [hole]
@@ -538,6 +623,8 @@ outlines:
       operation: stack
     - name: _sw_reset
       operation: stack
+    - name: _trackpoint
+      operation: stack
 
   plate_top:
     - name: _holes_screw
@@ -562,8 +649,6 @@ outlines:
     - name: _board
     - operation: add
       name: _top_curve
-      #- operation: subtract
-      #  name: _bot_curve
       fillet: round_board_fillet
   _round_board_keys:
     - name: round_board
@@ -777,10 +862,7 @@ pcbs.snak_28:
     
     trackpoint:
       what: trackpoint_mount
-      where:
-        ref: oled
-        rotate: 0
-        shift: [3.45, -(oled_size_yo + 12.25)]
+      where.ref: trackpoint
       params:
         reverse: true
         # T430: 3.5
