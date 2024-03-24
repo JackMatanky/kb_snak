@@ -48,7 +48,7 @@ units:
   stagger_ring: 3(kx)/4
   stagger_middle: (kx)/3
   stagger_index: -2(kx)/5
-  stagger_inner: -5(kx)/9
+  stagger_inner: -3(kx)/5
   stagger_thumb: -(kx)/8
 
   # Thumb
@@ -67,7 +67,7 @@ units:
   mcu_spacing_left: 1.5
   mcu_spacing_right: 0.75
   mcu_shift_x: kxo + mcu_size_xo + mcu_spacing_left
-  mcu_shift_y: ky - mcu_size_yo
+  mcu_shift_y: ky - mcu_size_yo + 1
 
   # nice!view: 36 x 14 x 2.9 (mm)
   oled_size_x: 14
@@ -117,19 +117,19 @@ units:
   jst_main_size_yo: 0.5(jst_main_size_y)
   jst_sec_size_y: jst_size_y - jst_main_size_y
   jst_sec_size_yo: 0.5(jst_sec_size_y)
-  jst_main_shift_x: 0 #jst_size_xo - 0.85
-  jst_main_shift_y: kyo + jst_main_size_y
+  jst_main_shift_x: mcu_size_xo - jst_size_xo - 0.5
+  jst_main_shift_y: -(mcu_size_yo + jst_size_x + oled_jumper_y)
   jst_sec_shift_x: 0
   jst_sec_shift_y: -(jst_main_size_yo + jst_sec_size_yo)
-  jst_rotate: 0 #270
+  jst_rotate: 270
 
   # Trackpoint
   tp_size_x: 12.5
   tp_size_y: 23.3
   tp_size_xo: 0.5(tp_size_x)
   tp_size_yo: 0.5(tp_size_y)
-  tp_shift_x: 0
-  tp_shift_y: -(kyo + tp_size_yo)
+  tp_shift_x: -(kxo)/2 + 1.5
+  tp_shift_y: (kyo + tp_size_yo) - 1
   tp_rotate: 0
   # Outline
   tp_size_hole_x: 5.5
@@ -140,9 +140,9 @@ units:
   tp_size_hex2_y: 6
 
   # Key Diodes
-  diode_shift_x: 8.25
+  diode_shift_x: 7.5
   diode_shift_y: 1.5
-  diode_shift_row_net_x: 7.75
+  diode_shift_row_net_x: 7.0
   diode_shift_row_net_y: 4.5
   diode_shift_colrow_x: 3.5
   diode_shift_colrow_y: -1.5
@@ -160,7 +160,9 @@ units:
   # ! ring and index top and bottom corners at 0x and 0y
   hole_shift: 9.25
   hole_matrix_shift_y: kyo + mount
-  hole_matrix_side_shift_x: kxo - 2.5
+  hole_matrix_top_shift_y: hole_matrix_shift_y - 1.3
+  hole_matrix_bottom_shift_y: hole_matrix_shift_y + 0.5
+  hole_matrix_side_shift_x: (kxo)/3
   hole_thumb_shift_x: .5(spread_thumb_in) + 0.6
   hole_thumb_shift_y: (ky)/3
   hole_mcu_shift_x: (mcu_size_xo - mount) + 0.5
@@ -175,9 +177,9 @@ units:
   mcu_left_board_shift_x: mcu_spacing_left - mcu_size_xo - 4
 
   # Top Border
-  top_rect_size_x: 5(kx) + 0.42(pxo)
+  top_rect_size_x: 5(kx) + 0.45(pxo)
   top_rect_size_y: 1.5px
-  top_rect_shift_x: -0.14
+  top_rect_shift_x: 0.03
   top_rect_shift_y: 0
 
   # Top Right Circle
@@ -242,8 +244,8 @@ points.zones:
           stagger: stagger_inner
         rows:
           bot.skip: true
-          mid.skip: true
-          top.column_net: C5
+          mid.column_net: C5
+          top.skip: true
   thumb:
     key.tags: thumb
     anchor:
@@ -272,8 +274,8 @@ points.zones:
       width: mcu_size_x
       height: mcu_size_y
     anchor:
-      ref: matrix_inner_top
-      shift: [mcu_shift_x, mcu_shift_y - .4(kx)]
+      ref: matrix_inner_mid #matrix_inner_top
+      shift: [mcu_shift_x, mcu_shift_y - .4(kx) + ky]
   oled:
     key:
       tags: part
@@ -319,7 +321,7 @@ points.zones:
       width: jst_size_x
       height: jst_main_size_y
     anchor:
-      ref: matrix_inner_top
+      ref: mcu
       shift: [jst_main_shift_x, jst_main_shift_y]
       rotate: jst_rotate
   jst_sec:
@@ -339,7 +341,7 @@ points.zones:
       width: tp_size_x
       height: tp_size_y
     anchor:
-      ref: matrix_inner_top
+      ref: matrix_inner_mid #matrix_inner_top
       shift: [tp_shift_x, tp_shift_y]
 
   # * Mounting Holes
@@ -350,7 +352,7 @@ points.zones:
       height: hole_size
     anchor:
       ref: matrix_pinky_top
-      shift: [2, hole_matrix_shift_y]
+      shift: [hole_matrix_side_shift_x + 1.5, hole_matrix_shift_y]
   hole_left_bot:
     key:
       tags: hole
@@ -358,7 +360,7 @@ points.zones:
       height: hole_size
     anchor:
       ref: matrix_pinky_mid
-      shift: [2, -hole_matrix_shift_y]
+      shift: [hole_matrix_side_shift_x + 1.5, -hole_matrix_shift_y]
 
   hole_top_left:
     key:
@@ -367,7 +369,7 @@ points.zones:
       height: hole_size
     anchor:
       ref: matrix_ring_top
-      shift: [0, (hole_matrix_shift_y + 0.5)]
+      shift: [0, hole_matrix_top_shift_y]
   hole_bot_left:
     key:
       tags: hole
@@ -375,7 +377,7 @@ points.zones:
       height: hole_size
     anchor:
       ref: matrix_ring_bot
-      shift: [0, -(hole_matrix_shift_y + 0.5)]
+      shift: [0, -(hole_matrix_bottom_shift_y)]
 
   hole_top_right:
     key:
@@ -384,7 +386,7 @@ points.zones:
       height: hole_size
     anchor:
       ref: matrix_index_top
-      shift: [0, (hole_matrix_shift_y + 0.5)]
+      shift: [0, hole_matrix_top_shift_y]
   hole_bot_right:
     key:
       tags: hole
@@ -392,16 +394,16 @@ points.zones:
       height: hole_size
     anchor:
       ref: matrix_index_bot
-      shift: [0, -(hole_matrix_shift_y + 0.5)]
+      shift: [0, -(hole_matrix_bottom_shift_y)]
 
-  hole_right_top:
-    key:
-      tags: hole
-      width: hole_size
-      height: hole_size
-    anchor:
-      ref: matrix_inner_top
-      shift: [-hole_matrix_side_shift_x, hole_matrix_shift_y]
+  #hole_right_top:
+  #  key:
+  #    tags: hole
+  #    width: hole_size
+  #    height: hole_size
+  #  anchor:
+  #    ref: matrix_inner_mid #matrix_inner_top
+  #    shift: [-hole_matrix_side_shift_x, hole_matrix_shift_y  + ky]
   hole_right_bot:
     key:
       tags: hole
@@ -528,7 +530,7 @@ outlines:
       operation: stack
     - what: circle
       where: [tp_hole]
-      radius: standoff
+      radius: mount
       operation: stack
     - what: circle
       adjust:
@@ -569,8 +571,8 @@ outlines:
         - ref: matrix_middle_top
           shift: [kxo, kyo]
         # Inner
-        - ref: matrix_inner_top
-          shift: [.25(kx), .5(pyo)]
+        - ref: matrix_inner_mid #matrix_inner_top
+          shift: [.25(kx), .5(pyo) + ky]
         # MCU
         - ref: mcu # MCU Top Left Corner
           shift: [mcu_left_board_shift_x, mcu_top_board_shift_y]
@@ -698,10 +700,10 @@ pcbs.snak_28:
         to: "{{colrow}}"
     diode_right:
       what: diode_ceoloide
-      where: /(matrix|thumb)_/ # /(matrix_|thumb_out)/
+      where: /(matrix|thumb)_/
       adjust:
         rotate: 270
-        shift: [diode_shift_x, diode_shift_y] #[0, 3.5]
+        shift: [diode_shift_x, diode_shift_y]
       params:
         side: "F"
         reversible: false
@@ -710,10 +712,10 @@ pcbs.snak_28:
         to: "{{row_net}}"
     diode_left:
       what: diode_ceoloide
-      where: /(matrix|thumb)_/ # /(matrix_|thumb_out)/
+      where: /(matrix|thumb)_/
       adjust:
         rotate: 270
-        shift: [-diode_shift_x, diode_shift_y] #[0, 3.5]
+        shift: [-diode_shift_x, diode_shift_y]
       params:
         side: "B"
         reversible: false
@@ -814,15 +816,18 @@ pcbs.snak_28:
     
     # OLED
     nice_view:
-      what: nice_view_kim
+      what: nice_view_ceoloide
       where.ref: oled
       params:
-        reverse: true
+        reversible: true
+        include_traces: true
+        gnd_trace_width: 0.25
+        signal_trace_width: 0.25
+        invert_jumpers_position: false
+        include_labels: true
         MOSI: MOSI # DPD
         SCK: SCK # DPC
         CS: CS # DPE
-        show_labels: true
-        jumpers_at_bottom: false
     via_oled_mosi_1:
       what: via
       where:
@@ -925,7 +930,7 @@ pcbs.snak_28:
       what: via
       where:
         ref: sw_reset
-        shift:  [-0.35(sw_reset_size_xo), (sw_reset_size_yo + 1.6)]
+        shift:  [0.35(sw_reset_size_xo), (sw_reset_size_yo + 0.6)]
       params.net: RST
     via_reset_gnd: # right side
       what: via
