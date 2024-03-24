@@ -39,6 +39,7 @@
       8,
       9,
       10,
+      11,
       12,
       13,
       14,
@@ -66,11 +67,11 @@
       39,
       40
     ],
-    "visible_layers": "fffffff_ffffffff",
+    "visible_layers": "fffffd0_7ffffffe",
     "zone_display_mode": 0
   },
   "meta": {
-    "filename": "snak_30.kicad_prl",
+    "filename": "snak_28_edge_cuts.kicad_prl",
     "version": 3
   },
   "project": {

@@ -166,8 +166,7 @@
       ],
       "track_widths": [],
       "via_dimensions": [],
-      "zones_allow_external_fillets": false,
-      "zones_use_no_outline": true
+      "zones_allow_external_fillets": false
     },
     "layer_presets": [],
     "viewports": []
@@ -181,7 +180,7 @@
     "pinned_symbol_libs": []
   },
   "meta": {
-    "filename": "snak.kicad_pro",
+    "filename": "snak_28_edge_cuts.kicad_pro",
     "version": 1
   },
   "net_settings": {
@@ -281,10 +280,6 @@
       {
         "netclass": "Default",
         "pattern": "inner_mid"
-      },
-      {
-        "netclass": "Default",
-        "pattern": "inner_top"
       },
       {
         "netclass": "Default",
