@@ -94,8 +94,8 @@ units:
   sw_power_size_y: 8.8 # Footprint; Actual height: 8.3
   sw_power_size_xo: 0.5(sw_power_size_x)
   sw_power_size_yo: 0.5(sw_power_size_y)
-  sw_power_shift_x: 0.9
-  sw_power_shift_y: mcu_size_yo - 0.45 # + sw_power_size_xo
+  sw_power_shift_x: 0 #0.9
+  sw_power_shift_y: mcu_size_yo - 0.445 # + sw_power_size_xo
   sw_power_rotate: 90
 
   # Reset Switch
@@ -103,9 +103,9 @@ units:
   sw_reset_size_y: 5.5 # Footprint; Actual height: 4.7
   sw_reset_size_xo: 0.5(sw_reset_size_x)
   sw_reset_size_yo: 0.5(sw_reset_size_y)
-  sw_reset_shift_x: (sw_reset_size_yo - mcu_size_xo) - 0.75
-  sw_reset_shift_y: mcu_size_yo - 0.25
-  sw_reset_rotate: 90
+  sw_reset_shift_x: (kxo - sw_reset_size_x) + 1
+  sw_reset_shift_y: 1.75ky + 0.5
+  sw_reset_rotate: 51
 
   # JST Battery Connector (2P, Curved Needed)
   # Footprint center at (3.45, 1.85)
@@ -128,7 +128,7 @@ units:
   tp_size_y: 23.3
   tp_size_xo: 0.5(tp_size_x)
   tp_size_yo: 0.5(tp_size_y)
-  tp_shift_x: -(kxo)/2 + 1.5
+  tp_shift_x: 0 #-(kxo)/2 + 1.5
   tp_shift_y: (kyo + tp_size_yo) - 1
   tp_rotate: 0
   # Outline
@@ -165,8 +165,8 @@ units:
   hole_matrix_side_shift_x: (kxo)/3
   hole_thumb_shift_x: .5(spread_thumb_in) + 0.6
   hole_thumb_shift_y: (ky)/3
-  hole_mcu_shift_x: (mcu_size_xo - mount) + 0.5
-  hole_mcu_shift_y: (mcu_size_yo + 1.35) - mount
+  hole_mcu_shift_x: (mcu_size_xo - mount) + 0.525
+  hole_mcu_shift_y: (mcu_size_yo + 1.375) - mount
   hole_tp_shift_x: 0
   hole_tp_shift_y: (tp_size_yo - mount)
 
@@ -311,7 +311,7 @@ points.zones:
       width: sw_reset_size_x
       height: sw_reset_size_y
     anchor:
-      ref: mcu
+      ref: matrix_inner_mid #mcu
       shift: [sw_reset_shift_x, sw_reset_shift_y]
       rotate: sw_reset_rotate
   jst_main:
@@ -787,8 +787,8 @@ pcbs.snak_28:
 
         # Pin Assignments (Controller on top facing down)
         # Right Side - Excluding P8/9, all high frequency and support SPI/I2C
-        P0: "F1"   # FREE PIN
-        P1: "F2"   # FREE PIN
+        P0: "SW1"   # FREE PIN
+        P1: "SW2"   # FREE PIN
         # GND
         # GND
         P2: "F3"   # FREE PIN
@@ -864,23 +864,6 @@ pcbs.snak_28:
         ref: oled
         shift: [0, -(oled_size_yo - 3.5)]
       params.net: GND
-    
-    trackpoint:
-      what: trackpoint_mount
-      where.ref: trackpoint
-      params:
-        reverse: true
-        # T430: 3.5
-        # T460S (red one): 3.5
-        # X240: 5.5
-        drill: 3.5
-        outline: 0.25
-
-        show_outline_t430: false
-        show_outline_x240: false
-        show_outline_t460s: true 
-        show_board: false
-
 
     # Power Switch
     power:
@@ -943,6 +926,39 @@ pcbs.snak_28:
     holes_mount:
       what: mounting_hole
       where: [hole]
+    
+    # Trackpoint
+    trackpoint:
+      what: trackpoint_mount
+      where.ref: trackpoint
+      params:
+        reverse: true
+        # T430: 3.5
+        # T460S (red one): 3.5
+        # X240: 5.5
+        drill: 3.5
+        outline: 0.25
+
+        show_outline_t430: false
+        show_outline_x240: false
+        show_outline_t460s: true 
+        show_board: false
+    
+    # Rotary Encoder Scrollwheel
+    scrollwheel:
+      what: scrollwheel
+      where:
+        ref: trackpoint
+        shift: [0.5, 0.75]
+        rotate: 180
+      params:
+        reverse: true
+        from: C5
+        to: R1
+        A: SW1
+        B: GND
+        C: SW2
+        D: ""
 
 #---------------------------------------
 # sect: CASES
