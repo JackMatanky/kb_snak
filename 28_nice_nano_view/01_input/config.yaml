@@ -53,7 +53,7 @@ units:
 
   # Thumb
   offset_thumb_x: (kx)/2
-  offset_thumb_y: -27.5
+  offset_thumb_y: -25
   splay_thumb_out: -18
   splay_thumb_in: -13
   spread_thumb_in: kx + 1.75
@@ -103,9 +103,9 @@ units:
   sw_reset_size_y: 5.5 # Footprint; Actual height: 4.7
   sw_reset_size_xo: 0.5(sw_reset_size_x)
   sw_reset_size_yo: 0.5(sw_reset_size_y)
-  sw_reset_shift_x: (kxo - sw_reset_size_x) + 1
-  sw_reset_shift_y: 1.75ky + 0.5
-  sw_reset_rotate: 51
+  sw_reset_shift_x: 0
+  sw_reset_shift_y: 1.95ky + 1.65
+  sw_reset_rotate: 58
 
   # JST Battery Connector (2P, Curved Needed)
   # Footprint center at (3.45, 1.85)
@@ -129,7 +129,7 @@ units:
   tp_size_xo: 0.5(tp_size_x)
   tp_size_yo: 0.5(tp_size_y)
   tp_shift_x: 0 #-(kxo)/2 + 1.5
-  tp_shift_y: (kyo + tp_size_yo) - 1
+  tp_shift_y: (kyo + tp_size_yo) - 0.97
   tp_rotate: 0
   # Outline
   tp_size_hole_x: 5.5
@@ -787,8 +787,8 @@ pcbs.snak_28:
 
         # Pin Assignments (Controller on top facing down)
         # Right Side - Excluding P8/9, all high frequency and support SPI/I2C
-        P0: "SW1"   # FREE PIN
-        P1: "SW2"   # FREE PIN
+        P1: "SW1"   # FREE PIN
+        P0: "SW2"   # FREE PIN
         # GND
         # GND
         P2: "F3"   # FREE PIN
@@ -949,7 +949,7 @@ pcbs.snak_28:
       what: scrollwheel
       where:
         ref: trackpoint
-        shift: [0.5, 0.75]
+        shift: [0.5, -0.425]
         rotate: 180
       params:
         reverse: true
