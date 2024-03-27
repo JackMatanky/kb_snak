@@ -130,7 +130,7 @@ units:
   tp_size_xo: 0.5(tp_size_x)
   tp_size_yo: 0.5(tp_size_y)
   tp_shift_x: -1.25
-  tp_shift_y: (kyo + tp_size_yo) - 0.97
+  tp_shift_y: (kyo + tp_size_yo) - 1.5
   tp_rotate: 0
   # Outline
   tp_mount_size_x: 5.5
@@ -970,7 +970,7 @@ pcbs.snak_28:
       what: scrollwheel
       where:
         ref: matrix_inner_top
-        #shift: [2.5, -0.425]
+        shift: [1.1, 0.875]
         rotate: 180
       params:
         reverse: true
