@@ -25,12 +25,13 @@ units:
   ky: cy # 17
   kxo: 0.5(kx)
   kyo: 0.5(ky)
-  # Column Spread and Row Padding
+  # Column Spread
   spread_key: 18.5
+  # Row Padding
   padding_key: 17.5
   # Keycap Size
-  keycap_x: 17.5
-  keycap_y: 16.5
+  kcp_x: 17.5
+  kcp_y: 16.5
   # Switch Plate Key Cutout
   kco: 13.9
 
@@ -132,18 +133,18 @@ units:
   tp_shift_y: (kyo + tp_size_yo) - 0.97
   tp_rotate: 0
   # Outline
-  tp_size_mount_x: 5.5
-  tp_size_mount_y: 5
-  tp_size_hex_diag: 3.5
-  tp_size_hex_side: 6
+  tp_mount_size_x: 5.5
+  tp_mount_size_y: 5
+  tp_hex_diag_size: 3.5
+  tp_hex_side_size: 6
 
   # Key Diodes
   diode_shift_x: 7.5
   diode_shift_y: 1.5
-  diode_shift_row_net_x: 7.0
-  diode_shift_row_net_y: 4.5
-  diode_shift_colrow_x: 3.5
-  diode_shift_colrow_y: -1.5
+  diode_row_net_shift_x: 7.0
+  diode_row_net_shift_y: 4.5
+  diode_colrow_shift_x: 3.5
+  diode_colrow_shift_y: -1.5
 
   # PCB and Case Holes
   # Points height and width
@@ -214,14 +215,18 @@ points.zones:
       top.row_net: R1
     columns:
       pinky:
-        key.tags: pinky
+        key.tags:
+          - key
+          - pinky
         rows:
           bot.skip: true
           mid.column_net: C1
           top.column_net: C1
       ring:
         key:
-          tags: ring
+          tags:
+            - key
+            - ring
           stagger: stagger_ring
         rows:
           bot.column_net: C2
@@ -229,7 +234,9 @@ points.zones:
           top.column_net: C2
       middle:
         key:
-          tags: middle
+          tags:
+            - key
+            - middle
           stagger: stagger_middle
         rows:
           bot.column_net: C3
@@ -237,22 +244,28 @@ points.zones:
           top.column_net: C3
       index:
         key:
-          tags: index
+          tags:
+            - key
+            - index
           stagger: stagger_index
         rows:
           bot.column_net: C4
           mid.column_net: C4
           top.column_net: C4
       inner:
-        key:
-          tags: inner
-          stagger: stagger_inner
+        key.stagger: stagger_inner
         rows:
           bot.skip: true
-          mid.column_net: C5
-          top.skip: true
+          mid:
+            key.tags: key_inner
+            column_net: C5
+          top:
+            key.tags: part_inner
+            column_net: C5
   thumb:
-    key.tags: thumb
+    key.tags:
+      - key
+      - thumb
     anchor:
       ref: matrix_index_bot
       shift: [offset_thumb_x, offset_thumb_y]
@@ -401,14 +414,6 @@ points.zones:
       ref: matrix_ring_bot
       shift: [2(kx + 0.5), -(hole_matrix_bottom_shift_y + 0.65)]
 
-  #hole_right_top:
-  #  key:
-  #    tags: hole
-  #    width: hole_size
-  #    height: hole_size
-  #  anchor:
-  #    ref: matrix_inner_mid #matrix_inner_top
-  #    shift: [-hole_matrix_side_shift_x, hole_matrix_shift_y  + ky]
   hole_right_bot:
     key:
       tags: hole
@@ -460,18 +465,18 @@ outlines:
   # BOARD COMPONENTS
   _raw:
     - what: rectangle
-      where: /(matrix|thumb)_/
+      where: /(pinky|ring|middle|index|inner_m|thumb_)/
       bound: true
       size: [px, py]
   _keycaps:
     # Key outline minus .5mm to show overlapping keys.
     - what: rectangle
-      where: /(matrix|thumb)_/
+      where: /(pinky|ring|middle|index|inner_m|thumb_)/
       bound: false
-      size: [keycap_x, keycap_y]
+      size: [kcp_x, kcp_y]
   _switches:
     - what: rectangle
-      where: /(matrix|thumb)_/
+      where: /(pinky|ring|middle|index|inner_m|thumb_)/
       bound: false
       size: [kco, kco]
 
@@ -514,29 +519,29 @@ outlines:
     - what: polygon
       points:
         - ref: trackpoint # Top left of top mount
-          shift: [-tp_size_mount_x/2, tp_size_yo]
+          shift: [-tp_mount_size_x/2, tp_size_yo]
         - ref: trackpoint # Top right of top mount
-          shift: [tp_size_mount_x/2, tp_size_yo]
+          shift: [tp_mount_size_x/2, tp_size_yo]
         - ref: trackpoint # Right of top mount
-          shift: [tp_size_mount_x/2, tp_size_hex_side/2 + tp_size_hex_diag]
+          shift: [tp_mount_size_x/2, tp_hex_side_size/2 + tp_hex_diag_size]
         - ref: trackpoint
-          shift: [tp_size_xo, tp_size_hex_side/2]
+          shift: [tp_size_xo, tp_hex_side_size/2]
         - ref: trackpoint # Right of tp hole
-          shift: [tp_size_xo, -tp_size_hex_side/2]
+          shift: [tp_size_xo, -tp_hex_side_size/2]
         - ref: trackpoint
-          shift: [tp_size_mount_x/2, -(tp_size_hex_side/2 + tp_size_hex_diag)]
+          shift: [tp_mount_size_x/2, -(tp_hex_side_size/2 + tp_hex_diag_size)]
         - ref: trackpoint # Right of bottom mount
-          shift: [tp_size_mount_x/2, -tp_size_yo]
+          shift: [tp_mount_size_x/2, -tp_size_yo]
         - ref: trackpoint # Bottom left of bottom mount
-          shift: [-tp_size_mount_x/2, -tp_size_yo]
+          shift: [-tp_mount_size_x/2, -tp_size_yo]
         - ref: trackpoint # Left of bottom mount
-          shift: [-tp_size_mount_x/2, -(tp_size_hex_side/2 + tp_size_hex_diag)]
+          shift: [-tp_mount_size_x/2, -(tp_hex_side_size/2 + tp_hex_diag_size)]
         - ref: trackpoint
-          shift: [-tp_size_xo, -tp_size_hex_side/2]
+          shift: [-tp_size_xo, -tp_hex_side_size/2]
         - ref: trackpoint # Left of tp hole
-          shift: [-tp_size_xo, tp_size_hex_side/2]
+          shift: [-tp_size_xo, tp_hex_side_size/2]
         - ref: trackpoint
-          shift: [-tp_size_mount_x/2, tp_size_hex_side/2 + tp_size_hex_diag]
+          shift: [-tp_mount_size_x/2, tp_hex_side_size/2 + tp_hex_diag_size]
     - what: circle
       adjust:
         ref: trackpoint
@@ -546,15 +551,21 @@ outlines:
       operation: stack
   _holes_screw:
     - what: circle
-      where: [hole]
+      where:
+        - [hole]
+        - [tp_hole]
       radius: screw
   _holes_standoff:
     - what: circle
-      where: [hole]
+      where:
+        - [hole]
+        - [tp_hole]
       radius: standoff
   _holes_mount:
     - what: circle
-      where: [hole]
+      where:
+        - [hole]
+        - [tp_hole]
       radius: mount
     - operation: stack
       name: _holes_screw
@@ -699,7 +710,7 @@ pcbs.snak_28:
     # Key Switches and Diodes
     choc:
       what: choc_kim
-      where: /(matrix|thumb)_/
+      where: /(pinky|ring|middle|index|inner_m|thumb_)/
       adjust.rotate: 180
       params:
         reverse: true
@@ -710,7 +721,7 @@ pcbs.snak_28:
         to: "{{colrow}}"
     diode_right:
       what: diode_ceoloide
-      where: /(matrix|thumb)_/
+      where: /(pinky|ring|middle|index|inner_m|thumb_)/
       adjust:
         rotate: 270
         shift: [diode_shift_x, diode_shift_y]
@@ -722,7 +733,7 @@ pcbs.snak_28:
         to: "{{row_net}}"
     diode_left:
       what: diode_ceoloide
-      where: /(matrix|thumb)_/
+      where: /(pinky|ring|middle|index|inner_m|thumb_)/
       adjust:
         rotate: 270
         shift: [-diode_shift_x, diode_shift_y]
@@ -734,32 +745,32 @@ pcbs.snak_28:
         to: "{{row_net}}"
     diode_right_via_row_net: # diode high
       what: via
-      where: /(matrix|thumb)_/
-      adjust.shift: [diode_shift_row_net_x, diode_shift_row_net_y]
+      where: /(pinky|ring|middle|index|inner_m|thumb_)/
+      adjust.shift: [diode_row_net_shift_x, diode_row_net_shift_y]
       params.net: "{{row_net}}"
     diode_right_via_colrow: # diode low
       what: via
-      where: /(matrix|thumb)_/
-      adjust.shift: [diode_shift_colrow_x, diode_shift_colrow_y]
+      where: /(pinky|ring|middle|index|inner_m|thumb_)/
+      adjust.shift: [diode_colrow_shift_x, diode_colrow_shift_y]
       params.net: "{{colrow}}"
     diode_left_via_row_net: # diode high
       what: via
-      where: /(matrix|thumb)_/
-      adjust.shift: [-diode_shift_row_net_x, diode_shift_row_net_y]
+      where: /(pinky|ring|middle|index|inner_m|thumb_)/
+      adjust.shift: [-diode_row_net_shift_x, diode_row_net_shift_y]
       params.net: "{{row_net}}"
     diode_left_via_colrow: # diode low
       what: via
-      where: /(matrix|thumb)_/
-      adjust.shift: [-diode_shift_colrow_x, diode_shift_colrow_y]
+      where: /(pinky|ring|middle|index|inner_m|thumb_)/
+      adjust.shift: [-diode_colrow_shift_x, diode_colrow_shift_y]
       params.net: "{{colrow}}"
     via_col_net:
       what: via
-      where: /(matrix|thumb)_/
+      where: /(pinky|ring|middle|index|inner_m|thumb_)/
       adjust.shift: [0, -3.6]
       params.net: "{{column_net}}"
     via_colrow: # diode low
       what: via
-      where: /(matrix|thumb)_/
+      where: /(pinky|ring|middle|index|inner_m|thumb_)/
       adjust.shift: [0, -2.5]
       params.net: "{{colrow}}"
     # via_matrix_col_net_low:
@@ -797,8 +808,8 @@ pcbs.snak_28:
 
         # Pin Assignments (Controller on top facing down)
         # Right Side - Excluding P8/9, all high frequency and support SPI/I2C
-        P1: "SW1"   # FREE PIN
-        P0: "SW2"   # FREE PIN
+        P1: "SW1"   # Scroll Wheel
+        P0: "SW2"   # Scroll Wheel
         # GND
         # GND
         P2: "F3"   # FREE PIN
@@ -958,8 +969,8 @@ pcbs.snak_28:
     scrollwheel:
       what: scrollwheel
       where:
-        ref: trackpoint
-        shift: [2.5, -0.425]
+        ref: matrix_inner_top
+        #shift: [2.5, -0.425]
         rotate: 180
       params:
         reverse: true
