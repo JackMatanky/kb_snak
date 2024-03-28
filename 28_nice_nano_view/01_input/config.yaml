@@ -155,15 +155,12 @@ units:
   mount: 2.15
 
   # Hole Positions
-  # ! add positions for
-  # ! ring and index top and bottom corners at 0x and 0y
-  hole_shift: 9.25
-  hole_matrix_shift_y: kyo + mount
-  hole_matrix_top_shift_y: hole_matrix_shift_y - 1.25
-  hole_matrix_bottom_shift_y: hole_matrix_shift_y + 0.25
-  hole_matrix_side_shift_x: (kxo)/3
-  hole_thumb_shift_x: .5(spread_thumb_in) + 0.6
-  hole_thumb_shift_y: (ky)/3
+  hole_key_shift: kyo + mount
+  hole_matrix_top_shift_y: hole_key_shift - 1.25
+  hole_matrix_bottom_shift_y: hole_key_shift + 0.9
+  hole_matrix_index_shift_x: 2(kx + 0.5)
+  hole_matrix_left_shift_x: (kxo)/3 + 3.75
+  hole_thumb_shift: 9.25
   hole_mcu_shift_x: (mcu_size_xo - mount) + 0.525
   hole_mcu_shift_y: (mcu_size_yo + 1.375) - mount
   hole_tp_shift_x: 0
@@ -257,10 +254,14 @@ points.zones:
         rows:
           bot.skip: true
           mid:
-            key.tags: key_inner
+            tags:
+              - key
+              - inner
             column_net: C5
           top:
-            key.tags: part_inner
+            tags:
+              - part
+              - inner
             column_net: C5
   thumb:
     key.tags:
@@ -351,7 +352,6 @@ points.zones:
     anchor:
       ref: jst_main
       shift: [jst_sec_shift_x, jst_sec_shift_y]
-      #rotate: jst_rotate
   trackpoint:
     key:
       tags: part
@@ -363,23 +363,6 @@ points.zones:
       shift: [tp_shift_x, tp_shift_y]
 
   # * Mounting Holes
-  hole_left_top:
-    key:
-      tags: hole
-      width: hole_size
-      height: hole_size
-    anchor:
-      ref: matrix_pinky_top
-      shift: [hole_matrix_side_shift_x + 3.75, hole_matrix_shift_y]
-  hole_left_bot:
-    key:
-      tags: hole
-      width: hole_size
-      height: hole_size
-    anchor:
-      ref: matrix_pinky_mid
-      shift: [hole_matrix_side_shift_x + 3.75, -(hole_matrix_shift_y - 1)]
-
   hole_top_left:
     key:
       tags: hole
@@ -395,7 +378,7 @@ points.zones:
       height: hole_size
     anchor:
       ref: matrix_ring_bot
-      shift: [0, -(hole_matrix_bottom_shift_y + 0.65)]
+      shift: [0, -hole_matrix_bottom_shift_y]
 
   hole_top_right:
     key:
@@ -404,7 +387,7 @@ points.zones:
       height: hole_size
     anchor:
       ref: matrix_ring_top
-      shift: [2(kx + 0.5), hole_matrix_top_shift_y]
+      shift: [hole_matrix_index_shift_x, hole_matrix_top_shift_y]
   hole_bot_right:
     key:
       tags: hole
@@ -412,7 +395,24 @@ points.zones:
       height: hole_size
     anchor:
       ref: matrix_ring_bot
-      shift: [2(kx + 0.5), -(hole_matrix_bottom_shift_y + 0.65)]
+      shift: [hole_matrix_index_shift_x, -hole_matrix_bottom_shift_y]
+
+  hole_left_top:
+    key:
+      tags: hole
+      width: hole_size
+      height: hole_size
+    anchor:
+      ref: matrix_pinky_top
+      shift: [hole_matrix_left_shift_x, hole_key_shift]
+  hole_left_bot:
+    key:
+      tags: hole
+      width: hole_size
+      height: hole_size
+    anchor:
+      ref: matrix_pinky_mid
+      shift: [hole_matrix_left_shift_x, -(hole_key_shift - 1)]
 
   hole_right_bot:
     key:
@@ -421,7 +421,7 @@ points.zones:
       height: hole_size
     anchor:
       ref: matrix_inner_mid
-      shift: [-1.5, -hole_matrix_shift_y]
+      shift: [-1.5, -hole_key_shift]
 
   hole_btwn_thumb:
     key:
@@ -430,7 +430,7 @@ points.zones:
       height: hole_size
     anchor:
       ref: thumb_out
-      shift: [hole_shift, -hole_shift]
+      shift: [hole_thumb_shift, -hole_thumb_shift]
 
   hole_mcu:
     key:
@@ -465,18 +465,18 @@ outlines:
   # BOARD COMPONENTS
   _raw:
     - what: rectangle
-      where: /(pinky|ring|middle|index|inner_m|thumb_)/
+      where: [key]
       bound: true
       size: [px, py]
   _keycaps:
     # Key outline minus .5mm to show overlapping keys.
     - what: rectangle
-      where: /(pinky|ring|middle|index|inner_m|thumb_)/
+      where: [key]
       bound: false
       size: [kcp_x, kcp_y]
   _switches:
     - what: rectangle
-      where: /(pinky|ring|middle|index|inner_m|thumb_)/
+      where: [key]
       bound: false
       size: [kco, kco]
 
@@ -551,21 +551,15 @@ outlines:
       operation: stack
   _holes_screw:
     - what: circle
-      where:
-        - [hole]
-        - [tp_hole]
+      where: /hole/
       radius: screw
   _holes_standoff:
     - what: circle
-      where:
-        - [hole]
-        - [tp_hole]
+      where: /hole/
       radius: standoff
   _holes_mount:
     - what: circle
-      where:
-        - [hole]
-        - [tp_hole]
+      where: /hole/
       radius: mount
     - operation: stack
       name: _holes_screw
