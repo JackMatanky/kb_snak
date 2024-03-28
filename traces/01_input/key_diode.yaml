@@ -1,0 +1,143 @@
+#--------------------------------------
+# sect: UNITS
+#--------------------------------------
+units:
+  # Key Size (Choc V1)
+  # Space Between Key Centers
+  kx: cx # 18
+  ky: cy # 17
+  kxo: 0.5(kx)
+  kyo: 0.5(ky)
+  # Column Spread
+  spread_key: 18.5
+  # Row Padding
+  padding_key: 17.5
+  # Keycap Size
+  kcp_x: 17.5
+  kcp_y: 16.5
+  # Switch Plate Key Cutout
+  kco: 13.9
+
+  # Padding Variables
+  px: kx + 4
+  py: ky + 4
+  pxo: 0.5(px)
+  pyo: 0.5(py)
+
+  # Key Diodes
+  diode_shift_x: 7.5
+  diode_shift_y: 1.5
+  diode_row_net_shift_x: 7.0
+  diode_row_net_shift_y: 4.5
+  diode_colrow_shift_x: 3.5
+  diode_colrow_shift_y: -1.5
+
+#--------------------------------------
+# sect: POINTS
+#--------------------------------------
+points:
+  zones:
+    matrix:
+      anchor.shift: [0, 0]
+      columns:
+        key_0:
+          rows.home.column_net: C2
+      rows:
+        home.row_net: R0
+      
+#--------------------------------------
+# sect: OUTLINES
+#--------------------------------------
+outlines:
+  # BOARD COMPONENTS
+  _raw:
+    - what: rectangle
+      bound: true
+      size: [px, py]
+  _keycaps:
+    # Key outline minus .5mm to show overlapping keys.
+    - what: rectangle
+      bound: true
+      size: [kcp_x, kcp_y]
+  _switches:
+    - what: rectangle
+      bound: true
+      size: [kco, kco]
+  
+  _key_switch:
+    - name: _keycaps
+    - operation: stack
+      name: _switches
+
+#--------------------------------------
+# sect: PCB
+#--------------------------------------
+pcbs.key_diode:
+  outlines.main.outline: _raw
+  footprints:
+    # Key Switches and Diodes
+    choc:
+      what: choc_kim
+      where: key_0
+      adjust.rotate: 180
+      params:
+        reverse: true
+        hotswap: true
+        solder: false
+        show_keycaps: true
+        from: "{{column_net}}"
+        to: "{{colrow}}"
+    diode_right:
+      what: diode_ceoloide
+      where: key_0
+      adjust:
+        rotate: 270
+        shift: [diode_shift_x, diode_shift_y]
+      params:
+        side: "F"
+        reversible: false
+        include_tht: false
+        from: "{{colrow}}"
+        to: "{{row_net}}"
+    diode_left:
+      what: diode_ceoloide
+      where: key_0
+      adjust:
+        rotate: 270
+        shift: [-diode_shift_x, diode_shift_y]
+      params:
+        side: "B"
+        reversible: false
+        include_tht: false
+        from: "{{colrow}}"
+        to: "{{row_net}}"
+    diode_right_via_row_net: # diode high
+      what: via
+      where: key_0
+      adjust.shift: [diode_row_net_shift_x, diode_row_net_shift_y]
+      params.net: "{{row_net}}"
+    diode_right_via_colrow: # diode low
+      what: via
+      where: key_0
+      adjust.shift: [diode_colrow_shift_x, diode_colrow_shift_y]
+      params.net: "{{colrow}}"
+    diode_left_via_row_net: # diode high
+      what: via
+      where: key_0
+      adjust.shift: [-diode_row_net_shift_x, diode_row_net_shift_y]
+      params.net: "{{row_net}}"
+    diode_left_via_colrow: # diode low
+      what: via
+      where: key_0
+      adjust.shift: [-diode_colrow_shift_x, diode_colrow_shift_y]
+      params.net: "{{colrow}}"
+    via_col_net:
+      what: via
+      where: key_0
+      adjust.shift: [0, -3.6]
+      params.net: "{{column_net}}"
+    via_colrow: # diode low
+      what: via
+      where: key_0
+      adjust.shift: [0, -2.5]
+      params.net: "{{colrow}}"

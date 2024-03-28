@@ -59,6 +59,7 @@ units:
   splay_thumb_in: -13
   spread_thumb_in: kx + 1.75
 
+  # MCU
   # nice!nano: 34.1 x 18.3 x 3.3 (mm)
   # The nice nano footprint's center doesn't account
   mcu_size_x: 18.3
@@ -70,6 +71,7 @@ units:
   mcu_shift_x: kxo + mcu_size_xo + mcu_spacing_left
   mcu_shift_y: ky - mcu_size_yo + 1
 
+  # OLED
   # nice!view: 36 x 14 x 2.9 (mm)
   oled_size_x: 14
   oled_size_y: 36
@@ -90,23 +92,34 @@ units:
   oled_screen_shift_x: 0
   oled_screen_shift_y: oled_size_yo - (oled_screen_size_yo + oled_screen_offset_top_y)
 
+  # OLED vias
+  oled_mosi_via_shift_x: 4.45
+  oled_mosi_via_shift_y: -(oled_size_yo - 5.55)
+  oled_cs_via_shift_x: 3.85
+  oled_cs_via_shift_y: -(oled_size_yo - 3.95) # oled_mosi_via_shift_y - 0.9
+  oled_sck_via_shift_y: -(oled_size_yo - 3.95)
+  oled_gnd_via_shift_y: oled_sck_via_shift_y - 1
+
   # Power Switch
-  sw_power_size_x: 4.55 # Footprint; Actual width: 3.0 ± 0.05
-  sw_power_size_y: 8.8 # Footprint; Actual height: 8.3
-  sw_power_size_xo: 0.5(sw_power_size_x)
-  sw_power_size_yo: 0.5(sw_power_size_y)
-  sw_power_shift_x: 0 #0.9
-  sw_power_shift_y: mcu_size_yo - 0.445 # + sw_power_size_xo
-  sw_power_rotate: 90
+  power_size_x: 4.55 # Footprint; Actual width: 3.0 ± 0.05
+  power_size_y: 8.8 # Footprint; Actual height: 8.3
+  power_size_xo: 0.5(power_size_x)
+  power_size_yo: 0.5(power_size_y)
+  power_shift_x: 0 #0.9
+  power_shift_y: mcu_size_yo - 0.445 # + power_size_xo
+  power_rotate: 90
 
   # Reset Switch
-  sw_reset_size_x: 3.4 # Footprint; Actual width: 2.9
-  sw_reset_size_y: 5.5 # Footprint; Actual height: 4.7
-  sw_reset_size_xo: 0.5(sw_reset_size_x)
-  sw_reset_size_yo: 0.5(sw_reset_size_y)
-  sw_reset_shift_x: (kx)/3
-  sw_reset_shift_y: 1.8ky + 0.05
-  sw_reset_rotate: 52
+  reset_size_x: 3.4 # Footprint; Actual width: 2.9
+  reset_size_y: 5.5 # Footprint; Actual height: 4.7
+  reset_size_xo: 0.5(reset_size_x)
+  reset_size_yo: 0.5(reset_size_y)
+  reset_shift_x: (kx)/3
+  reset_shift_y: 1.8ky + 0.05
+  reset_rotate: 52
+
+  reset_via_shift_x: 0.35(reset_size_xo)
+  reset_via_shift_y: reset_size_yo + 0.6
 
   # JST Battery Connector (2P, Curved Needed)
   # Footprint center at (3.45, 1.85)
@@ -124,6 +137,9 @@ units:
   jst_sec_shift_y: -(jst_main_size_yo + jst_sec_size_yo)
   jst_rotate: 270
 
+  jst_pos_via_shift_y: -(jst_size_yo - 1.5)
+  jst_gnd_via_shift_y: jst_main_size_yo - 0.5
+
   # Trackpoint
   tp_size_x: 12.5
   tp_size_y: 23.3
@@ -139,11 +155,11 @@ units:
   tp_hex_side_size: 6
 
   # Key Diodes
-  diode_shift_x: 7.5
+  diode_shift_x: 7.75
   diode_shift_y: 1.5
-  diode_row_net_shift_x: 7.0
-  diode_row_net_shift_y: 4.5
-  diode_colrow_shift_x: 3.5
+  diode_row_net_shift_x: diode_shift_x
+  diode_row_net_shift_y: diode_shift_y + 2.8
+  diode_colrow_shift_x: 4.75
   diode_colrow_shift_y: -1.5
 
   # PCB and Case Holes
@@ -313,26 +329,26 @@ points.zones:
     anchor:
       ref: oled
       shift: [oled_screen_shift_x, oled_screen_shift_y]
-  sw_power:
+  power:
     key:
       tags: part
-      name: sw_power
-      width: sw_power_size_x
-      height: sw_power_size_y
+      name: power
+      width: power_size_x
+      height: power_size_y
     anchor:
       ref: mcu
-      shift: [sw_power_shift_x, sw_power_shift_y]
-      rotate: sw_power_rotate
-  sw_reset:
+      shift: [power_shift_x, power_shift_y]
+      rotate: power_rotate
+  reset:
     key:
       tags: part
-      name: sw_reset
-      width: sw_reset_size_x
-      height: sw_reset_size_y
+      name: reset
+      width: reset_size_x
+      height: reset_size_y
     anchor:
       ref: matrix_inner_mid #mcu
-      shift: [sw_reset_shift_x, sw_reset_shift_y]
-      rotate: sw_reset_rotate
+      shift: [reset_shift_x, reset_shift_y]
+      rotate: reset_rotate
   jst_main:
     key:
       tags: part
@@ -492,10 +508,10 @@ outlines:
     - what: rectangle
       size: [oled_screen_size_x, oled_screen_size_y]
       adjust.ref: oled_screen
-  _sw_power:
+  _power:
     - what: rectangle
-      size: [sw_power_size_x, sw_power_size_y]
-      adjust.ref: sw_power
+      size: [power_size_x, power_size_y]
+      adjust.ref: power
   _jst:
     - what: rectangle
       size: [jst_size_x, jst_main_size_y]
@@ -503,10 +519,10 @@ outlines:
     - what: rectangle
       size: [jst_size_x, jst_sec_size_y]
       adjust.ref: jst_sec
-  _sw_reset:
+  _reset:
     - what: rectangle
-      size: [sw_reset_size_x, sw_reset_size_y]
-      adjust.ref: sw_reset
+      size: [reset_size_x, reset_size_y]
+      adjust.ref: reset
   _trackpoint_mount:
     - what: circle
       where: [tp_hole]
@@ -639,11 +655,11 @@ outlines:
       operation: stack
     - name: _oled_screen
       operation: stack
-    - name: _sw_power
+    - name: _power
       operation: stack
     - name: _jst
       operation: stack
-    - name: _sw_reset
+    - name: _reset
       operation: stack
     - name: _trackpoint
       operation: stack
@@ -662,8 +678,8 @@ outlines:
     # - name: _mcu
     # - name: _jst
   plate_opening:
-    - name: _sw_power
-    - name: _sw_reset
+    - name: _power
+    - name: _reset
   _round_board:
     - name: _board
     - operation: add
@@ -704,7 +720,7 @@ pcbs.snak_28:
     # Key Switches and Diodes
     choc:
       what: choc_kim
-      where: /(pinky|ring|middle|index|inner_m|thumb_)/
+      where: [key]
       adjust.rotate: 180
       params:
         reverse: true
@@ -715,7 +731,7 @@ pcbs.snak_28:
         to: "{{colrow}}"
     diode_right:
       what: diode_ceoloide
-      where: /(pinky|ring|middle|index|inner_m|thumb_)/
+      where: [key]
       adjust:
         rotate: 270
         shift: [diode_shift_x, diode_shift_y]
@@ -727,7 +743,7 @@ pcbs.snak_28:
         to: "{{row_net}}"
     diode_left:
       what: diode_ceoloide
-      where: /(pinky|ring|middle|index|inner_m|thumb_)/
+      where: [key]
       adjust:
         rotate: 270
         shift: [-diode_shift_x, diode_shift_y]
@@ -739,50 +755,44 @@ pcbs.snak_28:
         to: "{{row_net}}"
     diode_right_via_row_net: # diode high
       what: via
-      where: /(pinky|ring|middle|index|inner_m|thumb_)/
+      where: [key]
       adjust.shift: [diode_row_net_shift_x, diode_row_net_shift_y]
       params.net: "{{row_net}}"
     diode_right_via_colrow: # diode low
       what: via
-      where: /(pinky|ring|middle|index|inner_m|thumb_)/
+      where: [key]
       adjust.shift: [diode_colrow_shift_x, diode_colrow_shift_y]
       params.net: "{{colrow}}"
     diode_left_via_row_net: # diode high
       what: via
-      where: /(pinky|ring|middle|index|inner_m|thumb_)/
+      where: [key]
       adjust.shift: [-diode_row_net_shift_x, diode_row_net_shift_y]
       params.net: "{{row_net}}"
     diode_left_via_colrow: # diode low
       what: via
-      where: /(pinky|ring|middle|index|inner_m|thumb_)/
+      where: [key]
       adjust.shift: [-diode_colrow_shift_x, diode_colrow_shift_y]
       params.net: "{{colrow}}"
     via_col_net:
       what: via
-      where: /(pinky|ring|middle|index|inner_m|thumb_)/
+      where: [key]
       adjust.shift: [0, -3.6]
       params.net: "{{column_net}}"
     via_colrow: # diode low
       what: via
-      where: /(pinky|ring|middle|index|inner_m|thumb_)/
+      where: [key]
       adjust.shift: [0, -2.5]
       params.net: "{{colrow}}"
-    # via_matrix_col_net_low:
-    #   what: via
-    #   where: [top, mid, index, inner]
-    #   adjust.shift: [5.25, 2.5]
-    #   params.net: "{{column_net}}"
-    # via_thumb_row_net_1:
-    #   what: via
-    #   where:
-    #     ref: thumb_out
-    #     shift: [hole_thumb_shift_x - 0.5, -6.5]
-    #   params.net: R4
+    via_row_net: # diode low
+      what: via
+      where: [key]
+      adjust.shift: [0, 2.5]
+      params.net: "{{row_net}}"
     via_thumb_row_net:
       what: via
       where:
         ref: thumb_out
-        shift: [hole_thumb_shift_x, hole_thumb_shift_y]
+        shift: [hole_thumb_shift, hole_thumb_shift]
       params.net: R4
     via_thumb_col_net:
       what: via
@@ -792,10 +802,14 @@ pcbs.snak_28:
 
     # MCU
     nice_nano:
-      what: nice_nano_kim
+      what: nice_nano_ceoloide
       where.ref: mcu
       params:
-        traces: true
+        only_required_jumpers: false
+        use_rectangular_jumpers: true
+        include_traces: true
+        via_size: 0.8
+        via_drill: 0.4
         show_via_labels: true
         show_silk_labels: true
         show_instructions: true
@@ -847,43 +861,43 @@ pcbs.snak_28:
       what: via
       where:
         ref: oled
-        shift: [-4.4, -(oled_size_yo - 5.5)]
+        shift: [-oled_mosi_via_shift_x, oled_mosi_via_shift_y]
       params.net: MOSI
     via_oled_mosi_2:
       what: via
       where:
         ref: oled
-        shift: [4.4, -(oled_size_yo - 5.5)]
+        shift: [oled_mosi_via_shift_x, oled_mosi_via_shift_y]
       params.net: MOSI
-    via_oled_sck:
-      what: via
-      where:
-        ref: oled
-        shift: [0, -(oled_size_yo - 4.6)]
-      params.net: SCK
     via_oled_cs_1:
       what: via
       where:
         ref: oled
-        shift: [-3.8, -(oled_size_yo - 4.6)]
+        shift: [-oled_cs_via_shift_x, oled_cs_via_shift_y]
       params.net: CS
     via_oled_cs_2:
       what: via
       where:
         ref: oled
-        shift: [3.8, -(oled_size_yo - 4.6)]
+        shift: [oled_cs_via_shift_x, oled_cs_via_shift_y]
       params.net: CS
+    via_oled_sck:
+      what: via
+      where:
+        ref: oled
+        shift: [0, oled_sck_via_shift_y]
+      params.net: SCK
     via_oled_GND:
       what: via
       where:
         ref: oled
-        shift: [0, -(oled_size_yo - 3.5)]
+        shift: [0, oled_gnd_via_shift_y]
       params.net: GND
 
     # Power Switch
     power:
       what: switch_power
-      where.ref: sw_power
+      where.ref: power
       params:
         reverse: true
         from: pos
@@ -891,8 +905,8 @@ pcbs.snak_28:
     via_pos: # left side of pwr switch
       what: via
       where:
-        ref: sw_power
-        shift: [0.5(sw_power_size_xo), 0]
+        ref: power
+        shift: [0.5(power_size_xo), 0]
       params.net: pos
 
     # JST Battery Connector
@@ -907,19 +921,19 @@ pcbs.snak_28:
       what: via
       where:
         ref: jst_main
-        shift: [0, -(jst_size_yo - 1.5)]
+        shift: [0, jst_pos_via_shift_y]
       params.net: pos
     via_jst_gnd: # adjacent to jst
       what: via
       where:
         ref: jst_main
-        shift: [0, (jst_main_size_yo - 0.5)]
+        shift: [0, jst_gnd_via_shift_y]
       params.net: GND
 
     # Reset Button
     reset:
       what: switch_reset
-      where.ref: sw_reset
+      where.ref: reset
       params:
         reverse: true
         from: GND
@@ -927,14 +941,14 @@ pcbs.snak_28:
     via_reset_rst: # left side
       what: via
       where:
-        ref: sw_reset
-        shift:  [0.35(sw_reset_size_xo), (sw_reset_size_yo + 0.6)]
+        ref: reset
+        shift:  [reset_via_shift_x, reset_via_shift_y]
       params.net: RST
     via_reset_gnd: # right side
       what: via
       where:
-        ref: sw_reset
-        shift: [-0.35(sw_reset_size_xo), (sw_reset_size_yo + 0.6)]
+        ref: reset
+        shift: [-reset_via_shift_x, reset_via_shift_y]
       params.net: GND
 
     # M2 Screw Holes
