@@ -1,4 +1,4 @@
-22648363831813585
+22651787558831254
 Audio_Module
 Reverb_BTDR-1H
 Digital Reverberation Unit, http://www.belton.co.kr/inc/downfile.php?seq=17&file=pdf (footprint from http://www.uk-electronic.de/PDF/BTDR-1.pdf)
@@ -62774,6 +62774,20 @@ RollerEncoder_Panasonic_EVQWGD001
 
 0
 6
+6
+Library
+RollerEncoder_Panasonic_EVQWGD001_long
+
+
+0
+12
+6
+Library
+RollerEncoder_Panasonic_EVQWGD001_v2
+
+
+0
+12
 6
 Module
 A20_OLINUXINO_LIME2

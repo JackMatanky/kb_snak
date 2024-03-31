@@ -978,13 +978,13 @@ pcbs.snak_28:
     
     # Rotary Encoder Scrollwheel
     scrollwheel:
-      what: scrollwheel_minimal #scrollwheel
+      what: scrollwheel #scrollwheel
       where:
         ref: matrix_inner_top
         shift: [1.1, 0.875]
         rotate: 180
       params:
-        reverse: false
+        reverse: true
         from: C5
         to: R1
         A: SW1

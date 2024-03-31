@@ -5385,130 +5385,58 @@
         
         (module RollerEncoder_Panasonic_EVQWGD001 (layer F.Cu) (tedit 6040A10C)
         (at 175.1 62.625 180)   
-        (fp_text reference REF** (at 0 0 180)
-            (layer F.Fab) (effects (font (size 1 1) (thickness 0.15))))
-        (fp_text value RollerEncoder_Panasonic_EVQWGD001 (at -0.1 9 180)
-            (layer F.Fab) (effects (font (size 1 1) (thickness 0.15))))
+        (fp_text reference REF** (at 0 0 180) (layer F.Fab) (effects (font (size 1 1) (thickness 0.15))))
+        (fp_text value RollerEncoder_Panasonic_EVQWGD001 (at -0.1 9 180) (layer F.Fab) (effects (font (size 1 1) (thickness 0.15))))
         
         
-        (fp_line
-          (start -8.3 -6.9)
-          (end 8.3 -6.9)
-          (layer Dwgs.User)
-          (width 0.12)
-        )
-        (fp_line
-          (start 8.3 -6.9)
-          (end 8.3 6.9)
-          (layer Dwgs.User)
-          (width 0.12)
-        )
-        (fp_line
-          (start 8.3 6.9)
-          (end -8.3 6.9)
-          (layer Dwgs.User)
-          (width 0.12)
-        )
-        (fp_line
-          (start -8.3 6.9)
-          (end -8.3 -6.9)
-          (layer Dwgs.User)
-          (width 0.12)
-        )
+        (fp_line (start -8.4 -6.4) (end 8.4 -6.4) (layer Dwgs.User) (width 0.12))
+        (fp_line (start 8.4 -6.4) (end 8.4 7.4) (layer Dwgs.User) (width 0.12))
+        (fp_line (start 8.4 7.4) (end -8.4 7.4) (layer Dwgs.User) (width 0.12))
+        (fp_line (start -8.4 7.4) (end -8.4 -6.4) (layer Dwgs.User) (width 0.12))
       
         
           
-          (fp_line
-            (start
-              8.600000000000001
-              6.9
-            )
-            (end
-              8.600000000000001
-              -6.9
-            )
-            (layer Edge.Cuts)
-            (width 0.15)
-          )
-          (fp_arc
-            (start 
-              8.3
-              -6.6000000000000005
-            )
-            (end 
-              8.600000000000001
-              -6.9
-            )
-            (angle -90)
-            (layer Edge.Cuts)
-            (width 0.15)
-          )
-          (fp_line
-            (start 
-              8.3
-              -7.2
-            )
-            (end 
-              7.050000000000001 
-              -7.2
-            )
-            (layer Edge.Cuts)
-            (width 0.15)
-          )
-          (fp_arc
-            (start
-              6.750000000000001
-              -6.9
-            )
-            (end
-              7.050000000000001
-              -7.2
-            )
-            (angle -90)
-            (layer Edge.Cuts)
-            (width 0.15)
-          )
-
+          (fp_line (start 9.8 7.3) (end 9.8 -6.3) (layer Edge.Cuts) (width 0.15))
+          (fp_line (start 7.4 -6.3) (end 7.4 7.3) (layer Edge.Cuts) (width 0.15))
+          (fp_line (start 9.5 -6.6) (end 7.7 -6.6) (layer Edge.Cuts) (width 0.15))
+          (fp_line (start 7.7 7.6) (end 9.5 7.6) (layer Edge.Cuts) (width 0.15))
+          (fp_arc (start 7.7 7.3) (end 7.4 7.3) (angle -90) (layer Edge.Cuts) (width 0.15))
+          (fp_arc (start 9.5 7.3) (end 9.5 7.6) (angle -90) (layer Edge.Cuts) (width 0.15))
+          (fp_arc (start 7.7 -6.3) (end 7.7 -6.6) (angle -90) (layer Edge.Cuts) (width 0.15))
+          (fp_arc (start 9.5 -6.3) (end 9.8 -6.3) (angle -90) (layer Edge.Cuts) (width 0.15))
 
           
-          (pad S1 thru_hole circle
-            (at -6.85 -6.2 180)
-            (size 1.4 1.4)
-            (drill 0.7)
-            (layers *.Cu *.Mask) (net 16 "C5")
-          )
-          (pad S2 thru_hole circle
-            (at -5 -6.2 180)
-            (size 1.4 1.4)
-            (drill 0.7)
-            (layers *.Cu *.Mask) (net 21 "R1"))
-          (pad A thru_hole circle
-            (at -5.625 -3.81 180)
-            (size 1.5 1.5)
-            (drill 0.8)
-            (layers *.Cu *.Mask) (net 31 "SW1"))
-          (pad B thru_hole circle
-            (at -5.625 -1.27 180)
-            (size 1.5 1.5)
-            (drill 0.8)
-            (layers *.Cu *.Mask) (net 25 "GND"))
-          (pad C thru_hole circle
-            (at -5.625 1.27 180)
-            (size 1.5 1.5)
-            (drill 0.8)
-            (layers *.Cu *.Mask) (net 32 "SW2"))
-          (pad D thru_hole circle
-            (at -5.625 3.81 180)
-            (size 1.5 1.5)
-            (drill 0.8)
-            (layers *.Cu *.Mask) (net 0 ""))
+          (pad S1 thru_hole circle (at -6.85 -6.2 180) (size 1.6 1.6) (drill 0.9) (layers *.Cu *.Mask) (net 16 "C5"))
+          (pad S2 thru_hole circle (at -5 -6.2 180) (size 1.6 1.6) (drill 0.9) (layers *.Cu *.Mask) (net 21 "R1"))
+          (pad A thru_hole circle (at -5.625 -3.81 180) (size 1.6 1.6) (drill 0.9) (layers *.Cu *.Mask) (net 31 "SW1"))
+          (pad B thru_hole circle (at -5.625 -1.27 180) (size 1.6 1.6) (drill 0.9) (layers *.Cu *.Mask) (net 25 "GND"))
+          (pad C thru_hole circle (at -5.625 1.27 180) (size 1.6 1.6) (drill 0.9) (layers *.Cu *.Mask) (net 32 "SW2"))
+          (pad D thru_hole circle (at -5.625 3.81 180) (size 1.6 1.6) (drill 0.9) (layers *.Cu *.Mask) (net 0 ""))
 
           
-          (pad "" np_thru_hole circle
-            (at -5.625 6.3 180)
-            (size 1.5 1.5)
-            (drill 1.5)
-            (layers *.Cu *.Mask))
+          (pad "" np_thru_hole circle (at -5.625 6.3 180) (size 1.5 1.5) (drill 1.5) (layers *.Cu *.Mask))
+        
+        
+          
+          (fp_line (start -9.8 7.3) (end -9.8 -6.3) (layer Edge.Cuts) (width 0.15))
+          (fp_line (start -7.4 -6.3) (end -7.4 7.3) (layer Edge.Cuts) (width 0.15))
+          (fp_line (start -9.5 -6.6) (end -7.7 -6.6) (layer Edge.Cuts) (width 0.15))
+          (fp_line (start -7.7 7.6) (end -9.5 7.6) (layer Edge.Cuts) (width 0.15))
+          (fp_arc (start -7.7 7.3) (end -7.4 7.3) (angle 90) (layer Edge.Cuts) (width 0.15))
+          (fp_arc (start -9.5 7.3) (end -9.5 7.6) (angle 90) (layer Edge.Cuts) (width 0.15))
+          (fp_arc (start -7.7 -6.3) (end -7.7 -6.6) (angle 90) (layer Edge.Cuts) (width 0.15))
+          (fp_arc (start -9.5 -6.3) (end -9.8 -6.3) (angle 90) (layer Edge.Cuts) (width 0.15))
+
+          
+          (pad S1 thru_hole circle (at 6.85 -6.2 180) (size 1.6 1.6) (drill 0.9) (layers *.Cu *.Mask) (net 16 "C5"))
+          (pad S2 thru_hole circle (at 5 -6.2 180) (size 1.6 1.6) (drill 0.9) (layers *.Cu *.Mask) (net 21 "R1"))
+          (pad A thru_hole circle (at 5.625 -3.81 180) (size 1.6 1.6) (drill 0.9) (layers *.Cu *.Mask) (net 31 "SW1"))
+          (pad B thru_hole circle (at 5.625 -1.27 180) (size 1.6 1.6) (drill 0.9) (layers *.Cu *.Mask) (net 25 "GND"))
+          (pad C thru_hole circle (at 5.625 1.27 180) (size 1.6 1.6) (drill 0.9) (layers *.Cu *.Mask) (net 32 "SW2"))
+          (pad D thru_hole circle (at 5.625 3.81 180) (size 1.6 1.6) (drill 0.9) (layers *.Cu *.Mask) (net 0 ""))
+
+          
+          (pad "" np_thru_hole circle (at 5.625 6.3 180) (size 1.5 1.5) (drill 1.5) (layers *.Cu *.Mask))
         )
         
             (gr_line (start 181.37094895663827 133.30914038612664) (end 93.43720023680643 94.70647005759449) (angle 90) (layer Edge.Cuts) (width 0.15))
