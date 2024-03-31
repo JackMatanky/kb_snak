@@ -323,18 +323,6 @@
       },
       {
         "netclass": "Default",
-        "pattern": "F4"
-      },
-      {
-        "netclass": "Default",
-        "pattern": "F5"
-      },
-      {
-        "netclass": "Default",
-        "pattern": "F6"
-      },
-      {
-        "netclass": "Default",
         "pattern": "SW1"
       },
       {
@@ -343,7 +331,19 @@
       },
       {
         "netclass": "Default",
-        "pattern": "F3"
+        "pattern": "F2"
+      },
+      {
+        "netclass": "Default",
+        "pattern": "TPC"
+      },
+      {
+        "netclass": "Default",
+        "pattern": "TPD"
+      },
+      {
+        "netclass": "Default",
+        "pattern": "F1"
       },
       {
         "netclass": "Default",
@@ -480,6 +480,30 @@
       {
         "netclass": "Default",
         "pattern": "JST1_2"
+      },
+      {
+        "netclass": "Default",
+        "pattern": "TPR"
+      },
+      {
+        "netclass": "Default",
+        "pattern": "SMD_5_F"
+      },
+      {
+        "netclass": "Default",
+        "pattern": "SMD_5_T"
+      },
+      {
+        "netclass": "Default",
+        "pattern": "SMD_6_F"
+      },
+      {
+        "netclass": "Default",
+        "pattern": "SMD_6_T"
+      },
+      {
+        "netclass": "Default",
+        "pattern": "PAD_5"
       }
     ]
   },

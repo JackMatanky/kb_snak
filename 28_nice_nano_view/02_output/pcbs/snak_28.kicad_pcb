@@ -5395,7 +5395,7 @@
         
 
       (module trackpoint_mount_t430 (layer F.Cu) (tedit 6449FFC5)
-        (at 174 62.35 90)
+        (at 172.75 62.35 0)
         (attr virtual)
 
         (fp_text reference "TP1" (at 0 0) (layer B.SilkS) hide
@@ -5744,8 +5744,8 @@
 (gr_circle (center 172.5 91.65) (end 173.5 91.65) (layer Eco1.User) (width 0.15))
 (gr_circle (center 170.43886559999999 124.35568) (end 171.43886559999999 124.35568) (layer Eco1.User) (width 0.15))
 (gr_circle (center 201.925 53.975) (end 202.925 53.975) (layer Eco1.User) (width 0.15))
-(gr_circle (center 174 52.85) (end 175 52.85) (layer Eco1.User) (width 0.15))
-(gr_circle (center 174 71.85) (end 175 71.85) (layer Eco1.User) (width 0.15))
+(gr_circle (center 172.75 52.85) (end 173.75 52.85) (layer Eco1.User) (width 0.15))
+(gr_circle (center 172.75 71.85) (end 173.75 71.85) (layer Eco1.User) (width 0.15))
 (gr_line (start 93.05 89.45) (end 106.95 89.45) (angle 90) (layer Eco1.User) (width 0.15))
 (gr_line (start 106.95 89.45) (end 106.95 75.55) (angle 90) (layer Eco1.User) (width 0.15))
 (gr_line (start 106.95 75.55) (end 93.05 75.55) (angle 90) (layer Eco1.User) (width 0.15))
@@ -5815,8 +5815,8 @@
 (gr_circle (center 172.5 91.65) (end 174 91.65) (layer Eco2.User) (width 0.15))
 (gr_circle (center 170.43886559999999 124.35568) (end 171.93886559999999 124.35568) (layer Eco2.User) (width 0.15))
 (gr_circle (center 201.925 53.975) (end 203.425 53.975) (layer Eco2.User) (width 0.15))
-(gr_circle (center 174 52.85) (end 175.5 52.85) (layer Eco2.User) (width 0.15))
-(gr_circle (center 174 71.85) (end 175.5 71.85) (layer Eco2.User) (width 0.15))
+(gr_circle (center 172.75 52.85) (end 174.25 52.85) (layer Eco2.User) (width 0.15))
+(gr_circle (center 172.75 71.85) (end 174.25 71.85) (layer Eco2.User) (width 0.15))
             
 )
 

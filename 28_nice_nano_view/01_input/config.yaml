@@ -132,7 +132,7 @@ units:
   jst_sec_size_y: jst_size_y - jst_main_size_y
   jst_sec_size_yo: 0.5(jst_sec_size_y)
   jst_main_shift_x: mcu_size_xo - jst_size_xo - 0.5
-  jst_main_shift_y: -(mcu_size_yo + jst_size_x + oled_jumper_y)
+  jst_main_shift_y: -(mcu_size_yo + oled_jumper_y + jst_size_x)
   jst_sec_shift_x: 0
   jst_sec_shift_y: -(jst_main_size_yo + jst_sec_size_yo)
   jst_rotate: 270
@@ -153,6 +153,21 @@ units:
   tp_mount_size_y: 5
   tp_hex_diag_size: 3.5
   tp_hex_side_size: 6
+  # TP Reset Circuit
+  tp_reset_size_x: 7.975
+  tp_reset_size_y: 3.36
+  tp_reset_shift_x: 0
+  tp_reset_shift_y: -(oled_size_yo + -(oled_shift_y) + jst_size_x + tp_reset_size_y)
+  tp_reset_rotate: 180
+
+  # TP Pads
+  tp_pads_size_x: 9
+  tp_pads_size_y: 2
+  tp_pads_shift_x: 0
+  tp_pads_shift_y: -(oled_size_yo + -(oled_shift_y) + jst_size_x + tp_reset_size_y + 2.5(tp_pads_size_y))
+  tp_pads_rotate: 180
+
+
 
   # Key Diodes
   diode_shift_x: 7.75
@@ -816,11 +831,11 @@ pcbs.snak_28:
 
         # Pin Assignments (Controller on top facing down)
         # Right Side - Excluding P8/9, all high frequency and support SPI/I2C
-        P1: "SW1"   # Scroll Wheel
-        P0: "SW2"   # Scroll Wheel
+        P1: "TPC"   # Trackpoint Data
+        P0: "TPD"   # Trackpoint Clock
         # GND
         # GND
-        P2: "F3"   # FREE PIN
+        P2: "F1"   # FREE PIN
         P3: "R1"   # Row Top
         P4: "R2"   # Row Middle
         P5: "R3"   # Row Bottom
@@ -839,9 +854,9 @@ pcbs.snak_28:
         P19: "C3"  # Column Middle
         P18: "C4"  # Column Index
         P15: "C5"  # Column Inner
-        P14: "F4"  # FREE PIN
-        P16: "F5"  # FREE PIN
-        P10: "F6"  # FREE PIN
+        P14: "SW1" # Scroll Wheel
+        P16: "SW2" # Scroll Wheel
+        P10: "F2" # FREE PIN
     
     # OLED
     nice_view:
@@ -959,23 +974,6 @@ pcbs.snak_28:
       what: mounting_hole
       where: [hole]
     
-    # Trackpoint
-    trackpoint:
-      what: trackpoint_mount
-      where.ref: trackpoint
-      params:
-        reverse: true
-        # T430: 3.5
-        # T460S (red one): 3.5
-        # X240: 5.5
-        drill: 3.5
-        outline: 0.25
-
-        show_outline_t430: false
-        show_outline_x240: false
-        show_outline_t460s: true 
-        show_board: false
-    
     # Rotary Encoder Scrollwheel
     scrollwheel:
       what: scrollwheel #scrollwheel
@@ -991,6 +989,86 @@ pcbs.snak_28:
         B: GND
         C: SW2
         D: ""
+
+    # Trackpoint
+    trackpoint:
+      what: trackpoint_mount
+      where:
+        ref: trackpoint
+        rotate: tp_rotate
+      params:
+        reverse: true
+        # T430: 3.5
+        # T460S (red one): 3.5
+        # X240: 5.5
+        drill: 3.5
+        outline: 0.25
+
+        show_outline_t430: false
+        show_outline_x240: false
+        show_outline_t460s: true 
+        show_board: false
+
+    tp_reset_circuit:
+      what: smd_0805
+      params:
+        reverse: true
+        space: 1
+        mirror: true
+        label_at_bottom: true
+        swap_pad_direction: true
+        components: 4
+
+        # TP clock pull up resistor 4.7k
+        net_1_from: TPC
+        net_1_to: VCC
+        label_1: TCR
+
+        # TP Reset circuit resistor 100k
+        net_2_from: TPR
+        net_2_to: GND
+        label_2: TRR
+
+        # TP Reset circuit capacitor 2.2uF
+        net_3_from: TPR
+        net_3_to: VCC
+        label_3: TRC
+
+        # TP data pull up resistor 4.7k
+        net_4_from: TPD
+        net_4_to: VCC
+        label_4: TDR
+
+      where:
+        ref: mcu
+        shift: [tp_reset_shift_x, tp_reset_shift_y]
+        rotate: tp_reset_rotate
+
+    tp_pads:
+        what: pads
+        params:
+          reverse: true
+          width: 1
+          height: 2
+          space: 1
+          pads: 5
+
+          net_1: TPC
+          net_2: GND
+          net_3: TPR
+          net_4: TPD
+          net_5: VCC
+
+          label_1: SCL
+          label_2: GND
+          label_3: RST
+          label_4: SDA
+          label_5: VCC
+          label_at_bottom: true
+        where:
+          ref: mcu
+          shift: [tp_pads_shift_x, tp_pads_shift_y]
+          rotate: tp_pads_rotate
 
 #---------------------------------------
 # sect: CASES
