@@ -7,8 +7,8 @@ meta:
   version: 0.2.1
   author: JackMatanky
   name: snak
-  ref: &kb_ref "SNAK v0.2.1"
-  full_name: &kb_full_name "SNAK: Sisyphus Needed a Keyboard, v0.2.1"
+  ref: &kb_ref "SNAK v0.3.1"
+  full_name: &kb_full_name "SNAK: Sisyphus Needed a (Unibody) Keyboard, v0.3.1"
   url: &kb_url https://github.com/JackMatanky/kb_snak
   # switch:
   #   $extends: presets.mx
@@ -59,6 +59,10 @@ units:
   splay_thumb_in: -13
   spread_thumb_in: kx + 1.75
 
+  # Mirror and Rotate
+  rotate_angle: -20
+  mirror_dist: 5kx
+
   # MCU
   # nice!nano: 34.1 x 18.3 x 3.3 (mm)
   # The nice nano footprint's center doesn't account
@@ -68,8 +72,8 @@ units:
   mcu_size_yo: 0.5(mcu_size_y)
   mcu_spacing_left: 2.25 #1.5
   mcu_spacing_right: 0.75
-  mcu_shift_x: kxo + mcu_size_xo + mcu_spacing_left
-  mcu_shift_y: ky - mcu_size_yo + 1
+  mcu_shift_x: (mirror_dist - mcu_size_xo)/2
+  mcu_shift_y: mcu_size_yo
 
   # OLED
   # nice!view: 36 x 14 x 2.9 (mm)
@@ -167,8 +171,6 @@ units:
   tp_pads_shift_y: -(oled_size_yo + -(oled_shift_y) + jst_size_x + tp_reset_size_y + 2.5(tp_pads_size_y))
   tp_pads_rotate: 180
 
-
-
   # Key Diodes
   diode_shift_x: 7.75
   diode_shift_y: 1.5
@@ -196,12 +198,6 @@ units:
   hole_mcu_shift_y: (mcu_size_yo + 1.375) - mount
   hole_tp_shift_x: 0
   hole_tp_shift_y: (tp_size_yo - mount)
-
-  # Board Outline
-  mcu_top_board_shift_y: mcu_size_yo + 1.45
-  mcu_bottom_board_shift_y: -(mcu_size_yo - oled_shift_y)
-  mcu_right_board_shift_x: mcu_size_xo + mcu_spacing_right
-  mcu_left_board_shift_x: mcu_spacing_left - mcu_size_xo - 4
 
   # Top Border
     # Rectangle
@@ -233,6 +229,7 @@ points:
   zones:
     # * Base Keyboard Layout
     matrix:
+      rotate: rotate_angle
       # Position in center of KiCAD workspace.
       anchor.shift: [100, -100]
       key:
@@ -290,11 +287,10 @@ points:
                 - key
                 - inner
               column_net: C5
-            top:
-              tags:
-                - part
-                - inner
-              column_net: C5
+            top.skip: true
+      mirror:
+        ref: matrix_inner_mid
+        distance: mirror_dist
     thumb:
       key.tags:
         - key
@@ -316,6 +312,9 @@ points:
           spread: spread_thumb_in
           splay: splay_thumb_in
           column_net: C5
+      mirror:
+        ref: matrix_inner_mid
+        distance: mirror_dist
 
     # * Components
     mcu:
@@ -325,8 +324,9 @@ points:
         width: mcu_size_x
         height: mcu_size_y
       anchor:
-        ref: matrix_inner_mid #matrix_inner_top
-        shift: [mcu_shift_x, mcu_shift_y - .4(kx) + ky]
+        ref: matrix_inner_mid
+        shift: [mcu_shift_x, mcu_shift_y +4]
+        rotate: -rotate_angle
     oled:
       key:
         tags: part
@@ -388,11 +388,13 @@ points:
       key:
         tags: part
         name: trackpoint
+        asym: clone 
         width: tp_size_x
         height: tp_size_y
       anchor:
-        ref: matrix_inner_mid
+        ref: mirror_matrix_inner_mid
         shift: [tp_shift_x, tp_shift_y]
+        rotate: -2(rotate_angle)
 
     # * Mounting Holes
     hole_top_left:
@@ -403,6 +405,9 @@ points:
       anchor:
         ref: matrix_ring_top
         shift: [0, hole_matrix_top_shift_y]
+      mirror:
+        ref: matrix_inner_mid
+        distance: mirror_dist
     hole_bot_left:
       key:
         tags: hole
@@ -411,6 +416,9 @@ points:
       anchor:
         ref: matrix_ring_bot
         shift: [0, -hole_matrix_bottom_shift_y]
+      mirror:
+        ref: matrix_inner_mid
+        distance: mirror_dist
 
     hole_top_right:
       key:
@@ -420,6 +428,9 @@ points:
       anchor:
         ref: matrix_ring_top
         shift: [hole_matrix_index_shift_x, hole_matrix_top_shift_y]
+      mirror:
+        ref: matrix_inner_mid
+        distance: mirror_dist
     hole_bot_right:
       key:
         tags: hole
@@ -428,6 +439,9 @@ points:
       anchor:
         ref: matrix_ring_bot
         shift: [hole_matrix_index_shift_x, -hole_matrix_bottom_shift_y]
+      mirror:
+        ref: matrix_inner_mid
+        distance: mirror_dist
 
     hole_left_top:
       key:
@@ -437,6 +451,9 @@ points:
       anchor:
         ref: matrix_pinky_top
         shift: [hole_matrix_left_shift_x, hole_key_shift]
+      mirror:
+        ref: matrix_inner_mid
+        distance: mirror_dist
     hole_left_bot:
       key:
         tags: hole
@@ -445,6 +462,9 @@ points:
       anchor:
         ref: matrix_pinky_mid
         shift: [hole_matrix_left_shift_x, -(hole_key_shift - 1)]
+      mirror:
+        ref: matrix_inner_mid
+        distance: mirror_dist
 
     hole_right_bot:
       key:
@@ -463,15 +483,9 @@ points:
       anchor:
         ref: thumb_out
         shift: [hole_thumb_shift, -hole_thumb_shift]
-
-    hole_mcu:
-      key:
-        tags: hole
-        width: hole_size
-        height: hole_size
-      anchor:
-        ref: mcu
-        shift: [hole_mcu_shift_x, hole_mcu_shift_y]
+      mirror:
+        ref: matrix_inner_mid
+        distance: mirror_dist
 
     hole_tp_top:
       key:
@@ -489,9 +503,6 @@ points:
       anchor:
         ref: trackpoint
         shift: [hole_tp_shift_x, -hole_tp_shift_y]
-  mirror:
-    ref: matrix_inner_mid
-    distance: 2.5kx
 
 #--------------------------------------
 # sect: OUTLINES
@@ -514,6 +525,7 @@ outlines:
       where: [key]
       bound: false
       size: [kco, kco]
+
 
   _mcu:
     - what: rectangle
@@ -604,6 +616,11 @@ outlines:
     - what: polygon
       fillet: board_fillet
       points:
+        # Thumb
+        - ref: thumb_in
+          shift: [pxo, .92(pyo)]
+        - ref: thumb_in
+          shift: [pxo, -pyo]
         # Pinky
         - ref: matrix_pinky_mid
           shift: [-.95pxo, -pyo]
@@ -617,38 +634,61 @@ outlines:
           shift: [-kxo, kyo]
         - ref: matrix_middle_top
           shift: [kxo, kyo]
-        # Inner
-        - ref: matrix_inner_mid #matrix_inner_top
-          shift: [.25(kx), .5(pyo) + ky]
-        # MCU
-        - ref: mcu # MCU Top Left Corner
-          shift: [mcu_left_board_shift_x, mcu_top_board_shift_y]
-        - ref: mcu # MCU Top Right Corner
-          shift: [mcu_right_board_shift_x - 2(mount), mcu_top_board_shift_y]
-        - ref: mcu # MCU Top Right Corner
-          shift: [mcu_right_board_shift_x, mcu_top_board_shift_y]
-        - ref: mcu # MCU Bottom Right Corner
-          shift: [mcu_right_board_shift_x, mcu_bottom_board_shift_y]
+        # Index
+        - ref: matrix_index_top
+          shift: [kxo, kyo]
+        - ref: matrix_index_top
+          shift: [2.5(kxo), 0]
+        - ref: mirror_matrix_index_top
+          shift: [2.5(kxo), 0]
+        - ref: mirror_matrix_index_top
+          shift: [kxo, kyo]
+        # Middle
+        - ref: mirror_matrix_middle_top
+          shift: [-kxo, kyo]
+        - ref: mirror_matrix_middle_top
+          shift: [kxo, kyo]
+        # Ring
+        - ref: mirror_matrix_ring_top
+          shift: [-kxo, kyo]
+        # Pinky
+        - ref: mirror_matrix_pinky_top
+          shift: [-.95pxo, kyo]
+        - ref: mirror_matrix_pinky_mid
+          shift: [-.95pxo, -pyo]
         # Thumb
-        # MCU-thumb curve
-        - ref: thumb_in
-          shift: [pxo, .92(pyo)]
-        - ref: thumb_in
+        - ref: mirror_thumb_in
           shift: [pxo, -pyo]
+        - ref: mirror_thumb_in
+          shift: [pxo, .92(pyo)]
 
   # Top Border
-  _top_rect:
+  _top_rect_left:
     - what: rectangle
       size: [top_rect_size_x, top_rect_size_y]
       adjust:
         ref: matrix_middle_top
         shift: [top_rect_shift_x, top_rect_shift_y]
-  _top_curve:
-    - name: _top_rect
+  _top_curve_left:
+    - name: _top_rect_left
     - what: circle
       radius: top_crcl_radius
       adjust:
         ref: matrix_middle_mid
+        shift: [top_crcl_shift_x, top_crcl_shift_y]
+      operation: intersect
+  _top_rect_right:
+    - what: rectangle
+      size: [top_rect_size_x, top_rect_size_y]
+      adjust:
+        ref: mirror_matrix_middle_top
+        shift: [top_rect_shift_x, top_rect_shift_y]
+  _top_curve_right:
+    - name: _top_rect_right
+    - what: circle
+      radius: top_crcl_radius
+      adjust:
+        ref: mirror_matrix_middle_mid
         shift: [top_crcl_shift_x, top_crcl_shift_y]
       operation: intersect
   
@@ -663,10 +703,13 @@ outlines:
 
   # DXF PREVIEWS
   # Pure key outline with nice!nano MCU
-  _raw_keys:
+  raw_keys:
     - name: _raw
     - operation: stack
       name: _keycaps
+    - operation: stack
+      name: _board
+
   _components:
     - name: _mcu
       operation: stack
@@ -702,7 +745,9 @@ outlines:
   _round_board:
     - name: _board
     - operation: add
-      name: _top_curve
+      name: _top_curve_left
+    - operation: add
+      name: _top_curve_right
       fillet: round_board_fillet
   _round_board_keys:
     - name: _round_board
