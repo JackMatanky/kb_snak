@@ -1,6 +1,6 @@
 ---
 #--------------------------------------
-# sect: META
+# SECTION: META
 #--------------------------------------
 meta:
   engine: 4.0.4
@@ -11,57 +11,166 @@ meta:
   full_name: &kb_full_name "SNAK: Sisyphus Needed a (Unibody) Keyboard, v0.3.1"
   url: &kb_url https://github.com/JackMatanky/kb_snak
   # switch:
-  #   $extends: presets.mx
-  #   $extends: presets.choc_v1
-  #   $extends: presets.choc_v2
+    # $extends: presets.mx
+    # $extends: presets.choc_v1
+    # $extends: presets.choc_v2
+# !SECTION
 
 #--------------------------------------
-# sect: UNITS
+# SECTION: SETTINGS
+#--------------------------------------
+settings:
+  preset:
+    $extends: presets.preset_config
+  point_debugger:
+    enabled: true
+
+#--------------------------------------
+# SECTION: PRESETS
+#--------------------------------------
+presets:
+  #SOURCE - https://github.com/ceoloide/corney-island/blob/main/ergogen/config.yaml
+  # These presets provide different layout options
+  # Select a preset in the `units` section below
+
+  # KEY Units
+  # key_size_x:               spacing between key centers (X-axis)
+  # key_size_y:               spacing between key centers (Y-axis)
+  # key_spread:          horizontal space between columns (default: 19)
+  # key_padding:         vertical padding between keys (deafult: 19)
+  # key_cap_x:           keycap width (cherry: 18, choc: 17.5)
+  # key_cap_y:           keycap height (cherry: 18, choc: 16.5)
+  # key_cutout_x:        key cutout hole width (cherry: 14, choc: 13.8)
+  # key_cutout_y:        key cutout hole height (cherry: 14, choc: 13.8)
+  # key_rotate:          Hotswap north, led south
+  
+  # DIODES AND VIAS
+  # diode_shift_x:
+  # diode_shift_y:       How much to shift to avoid overlap
+  # diode_matrix_rotate: Diode rotation for key matrix
+  # via_row_net_shift_x:
+  # via_row_net_shift_y:
+  # via_colrow_shift_x:
+  # via_colrow_shift_y:
+
+  mx:
+    key_size_x: u
+    key_size_y: u
+    key_spread: 19
+    key_padding: 19
+    key_cap_x: 18
+    key_cap_y: 18
+    key_cutout_x: 14
+    key_cutout_y: 14
+    key_rotate: 0
+    diode_shift_x: 7.4
+    diode_shift_y: 1.325
+    diode_matrix_rotate: 0
+  choc_v1:
+    key_size_x: cx # 18
+    key_size_y: cy # 17
+    key_spread: 18.5
+    key_padding: 17.5
+    key_cap_x: 17.5
+    key_cap_y: 16.5
+    key_cutout_x: 13.8
+    key_cutout_y: 13.8
+    key_rotate: 180
+    diode_shift_x: 7.75
+    diode_shift_y: 1.5
+    diode_matrix_rotate: 270
+    via_row_net_shift_x: diode_shift_x
+    via_row_net_shift_y: diode_shift_y + 2.8
+    via_colrow_shift_x: 4.75
+    via_colrow_shift_y: -1.5
+  choc_v2:
+    $extends: presets.choc_v1
+    key_size_x: u
+    key_size_y: u
+    key_cap_x: 18
+    key_cap_y: 18
+    key_spread: 19
+    key_padding: 19
+
+  # FULL KEY PRESETS
+  preset_key:
+    # Define key presets to use
+    $extends: presets.choc_v1
+    
+    key_size_xo: 0.5(key_size_x)
+    key_size_yo: 0.5(key_size_y)
+
+    # Padding Variables
+    pad_x: key_size_x + 4
+    pad_y: key_size_y + 4
+    pad_xo: 0.5(pad_x)
+    pad_yo: 0.5(pad_y)
+    
+    # Double Padding Variables
+    dpad_x: key_size_x + 8
+    dpad_y: key_size_y + 8
+  
+  # COMPONENTS
+  # Microcontroller
+  nice_nano:
+    # nice!nano: 34.1 x 18.3 x 3.3 (mm)
+    # The nice nano footprint's center doesn't account
+    mcu_size_x: 18.3
+    mcu_size_y: 34.1
+  xiao:
+    mcu_size_x: 17.8
+    mcu_size_y: 21
+  preset_mcu:
+    $extends: presets.nice_nano
+    mcu_size_xo: 0.5(mcu_size_x)
+    mcu_size_yo: 0.5(mcu_size_y)
+  
+  # OLED Screen
+  nice_view:
+    # nice!view: 36 x 14 x 2.9 (mm)
+    oled_size_x: 14
+    oled_size_y: 36
+  preset_oled:
+    $extends: presets.nice_view
+    oled_size_xo: 0.5(oled_size_x)
+    oled_size_yo: 0.5(oled_size_y)
+    oled_jumper_y: 2.6
+
+  preset_component:
+    $extends: presets.preset_mcu
+
+  preset_snak_uni_28:
+    $extends: presets.preset_key
+
+    # Mirror and Rotate
+    rotate_angle: -20
+    rotate_anti_angle: -rotate_angle
+    mirror_dist: 3(key_size_x)
+
+    # Column Stagger
+    ring_stagger: 3(key_size_x)/4
+    middle_stagger: (key_size_x)/3
+    index_stagger: -2(key_size_x)/5
+    inner_stagger: -3(key_size_x)/5
+    thumb_stagger: -(key_size_x)/8
+
+    # Thumb
+    thumb_offset_x: (key_size_x)/2
+    thumb_offset_y: -25
+    thumb_out_splay: -18
+    thumb_in_splay: -13
+    thumb_in_spread: key_size_x + 1.75
+  preset_config:
+    $extends: presets.preset_snak_uni_28
+
+
+# !SECTION
+
+#--------------------------------------
+# SECTION: UNITS
 #--------------------------------------
 units:
-  # Key Size (Choc V1)
-  # Space Between Key Centers
-  kx: cx # 18
-  ky: cy # 17
-  kxo: 0.5(kx)
-  kyo: 0.5(ky)
-  # Column Spread
-  spread_key: 18.5
-  # Row Padding
-  padding_key: 17.5
-  # Keycap Size
-  kcp_x: 17.5
-  kcp_y: 16.5
-  # Switch Plate Key Cutout
-  kco: 13.9
-
-  # Padding Variables
-  px: kx + 4
-  py: ky + 4
-  pxo: 0.5(px)
-  pyo: 0.5(py)
-
-  # Double Padding Variables
-  dpx: kx + 8
-  dpy: ky + 8
-
-  # Column Stagger
-  stagger_ring: 3(kx)/4
-  stagger_middle: (kx)/3
-  stagger_index: -2(kx)/5
-  stagger_inner: -3(kx)/5
-  stagger_thumb: -(kx)/8
-
-  # Thumb
-  offset_thumb_x: (kx)/2
-  offset_thumb_y: -25
-  splay_thumb_out: -18
-  splay_thumb_in: -13
-  spread_thumb_in: kx + 1.75
-
-  # Mirror and Rotate
-  rotate_angle: -20
-  mirror_dist: 5kx
+  $extends: settings.preset
 
   # MCU
   # nice!nano: 34.1 x 18.3 x 3.3 (mm)
@@ -72,8 +181,9 @@ units:
   mcu_size_yo: 0.5(mcu_size_y)
   mcu_spacing_left: 2.25 #1.5
   mcu_spacing_right: 0.75
-  mcu_shift_x: (mirror_dist - mcu_size_xo)/2
-  mcu_shift_y: mcu_size_yo
+  mcu_shift_x: (mirror_dist)/2 + 1.5
+  mcu_shift_y: mcu_size_yo + 2
+  mcu_rotate: rotate_anti_angle
 
   # OLED
   # nice!view: 36 x 14 x 2.9 (mm)
@@ -109,18 +219,18 @@ units:
   power_size_y: 8.8 # Footprint; Actual height: 8.3
   power_size_xo: 0.5(power_size_x)
   power_size_yo: 0.5(power_size_y)
-  power_shift_x: 0 #0.9
-  power_shift_y: mcu_size_yo - 0.445 # + power_size_xo
-  power_rotate: 90
+  power_shift_x: -(power_size_xo - mcu_size_xo)
+  power_shift_y: -(oled_size_yo + 1.75(key_size_y) + 0.05)
+  power_rotate: 270
 
   # Reset Switch
   reset_size_x: 3.4 # Footprint; Actual width: 2.9
   reset_size_y: 5.5 # Footprint; Actual height: 4.7
   reset_size_xo: 0.5(reset_size_x)
   reset_size_yo: 0.5(reset_size_y)
-  reset_shift_x: (kx)/3
-  reset_shift_y: 1.8ky + 0.05
-  reset_rotate: 52
+  reset_shift_x: reset_size_xo - mcu_size_xo
+  reset_shift_y: -(oled_size_yo + 1.75(key_size_y) + 0.05)
+  reset_rotate: 270
 
   reset_via_shift_x: 0.35(reset_size_xo)
   reset_via_shift_y: reset_size_yo + 0.6
@@ -150,7 +260,7 @@ units:
   tp_size_xo: 0.5(tp_size_x)
   tp_size_yo: 0.5(tp_size_y)
   tp_shift_x: -1.25
-  tp_shift_y: (kyo + tp_size_yo) - 1.5
+  tp_shift_y: (key_size_yo + tp_size_yo) - 1.5
   tp_rotate: 0
   # Outline
   tp_mount_size_x: 5.5
@@ -171,14 +281,6 @@ units:
   tp_pads_shift_y: -(oled_size_yo + -(oled_shift_y) + jst_size_x + tp_reset_size_y + 2.5(tp_pads_size_y))
   tp_pads_rotate: 180
 
-  # Key Diodes
-  diode_shift_x: 7.75
-  diode_shift_y: 1.5
-  diode_row_net_shift_x: diode_shift_x
-  diode_row_net_shift_y: diode_shift_y + 2.8
-  diode_colrow_shift_x: 4.75
-  diode_colrow_shift_y: -1.5
-
   # PCB and Case Holes
   # Points height and width
   hole_size: 0.1
@@ -188,11 +290,11 @@ units:
   mount: 2.15
 
   # Hole Positions
-  hole_key_shift: kyo + mount
+  hole_key_shift: key_size_yo + mount
   hole_matrix_top_shift_y: hole_key_shift - 1.25
   hole_matrix_bottom_shift_y: hole_key_shift + 0.9
-  hole_matrix_index_shift_x: 2(kx + 0.5)
-  hole_matrix_left_shift_x: (kxo)/3 + 3.75
+  hole_matrix_index_shift_x: 2(key_size_x + 0.5)
+  hole_matrix_left_shift_x: (key_size_xo)/3 + 3.75
   hole_thumb_shift: 9.25
   hole_mcu_shift_x: (mcu_size_xo - mount) + 0.525
   hole_mcu_shift_y: (mcu_size_yo + 1.375) - mount
@@ -201,8 +303,8 @@ units:
 
   # Top Border
     # Rectangle
-  top_rect_size_x: 5(kx) + 0.45(pxo)
-  top_rect_size_y: 1.5px
+  top_rect_size_x: 5(key_size_x) + 0.45(pad_xo)
+  top_rect_size_y: 1.5pad_x
   top_rect_shift_x: 0.03
   top_rect_shift_y: 0
     # Circle
@@ -220,21 +322,25 @@ units:
   # Outline Fillet
   board_fillet: 6.5
   round_board_fillet: 2.5
+# !SECTION
 
 #--------------------------------------
-# sect: POINTS
+# SECTION: POINTS
 #--------------------------------------
 # columns nets up
 points:
   zones:
     # * Base Keyboard Layout
     matrix:
-      rotate: rotate_angle
       # Position in center of KiCAD workspace.
       anchor.shift: [100, -100]
+      rotate: rotate_angle
+      mirror:
+        ref: matrix_inner_top
+        distance: mirror_dist
       key:
-        padding: padding_key
-        spread: spread_key
+        padding: key_padding
+        spread: key_spread
       rows:
         bot.row_net: R3
         mid.row_net: R2
@@ -253,7 +359,7 @@ points:
             tags:
               - key
               - ring
-            stagger: stagger_ring
+            stagger: ring_stagger
           rows:
             bot.column_net: C2
             mid.column_net: C2
@@ -263,7 +369,7 @@ points:
             tags:
               - key
               - middle
-            stagger: stagger_middle
+            stagger: middle_stagger
           rows:
             bot.column_net: C3
             mid.column_net: C3
@@ -273,13 +379,13 @@ points:
             tags:
               - key
               - index
-            stagger: stagger_index
+            stagger: index_stagger
           rows:
             bot.column_net: C4
             mid.column_net: C4
             top.column_net: C4
         inner:
-          key.stagger: stagger_inner
+          key.stagger: inner_stagger
           rows:
             bot.skip: true
             mid:
@@ -288,33 +394,29 @@ points:
                 - inner
               column_net: C5
             top.skip: true
-      mirror:
-        ref: matrix_inner_mid
-        distance: mirror_dist
+
     thumb:
       key.tags:
         - key
         - thumb
       anchor:
         ref: matrix_index_bot
-        shift: [offset_thumb_x, offset_thumb_y]
+        shift: [thumb_offset_x, thumb_offset_y]
+      mirror.$extends: points.zones.matrix.mirror
       rows.home.row_net: R4
       columns:
         # Pinky side
         out.key:
           name: thumb_out
-          splay: splay_thumb_out
+          splay: thumb_out_splay
           column_net: C4
         # Inner side
         in.key:
           name: thumb_in
-          stagger: stagger_thumb
-          spread: spread_thumb_in
-          splay: splay_thumb_in
+          stagger: thumb_stagger
+          spread: thumb_in_spread
+          splay: thumb_in_splay
           column_net: C5
-      mirror:
-        ref: matrix_inner_mid
-        distance: mirror_dist
 
     # * Components
     mcu:
@@ -325,8 +427,8 @@ points:
         height: mcu_size_y
       anchor:
         ref: matrix_inner_mid
-        shift: [mcu_shift_x, mcu_shift_y +4]
-        rotate: -rotate_angle
+        shift: [mcu_shift_x, mcu_shift_y]
+        rotate: mcu_rotate
     oled:
       key:
         tags: part
@@ -362,9 +464,9 @@ points:
         width: reset_size_x
         height: reset_size_y
       anchor:
-        ref: matrix_inner_mid #mcu
+        ref: mcu #matrix_inner_mid
         shift: [reset_shift_x, reset_shift_y]
-        rotate: reset_rotate
+        rotate: 270 #reset_rotate
     jst_main:
       key:
         tags: part
@@ -405,9 +507,7 @@ points:
       anchor:
         ref: matrix_ring_top
         shift: [0, hole_matrix_top_shift_y]
-      mirror:
-        ref: matrix_inner_mid
-        distance: mirror_dist
+      mirror.$extends: points.zones.matrix.mirror
     hole_bot_left:
       key:
         tags: hole
@@ -416,9 +516,7 @@ points:
       anchor:
         ref: matrix_ring_bot
         shift: [0, -hole_matrix_bottom_shift_y]
-      mirror:
-        ref: matrix_inner_mid
-        distance: mirror_dist
+      mirror.$extends: points.zones.matrix.mirror
 
     hole_top_right:
       key:
@@ -428,9 +526,7 @@ points:
       anchor:
         ref: matrix_ring_top
         shift: [hole_matrix_index_shift_x, hole_matrix_top_shift_y]
-      mirror:
-        ref: matrix_inner_mid
-        distance: mirror_dist
+      mirror.$extends: points.zones.matrix.mirror
     hole_bot_right:
       key:
         tags: hole
@@ -439,9 +535,7 @@ points:
       anchor:
         ref: matrix_ring_bot
         shift: [hole_matrix_index_shift_x, -hole_matrix_bottom_shift_y]
-      mirror:
-        ref: matrix_inner_mid
-        distance: mirror_dist
+      mirror.$extends: points.zones.matrix.mirror
 
     hole_left_top:
       key:
@@ -451,9 +545,7 @@ points:
       anchor:
         ref: matrix_pinky_top
         shift: [hole_matrix_left_shift_x, hole_key_shift]
-      mirror:
-        ref: matrix_inner_mid
-        distance: mirror_dist
+      mirror.$extends: points.zones.matrix.mirror
     hole_left_bot:
       key:
         tags: hole
@@ -462,9 +554,7 @@ points:
       anchor:
         ref: matrix_pinky_mid
         shift: [hole_matrix_left_shift_x, -(hole_key_shift - 1)]
-      mirror:
-        ref: matrix_inner_mid
-        distance: mirror_dist
+      mirror.$extends: points.zones.matrix.mirror
 
     hole_right_bot:
       key:
@@ -474,6 +564,7 @@ points:
       anchor:
         ref: matrix_inner_mid
         shift: [-1.5, -hole_key_shift]
+      mirror.$extends: points.zones.matrix.mirror
 
     hole_btwn_thumb:
       key:
@@ -483,9 +574,7 @@ points:
       anchor:
         ref: thumb_out
         shift: [hole_thumb_shift, -hole_thumb_shift]
-      mirror:
-        ref: matrix_inner_mid
-        distance: mirror_dist
+      mirror.$extends: points.zones.matrix.mirror
 
     hole_tp_top:
       key:
@@ -504,8 +593,10 @@ points:
         ref: trackpoint
         shift: [hole_tp_shift_x, -hole_tp_shift_y]
 
+# !SECTION
+
 #--------------------------------------
-# sect: OUTLINES
+# SECTION: OUTLINES
 #--------------------------------------
 outlines:
   # BOARD COMPONENTS
@@ -513,18 +604,18 @@ outlines:
     - what: rectangle
       where: [key]
       bound: true
-      size: [px, py]
+      size: [pad_x, pad_y]
   _keycaps:
     # Key outline minus .5mm to show overlapping keys.
     - what: rectangle
       where: [key]
       bound: false
-      size: [kcp_x, kcp_y]
+      size: [key_cap_x, key_cap_y]
   _switches:
     - what: rectangle
       where: [key]
       bound: false
-      size: [kco, kco]
+      size: [key_cutout_x, key_cutout_y]
 
 
   _mcu:
@@ -618,49 +709,49 @@ outlines:
       points:
         # Thumb
         - ref: thumb_in
-          shift: [pxo, .92(pyo)]
+          shift: [pad_xo, .92(pad_yo)]
         - ref: thumb_in
-          shift: [pxo, -pyo]
+          shift: [pad_xo, -pad_yo]
         # Pinky
         - ref: matrix_pinky_mid
-          shift: [-.95pxo, -pyo]
+          shift: [-.95pad_xo, -pad_yo]
         - ref: matrix_pinky_top
-          shift: [-.95pxo, kyo]
+          shift: [-.95pad_xo, key_size_yo]
         # Ring
         - ref: matrix_ring_top
-          shift: [-kxo, kyo]
+          shift: [-key_size_xo, key_size_yo]
         # Middle
         - ref: matrix_middle_top
-          shift: [-kxo, kyo]
+          shift: [-key_size_xo, key_size_yo]
         - ref: matrix_middle_top
-          shift: [kxo, kyo]
+          shift: [key_size_xo, key_size_yo]
         # Index
         - ref: matrix_index_top
-          shift: [kxo, kyo]
+          shift: [key_size_xo, key_size_yo]
         - ref: matrix_index_top
-          shift: [2.5(kxo), 0]
+          shift: [2.5(key_size_xo), 0]
         - ref: mirror_matrix_index_top
-          shift: [2.5(kxo), 0]
+          shift: [2.5(key_size_xo), 0]
         - ref: mirror_matrix_index_top
-          shift: [kxo, kyo]
+          shift: [key_size_xo, key_size_yo]
         # Middle
         - ref: mirror_matrix_middle_top
-          shift: [-kxo, kyo]
+          shift: [-key_size_xo, key_size_yo]
         - ref: mirror_matrix_middle_top
-          shift: [kxo, kyo]
+          shift: [key_size_xo, key_size_yo]
         # Ring
         - ref: mirror_matrix_ring_top
-          shift: [-kxo, kyo]
+          shift: [-key_size_xo, key_size_yo]
         # Pinky
         - ref: mirror_matrix_pinky_top
-          shift: [-.95pxo, kyo]
+          shift: [-.95pad_xo, key_size_yo]
         - ref: mirror_matrix_pinky_mid
-          shift: [-.95pxo, -pyo]
+          shift: [-.95pad_xo, -pad_yo]
         # Thumb
         - ref: mirror_thumb_in
-          shift: [pxo, -pyo]
+          shift: [pad_xo, -pad_yo]
         - ref: mirror_thumb_in
-          shift: [pxo, .92(pyo)]
+          shift: [pad_xo, .92(pad_yo)]
 
   # Top Border
   _top_rect_left:
@@ -768,8 +859,10 @@ outlines:
     - operation: stack
       name: _holes_mount
 
+# !SECTION
+
 #--------------------------------------
-# sect: PCB
+# SECTION: PCB
 #--------------------------------------
 pcbs.snak_28:
   outlines:
@@ -820,22 +913,22 @@ pcbs.snak_28:
     diode_right_via_row_net: # diode high
       what: via
       where: [key]
-      adjust.shift: [diode_row_net_shift_x, diode_row_net_shift_y]
+      adjust.shift: [via_row_net_shift_x, via_row_net_shift_y]
       params.net: "{{row_net}}"
     diode_right_via_colrow: # diode low
       what: via
       where: [key]
-      adjust.shift: [diode_colrow_shift_x, diode_colrow_shift_y]
+      adjust.shift: [via_colrow_shift_x, via_colrow_shift_y]
       params.net: "{{colrow}}"
     diode_left_via_row_net: # diode high
       what: via
       where: [key]
-      adjust.shift: [-diode_row_net_shift_x, diode_row_net_shift_y]
+      adjust.shift: [-via_row_net_shift_x, via_row_net_shift_y]
       params.net: "{{row_net}}"
     diode_left_via_colrow: # diode low
       what: via
       where: [key]
-      adjust.shift: [-diode_colrow_shift_x, diode_colrow_shift_y]
+      adjust.shift: [-via_colrow_shift_x, via_colrow_shift_y]
       params.net: "{{colrow}}"
     via_col_net:
       what: via
@@ -898,7 +991,7 @@ pcbs.snak_28:
         # GND      # Ground / Battery Neg
         # RST      # Reset pin
         # VCC      # External Power
-        P21: "C1"  # Column Pinky
+        P21: "C1"  # Column Pinkey_y
         P20: "C2"  # Column Ring
         P19: "C3"  # Column Middle
         P18: "C4"  # Column Index
@@ -1119,8 +1212,10 @@ pcbs.snak_28:
           shift: [tp_pads_shift_x, tp_pads_shift_y]
           rotate: tp_pads_rotate
 
+# !SECTION
+
 #---------------------------------------
-# sect: CASES
+# SECTION: CASES
 #---------------------------------------
 # cases:
 #   switchplate:
