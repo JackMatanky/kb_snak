@@ -400,6 +400,18 @@
       },
       {
         "netclass": "Default",
+        "pattern": "P101"
+      },
+      {
+        "netclass": "Default",
+        "pattern": "P102"
+      },
+      {
+        "netclass": "Default",
+        "pattern": "P107"
+      },
+      {
+        "netclass": "Default",
         "pattern": "MCU1_24"
       },
       {
