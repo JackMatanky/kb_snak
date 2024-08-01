@@ -1,12 +1,12 @@
 
-            
+
 (kicad_pcb (version 20171130) (host pcbnew 5.1.6)
 
   (page A3)
   (title_block
-    (title snak_28)
-    (rev 0.2.1)
-    (company JackMatanky)
+    (title "snak_28")
+    (rev "0.2.1")
+    (company "JackMatanky")
   )
 
   (general
@@ -92,7 +92,7 @@
       (outputdirectory ""))
   )
 
-            (net 0 "")
+  (net 0 "")
 (net 1 "C1")
 (net 2 "pinky_mid")
 (net 3 "pinky_top")
@@ -166,7 +166,7 @@
 (net 71 "SMD_6_F")
 (net 72 "SMD_6_T")
 (net 73 "PAD_5")
-            
+
   (net_class Default "This is the default net class."
     (clearance 0.2)
     (trace_width 0.25)
@@ -250,7 +250,7 @@
 (add_net "PAD_5")
   )
 
-            
+  
             
             (module PG1350 (layer F.Cu) (tedit 5DD50112)
             (at 100 82.5 180)
@@ -5719,7 +5719,7 @@
             
         )
       
-            (gr_line (start 181.37094895663827 133.30914038612664) (end 93.43720023680643 94.70647005759449) (angle 90) (layer Edge.Cuts) (width 0.15))
+  (gr_line (start 181.37094895663827 133.30914038612664) (end 93.43720023680643 94.70647005759449) (angle 90) (layer Edge.Cuts) (width 0.15))
 (gr_line (start 89.55 88.75472434143657) (end 89.55 59.949864667669175) (angle 90) (layer Edge.Cuts) (width 0.15))
 (gr_line (start 185.3641655 51.75) (end 201.8 51.75) (angle 90) (layer Edge.Cuts) (width 0.15))
 (gr_line (start 204.3 54.25) (end 204.3 90.48522555592456) (angle 90) (layer Edge.Cuts) (width 0.15))
@@ -5817,7 +5817,6 @@
 (gr_circle (center 201.925 53.975) (end 203.425 53.975) (layer Eco2.User) (width 0.15))
 (gr_circle (center 172.75 52.85) (end 174.25 52.85) (layer Eco2.User) (width 0.15))
 (gr_circle (center 172.75 71.85) (end 174.25 71.85) (layer Eco2.User) (width 0.15))
-            
+
 )
 
-        

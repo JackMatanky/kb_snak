@@ -3,7 +3,7 @@
 # sect: META
 #--------------------------------------
 meta:
-  engine: 4.0.4
+  engine: 4.1.0
   version: 0.2.1
   author: JackMatanky
   name: snak
@@ -820,14 +820,20 @@ pcbs.snak_28:
       what: nice_nano_ceoloide
       where.ref: mcu
       params:
+        reversible: true
+        reverse_mount: false
+        include_traces: true
+        include_extra_pins: false
+        invert_jumpers_position: false
         only_required_jumpers: false
         use_rectangular_jumpers: true
-        include_traces: true
-        via_size: 0.8
-        via_drill: 0.4
-        show_via_labels: true
-        show_silk_labels: true
+        via_size: 0.8 # JLCPC min is 0.56 for 1-2 layer boards, KiCad defaults to 0.8
+        via_drill: 0.4 # JLCPC min is 0.3 for 1-2 layer boards, KiCad defaults to 0.4
+    
         show_instructions: true
+        show_silk_labels: true
+        show_silk_labels_on_both_sides: true
+        show_via_labels: true
 
         # Pin Assignments (Controller on top facing down)
         # Right Side - Excluding P8/9, all high frequency and support SPI/I2C
@@ -976,7 +982,7 @@ pcbs.snak_28:
     
     # Rotary Encoder Scrollwheel
     scrollwheel:
-      what: scrollwheel #scrollwheel
+      what: scrollwheel #scrollwheel_minimal
       where:
         ref: matrix_inner_top
         shift: [1.1, 0.875]

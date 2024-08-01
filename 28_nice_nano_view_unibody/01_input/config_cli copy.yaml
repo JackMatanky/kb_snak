@@ -1,19 +1,18 @@
+
 ---
 #--------------------------------------
 # SECTION: META
 #--------------------------------------
 meta:
-  engine: 4.1.0
+  engine: 4.0.4
   version: 0.2.1
   author: JackMatanky
   name: snak
   ref: &kb_ref "SNAK v0.3.1"
   full_name: &kb_full_name "SNAK: Sisyphus Needed a (Unibody) Keyboard, v0.3.1"
   url: &kb_url https://github.com/JackMatanky/kb_snak
-  # switch:
-    # $extends: presets.mx
-    # $extends: presets.choc_v1
-    # $extends: presets.choc_v2
+  presets_config:
+    $extends: presets.preset_config
 # !SECTION
 
 #--------------------------------------
@@ -34,8 +33,8 @@ presets:
   # Select a preset in the `units` section below
 
   # KEY Units
-  # key_size_x:               spacing between key centers (X-axis)
-  # key_size_y:               spacing between key centers (Y-axis)
+  # key_size_x:          spacing between key centers (X-axis)
+  # key_size_y:          spacing between key centers (Y-axis)
   # key_spread:          horizontal space between columns (default: 19)
   # key_padding:         vertical padding between keys (deafult: 19)
   # key_cap_x:           keycap width (cherry: 18, choc: 17.5)
@@ -53,49 +52,50 @@ presets:
   # via_colrow_shift_x:
   # via_colrow_shift_y:
 
-  mx:
-    key_size_x: u
-    key_size_y: u
-    key_spread: 19
-    key_padding: 19
-    key_cap_x: 18
-    key_cap_y: 18
-    key_cutout_x: 14
-    key_cutout_y: 14
-    key_rotate: 0
-    diode_shift_x: 7.4
-    diode_shift_y: 1.325
-    diode_matrix_rotate: 0
-  choc_v1:
-    key_size_x: cx # 18
-    key_size_y: cy # 17
-    key_spread: 18.5
-    key_padding: 17.5
-    key_cap_x: 17.5
-    key_cap_y: 16.5
-    key_cutout_x: 13.8
-    key_cutout_y: 13.8
-    key_rotate: 180
-    diode_shift_x: 7.75
-    diode_shift_y: 1.5
-    diode_matrix_rotate: 270
-    via_row_net_shift_x: diode_shift_x
-    via_row_net_shift_y: diode_shift_y + 2.8
-    via_colrow_shift_x: 4.75
-    via_colrow_shift_y: -1.5
-  choc_v2:
-    $extends: presets.choc_v1
-    key_size_x: u
-    key_size_y: u
-    key_cap_x: 18
-    key_cap_y: 18
-    key_spread: 19
-    key_padding: 19
+  key_defs:
+    mx:
+      key_size_x: u
+      key_size_y: u
+      key_spread: 19
+      key_padding: 19
+      key_cap_x: 18
+      key_cap_y: 18
+      key_cutout_x: 14
+      key_cutout_y: 14
+      key_rotate: 0
+      diode_shift_x: 7.4
+      diode_shift_y: 1.325
+      diode_matrix_rotate: 0
+    choc_v1:
+      key_size_x: cx # 18
+      key_size_y: cy # 17
+      key_spread: 18.5
+      key_padding: 17.5
+      key_cap_x: 17.5
+      key_cap_y: 16.5
+      key_cutout_x: 13.8
+      key_cutout_y: 13.8
+      key_rotate: 180
+      diode_shift_x: 7.75
+      diode_shift_y: 1.5
+      diode_matrix_rotate: 270
+      via_row_net_shift_x: diode_shift_x
+      via_row_net_shift_y: diode_shift_y + 2.8
+      via_colrow_shift_x: 4.75
+      via_colrow_shift_y: -1.5
+    choc_v2:
+      $extends: presets.key_defs.choc_v1
+      key_size_x: u
+      key_size_y: u
+      key_cap_x: 18
+      key_cap_y: 18
+      key_spread: 19
+      key_padding: 19
 
   # FULL KEY PRESETS
   preset_key:
     # Define key presets to use
-    $extends: presets.choc_v1
+    $extends: presets.key_defs.choc_v1
     
     key_size_xo: 0.5(key_size_x)
     key_size_yo: 0.5(key_size_y)
@@ -110,37 +110,42 @@ presets:
     dpad_x: key_size_x + 8
     dpad_y: key_size_y + 8
   
-  # COMPONENTS
   # Microcontroller
   nice_nano:
+    $extends: presets.preset_key
     # nice!nano: 34.1 x 18.3 x 3.3 (mm)
     # The nice nano footprint's center doesn't account
     mcu_size_x: 18.3
     mcu_size_y: 34.1
   xiao:
+    $extends: presets.preset_key
     mcu_size_x: 17.8
     mcu_size_y: 21
+  
   preset_mcu:
     $extends: presets.nice_nano
     mcu_size_xo: 0.5(mcu_size_x)
     mcu_size_yo: 0.5(mcu_size_y)
-  
+
   # OLED Screen
   nice_view:
+    $extends: presets.preset_mcu
     # nice!view: 36 x 14 x 2.9 (mm)
     oled_size_x: 14
     oled_size_y: 36
+
   preset_oled:
     $extends: presets.nice_view
     oled_size_xo: 0.5(oled_size_x)
     oled_size_yo: 0.5(oled_size_y)
     oled_jumper_y: 2.6
 
+  # FULL COMPONENTS PRESET
   preset_component:
-    $extends: presets.preset_mcu
+    $extends: presets.preset_oled
 
   preset_snak_uni_28:
-    $extends: presets.preset_key
+    $extends: presets.preset_component
 
     # Mirror and Rotate
     rotate_angle: -20
@@ -170,10 +175,11 @@ presets:
 # SECTION: UNITS
 #--------------------------------------
 units:
-  $extends: settings.preset
+  $extends: meta.presets_config
 
   # MCU
   # nice!nano: 34.1 x 18.3 x 3.3 (mm)
+  # xiao: 21 x 17.8 (mm)
   # The nice nano footprint's center doesn't account
   mcu_size_x: 18.3
   mcu_size_y: 34.1
@@ -220,7 +226,7 @@ units:
   power_size_xo: 0.5(power_size_x)
   power_size_yo: 0.5(power_size_y)
   power_shift_x: -(power_size_xo - mcu_size_xo)
-  power_shift_y: -(oled_size_yo + 1.75(key_size_y) + 0.05)
+  power_shift_y: -(oled_size_yo + 1.75(key_size_y) + 0.05)#mcu_size_yo - 0.445 # + power_size_xo
   power_rotate: 270
 
   # Reset Switch
@@ -864,7 +870,7 @@ outlines:
 #--------------------------------------
 # SECTION: PCB
 #--------------------------------------
-pcbs.snak_28_uni:
+pcbs.snak_uni_28:
   outlines:
     main.outline: _round_board
     plate_top:
@@ -876,18 +882,18 @@ pcbs.snak_28_uni:
   footprints:
     # Key Switches and Diodes
     choc:
-      what: choc_kim
+      what: ceoloide/switch_choc_v1_v2
       where: [key]
       adjust.rotate: 180
       params:
-        reverse: true
+        reversible: true
         hotswap: true
         solder: false
-        show_keycaps: true
+        include_keycap: true
         from: "{{column_net}}"
         to: "{{colrow}}"
     diode_right:
-      what: diode_ceoloide
+      what: ceoloide/diode_tht_sod123
       where: [key]
       adjust:
         rotate: 270
@@ -899,7 +905,7 @@ pcbs.snak_28_uni:
         from: "{{colrow}}"
         to: "{{row_net}}"
     diode_left:
-      what: diode_ceoloide
+      what: ceoloide/diode_tht_sod123
       where: [key]
       adjust:
         rotate: 270
@@ -959,7 +965,7 @@ pcbs.snak_28_uni:
 
     # MCU
     nice_nano:
-      what: nice_nano_ceoloide
+      what: ceoloide/mcu_nice_nano
       where.ref: mcu
       params:
         reversible: true
@@ -997,7 +1003,7 @@ pcbs.snak_28_uni:
         # GND      # Ground / Battery Neg
         # RST      # Reset pin
         # VCC      # External Power
-        P21: "C1"  # Column Pinkey_y
+        P21: "C1"  # Column Pinky
         P20: "C2"  # Column Ring
         P19: "C3"  # Column Middle
         P18: "C4"  # Column Index
@@ -1008,7 +1014,7 @@ pcbs.snak_28_uni:
     
     # OLED
     nice_view:
-      what: nice_view_ceoloide
+      what: ceoloide/display_nice_view
       where.ref: oled
       params:
         reversible: true
@@ -1059,7 +1065,7 @@ pcbs.snak_28_uni:
 
     # Power Switch
     power:
-      what: switch_power_ceoloide
+      what: ceoloide/power_switch_smd_side #switch_power
       where.ref: power
       params:
         from: pos
@@ -1077,7 +1083,7 @@ pcbs.snak_28_uni:
 
     # JST Battery Connector
     jst_connector:
-      what: jst_bat
+      what: ceoloide/battery_connector_jst_ph_2 #jst_bat
       where.ref: jst_main
       params:
         reversible: true
@@ -1098,10 +1104,12 @@ pcbs.snak_28_uni:
 
     # Reset Button
     reset:
-      what: switch_reset
+      what: ceoloide/reset_switch_smd_side #switch_reset
       where.ref: reset
       params:
-        reverse: true
+        reversible: true
+        include_silkscreen: true
+        include_courtyard: false
         from: GND
         to: RST
     via_reset_rst: # left side
@@ -1119,104 +1127,103 @@ pcbs.snak_28_uni:
 
     # M2 Screw Holes
     holes_mount:
-      what: mounting_hole
+      what: ceoloide/mounting_hole_npth
       where: [hole]
     
-    # # Rotary Encoder Scrollwheel
-    # scrollwheel:
-    #   what: scrollwheel #scrollwheel
-    #   where:
-    #     ref: matrix_inner_mid
-    #     shift: [1.1, 0.875]
-    #     rotate: 180
-    #   params:
-    #     reverse: true
-    #     from: C5
-    #     to: R1
-    #     A: SW1
-    #     B: GND
-    #     C: SW2
-    #     D: ""
+    # Rotary Encoder Scrollwheel
+    #scrollwheel:
+    #  what: scrollwheel #scrollwheel
+    #  where:
+    #    ref: matrix_inner_top
+    #    shift: [1.1, 0.875]
+    #    rotate: 180
+    #  params:
+    #    reverse: true
+    #    from: C5
+    #    to: R1
+    #    A: SW1
+    #    B: GND
+    #    C: SW2
+    #    D: ""
 
-    # # Trackpoint
-    # trackpoint:
-    #   what: trackpoint_mount
-    #   where:
-    #     ref: trackpoint
-    #     rotate: tp_rotate
-    #   params:
-    #     reverse: true
-    #     # T430: 3.5
-    #     # T460S (red one): 3.5
-    #     # X240: 5.5
-    #     drill: 3.5
-    #     outline: 0.25
+    # Trackpoint
+    #trackpoint:
+    #  what: trackpoint_mount
+    #  where:
+    #    ref: trackpoint
+    #    rotate: tp_rotate
+    #  params:
+    #    reverse: true
+    #    # T430: 3.5
+    #    # T460S (red one): 3.5
+    #    # X240: 5.5
+    #    drill: 3.5
+    #    outline: 0.25
+    #    show_outline_t430: false
+    #    show_outline_x240: false
+    #    show_outline_t460s: true 
+    #    show_board: false
 
-    #     show_outline_t430: false
-    #     show_outline_x240: false
-    #     show_outline_t460s: true 
-    #     show_board: false
+    #tp_reset_circuit:
+    #  what: smd_0805
+    #  params:
+    #    reverse: true
+    #    space: 1
+    #    mirror: true
+    #    label_at_bottom: true
+    #    swap_pad_direction: true
+    #    components: 4
 
-    # tp_reset_circuit:
-    #   what: smd_0805
-    #   params:
-    #     reverse: true
-    #     space: 1
-    #     mirror: true
-    #     label_at_bottom: true
-    #     swap_pad_direction: true
-    #     components: 4
+    #    # TP clock pull up resistor 4.7k
+    #    net_1_from: TPC
+    #    net_1_to: VCC
+    #    label_1: TCR
 
-    #     # TP clock pull up resistor 4.7k
-    #     net_1_from: TPC
-    #     net_1_to: VCC
-    #     label_1: TCR
+    #    # TP Reset circuit resistor 100k
+    #    net_2_from: TPR
+    #    net_2_to: GND
+    #    label_2: TRR
 
-    #     # TP Reset circuit resistor 100k
-    #     net_2_from: TPR
-    #     net_2_to: GND
-    #     label_2: TRR
+    #    # TP Reset circuit capacitor 2.2uF
+    #    net_3_from: TPR
+    #    net_3_to: VCC
+    #    label_3: TRC
 
-    #     # TP Reset circuit capacitor 2.2uF
-    #     net_3_from: TPR
-    #     net_3_to: VCC
-    #     label_3: TRC
+    #    # TP data pull up resistor 4.7k
+    #    net_4_from: TPD
+    #    net_4_to: VCC
+    #    label_4: TDR
 
-    #     # TP data pull up resistor 4.7k
-    #     net_4_from: TPD
-    #     net_4_to: VCC
-    #     label_4: TDR
+    #  where:
+    #    ref: mcu
+    #    shift: [tp_reset_shift_x, tp_reset_shift_y]
+    #    rotate: tp_reset_rotate
 
-    #   where:
-    #     ref: mcu
-    #     shift: [tp_reset_shift_x, tp_reset_shift_y]
-    #     rotate: tp_reset_rotate
+    #tp_pads:
+    #    what: pads
+    #    params:
+    #      reverse: true
+    #      width: 1
+    #      height: 2
+    #      space: 1
+    #      pads: 5
 
-    # tp_pads:
-    #     what: pads
-    #     params:
-    #       reverse: true
-    #       width: 1
-    #       height: 2
-    #       space: 1
-    #       pads: 5
+    #      net_1: TPC
+    #      net_2: GND
+    #      net_3: TPR
+    #      net_4: TPD
+    #      net_5: VCC
 
-    #       net_1: TPC
-    #       net_2: GND
-    #       net_3: TPR
-    #       net_4: TPD
-    #       net_5: VCC
-
-    #       label_1: SCL
-    #       label_2: GND
-    #       label_3: RST
-    #       label_4: SDA
-    #       label_5: VCC
-    #       label_at_bottom: true
-    #     where:
-    #       ref: mcu
-    #       shift: [tp_pads_shift_x, tp_pads_shift_y]
-    #       rotate: tp_pads_rotate
+    #      label_1: SCL
+    #      label_2: GND
+    #      label_3: RST
+    #      label_4: SDA
+    #      label_5: VCC
+    #      label_at_bottom: true
+    #    where:
+    #      ref: mcu
+    #      shift: [tp_pads_shift_x, tp_pads_shift_y]
+    #      rotate: tp_pads_rotate
 
 # !SECTION
 
