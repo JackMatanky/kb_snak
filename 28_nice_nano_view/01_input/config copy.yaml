@@ -1,6 +1,6 @@
 ---
 #--------------------------------------
-# SECTION: META
+# sect: META
 #--------------------------------------
 meta:
   engine: 4.1.0
@@ -10,65 +10,54 @@ meta:
   ref: &kb_ref "SNAK v0.2.1"
   full_name: &kb_full_name "SNAK: Sisyphus Needed a Keyboard, v0.2.1"
   url: &kb_url https://github.com/JackMatanky/kb_snak
-
-# !SECTION
+  # switch:
+  #   $extends: presets.mx
+  #   $extends: presets.choc_v1
+  #   $extends: presets.choc_v2
 
 #--------------------------------------
-# SECTION: UNITS
+# sect: UNITS
 #--------------------------------------
 units:
   # Key Size (Choc V1)
   # Space Between Key Centers
-  key_size_x: cx # 18
-  key_size_y: cy # 17
-  key_size_xo: 0.5(key_size_x)
-  key_size_yo: 0.5(key_size_y)
+  kx: cx # 18
+  ky: cy # 17
+  kxo: 0.5(kx)
+  kyo: 0.5(ky)
+  # Column Spread
+  spread_key: 18.5
+  # Row Padding
+  padding_key: 17.5
+  # Keycap Size
+  kcp_x: 17.5
+  kcp_y: 16.5
+  # Switch Plate Key Cutout
+  kco: 13.9
 
-  key_pad: 4
-  key_pad_x: key_size_x + key_pad
-  key_pad_y: key_size_y + key_pad
-  key_pad_xo: 0.5(key_pad_x)
-  key_pad_yo: 0.5(key_pad_y)
-  key_dpad_x: key_size_x + 2(key_pad)
-  key_dpad_y: key_size_y + 2(key_pad)
+  # Padding Variables
+  px: kx + 4
+  py: ky + 4
+  pxo: 0.5(px)
+  pyo: 0.5(py)
 
-  key_cap_x: key_size_x - 0.5
-  key_cap_y: key_size_y - 0.5
+  # Double Padding Variables
+  dpx: kx + 8
+  dpy: ky + 8
 
-  key_switch_cutout_x: 13.8
-  key_switch_cutout_y: 13.8
+  # Column Stagger
+  stagger_ring: 3(kx)/4
+  stagger_middle: (kx)/3
+  stagger_index: -2(kx)/5
+  stagger_inner: -3(kx)/5
+  stagger_thumb: -(kx)/8
 
-  key_col_spread: key_size_x + 0.5
-  key_row_padding: key_size_y + 0.5
-
-  key_rotate: 180
-
-  ring_col_stagger: 3(key_size_x)/4
-  middle_col_stagger: (key_size_x)/3
-  index_col_stagger: -2(key_size_x)/5
-  inner_col_stagger: -3(key_size_x)/5
-  thumb_col_stagger: -(key_size_x)/8
-
-  thumb_offset_x: (key_size_x)/2
-  thumb_offset_y: -25
-  thumb_out_splay: -18
-  thumb_in_splay: -13
-  thumb_in_spread: key_size_x + 1.75
-  
-  diode_shift_x: 7.75
-  diode_shift_y: 1.5
-  diode_matrix_rotate: 270
-  diode_via_row_net_shift_x: diode_shift_x
-  diode_via_row_net_shift_y: diode_shift_y + 2.8
-  diode_via_colrow_shift_x: 4.75
-  diode_via_colrow_shift_y: -1.5
-
-  via_row_net_shift_x: 0
-  via_row_net_shift_y: 2.5
-  via_colrow_shift_x: 0
-  via_colrow_shift_y: -2.5
-  via_col_net_shift_x: 0
-  via_col_net_shift_y: -3.6
+  # Thumb
+  offset_thumb_x: (kx)/2
+  offset_thumb_y: -25
+  splay_thumb_out: -18
+  splay_thumb_in: -13
+  spread_thumb_in: kx + 1.75
 
   # MCU
   # nice!nano: 34.1 x 18.3 x 3.3 (mm)
@@ -79,8 +68,8 @@ units:
   mcu_size_yo: 0.5(mcu_size_y)
   mcu_spacing_left: 2.25 #1.5
   mcu_spacing_right: 0.75
-  mcu_shift_x: key_size_xo + mcu_size_xo + mcu_spacing_left
-  mcu_shift_y: key_size_y - mcu_size_yo + 1
+  mcu_shift_x: kxo + mcu_size_xo + mcu_spacing_left
+  mcu_shift_y: ky - mcu_size_yo + 1
 
   # OLED
   # nice!view: 36 x 14 x 2.9 (mm)
@@ -125,8 +114,8 @@ units:
   reset_size_y: 5.5 # Footprint; Actual height: 4.7
   reset_size_xo: 0.5(reset_size_x)
   reset_size_yo: 0.5(reset_size_y)
-  reset_shift_x: (key_size_x)/3
-  reset_shift_y: 1.8key_size_y + 0.05
+  reset_shift_x: (kx)/3
+  reset_shift_y: 1.8ky + 0.05
   reset_rotate: 52
 
   reset_via_shift_x: 0.35(reset_size_xo)
@@ -157,7 +146,7 @@ units:
   tp_size_xo: 0.5(tp_size_x)
   tp_size_yo: 0.5(tp_size_y)
   tp_shift_x: -1.25
-  tp_shift_y: (key_size_yo + tp_size_yo) - 1.5
+  tp_shift_y: (kyo + tp_size_yo) - 1.5
   tp_rotate: 0
   # Outline
   tp_mount_size_x: 5.5
@@ -178,24 +167,35 @@ units:
   tp_pads_shift_y: -(oled_size_yo + -(oled_shift_y) + jst_size_x + tp_reset_size_y + 2.5(tp_pads_size_y))
   tp_pads_rotate: 180
 
+
+
+  # Key Diodes
+  diode_shift_x: 7.75
+  diode_shift_y: 1.5
+  diode_row_net_shift_x: diode_shift_x
+  diode_row_net_shift_y: diode_shift_y + 2.8
+  diode_colrow_shift_x: 4.75
+  diode_colrow_shift_y: -1.5
+
   # PCB and Case Holes
   # Points height and width
   hole_size: 0.1
-  hole_radius_screw: 1
-  hole_radius_standoff: 1.5
-  hole_radius_mount: 2.15
+  # Screw, Standoff, and Screw Mount Radii
+  screw: 1
+  standoff: 1.5
+  mount: 2.15
 
   # Hole Positions
-  hole_key_shift: key_size_yo + hole_radius_mount
+  hole_key_shift: kyo + mount
   hole_matrix_top_shift_y: hole_key_shift - 1.25
   hole_matrix_bottom_shift_y: hole_key_shift + 0.9
-  hole_matrix_index_shift_x: 2(key_size_x + 0.5)
-  hole_matrix_left_shift_x: (key_size_xo)/3 + 3.75
+  hole_matrix_index_shift_x: 2(kx + 0.5)
+  hole_matrix_left_shift_x: (kxo)/3 + 3.75
   hole_thumb_shift: 9.25
-  hole_mcu_shift_x: (mcu_size_xo - hole_radius_mount) + 0.525
-  hole_mcu_shift_y: (mcu_size_yo + 1.375) - hole_radius_mount
+  hole_mcu_shift_x: (mcu_size_xo - mount) + 0.525
+  hole_mcu_shift_y: (mcu_size_yo + 1.375) - mount
   hole_tp_shift_x: 0
-  hole_tp_shift_y: (tp_size_yo - hole_radius_mount)
+  hole_tp_shift_y: (tp_size_yo - mount)
 
   # Board Outline
   mcu_top_board_shift_y: mcu_size_yo + 1.45
@@ -205,8 +205,8 @@ units:
 
   # Top Border
     # Rectangle
-  top_rect_size_x: 5(key_size_x) + 0.45(key_pad_xo)
-  top_rect_size_y: 1.5key_pad_x
+  top_rect_size_x: 5(kx) + 0.45(pxo)
+  top_rect_size_y: 1.5px
   top_rect_shift_x: 0.03
   top_rect_shift_y: 0
     # Circle
@@ -225,10 +225,8 @@ units:
   board_fillet: 6.5
   round_board_fillet: 2.5
 
-# !SECTION
-
 #--------------------------------------
-# SECTION: POINTS
+# sect: POINTS
 #--------------------------------------
 # columns nets up
 points.zones:
@@ -237,8 +235,8 @@ points.zones:
     # Position in center of KiCAD workspace.
     anchor.shift: [100, -100]
     key:
-      padding: key_row_padding
-      spread: key_col_spread
+      padding: padding_key
+      spread: spread_key
     rows:
       bot.row_net: R3
       mid.row_net: R2
@@ -257,9 +255,9 @@ points.zones:
           tags:
             - key
             - ring
-          stagger: ring_col_stagger
+          stagger: stagger_ring
         rows:
-          bot.column_net: C1
+          bot.column_net: C2
           mid.column_net: C2
           top.column_net: C2
       middle:
@@ -267,9 +265,9 @@ points.zones:
           tags:
             - key
             - middle
-          stagger: middle_col_stagger
+          stagger: stagger_middle
         rows:
-          bot.column_net: C2
+          bot.column_net: C3
           mid.column_net: C3
           top.column_net: C3
       index:
@@ -277,13 +275,13 @@ points.zones:
           tags:
             - key
             - index
-          stagger: index_col_stagger
+          stagger: stagger_index
         rows:
-          bot.column_net: C3
+          bot.column_net: C4
           mid.column_net: C4
           top.column_net: C4
       inner:
-        key.stagger: inner_col_stagger
+        key.stagger: stagger_inner
         rows:
           bot.skip: true
           mid:
@@ -302,20 +300,20 @@ points.zones:
       - thumb
     anchor:
       ref: matrix_index_bot
-      shift: [thumb_offset_x, thumb_offset_y]
+      shift: [offset_thumb_x, offset_thumb_y]
     rows.home.row_net: R4
     columns:
       # Pinky side
       out.key:
         name: thumb_out
-        splay: thumb_out_splay
+        splay: splay_thumb_out
         column_net: C4
       # Inner side
       in.key:
         name: thumb_in
-        stagger: thumb_col_stagger
-        spread: thumb_in_spread
-        splay: thumb_in_splay
+        stagger: stagger_thumb
+        spread: spread_thumb_in
+        splay: splay_thumb_in
         column_net: C5
 
   # * Components
@@ -326,8 +324,8 @@ points.zones:
       width: mcu_size_x
       height: mcu_size_y
     anchor:
-      ref: matrix_inner_mid
-      shift: [mcu_shift_x, mcu_shift_y - .4(key_size_x) + key_size_y]
+      ref: matrix_inner_mid #matrix_inner_top
+      shift: [mcu_shift_x, mcu_shift_y - .4(kx) + ky]
   oled:
     key:
       tags: part
@@ -491,10 +489,8 @@ points.zones:
       ref: trackpoint
       shift: [hole_tp_shift_x, -hole_tp_shift_y]
 
-# !SECTION
-
 #--------------------------------------
-# SECTION: OUTLINES
+# sect: OUTLINES
 #--------------------------------------
 outlines:
   # BOARD COMPONENTS
@@ -502,18 +498,18 @@ outlines:
     - what: rectangle
       where: [key]
       bound: true
-      size: [key_pad_x, key_pad_y]
+      size: [px, py]
   _keycaps:
     # Key outline minus .5mm to show overlapping keys.
     - what: rectangle
       where: [key]
       bound: false
-      size: [key_cap_x, key_cap_y]
+      size: [kcp_x, kcp_y]
   _switches:
     - what: rectangle
       where: [key]
       bound: false
-      size: [key_switch_cutout_x, key_switch_cutout_y]
+      size: [kco, kco]
 
   _mcu:
     - what: rectangle
@@ -545,38 +541,38 @@ outlines:
   _trackpoint_mount:
     - what: circle
       where: [tp_hole]
-      radius: hole_radius_screw
+      radius: screw
     - what: circle
       where: [tp_hole]
-      radius: hole_radius_mount
+      radius: mount
       operation: stack
   _trackpoint:
     - what: polygon
       points:
         - ref: trackpoint # Top left of top mount
-          shift: [-(tp_mount_size_x)/2, tp_size_yo]
+          shift: [-tp_mount_size_x/2, tp_size_yo]
         - ref: trackpoint # Top right of top mount
-          shift: [(tp_mount_size_x)/2, tp_size_yo]
+          shift: [tp_mount_size_x/2, tp_size_yo]
         - ref: trackpoint # Right of top mount
-          shift: [(tp_mount_size_x)/2, (tp_hex_side_size)/2 + tp_hex_diag_size]
+          shift: [tp_mount_size_x/2, tp_hex_side_size/2 + tp_hex_diag_size]
         - ref: trackpoint
-          shift: [tp_size_xo, (tp_hex_side_size)/2]
+          shift: [tp_size_xo, tp_hex_side_size/2]
         - ref: trackpoint # Right of tp hole
-          shift: [tp_size_xo, -(tp_hex_side_size)/2]
+          shift: [tp_size_xo, -tp_hex_side_size/2]
         - ref: trackpoint
-          shift: [(tp_mount_size_x)/2, -((tp_hex_side_size)/2 + tp_hex_diag_size)]
+          shift: [tp_mount_size_x/2, -(tp_hex_side_size/2 + tp_hex_diag_size)]
         - ref: trackpoint # Right of bottom mount
-          shift: [(tp_mount_size_x)/2, -(tp_size_yo)]
+          shift: [tp_mount_size_x/2, -tp_size_yo]
         - ref: trackpoint # Bottom left of bottom mount
-          shift: [-(tp_mount_size_x)/2, -(tp_size_yo)]
+          shift: [-tp_mount_size_x/2, -tp_size_yo]
         - ref: trackpoint # Left of bottom mount
-          shift: [-(tp_mount_size_x)/2, -((tp_hex_side_size)/2 + tp_hex_diag_size)]
+          shift: [-tp_mount_size_x/2, -(tp_hex_side_size/2 + tp_hex_diag_size)]
         - ref: trackpoint
-          shift: [-(tp_size_xo), -(tp_hex_side_size)/2]
+          shift: [-tp_size_xo, -tp_hex_side_size/2]
         - ref: trackpoint # Left of tp hole
-          shift: [-(tp_size_xo), (tp_hex_side_size)/2]
+          shift: [-tp_size_xo, tp_hex_side_size/2]
         - ref: trackpoint
-          shift: [-(tp_mount_size_x)/2, (tp_hex_side_size)/2 + tp_hex_diag_size]
+          shift: [-tp_mount_size_x/2, tp_hex_side_size/2 + tp_hex_diag_size]
     - what: circle
       adjust:
         ref: trackpoint
@@ -587,15 +583,15 @@ outlines:
   _holes_screw:
     - what: circle
       where: /hole/
-      radius: hole_radius_screw
+      radius: screw
   _holes_standoff:
     - what: circle
       where: /hole/
-      radius: hole_radius_standoff
+      radius: standoff
   _holes_mount:
     - what: circle
       where: /hole/
-      radius: hole_radius_mount
+      radius: mount
     - operation: stack
       name: _holes_screw
 
@@ -606,25 +602,25 @@ outlines:
       points:
         # Pinky
         - ref: matrix_pinky_mid
-          shift: [-.95(key_pad_xo), -(key_pad_yo)]
+          shift: [-.95pxo, -pyo]
         - ref: matrix_pinky_top
-          shift: [-.95(key_pad_xo), key_size_yo]
+          shift: [-.95pxo, kyo]
         # Ring
         - ref: matrix_ring_top
-          shift: [-(key_size_xo), key_size_yo]
+          shift: [-kxo, kyo]
         # Middle
         - ref: matrix_middle_top
-          shift: [-(key_size_xo), key_size_yo]
+          shift: [-kxo, kyo]
         - ref: matrix_middle_top
-          shift: [key_size_xo, key_size_yo]
+          shift: [kxo, kyo]
         # Inner
         - ref: matrix_inner_mid #matrix_inner_top
-          shift: [.25(key_size_x), .5(key_pad_yo) + key_size_y]
+          shift: [.25(kx), .5(pyo) + ky]
         # MCU
         - ref: mcu # MCU Top Left Corner
           shift: [mcu_left_board_shift_x, mcu_top_board_shift_y]
         - ref: mcu # MCU Top Right Corner
-          shift: [mcu_right_board_shift_x - 2(hole_radius_mount), mcu_top_board_shift_y]
+          shift: [mcu_right_board_shift_x - 2(mount), mcu_top_board_shift_y]
         - ref: mcu # MCU Top Right Corner
           shift: [mcu_right_board_shift_x, mcu_top_board_shift_y]
         - ref: mcu # MCU Bottom Right Corner
@@ -632,9 +628,9 @@ outlines:
         # Thumb
         # MCU-thumb curve
         - ref: thumb_in
-          shift: [key_pad_xo, .92(key_pad_yo)]
+          shift: [pxo, .92(pyo)]
         - ref: thumb_in
-          shift: [key_pad_xo, -key_pad_yo]
+          shift: [pxo, -pyo]
 
   # Top Border
   _top_rect:
@@ -724,7 +720,7 @@ outlines:
       name: _holes_mount
 
 #--------------------------------------
-# SECTION: PCB
+# sect: PCB
 #--------------------------------------
 pcbs.snak_28:
   outlines:
@@ -775,44 +771,44 @@ pcbs.snak_28:
     diode_right_via_row_net: # diode high
       what: via
       where: [key]
-      adjust.shift: [diode_via_row_net_shift_x, diode_via_row_net_shift_y]
-      params.net: "{{row_net}}"
-    diode_left_via_row_net: # diode high
-      what: via
-      where: [key]
-      adjust.shift: [-diode_via_row_net_shift_x, diode_via_row_net_shift_y]
+      adjust.shift: [diode_row_net_shift_x, diode_row_net_shift_y]
       params.net: "{{row_net}}"
     diode_right_via_colrow: # diode low
       what: via
       where: [key]
-      adjust.shift: [diode_via_colrow_shift_x, diode_via_colrow_shift_y]
+      adjust.shift: [diode_colrow_shift_x, diode_colrow_shift_y]
       params.net: "{{colrow}}"
+    diode_left_via_row_net: # diode high
+      what: via
+      where: [key]
+      adjust.shift: [-diode_row_net_shift_x, diode_row_net_shift_y]
+      params.net: "{{row_net}}"
     diode_left_via_colrow: # diode low
       what: via
       where: [key]
-      adjust.shift: [-diode_via_colrow_shift_x, diode_via_colrow_shift_y]
-      params.net: "{{colrow}}"
-    via_row_net: # diode low
-      what: via
-      where: [key]
-      adjust.shift: [via_row_net_shift_x, via_row_net_shift_y]
-      params.net: "{{row_net}}"
-    via_colrow: # diode low
-      what: via
-      where: [key]
-      adjust.shift: [via_colrow_shift_x, via_colrow_shift_y]
+      adjust.shift: [-diode_colrow_shift_x, diode_colrow_shift_y]
       params.net: "{{colrow}}"
     via_col_net:
       what: via
       where: [key]
-      adjust.shift: [via_col_net_shift_x, via_col_net_shift_y]
+      adjust.shift: [0, -3.6]
       params.net: "{{column_net}}"
+    via_colrow: # diode low
+      what: via
+      where: [key]
+      adjust.shift: [0, -2.5]
+      params.net: "{{colrow}}"
+    via_row_net: # diode low
+      what: via
+      where: [key]
+      adjust.shift: [0, 2.5]
+      params.net: "{{row_net}}"
     via_thumb_row_net:
       what: via
       where:
         ref: thumb_out
         shift: [hole_thumb_shift, hole_thumb_shift]
-      params.net: R3
+      params.net: R4
     via_thumb_col_net:
       what: via
       where: /thumb_/
@@ -846,27 +842,27 @@ pcbs.snak_28:
         # GND
         # GND
         P2: "F1"   # FREE PIN
-        P3: "F2"  # FREE PIN
-        P4: "R1"   # Row Top
-        P5: "R2"   # Row Middle
+        P3: "R1"   # Row Top
+        P4: "R2"   # Row Middle
+        P5: "R3"   # Row Bottom
         P6: "MOSI" # MOSI: Display Data
         P7: "SCK"  # SCK: Display Clock
         P8: "CS"   # Display CS (nice!view only)
-        P9: "R3"   # Row Bottom Thumb
+        P9: "R4"   # Row Thumb
 
         # Left Side - All low frequency
         # RAW      # Battery Pos
         # GND      # Ground / Battery Neg
         # RST      # Reset pin
         # VCC      # External Power
-        P21: "SW1" # Scroll Wheel
-        P20: "SW2" # Scroll Wheel
-        P19: "C1"  # Column Pinky
-        P18: "C2"  # Column Ring
-        P15: "C3"  # Column Middle
-        P14: "C4"  # Column Index
-        P16: "F3"  # FREE PIN
-        P10: "F4"  # FREE PIN
+        P21: "C1"  # Column Pinky
+        P20: "C2"  # Column Ring
+        P19: "C3"  # Column Middle
+        P18: "C4"  # Column Index
+        P15: "C5"  # Column Inner
+        P14: "SW1" # Scroll Wheel
+        P16: "SW2" # Scroll Wheel
+        P10: "F2" # FREE PIN
     
     # OLED
     nice_view:
@@ -1079,8 +1075,6 @@ pcbs.snak_28:
           ref: mcu
           shift: [tp_pads_shift_x, tp_pads_shift_y]
           rotate: tp_pads_rotate
-
-# !SECTION
 
 #---------------------------------------
 # sect: CASES
