@@ -776,6 +776,7 @@ outlines:
 # SECTION: PCB
 #--------------------------------------
 pcbs.snak_uni_28:
+  template: kicad8
   outlines:
     main.outline: _round_board
     plate_top:
@@ -791,7 +792,7 @@ pcbs.snak_uni_28:
       where: [key]
       adjust.rotate: key_rotate
       params:
-        reversible: true
+        reversible: false
         hotswap: true
         solder: false
         include_keycap: true
@@ -922,7 +923,7 @@ pcbs.snak_uni_28:
       what: ceoloide/display_nice_view
       where.ref: oled
       params:
-        reversible: true
+        reversible: false
         include_traces: true
         gnd_trace_width: 0.25
         signal_trace_width: 0.25

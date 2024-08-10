@@ -121,16 +121,16 @@ units:
   power_rotate: 90
 
   # Reset Switch
-  reset_size_x: 3.4 # Footprint; Actual width: 2.9
-  reset_size_y: 5.5 # Footprint; Actual height: 4.7
+  reset_size_x: 5.5 # Footprint; Actual height: 4.7
+  reset_size_y: 3.4 # Footprint; Actual width: 2.9
   reset_size_xo: 0.5(reset_size_x)
   reset_size_yo: 0.5(reset_size_y)
   reset_shift_x: (key_size_x)/3
-  reset_shift_y: 1.8key_size_y + 0.05
-  reset_rotate: 52
+  reset_shift_y: 1.8(key_size_y) + 0.05
+  reset_rotate: 52 + 270
 
-  reset_via_shift_x: 0.35(reset_size_xo)
-  reset_via_shift_y: reset_size_yo + 0.6
+  reset_via_shift_x: 3(reset_size_x)/4
+  reset_via_shift_y: (reset_size_yo)/2
 
   # JST Battery Connector (2P, Curved Needed)
   # Footprint center at (3.45, 1.85)
@@ -169,7 +169,7 @@ units:
   tp_reset_size_y: 3.36
   tp_reset_shift_x: 0
   tp_reset_shift_y: -(oled_size_yo + -(oled_shift_y) + jst_size_x + tp_reset_size_y)
-  tp_reset_rotate: 180
+  tp_reset_rotate: 270
 
   # TP Pads
   tp_pads_size_x: 9
@@ -290,12 +290,12 @@ points.zones:
             tags:
               - key
               - inner
-            column_net: C5
+            column_net: C4
           top:
             tags:
               - part
               - inner
-            column_net: C5
+            #column_net: C5
   thumb:
     key.tags:
       - key
@@ -303,20 +303,20 @@ points.zones:
     anchor:
       ref: matrix_index_bot
       shift: [thumb_offset_x, thumb_offset_y]
-    rows.home.row_net: R4
+    rows.home.row_net: R3
     columns:
       # Pinky side
       out.key:
         name: thumb_out
         splay: thumb_out_splay
-        column_net: C4
+        column_net: C3
       # Inner side
       in.key:
         name: thumb_in
         stagger: thumb_col_stagger
         spread: thumb_in_spread
         splay: thumb_in_splay
-        column_net: C5
+        column_net: C4
 
   # * Components
   mcu:
@@ -727,6 +727,7 @@ outlines:
 # SECTION: PCB
 #--------------------------------------
 pcbs.snak_28:
+  template: kicad8
   outlines:
     main.outline: _round_board
     plate_top:
@@ -738,21 +739,37 @@ pcbs.snak_28:
   footprints:
     # Key Switches and Diodes
     choc:
-      what: choc_kim
+      what: ceoloide/switch_choc_v1_v2
       where: [key]
-      adjust.rotate: 180
+      adjust.rotate: key_rotate
       params:
-        reverse: true
+        reversible: true
         hotswap: true
+        include_plated_holes: false
+        include_stabilizer_nets: false
+        include_centerhole_net: false
         solder: false
-        show_keycaps: true
+        outer_pad_width_front: 2.6
+        outer_pad_width_back: 2.6
+        include_keycap: true
+        keycap_width: key_cap_x
+        keycap_height: key_cap_y
+        include_corner_marks: false
+        include_choc_v1_led_cutout_marks: false
+        include_choc_v2_led_cutout_marks: false
+        include_stabilizer_pad: false
+        oval_stabilizer_pad: false
+        choc_v1_support: true
+        choc_v2_support: false
+        choc_v1_stabilizers_diameter: 1.9
+        allow_soldermask_bridges: true
         from: "{{column_net}}"
         to: "{{colrow}}"
     diode_right:
-      what: diode_ceoloide
+      what: ceoloide/diode_tht_sod123
       where: [key]
       adjust:
-        rotate: 270
+        rotate: diode_matrix_rotate
         shift: [diode_shift_x, diode_shift_y]
       params:
         side: "F"
@@ -761,10 +778,10 @@ pcbs.snak_28:
         from: "{{colrow}}"
         to: "{{row_net}}"
     diode_left:
-      what: diode_ceoloide
+      what: ceoloide/diode_tht_sod123
       where: [key]
       adjust:
-        rotate: 270
+        rotate: diode_matrix_rotate
         shift: [-diode_shift_x, diode_shift_y]
       params:
         side: "B"
@@ -821,7 +838,7 @@ pcbs.snak_28:
 
     # MCU
     nice_nano:
-      what: nice_nano_ceoloide
+      what: ceoloide/mcu_nice_nano
       where.ref: mcu
       params:
         reversible: true
@@ -870,7 +887,7 @@ pcbs.snak_28:
     
     # OLED
     nice_view:
-      what: nice_view_ceoloide
+      what: ceoloide/display_nice_view
       where.ref: oled
       params:
         reversible: true
@@ -921,7 +938,7 @@ pcbs.snak_28:
 
     # Power Switch
     power:
-      what: switch_power_ceoloide
+      what: ceoloide/power_switch_smd_side
       where.ref: power
       params:
         from: pos
@@ -937,12 +954,41 @@ pcbs.snak_28:
         shift: [0.5(power_size_xo), 0]
       params.net: pos
 
+    # Reset Button
+    reset:
+      what: ceoloide/reset_switch_smd_side #switch_reset
+      where.ref: reset
+      params:
+        reversible: true
+        include_bosses: true
+        include_silkscreen: true
+        include_courtyard: false
+        from: GND
+        to: RST
+    via_reset_rst: # left side
+      what: via
+      where:
+        ref: reset
+        shift:  [reset_via_shift_x, -(reset_via_shift_y)]
+      params.net: RST
+    via_reset_gnd: # right side
+      what: via
+      where:
+        ref: reset
+        shift: [reset_via_shift_x, reset_via_shift_y]
+      params.net: GND
+
     # JST Battery Connector
     jst_connector:
-      what: jst_bat
+      what: ceoloide/battery_connector_jst_ph_2 #jst_bat
       where.ref: jst_main
       params:
         reversible: true
+        include_traces: true
+        trace_width: 0.250
+        include_silkscreen: true
+        include_fabrication: true
+        include_courtyard: false
         BAT_P: pos
         BAT_N: GND
     via_jst_pos: # adjacent to jst
@@ -958,127 +1004,107 @@ pcbs.snak_28:
         shift: [0, jst_gnd_via_shift_y]
       params.net: GND
 
-    # Reset Button
-    reset:
-      what: switch_reset
-      where.ref: reset
-      params:
-        reverse: true
-        from: GND
-        to: RST
-    via_reset_rst: # left side
-      what: via
-      where:
-        ref: reset
-        shift:  [reset_via_shift_x, reset_via_shift_y]
-      params.net: RST
-    via_reset_gnd: # right side
-      what: via
-      where:
-        ref: reset
-        shift: [-reset_via_shift_x, reset_via_shift_y]
-      params.net: GND
-
     # M2 Screw Holes
     holes_mount:
-      what: mounting_hole
+      what: ceoloide/mounting_hole_plated
       where: [hole]
+      #include_courtyard: false
     
     # Rotary Encoder Scrollwheel
-    scrollwheel:
-      what: scrollwheel #scrollwheel_minimal
-      where:
-        ref: matrix_inner_top
-        shift: [1.1, 0.875]
-        rotate: 180
-      params:
-        reverse: true
-        from: C5
-        to: R1
-        A: SW1
-        B: GND
-        C: SW2
-        D: ""
+    #scrollwheel:
+    #  what: scrollwheel #scrollwheel_minimal
+    #  where:
+    #    ref: matrix_inner_top
+    #    shift: [1.1, 0.875]
+    #    rotate: 180
+    #  params:
+    #    reverse: true
+    #    from: C5
+    #    to: R1
+    #    A: SW1
+    #    B: GND
+    #    C: SW2
+    #    D: ""
 
     # Trackpoint
-    trackpoint:
-      what: trackpoint_mount
-      where:
-        ref: trackpoint
-        rotate: tp_rotate
-      params:
-        reverse: true
-        # T430: 3.5
-        # T460S (red one): 3.5
-        # X240: 5.5
-        drill: 3.5
-        outline: 0.25
+    #trackpoint:
+    #  what: infused-kim/trackpoint_mount
+    #  where:
+    #    ref: trackpoint
+    #    rotate: tp_rotate
+    #  params:
+    #    reverse: true
+    #    # T430: 3.5
+    #    # T460S (red one): 3.5
+    #    # X240: 5.5
+    #    drill: 3.5
+    #    outline: 0.25
+    #
+    #    show_outline_t430: false
+    #    show_outline_x240: false
+    #    show_outline_t460s: true 
+    #    show_board: false
 
-        show_outline_t430: false
-        show_outline_x240: false
-        show_outline_t460s: true 
-        show_board: false
+    #tp_reset_circuit:
+    #  what: infused-kim/smd_0805
+    #  params:
+    #    reverse: true
+    #    space: 1
+    #    mirror: true
+    #    label_at_bottom: true
+    #    swap_pad_direction: true
+    #    components: 4
+    #
+    #    # TP clock pull up resistor 4.7k
+    #    net_1_from: TPC
+    #    net_1_to: VCC
+    #    label_1: TCR
+    #
+    #    # TP Reset circuit resistor 100k
+    #    net_2_from: TPR
+    #    net_2_to: GND
+    #    label_2: TRR
+    #
+    #    # TP Reset circuit capacitor 2.2uF
+    #    net_3_from: TPR
+    #    net_3_to: VCC
+    #    label_3: TRC
+    #
+    #    # TP data pull up resistor 4.7k
+    #    net_4_from: TPD
+    #    net_4_to: VCC
+    #    label_4: TDR
+    #
+    #  where:
+    #    ref: mcu
+    #    shift: [tp_reset_shift_x, tp_reset_shift_y]
+    #    rotate: tp_reset_rotate
 
-    tp_reset_circuit:
-      what: smd_0805
-      params:
-        reverse: true
-        space: 1
-        mirror: true
-        label_at_bottom: true
-        swap_pad_direction: true
-        components: 4
-
-        # TP clock pull up resistor 4.7k
-        net_1_from: TPC
-        net_1_to: VCC
-        label_1: TCR
-
-        # TP Reset circuit resistor 100k
-        net_2_from: TPR
-        net_2_to: GND
-        label_2: TRR
-
-        # TP Reset circuit capacitor 2.2uF
-        net_3_from: TPR
-        net_3_to: VCC
-        label_3: TRC
-
-        # TP data pull up resistor 4.7k
-        net_4_from: TPD
-        net_4_to: VCC
-        label_4: TDR
-
-      where:
-        ref: mcu
-        shift: [tp_reset_shift_x, tp_reset_shift_y]
-        rotate: tp_reset_rotate
-
-    tp_pads:
-        what: pads
-        params:
-          reverse: true
-          width: 1
-          height: 2
-          space: 1
-          pads: 5
-
-          net_1: TPC
-          net_2: GND
-          net_3: TPR
-          net_4: TPD
-          net_5: VCC
-
-          label_1: SCL
-          label_2: GND
-          label_3: RST
-          label_4: SDA
-          label_5: VCC
-          label_at_bottom: true
-        where:
-          ref: mcu
-          shift: [tp_pads_shift_x, tp_pads_shift_y]
-          rotate: tp_pads_rotate
+    #tp_pads:
+    #    what: infused-kim/pads
+    #    params:
+    #      reverse: true
+    #      width: 1
+    #      height: 2
+    #      space: 1
+    #      pads: 5
+    #      
+    #      net_1: TPC
+    #      net_2: GND
+    #      net_3: TPR
+    #      net_4: TPD
+    #      net_5: VCC
+    #
+    #      label_1: SCL
+    #      label_2: GND
+    #      label_3: RST
+    #      label_4: SDA
+    #      label_5: VCC
+    #      label_at_bottom: true
+    #    where:
+    #      ref: mcu
+    #      shift: [tp_pads_shift_x, tp_pads_shift_y]
+    #      rotate: tp_pads_rotate
 
 # !SECTION
 
