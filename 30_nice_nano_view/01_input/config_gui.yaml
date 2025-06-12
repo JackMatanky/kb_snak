@@ -300,6 +300,7 @@ points.zones:
     key.tags:
       - key
       - thumb
+      - non_tp
     anchor:
       ref: matrix_index_bot
       shift: [thumb_offset_x, thumb_offset_y]
@@ -1112,66 +1113,66 @@ pcbs.snak_28:
         show_outline_t460s: true
         show_board: false
 
-    # tp_reset_circuit:
-    #   what: infused-kim/smd_0805
-    #   params:
-    #     reverse: true
-    #     space: 1
-    #     mirror: true
-    #     label_at_bottom: true
-    #     swap_pad_direction: true
-    #     components: 4
+    tp_reset_circuit:
+      what: smd_0805
+      params:
+        reverse: true
+        space: 1
+        mirror: true
+        label_at_bottom: true
+        swap_pad_direction: true
+        components: 4
 
-    #     # TP clock pull up resistor 4.7k
-    #     net_1_from: TPC
-    #     net_1_to: VCC
-    #     label_1: TCR
+        # TP clock pull up resistor 4.7k
+        net_1_from: TPC
+        net_1_to: VCC
+        label_1: TCR
 
-    #     # TP Reset circuit resistor 100k
-    #     net_2_from: TPR
-    #     net_2_to: GND
-    #     label_2: TRR
+        # TP Reset circuit resistor 100k
+        net_2_from: TPR
+        net_2_to: GND
+        label_2: TRR
 
-    #     # TP Reset circuit capacitor 2.2uF
-    #     net_3_from: TPR
-    #     net_3_to: VCC
-    #     label_3: TRC
+        # TP Reset circuit capacitor 2.2uF
+        net_3_from: TPR
+        net_3_to: VCC
+        label_3: TRC
 
-    #     # TP data pull up resistor 4.7k
-    #     net_4_from: TPD
-    #     net_4_to: VCC
-    #     label_4: TDR
+        # TP data pull up resistor 4.7k
+        net_4_from: TPD
+        net_4_to: VCC
+        label_4: TDR
 
-    #   where:
-    #     ref: mcu
-    #     shift: [tp_reset_shift_x, tp_reset_shift_y]
-    #     rotate: tp_reset_rotate
+      where:
+        ref: mcu
+        shift: [tp_reset_shift_x, tp_reset_shift_y]
+        rotate: tp_reset_rotate
 
-    # tp_pads:
-    #   what: infused-kim/pads
-    #   params:
-    #     reverse: true
-    #     width: 1
-    #     height: 2
-    #     space: 1
-    #     pads: 5
+    tp_pads:
+      what: pads
+      params:
+        reverse: true
+        width: 1
+        height: 2
+        space: 1
+        pads: 5
 
-    #     net_1: TPC
-    #     net_2: GND
-    #     net_3: TPR
-    #     net_4: TPD
-    #     net_5: VCC
+        net_1: TPC
+        net_2: GND
+        net_3: TPR
+        net_4: TPD
+        net_5: VCC
 
-    #     label_1: SCL
-    #     label_2: GND
-    #     label_3: RST
-    #     label_4: SDA
-    #     label_5: VCC
-    #     label_at_bottom: true
-    #   where:
-    #     ref: mcu
-    #     shift: [tp_pads_shift_x, tp_pads_shift_y]
-    #     rotate: tp_pads_rotate
+        label_1: SCL
+        label_2: GND
+        label_3: RST
+        label_4: SDA
+        label_5: VCC
+        label_at_bottom: true
+      where:
+        ref: mcu
+        shift: [tp_pads_shift_x, tp_pads_shift_y]
+        rotate: tp_pads_rotate
 
 # ------------------------------------------------------------ #
 #                             CASES                            #

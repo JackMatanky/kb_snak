@@ -103,8 +103,8 @@ units:
   oled_screen_shift_y: oled_size_yo - (oled_screen_size_yo + oled_screen_offset_top_y)
 
   # OLED vias
-  oled_mosi_via_shift_x: 4.45
-  oled_mosi_via_shift_y: -(oled_size_yo - 5.55)
+  oled_mosi_via_shift_x: 4.75
+  oled_mosi_via_shift_y: -(oled_size_yo - 4.9)
   oled_cs_via_shift_x: 3.85
   oled_cs_via_shift_y: -(oled_size_yo - 3.95) # oled_mosi_via_shift_y - 0.9
   oled_sck_via_shift_y: -(oled_size_yo - 3.95)
@@ -261,7 +261,7 @@ points.zones:
             - non_tp
           stagger: ring_col_stagger
         rows:
-          bot.column_net: C1
+          bot.column_net: C2
           mid.column_net: C2
           top.column_net: C2
       middle:
@@ -272,7 +272,7 @@ points.zones:
             - non_tp
           stagger: middle_col_stagger
         rows:
-          bot.column_net: C2
+          bot.column_net: C3
           mid.column_net: C3
           top.column_net: C3
       index:
@@ -283,7 +283,7 @@ points.zones:
             - non_tp
           stagger: index_col_stagger
         rows:
-          bot.column_net: C3
+          bot.column_net: C4
           mid.column_net: C4
           top.column_net: C4
       inner:
@@ -294,7 +294,7 @@ points.zones:
           stagger: inner_col_stagger
         rows:
           bot.skip: true
-          mid.column_net: C4
+          mid.column_net: C5
           top.column_net: C5
   thumb:
     key.tags:
@@ -304,20 +304,20 @@ points.zones:
     anchor:
       ref: matrix_index_bot
       shift: [thumb_offset_x, thumb_offset_y]
-    rows.home.row_net: R3
+    rows.home.row_net: R4
     columns:
       # Pinky side
       out.key:
         name: thumb_out
         splay: thumb_out_splay
-        column_net: C3
+        column_net: C1
       # Inner side
       in.key:
         name: thumb_in
         stagger: thumb_col_stagger
         spread: thumb_in_spread
         splay: thumb_in_splay
-        column_net: C4
+        column_net: C5
 
   # ----------------------- Components ----------------------- #
   # MCU
@@ -751,7 +751,7 @@ outlines:
 # ------------------------------------------------------------ #
 #                              PCB                             #
 # ------------------------------------------------------------ #
-pcbs.snak_28:
+pcbs.snak_30:
   template: kicad8
   outlines:
     main.outline: _round_board
@@ -819,7 +819,7 @@ pcbs.snak_28:
     #     to: '{{colrow}}'
 
     # ------------------------ Diodes ------------------------ #
-    diode_right:
+    diode:
       what: ceoloide/diode_tht_sod123
       where: [key]
       adjust:
@@ -831,20 +831,14 @@ pcbs.snak_28:
         include_traces_vias: true
         from: '{{colrow}}'
         to: '{{row_net}}'
+    diode_colrow_router:
+      what: ceoloide/utility_router
+      where: [key]
+      params:
+        net: "{{colrow}}"
+        route: "b(-2,-3)(-2.2,-2.75)(-2.2,1.85)"
 
     # -------------------- Diode Via Holes ------------------- #
-    diode_right_via_row_net: # diode high
-      what: via
-      where: [key]
-      adjust.shift: [diode_via_row_net_shift_x, diode_via_row_net_shift_y]
-      params.net: '{{row_net}}'
-
-    diode_left_via_row_net: # diode high
-      what: via
-      where: [key]
-      adjust.shift: [-diode_via_row_net_shift_x, diode_via_row_net_shift_y]
-      params.net: '{{row_net}}'
-
     via_thumb_row_net:
       what: via
       where:
@@ -884,13 +878,13 @@ pcbs.snak_28:
         # GND
         # GND
         P2: 'F1' # FREE PIN
-        P3: 'F2' # FREE PIN
-        P4: 'R1' # Row Top
-        P5: 'R2' # Row Middle
+        P3: 'R1' # FREE PIN
+        P4: 'R2' # Row Top
+        P5: 'R3' # Row Middle
         P6: 'MOSI' # MOSI: Display Data
         P7: 'SCK' # SCK: Display Clock
         P8: 'CS' # Display CS (nice!view only)
-        P9: 'R3' # Row Bottom Thumb
+        P9: 'R4' # Row Bottom Thumb
 
         # Left Side - All low frequency
         # RAW      # Battery Pos
@@ -903,7 +897,7 @@ pcbs.snak_28:
         P18: 'C2' # Column Ring
         P15: 'C3' # Column Middle
         P14: 'C4' # Column Index
-        P16: 'F3' # FREE PIN
+        P16: 'C5' # FREE PIN
         P10: 'F4' # FREE PIN
 
     # --------------------- OLED Display --------------------- #
@@ -998,9 +992,6 @@ pcbs.snak_28:
         ref: reset
         shift: [reset_via_shift_x, reset_via_shift_y]
       params.net: GND
-    gnd_router:
-      what: ceoloide/utility_router
-      where.ref: reset
 
 
     # ----------------- JST Battery Connector ---------------- #
