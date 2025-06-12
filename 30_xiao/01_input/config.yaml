@@ -1,7 +1,7 @@
 ---
-#--------------------------------------
-# sect: META
-#--------------------------------------
+# ------------------------------------------------------------ #
+#                             META                             #
+# ------------------------------------------------------------ #
 meta:
   #engine: 4.0.4
   version: 0.2.1
@@ -15,9 +15,9 @@ meta:
   #   $extends: presets.choc_v1
   #   $extends: presets.choc_v2
 
-#--------------------------------------
-# sect: UNITS
-#--------------------------------------
+# ------------------------------------------------------------ #
+#                             UNITS                            #
+# ------------------------------------------------------------ #
 units:
   # Key Size (Choc V1)
   # Space Between Key Centers
@@ -168,12 +168,13 @@ units:
   top_crcl_shift_x: 1
   top_crcl_shift_y: -40.25
 
-#--------------------------------------
-# sect: POINTS
-#--------------------------------------
+# ------------------------------------------------------------ #
+#                            POINTS                            #
+# ------------------------------------------------------------ #
 # columns nets up
 points.zones:
-  # * Base Keyboard Layout
+
+  # ------------------ Base Keyboard Layout ------------------ #
   matrix:
     # Position in center of KiCAD workspace.
     anchor.shift: [100, -100]
@@ -243,7 +244,8 @@ points.zones:
         splay: splay_thumb_in
         column_net: C5
 
-  # * Components
+  # ----------------------- Components ----------------------- #
+  # Microcontroller
   mcu:
     key:
       tags: part
@@ -253,6 +255,7 @@ points.zones:
     anchor:
       ref: matrix_inner_top
       shift: [mcu_shift_x, mcu_shift_y - .4(kx)]
+  # OLED Display
   oled:
     key:
       tags: part
@@ -271,6 +274,7 @@ points.zones:
     anchor:
       ref: oled
       shift: [oled_screen_shift_x, oled_screen_shift_y]
+  # Power Switch
   sw_power:
     key:
       tags: part
@@ -281,6 +285,7 @@ points.zones:
       ref: mcu
       shift: [sw_power_shift_x, sw_power_shift_y]
       rotate: sw_power_rotate
+  # Reset Switch
   sw_reset:
     key:
       tags: part
@@ -312,7 +317,7 @@ points.zones:
       shift: [jst_sec_shift_x, jst_sec_shift_y]
       #rotate: jst_rotate
 
-  # * Mounting Holes
+  # --------------------- Mounting Holes --------------------- #
   hole_left_top:
     key:
       tags: hole
@@ -399,11 +404,11 @@ points.zones:
       ref: mcu
       shift: [hole_mcu_shift_x, hole_mcu_shift_y]
 
-#--------------------------------------
-# sect: OUTLINES
-#--------------------------------------
+
+# ------------------------------------------------------------ #
+#                           OUTLINES                           #
+# ------------------------------------------------------------ #
 outlines:
-  # BOARD COMPONENTS
   _raw:
     - what: rectangle
       where: /(matrix|thumb)_/
@@ -463,7 +468,7 @@ outlines:
     - operation: stack
       name: _holes_screw
 
-  # SHAPES
+  # ------------------------- Shapes ------------------------- #
   _board:
     - what: polygon
       fillet: board_fillet
@@ -582,9 +587,9 @@ outlines:
     - operation: stack
       name: _switches
 
-#--------------------------------------
-# sect: PCB
-#--------------------------------------
+# ------------------------------------------------------------ #
+#                              PCB                             #
+# ------------------------------------------------------------ #
 pcbs.snak_30:
   outlines:
     main.outline: round_board
