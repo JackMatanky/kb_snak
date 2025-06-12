@@ -40,7 +40,6 @@ units:
   key_row_padding: key_size_y + 0.5
 
   key_rotate: 180
-  inner_key_rotate: 270
 
   ring_col_stagger: 3(key_size_x)/4
   middle_col_stagger: (key_size_x)/3
@@ -156,7 +155,7 @@ units:
   tp_size_y: 23.3
   tp_size_xo: 0.5(tp_size_x)
   tp_size_yo: 0.5(tp_size_y)
-  tp_shift_x: -8.5
+  tp_shift_x: -8.25
   tp_shift_y: (key_size_yo + tp_size_yo) - 1.5
   tp_rotate: 0
 
@@ -248,7 +247,6 @@ points.zones:
         key.tags:
           - key
           - pinky
-          - non_tp
         rows:
           bot.skip: true
           mid.column_net: C1
@@ -258,7 +256,6 @@ points.zones:
           tags:
             - key
             - ring
-            - non_tp
           stagger: ring_col_stagger
         rows:
           bot.column_net: C1
@@ -269,7 +266,6 @@ points.zones:
           tags:
             - key
             - middle
-            - non_tp
           stagger: middle_col_stagger
         rows:
           bot.column_net: C2
@@ -280,22 +276,25 @@ points.zones:
           tags:
             - key
             - index
-            - non_tp
           stagger: index_col_stagger
         rows:
           bot.column_net: C3
           mid.column_net: C4
           top.column_net: C4
       inner:
-        key:
-          tags:
-            - key
-            - inner
-          stagger: inner_col_stagger
+        key.stagger: inner_col_stagger
         rows:
           bot.skip: true
-          mid.column_net: C4
-          top.column_net: C5
+          mid:
+            tags:
+              - key
+              - inner
+            column_net: C4
+          top:
+            tags:
+              - key
+              - inner
+            column_net: C5
   thumb:
     key.tags:
       - key
@@ -764,35 +763,8 @@ pcbs.snak_28:
     # --------------------- Key Switches --------------------- #
     choc:
       what: ceoloide/switch_choc_v1_v2
-      where: [non_tp]
+      where: [key]
       adjust.rotate: key_rotate
-      params:
-        reversible: true
-        hotswap: true
-        include_plated_holes: false
-        include_stabilizer_nets: false
-        include_centerhole_net: false
-        solder: false
-        outer_pad_width_front: 2.6
-        outer_pad_width_back: 2.6
-        include_keycap: true
-        keycap_width: key_cap_x
-        keycap_height: key_cap_y
-        include_corner_marks: false
-        include_choc_v1_led_cutout_marks: false
-        include_choc_v2_led_cutout_marks: false
-        include_stabilizer_pad: false
-        oval_stabilizer_pad: false
-        choc_v1_support: true
-        choc_v2_support: false
-        choc_v1_stabilizers_diameter: 1.9
-        allow_soldermask_bridges: true
-        from: '{{column_net}}'
-        to: '{{colrow}}'
-    choc_inner:
-      what: ceoloide/switch_choc_v1_v2
-      where: [inner]
-      adjust.rotate: inner_key_rotate
       params:
         reversible: true
         hotswap: true
@@ -820,7 +792,7 @@ pcbs.snak_28:
     # ------------------------ Diodes ------------------------ #
     diode_right:
       what: ceoloide/diode_tht_sod123
-      where: [non_tp]
+      where: [key]
       adjust:
         rotate: diode_matrix_rotate
         shift: [diode_shift_x, diode_shift_y]
@@ -828,14 +800,14 @@ pcbs.snak_28:
         side: 'F'
         reversible: false
         include_tht: false
-        # include_traces_vias: true
-        # trace_distance: { type: 'number', value: 1.2 }
+        include_traces_vias: true
+        trace_distance: { type: 'number', value: 1.2 }
         from: '{{colrow}}'
         to: '{{row_net}}'
 
     diode_left:
       what: ceoloide/diode_tht_sod123
-      where: [non_tp]
+      where: [key]
       adjust:
         rotate: diode_matrix_rotate
         shift: [-diode_shift_x, diode_shift_y]
@@ -843,38 +815,8 @@ pcbs.snak_28:
         side: 'B'
         reversible: false
         include_tht: false
-        # include_traces_vias: true
-        # trace_distance: { type: 'number', value: 1.2 }
-        from: '{{colrow}}'
-        to: '{{row_net}}'
-      
-    diode_right_inner:
-      what: ceoloide/diode_tht_sod123
-      where: [inner]
-      adjust:
-        rotate: diode_matrix_rotate
-        shift: [diode_shift_x, diode_shift_y]
-      params:
-        side: 'F'
-        reversible: false
-        include_tht: false
-        # include_traces_vias: true
-        # trace_distance: { type: 'number', value: 1.2 }
-        from: '{{colrow}}'
-        to: '{{row_net}}'
-
-    diode_left_inner:
-      what: ceoloide/diode_tht_sod123
-      where: [inner]
-      adjust:
-        rotate: diode_matrix_rotate
-        shift: [-diode_shift_x, diode_shift_y]
-      params:
-        side: 'B'
-        reversible: false
-        include_tht: false
-        # include_traces_vias: true
-        # trace_distance: { type: 'number', value: 1.2 }
+        include_traces_vias: true
+        trace_distance: { type: 'number', value: 1.2 }
         from: '{{colrow}}'
         to: '{{row_net}}'
 
@@ -891,6 +833,33 @@ pcbs.snak_28:
       adjust.shift: [-diode_via_row_net_shift_x, diode_via_row_net_shift_y]
       params.net: '{{row_net}}'
 
+    # diode_right_via_colrow: # diode low
+    #   what: via
+    #   where: [key]
+    #   adjust.shift: [diode_via_colrow_shift_x, diode_via_colrow_shift_y]
+    #   params.net: '{{colrow}}'
+
+    # diode_left_via_colrow: # diode low
+    #   what: via
+    #   where: [key]
+    #   adjust.shift: [-diode_via_colrow_shift_x, diode_via_colrow_shift_y]
+    #   params.net: '{{colrow}}'
+
+    # via_row_net: # diode low
+    #   what: via
+    #   where: [key]
+    #   adjust.shift: [via_row_net_shift_x, via_row_net_shift_y]
+    #   params.net: '{{row_net}}'
+    # via_colrow: # diode low
+    #   what: via
+    #   where: [key]
+    #   adjust.shift: [via_colrow_shift_x, via_colrow_shift_y]
+    #   params.net: '{{colrow}}'
+    # via_col_net:
+    #   what: via
+    #   where: [key]
+    #   adjust.shift: [via_col_net_shift_x, via_col_net_shift_y]
+    #   params.net: '{{column_net}}'
     via_thumb_row_net:
       what: via
       where:

@@ -54,9 +54,9 @@ units:
   thumb_in_splay: -13
   thumb_in_spread: key_size_x + 1.75
 
-  diode_shift_x: 7.75
-  diode_shift_y: 1.5
-  diode_matrix_rotate: 270
+  diode_shift_x: 0 # 7.75
+  diode_shift_y: 3.25 # 1.5
+  diode_matrix_rotate: 180 # 270
   diode_via_row_net_shift_x: diode_shift_x
   diode_via_row_net_shift_y: diode_shift_y + 2.8
   diode_via_colrow_shift_x: 4.75
@@ -300,6 +300,7 @@ points.zones:
     key.tags:
       - key
       - thumb
+      - non_tp
     anchor:
       ref: matrix_index_bot
       shift: [thumb_offset_x, thumb_offset_y]
@@ -764,7 +765,7 @@ pcbs.snak_28:
     # --------------------- Key Switches --------------------- #
     choc:
       what: ceoloide/switch_choc_v1_v2
-      where: [non_tp]
+      where: [key]
       adjust.rotate: key_rotate
       params:
         reversible: true
@@ -789,92 +790,45 @@ pcbs.snak_28:
         allow_soldermask_bridges: true
         from: '{{column_net}}'
         to: '{{colrow}}'
-    choc_inner:
-      what: ceoloide/switch_choc_v1_v2
-      where: [inner]
-      adjust.rotate: inner_key_rotate
-      params:
-        reversible: true
-        hotswap: true
-        include_plated_holes: false
-        include_stabilizer_nets: false
-        include_centerhole_net: false
-        solder: false
-        outer_pad_width_front: 2.6
-        outer_pad_width_back: 2.6
-        include_keycap: true
-        keycap_width: key_cap_x
-        keycap_height: key_cap_y
-        include_corner_marks: false
-        include_choc_v1_led_cutout_marks: false
-        include_choc_v2_led_cutout_marks: false
-        include_stabilizer_pad: false
-        oval_stabilizer_pad: false
-        choc_v1_support: true
-        choc_v2_support: false
-        choc_v1_stabilizers_diameter: 1.9
-        allow_soldermask_bridges: true
-        from: '{{column_net}}'
-        to: '{{colrow}}'
+    # choc_inner:
+    #   what: ceoloide/switch_choc_v1_v2
+    #   where: [inner]
+    #   adjust.rotate: inner_key_rotate
+    #   params:
+    #     reversible: true
+    #     hotswap: true
+    #     include_plated_holes: false
+    #     include_stabilizer_nets: false
+    #     include_centerhole_net: false
+    #     solder: false
+    #     outer_pad_width_front: 2.6
+    #     outer_pad_width_back: 2.6
+    #     include_keycap: true
+    #     keycap_width: key_cap_x
+    #     keycap_height: key_cap_y
+    #     include_corner_marks: false
+    #     include_choc_v1_led_cutout_marks: false
+    #     include_choc_v2_led_cutout_marks: false
+    #     include_stabilizer_pad: false
+    #     oval_stabilizer_pad: false
+    #     choc_v1_support: true
+    #     choc_v2_support: false
+    #     choc_v1_stabilizers_diameter: 1.9
+    #     allow_soldermask_bridges: true
+    #     from: '{{column_net}}'
+    #     to: '{{colrow}}'
 
     # ------------------------ Diodes ------------------------ #
     diode_right:
       what: ceoloide/diode_tht_sod123
-      where: [non_tp]
+      where: [key]
       adjust:
         rotate: diode_matrix_rotate
         shift: [diode_shift_x, diode_shift_y]
       params:
-        side: 'F'
-        reversible: false
-        include_tht: false
-        # include_traces_vias: true
-        # trace_distance: { type: 'number', value: 1.2 }
-        from: '{{colrow}}'
-        to: '{{row_net}}'
-
-    diode_left:
-      what: ceoloide/diode_tht_sod123
-      where: [non_tp]
-      adjust:
-        rotate: diode_matrix_rotate
-        shift: [-diode_shift_x, diode_shift_y]
-      params:
-        side: 'B'
-        reversible: false
-        include_tht: false
-        # include_traces_vias: true
-        # trace_distance: { type: 'number', value: 1.2 }
-        from: '{{colrow}}'
-        to: '{{row_net}}'
-      
-    diode_right_inner:
-      what: ceoloide/diode_tht_sod123
-      where: [inner]
-      adjust:
-        rotate: diode_matrix_rotate
-        shift: [diode_shift_x, diode_shift_y]
-      params:
-        side: 'F'
-        reversible: false
-        include_tht: false
-        # include_traces_vias: true
-        # trace_distance: { type: 'number', value: 1.2 }
-        from: '{{colrow}}'
-        to: '{{row_net}}'
-
-    diode_left_inner:
-      what: ceoloide/diode_tht_sod123
-      where: [inner]
-      adjust:
-        rotate: diode_matrix_rotate
-        shift: [-diode_shift_x, diode_shift_y]
-      params:
-        side: 'B'
-        reversible: false
-        include_tht: false
-        # include_traces_vias: true
-        # trace_distance: { type: 'number', value: 1.2 }
+        reversible: true
+        include_thru_hole_smd_pads: true
+        include_traces_vias: true
         from: '{{colrow}}'
         to: '{{row_net}}'
 
@@ -1044,6 +998,10 @@ pcbs.snak_28:
         ref: reset
         shift: [reset_via_shift_x, reset_via_shift_y]
       params.net: GND
+    gnd_router:
+      what: ceoloide/utility_router
+      where.ref: reset
+
 
     # ----------------- JST Battery Connector ---------------- #
     jst_connector:
@@ -1112,66 +1070,66 @@ pcbs.snak_28:
         show_outline_t460s: true
         show_board: false
 
-    # tp_reset_circuit:
-    #   what: infused-kim/smd_0805
-    #   params:
-    #     reverse: true
-    #     space: 1
-    #     mirror: true
-    #     label_at_bottom: true
-    #     swap_pad_direction: true
-    #     components: 4
+    tp_reset_circuit:
+      what: smd_0805
+      params:
+        reverse: true
+        space: 1
+        mirror: true
+        label_at_bottom: true
+        swap_pad_direction: true
+        components: 4
 
-    #     # TP clock pull up resistor 4.7k
-    #     net_1_from: TPC
-    #     net_1_to: VCC
-    #     label_1: TCR
+        # TP clock pull up resistor 4.7k
+        net_1_from: TPC
+        net_1_to: VCC
+        label_1: TCR
 
-    #     # TP Reset circuit resistor 100k
-    #     net_2_from: TPR
-    #     net_2_to: GND
-    #     label_2: TRR
+        # TP Reset circuit resistor 100k
+        net_2_from: TPR
+        net_2_to: GND
+        label_2: TRR
 
-    #     # TP Reset circuit capacitor 2.2uF
-    #     net_3_from: TPR
-    #     net_3_to: VCC
-    #     label_3: TRC
+        # TP Reset circuit capacitor 2.2uF
+        net_3_from: TPR
+        net_3_to: VCC
+        label_3: TRC
 
-    #     # TP data pull up resistor 4.7k
-    #     net_4_from: TPD
-    #     net_4_to: VCC
-    #     label_4: TDR
+        # TP data pull up resistor 4.7k
+        net_4_from: TPD
+        net_4_to: VCC
+        label_4: TDR
 
-    #   where:
-    #     ref: mcu
-    #     shift: [tp_reset_shift_x, tp_reset_shift_y]
-    #     rotate: tp_reset_rotate
+      where:
+        ref: mcu
+        shift: [tp_reset_shift_x, tp_reset_shift_y]
+        rotate: tp_reset_rotate + 90
 
-    # tp_pads:
-    #   what: infused-kim/pads
-    #   params:
-    #     reverse: true
-    #     width: 1
-    #     height: 2
-    #     space: 1
-    #     pads: 5
+    tp_pads:
+      what: pads
+      params:
+        reverse: true
+        width: 1
+        height: 2
+        space: 1
+        pads: 5
 
-    #     net_1: TPC
-    #     net_2: GND
-    #     net_3: TPR
-    #     net_4: TPD
-    #     net_5: VCC
+        net_1: TPC
+        net_2: GND
+        net_3: TPR
+        net_4: TPD
+        net_5: VCC
 
-    #     label_1: SCL
-    #     label_2: GND
-    #     label_3: RST
-    #     label_4: SDA
-    #     label_5: VCC
-    #     label_at_bottom: true
-    #   where:
-    #     ref: mcu
-    #     shift: [tp_pads_shift_x, tp_pads_shift_y]
-    #     rotate: tp_pads_rotate
+        label_1: SCL
+        label_2: GND
+        label_3: RST
+        label_4: SDA
+        label_5: VCC
+        label_at_bottom: true
+      where:
+        ref: mcu
+        shift: [tp_pads_shift_x, tp_pads_shift_y]
+        rotate: tp_pads_rotate
 
 # ------------------------------------------------------------ #
 #                             CASES                            #
